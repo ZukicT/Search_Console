@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Search Console for iOS - Support</title>
+  <title>Search Console for iOS - Google Search Analytics on iPhone</title>
+  <meta name="description" content="Native iOS app for Google Search Console. See top keywords, top pages, Core Web Vitals, and PDF reports on your iPhone. 7-day free trial, then $5.99/month.">
+  <meta name="keywords" content="Search Console, Google Search Console, iOS app, iPhone, SEO, search analytics, Core Web Vitals, keywords, top pages">
+  <meta property="og:title" content="Search Console for iOS - Google Search Analytics on iPhone">
+  <meta property="og:description" content="Native iOS app for Google Search Console. Top keywords, top pages, Core Web Vitals, PDF reports. 7-day free trial, then $5.99/month.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="app-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Search Console for iOS">
+  <meta name="twitter:description" content="Google Search Console on your iPhone. Top keywords, Core Web Vitals, PDF reports. 7-day free trial, $5.99/month.">
   <style>
     :root {
       --bg: #f5f5f7;
@@ -38,7 +47,15 @@
       margin-bottom: 32px;
     }
     .hero h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px; }
-    .hero .app-logo { height: 64px; width: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto; }
+    .hero .app-logo-wrap {
+      display: inline-block;
+      padding: 20px 28px;
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .hero .app-logo { height: 64px; width: auto; display: block; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 16px; }
     .gallery img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
     .hero .tagline { color: var(--text-muted); font-size: 1.125rem; margin: 0 0 20px; }
@@ -90,6 +107,15 @@
     }
     footer a { color: var(--text-muted); }
     footer .legal { margin-top: 12px; }
+    .support-form label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+    .support-form input, .support-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9375rem; font-family: inherit; margin-bottom: 12px; }
+    .support-form textarea { min-height: 100px; resize: vertical; }
+    .support-form button { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; }
+    .support-form button:hover { opacity: 0.9; }
+    .support-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .support-form .form-note { font-size: 0.8125rem; color: var(--text-muted); margin-top: 8px; }
+    .support-form .success { color: #0a0; margin-top: 8px; font-size: 0.9375rem; }
+    .support-form .error { color: #c00; margin-top: 8px; font-size: 0.9375rem; }
   </style>
 </head>
 <body>
@@ -101,7 +127,9 @@
     </nav>
 
     <section class="hero">
-      <img src="app-logo.png" alt="Search Console" class="app-logo" width="180" height="64">
+      <div class="app-logo-wrap">
+        <img src="app-logo.png" alt="Search Console" class="app-logo" width="180" height="64">
+      </div>
       <h1>Search Console</h1>
       <p class="tagline">Google Search performance on your iPhone. See top keywords, top pages, and Core Web Vitals from anywhere.</p>
       <p>Sign in with Google. No extra setup. Your data stays in your account.</p>
@@ -116,8 +144,8 @@
 
     <section class="card">
       <h2>Subscription</h2>
-      <p>The app requires a subscription to use. It is not optional. Your subscription helps pay for Google API costs (Search Console and PageSpeed Insights) and ongoing app maintenance and development. There is a 7-day free trial so you can try it before you subscribe.</p>
-      <p>You can manage or cancel your subscription in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</p>
+      <p>The app requires a subscription to use. It is not optional. Your subscription helps pay for Google API costs (Search Console and PageSpeed Insights) and ongoing app maintenance and development.</p>
+      <p><strong>7-day free trial</strong>, then <strong>$5.99/month</strong>. You can try the app before you subscribe. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</p>
     </section>
 
     <section class="card">
@@ -155,7 +183,7 @@
         <dd>The app only shows data that Google Search Console already has for your account. It uses Google's official API. Your data stays in your Google account; the app just displays it.</dd>
 
         <dt>What about the subscription?</dt>
-        <dd>The app requires a subscription. It helps pay for API costs (Search Console, PageSpeed) and app development and maintenance. There is a 7-day free trial. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</dd>
+        <dd>The app requires a subscription. 7-day free trial, then $5.99/month. It helps pay for API costs (Search Console, PageSpeed) and app development and maintenance. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</dd>
 
         <dt>I don't see my site.</dt>
         <dd>Make sure the site is added and verified in Google Search Console (web). Only properties you can access there will appear in the app. Try signing out and back in if something is missing.</dd>
@@ -167,8 +195,17 @@
 
     <section class="card">
       <h2>Contact and support</h2>
-      <p class="contact">For questions, feedback, or support, email:</p>
-      <p class="contact"><a href="mailto:info@quackdb.app">info@quackdb.app</a></p>
+      <p>Send a message and it will go to our support channel. You can also email <a href="mailto:info@quackdb.app">info@quackdb.app</a>.</p>
+      <form class="support-form" id="support-form" aria-label="Support request form">
+        <label for="support-name">Name</label>
+        <input type="text" id="support-name" name="name" required placeholder="Your name" autocomplete="name">
+        <label for="support-email">Email</label>
+        <input type="email" id="support-email" name="email" required placeholder="you@example.com" autocomplete="email">
+        <label for="support-message">Message</label>
+        <textarea id="support-message" name="message" required placeholder="Your question or feedback..."></textarea>
+        <button type="submit" id="support-submit">Send</button>
+        <p class="form-note" id="support-note" aria-live="polite"></p>
+      </form>
     </section>
 
     <section class="card">
@@ -186,5 +223,50 @@
       <p>Search Console for iOS. Last updated 2026.</p>
     </footer>
   </div>
+  <script>
+    (function() {
+      var form = document.getElementById('support-form');
+      var note = document.getElementById('support-note');
+      var submitBtn = document.getElementById('support-submit');
+      var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        note.textContent = '';
+        note.className = 'form-note';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        var name = document.getElementById('support-name').value.trim();
+        var email = document.getElementById('support-email').value.trim();
+        var message = document.getElementById('support-message').value.trim();
+        var body = '**New support message**\n**Name:** ' + name + '\n**Email:** ' + email + '\n**Message:**\n' + message;
+
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: body })
+        })
+        .then(function(res) {
+          if (res.ok) {
+            note.textContent = 'Thanks. Your message was sent.';
+            note.className = 'success';
+            form.reset();
+          } else {
+            note.textContent = 'Something went wrong. Please email info@quackdb.app instead.';
+            note.className = 'error';
+          }
+        })
+        .catch(function() {
+          note.textContent = 'Could not send. Please email info@quackdb.app instead.';
+          note.className = 'error';
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
