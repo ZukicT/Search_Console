@@ -25,6 +25,38 @@
       padding: 24px 16px 48px;
     }
     .wrap { max-width: 640px; margin: 0 auto; }
+    nav {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      font-size: 0.9375rem;
+    }
+    nav a { color: var(--primary); font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    .hero {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .hero h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px; }
+    .hero .app-icon { width: 96px; height: 96px; border-radius: 22px; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto; }
+    .hero .tagline { color: var(--text-muted); font-size: 1.125rem; margin: 0 0 20px; }
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .cta:hover { opacity: 0.9; text-decoration: none; }
+    .cta-coming-soon {
+      background: var(--text-muted);
+      cursor: default;
+      pointer-events: none;
+    }
+    .cta-coming-soon:hover { opacity: 1; }
     h1 { font-size: 1.75rem; font-weight: 700; margin: 0 0 8px; }
     .tagline { color: var(--text-muted); font-size: 1rem; margin: 0 0 32px; }
     .card {
@@ -44,6 +76,9 @@
     .faq dd { margin: 0 0 0 0; font-size: 0.9375rem; color: var(--text-muted); }
     .contact { font-size: 1rem; }
     .contact a { font-weight: 500; }
+    .features { list-style: none; padding-left: 0; margin: 0; }
+    .features li { padding: 6px 0; padding-left: 1.5em; position: relative; }
+    .features li::before { content: " "; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
     footer {
       margin-top: 40px;
       padding-top: 24px;
@@ -52,17 +87,48 @@
       color: var(--text-muted);
     }
     footer a { color: var(--text-muted); }
+    footer .legal { margin-top: 12px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Search Console</h1>
-    <p class="tagline">Google Search performance on your iPhone. Support and help.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+
+    <section class="hero">
+      <img src="app-icon.png" alt="Search Console app icon" class="app-icon" width="96" height="96">
+      <h1>Search Console</h1>
+      <p class="tagline">Google Search performance on your iPhone. See top keywords, top pages, and Core Web Vitals from anywhere.</p>
+      <p>Sign in with Google. No extra setup. Your data stays in your account.</p>
+      <a href="#" class="cta cta-coming-soon" aria-disabled="true">Coming Soon on the App Store</a>
+    </section>
 
     <section class="card">
-      <h2>About the app</h2>
-      <p>Search Console for iOS connects to your Google Search Console account so you can view performance, top keywords, top pages, and Core Web Vitals from your phone. Sign in with Google, pick your site, and see how you show up in search.</p>
+      <h2>Why I made this app</h2>
+      <p>Google does not offer a mobile app for Search Console. When I looked for one, the options I found either looked sketchy or lacked the features I needed. So I built this app: a native iOS app that connects to your Search Console data, shows top keywords and pages, Core Web Vitals, PDF reports, and push summaries, without the clutter or privacy concerns.</p>
       <p>This app is not affiliated with, endorsed by, or sponsored by Google LLC.</p>
+    </section>
+
+    <section class="card">
+      <h2>Subscription</h2>
+      <p>The app requires a subscription to use. It is not optional. Your subscription helps pay for Google API costs (Search Console and PageSpeed Insights) and ongoing app maintenance and development. There is a 7-day free trial so you can try it before you subscribe.</p>
+      <p>You can manage or cancel your subscription in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>What you get</h2>
+      <ul class="features">
+        <li>All your Search Console sites in one list</li>
+        <li>Search Queries: which keywords drive traffic</li>
+        <li>Top Pages: best-performing URLs</li>
+        <li>Core Web Vitals: LCP, CLS, INP</li>
+        <li>Performance charts by date range</li>
+        <li>PDF reports to share with your team</li>
+        <li>Push notifications: daily or weekly summaries</li>
+      </ul>
     </section>
 
     <section class="card">
@@ -75,7 +141,7 @@
         <dd>The app only shows data that Google Search Console already has for your account. It uses Google's official API. Your data stays in your Google account; the app just displays it.</dd>
 
         <dt>What about the subscription?</dt>
-        <dd>Premium is an optional monthly subscription with a 7-day free trial. You can manage or cancel it in your iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</dd>
+        <dd>The app requires a subscription. It helps pay for API costs (Search Console, PageSpeed) and app development and maintenance. There is a 7-day free trial. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</dd>
 
         <dt>I don't see my site.</dt>
         <dd>Make sure the site is added and verified in Google Search Console (web). Only properties you can access there will appear in the app. Try signing out and back in if something is missing.</dd>
@@ -101,7 +167,7 @@
     </section>
 
     <footer>
-      <p>Privacy Policy and Terms of Service are available inside the app under Settings.</p>
+      <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
       <p><a href="https://github.com/ZukicT" target="_blank" rel="noopener">GitHub: ZukicT</a></p>
       <p>Search Console for iOS. Last updated 2026.</p>
     </footer>
