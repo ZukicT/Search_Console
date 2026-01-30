@@ -17,6 +17,8 @@ Allow: /app-icon.jpg
 
 # Sitemap location
 Sitemap: https://search-console.org/sitemap.xml
+Sitemap: http://search-console.org/sitemap.xml
 
-# Host directive (canonical domain)
+# Host directive (canonical domain - prefer https)
 Host: https://search-console.org
+Host: http://search-console.org
