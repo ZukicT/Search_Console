@@ -1,4 +1,22 @@
+# Robots.txt for search-console.org
+# Native iOS app for Google Search Console
+
+# Allow all crawlers full access
 User-agent: *
 Allow: /
 
+# Specific permissions for Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /AppAssetsWebsite/
+
+# Allow Google Images to index screenshots
+User-agent: Googlebot-Image
+Allow: /AppAssetsWebsite/
+Allow: /app-icon.jpg
+
+# Sitemap location
 Sitemap: https://search-console.org/sitemap.xml
+
+# Host directive (canonical domain)
+Host: https://search-console.org

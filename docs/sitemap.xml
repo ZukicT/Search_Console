@@ -1,21 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage - Main landing page -->
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <!-- App screenshots for Google Image Search -->
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-7.imageset/Category-7.jpg</image:loc>
+      <image:title>Search Console iOS App - Analytics Dashboard</image:title>
+      <image:caption>Analytics dashboard showing clicks, impressions, CTR and position metrics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-1.imageset/Category-1.jpg</image:loc>
+      <image:title>Search Console iOS App - Search Queries</image:title>
+      <image:caption>View your top search queries and keywords</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category.imageset/Category.jpg</image:loc>
+      <image:title>Search Console iOS App - Site Overview</image:title>
+      <image:caption>Overview of your website performance in Google Search</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-2.imageset/Category-2.jpg</image:loc>
+      <image:title>Search Console iOS App - Performance Charts</image:title>
+      <image:caption>Interactive performance charts for your website</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-3.imageset/Category-3.jpg</image:loc>
+      <image:title>Search Console iOS App - Top Pages</image:title>
+      <image:caption>See your best performing pages ranked by traffic</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-4.imageset/Category-4.jpg</image:loc>
+      <image:title>Search Console iOS App - Core Web Vitals</image:title>
+      <image:caption>Monitor LCP, CLS, and INP metrics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/app-icon.jpg</image:loc>
+      <image:title>Search Console for iOS App Icon</image:title>
+      <image:caption>Official app icon for Search Console iOS app</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Privacy Policy -->
   <url>
     <loc>https://search-console.org/privacy.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
+  
+  <!-- Terms of Service -->
   <url>
     <loc>https://search-console.org/terms.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
+  
 </urlset>
