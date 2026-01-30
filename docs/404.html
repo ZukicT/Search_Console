@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="app-icon.jpg?v=3" type="image/jpeg" sizes="48x48">
+  <link rel="apple-touch-icon" href="app-icon.jpg?v=3">
+  <title>Page Not Found - Search Console for iOS</title>
+  <meta name="description" content="The page you're looking for doesn't exist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --bg: #f8f9fa;
+      --text: #202124;
+      --text-secondary: #5f6368;
+      --border: #dadce0;
+      --blue: #1a73e8;
+      --blue-hover: #1557b0;
+      --blue-light: #e8f0fe;
+      --radius: 8px;
+      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --font: "Inter", "Roboto", -apple-system, sans-serif;
+      --font-body: "Roboto", -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo img { height: 32px; width: 32px; border-radius: 8px; }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    .nav a { 
+      color: var(--text-secondary); 
+      text-decoration: none; 
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: var(--bg); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+    .nav-cta:hover { background: var(--blue-hover) !important; }
+    
+    /* 404 Content */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+    .error-content {
+      text-align: center;
+      max-width: 480px;
+    }
+    .error-code {
+      font-family: var(--font);
+      font-size: 8rem;
+      font-weight: 400;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .error-title {
+      font-family: var(--font);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .error-message {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--blue-hover); box-shadow: var(--shadow); }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--blue);
+      border: 1px solid var(--border);
+      margin-left: 12px;
+    }
+    .btn-secondary:hover { background: var(--blue-light); border-color: var(--blue-light); }
+    
+    /* Footer */
+    .footer {
+      background: var(--bg);
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { color: var(--blue); }
+    
+    @media (max-width: 640px) {
+      .nav a:not(.nav-cta) { display: none; }
+      .error-code { font-size: 5rem; }
+      .error-title { font-size: 1.25rem; }
+      .btn { width: 100%; justify-content: center; margin-bottom: 12px; }
+      .btn-secondary { margin-left: 0; }
+      .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="app-icon.jpg?v=3" alt="" width="32" height="32">
+          <span>Search Console</span>
+        </a>
+        <nav class="nav">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#notify" class="nav-cta">Get notified</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page not found</h1>
+      <p class="error-message">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+      <div>
+        <a href="/" class="btn btn-primary">Go to homepage</a>
+        <a href="/#faq" class="btn btn-secondary">View FAQ</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <span>© 2026 Search Console for iOS</span>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
