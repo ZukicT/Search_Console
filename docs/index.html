@@ -24,8 +24,18 @@
   <meta name="theme-color" content="#1a73e8">
   <meta name="apple-mobile-web-app-title" content="Search Console">
   <meta name="application-name" content="Search Console for iOS">
+  <!-- DNS Prefetch for external domains -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="app-icon.jpg?v=3" type="image/jpeg">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"></noscript>
@@ -792,13 +802,13 @@
         </div>
         <div class="hero-visual">
           <div class="phone-preview">
-            <img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics dashboard" loading="eager">
+            <img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics dashboard" loading="eager" fetchpriority="high" decoding="async" width="220" height="476">
           </div>
           <div class="phone-preview">
-            <img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Site overview" loading="eager">
+            <img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Site overview" loading="eager" decoding="async" width="220" height="476">
           </div>
           <div class="phone-preview">
-            <img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Search queries" loading="eager">
+            <img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Search queries" loading="eager" decoding="async" width="220" height="476">
           </div>
         </div>
       </div>
@@ -897,12 +907,12 @@
         <div class="carousel-container">
           <div class="carousel">
             <div class="carousel-track" id="carousel-track">
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics" loading="lazy"></div>
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Queries" loading="lazy"></div>
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Overview" loading="lazy"></div>
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=3" alt="Performance" loading="lazy"></div>
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=3" alt="Pages" loading="lazy"></div>
-              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=3" alt="Vitals" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics" loading="lazy" decoding="async" width="280" height="606"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Queries" loading="lazy" decoding="async" width="280" height="606"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Overview" loading="lazy" decoding="async" width="280" height="606"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=3" alt="Performance" loading="lazy" decoding="async" width="280" height="606"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=3" alt="Pages" loading="lazy" decoding="async" width="280" height="606"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=3" alt="Vitals" loading="lazy" decoding="async" width="280" height="606"></div>
             </div>
           </div>
           <div class="carousel-nav">
@@ -1276,6 +1286,17 @@
         });
       }
     })();
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(reg) { console.log('SW registered'); })
+          .catch(function(err) { console.log('SW failed:', err); });
+      });
+    }
   </script>
 </body>
 </html>
