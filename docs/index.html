@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <link rel="canonical" href="https://search-console.org/">
-  <link rel="icon" href="app-icon.png?v=2" type="image/png">
-  <title>Search Console for iOS - Google Search Analytics on iPhone</title>
-  <meta name="description" content="Native iOS app for Google Search Console. See top keywords, top pages, Core Web Vitals, and PDF reports on your iPhone. 7-day free trial, then $5.99/month.">
-  <meta name="keywords" content="Search Console, Google Search Console, iOS app, iPhone, SEO, search analytics, Core Web Vitals, keywords, top pages">
-  <meta property="og:title" content="Search Console for iOS - Google Search Analytics on iPhone">
-  <meta property="og:description" content="Native iOS app for Google Search Console. Top keywords, top pages, Core Web Vitals, PDF reports. 7-day free trial, then $5.99/month.">
+  <link rel="icon" href="app-icon.jpg?v=3" type="image/jpeg" sizes="48x48">
+  <link rel="apple-touch-icon" href="app-icon.jpg?v=3">
+  <title>Search Console for iOS - Check Rankings From Your Phone</title>
+  <meta name="description" content="Native iOS app for Google Search Console. View keywords, pages, Core Web Vitals on your iPhone. 7-day free trial, then $5.99/month.">
+  <meta property="og:title" content="Search Console for iOS">
+  <meta property="og:description" content="Check your Google Search Console data from your iPhone. Keywords, pages, Core Web Vitals. 7-day free trial.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://search-console.org/">
-  <meta property="og:image" content="https://search-console.org/app-icon.png?v=2">
+  <meta property="og:image" content="https://search-console.org/app-icon.jpg?v=3">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Search Console for iOS">
-  <meta name="twitter:description" content="Google Search Console on your iPhone. Top keywords, Core Web Vitals, PDF reports. 7-day free trial, $5.99/month.">
-  <!-- Google tag (gtag.js) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,270 +24,1001 @@
     gtag('js', new Date());
     gtag('config', 'G-VPPTK5JECX');
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Search Console for iOS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "iOS",
+    "offers": { "@type": "Offer", "price": "5.99", "priceCurrency": "USD" }
+  }
+  </script>
   <style>
     :root {
-      --bg: #f5f5f7;
-      --card: #fff;
-      --text: #1d1d1f;
-      --text-muted: #6e6e73;
-      --primary: #1a73e8;
-      --border: #d2d2d7;
-      --radius: 12px;
-      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --white: #ffffff;
+      --bg: #f8f9fa;
+      --text: #202124;
+      --text-secondary: #5f6368;
+      --border: #dadce0;
+      --blue: #1a73e8;
+      --blue-hover: #1557b0;
+      --blue-light: #e8f0fe;
+      --green: #1e8e3e;
+      --green-light: #e6f4ea;
+      --red: #d93025;
+      --yellow: #f9ab00;
+      --radius: 8px;
+      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+      --font: "Inter", "Roboto", -apple-system, sans-serif;
+      --font-body: "Roboto", -apple-system, sans-serif;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
+      font-family: var(--font-body);
+      background: var(--white);
       color: var(--text);
       line-height: 1.5;
-      padding: 24px 16px 48px;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 640px; margin: 0 auto; }
-    nav {
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .header-inner {
       display: flex;
-      gap: 20px;
-      margin-bottom: 32px;
-      font-size: 0.9375rem;
+      align-items: center;
+      justify-content: space-between;
     }
-    nav a { color: var(--primary); font-weight: 500; }
-    nav a:hover { text-decoration: underline; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo img { height: 32px; width: 32px; border-radius: 8px; }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    .nav a { 
+      color: var(--text-secondary); 
+      text-decoration: none; 
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: var(--bg); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+    .nav-cta:hover { background: var(--blue-hover) !important; }
+    
+    /* Hero */
     .hero {
+      padding: 80px 0 60px;
       text-align: center;
-      margin-bottom: 32px;
     }
-    .hero h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px; }
-    .hero .app-logo { height: 48px; width: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.12); border: 1px solid #e0e0e0; border-radius: 20px; }
-    .carousel-wrap { position: relative; margin-top: 16px; }
-    .carousel { overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
-    .carousel-track { display: flex; transition: transform 0.3s ease; }
-    .carousel-slide { flex: 0 0 100%; min-width: 0; }
-    .carousel-btn-img { padding: 0; border: none; background: none; cursor: pointer; display: block; width: 100%; border-radius: var(--radius); }
-    .carousel-btn-img img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
-    .carousel-btn-img:hover img { opacity: 0.9; }
-    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 12px; }
-    .carousel-nav-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: var(--text); }
-    .carousel-nav-btn:hover { background: var(--bg); }
-    .carousel-dots { display: flex; gap: 8px; justify-content: center; }
-    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
-    .carousel-dot.active { background: var(--primary); }
-    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; cursor: pointer; }
-    .lightbox.show { display: flex; }
-    .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); pointer-events: none; }
-    .hero .tagline { color: var(--text-muted); font-size: 1.125rem; margin: 0 0 20px; }
-    .cta {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
+    .hero-content { max-width: 640px; margin: 0 auto; }
+    .hero h1 {
+      font-family: var(--font);
+      font-size: 2.75rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 12px 24px;
       border-radius: var(--radius);
-      font-weight: 600;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.875rem;
       text-decoration: none;
-      margin-top: 8px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
     }
-    .cta:hover { opacity: 0.9; text-decoration: none; }
-    .cta-coming-soon {
-      background: var(--text-muted);
-      cursor: default;
-      pointer-events: none;
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
     }
-    .cta-coming-soon:hover { opacity: 1; }
-    h1 { font-size: 1.75rem; font-weight: 700; margin: 0 0 8px; }
-    .tagline { color: var(--text-muted); font-size: 1rem; margin: 0 0 32px; }
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
+    .btn-primary:hover { background: var(--blue-hover); box-shadow: var(--shadow); }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--blue);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--blue-light); border-color: var(--blue-light); }
+    .btn svg { width: 18px; height: 18px; }
+    .hero-note {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .hero-disclaimer {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 24px;
+      opacity: 0.8;
+    }
+    
+    /* Phone Preview */
+    .hero-visual {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 16px 0;
+    }
+    .phone-preview {
+      width: 220px;
+      flex-shrink: 0;
+      border-radius: 24px;
+      overflow: hidden;
       box-shadow: var(--shadow);
-      padding: 24px;
-      margin-bottom: 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
     }
-    .card h2 { font-size: 1.125rem; margin: 0 0 12px; font-weight: 600; }
-    .card p { margin: 0 0 12px; color: var(--text); font-size: 0.9375rem; }
-    .card p:last-child { margin-bottom: 0; }
-    .card ul { margin: 0 0 12px; padding-left: 1.25rem; font-size: 0.9375rem; }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .faq dt { font-weight: 600; font-size: 0.9375rem; margin: 16px 0 4px; }
-    .faq dd { margin: 0 0 0 0; font-size: 0.9375rem; color: var(--text-muted); }
-    .contact { font-size: 1rem; }
-    .contact a { font-weight: 500; }
-    .features { list-style: none; padding-left: 0; margin: 0; }
-    .features li { padding: 6px 0; padding-left: 1.5em; position: relative; }
-    .features li::before { content: " "; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
-    footer {
-      margin-top: 40px;
+    .phone-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Stats */
+    .stats {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+    }
+    .stat { text-align: center; }
+    .stat-value {
+      font-family: var(--font);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    
+    /* Section */
+    .section {
+      padding: 80px 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .section-title {
+      font-family: var(--font);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .feature-card:hover { box-shadow: var(--shadow-hover); }
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--blue);
+    }
+    .feature-icon svg { width: 20px; height: 20px; }
+    .feature-card h3 {
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    
+    /* Screenshots Carousel */
+    .screenshots {
+      background: var(--bg);
+    }
+    .carousel-container {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    .carousel {
+      border-radius: 35px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      min-width: 100%;
+      cursor: pointer;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      color: var(--text-secondary);
+    }
+    .carousel-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .carousel-btn svg { width: 18px; height: 18px; }
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s;
+    }
+    .carousel-dot.active {
+      background: var(--blue);
+    }
+    
+    /* Signup Form */
+    .signup-form {
+      display: flex;
+      gap: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .signup-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+    }
+    .signup-form input:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .signup-form button {
+      padding: 12px 20px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.875rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .signup-form button:hover { background: var(--blue-hover); }
+    .signup-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .signup-note {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-top: 12px;
+    }
+    .signup-success {
+      color: var(--green);
+      font-size: 0.875rem;
+      margin-top: 12px;
+    }
+    
+    /* Pricing */
+    .pricing-card {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .pricing-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .pricing-amount {
+      font-family: var(--font);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--text);
+    }
+    .pricing-period {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+    .pricing-desc {
+      margin: 16px 0 24px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 0.875rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features svg { 
+      width: 18px; 
+      height: 18px; 
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    .pricing-cta {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 0.875rem;
+    }
+    
+    /* FAQ */
+    .faq { background: var(--bg); }
+    .faq-grid { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+    }
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 20px 16px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .faq-answer-inner a { color: var(--blue); }
+    
+    /* CTA */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: var(--font);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--bg);
+      padding: 48px 0 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.8fr 1fr 1.7fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      margin-top: 12px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .footer h4 {
+      font-family: var(--font);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-bottom {
       padding-top: 24px;
       border-top: 1px solid var(--border);
-      font-size: 0.875rem;
-      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
     }
-    footer a { color: var(--text-muted); }
-    footer .legal { margin-top: 12px; }
-    .support-form label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
-    .support-form input, .support-form select, .support-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9375rem; font-family: inherit; margin-bottom: 12px; background: #fff; }
-    .support-form select { cursor: pointer; appearance: auto; }
-    .support-form textarea { min-height: 100px; resize: vertical; }
-    .support-form button { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 0.9375rem; font-weight: 600; cursor: pointer; }
-    .support-form button:hover { opacity: 0.9; }
-    .support-form button:disabled { opacity: 0.6; cursor: not-allowed; }
-    .support-form .form-note { font-size: 0.8125rem; color: var(--text-muted); margin-top: 8px; }
-    .support-form .success { color: #0a0; margin-top: 8px; font-size: 0.9375rem; }
-    .support-form .error { color: #c00; margin-top: 8px; font-size: 0.9375rem; }
+    .footer-legal a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-legal a:hover { color: var(--blue); }
+    
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      font-family: var(--font-body);
+      background: var(--white);
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .contact-form button {
+      padding: 10px 16px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      cursor: pointer;
+    }
+    .contact-form button:hover { background: var(--blue-hover); }
+    .contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .contact-note {
+      font-size: 0.75rem;
+      margin-top: 8px;
+    }
+    .contact-note.success { color: var(--green); }
+    .contact-note.error { color: var(--red); }
+    
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: pointer;
+      padding: 24px;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 16px;
+    }
+    
+    /* Mobile */
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav a:not(.nav-cta) { display: none; }
+      .hero { padding: 48px 0 32px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero-ctas { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .signup-form { flex-direction: column; }
+      .signup-form button { width: 100%; }
+      .hero-visual { gap: 12px; }
+      .phone-preview { width: 160px; }
+      .stats-grid { gap: 32px; flex-wrap: wrap; }
+      .section { padding: 48px 0; }
+      .section-title { font-size: 1.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-legal { margin-top: 8px; }
+      .footer-legal a { margin: 0 12px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="app-icon.jpg?v=3" alt="" width="32" height="32">
+          <span>Search Console</span>
+        </a>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#notify" class="nav-cta">Get notified</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
+  <main>
     <section class="hero">
-      <img src="app-icon.png?v=2" alt="Search Console" class="app-logo" width="135" height="48">
-      <h1>Search Console</h1>
-      <p class="tagline">Google Search performance on your iPhone. See top keywords, top pages, and Core Web Vitals from anywhere.</p>
-      <p>Sign in with Google. No extra setup. Your data stays in your account.</p>
-      <a href="#" class="cta cta-coming-soon" aria-disabled="true">Coming Soon on the App Store</a>
-    </section>
-
-    <section class="card">
-      <h2>Why I made this app</h2>
-      <p>Google does not offer a mobile app for Search Console. When I looked for one, the options I found either looked sketchy or lacked the features I needed. So I built this app: a native iOS app that connects to your Search Console data, shows top keywords and pages, Core Web Vitals, PDF reports, and push summaries, without the clutter or privacy concerns.</p>
-      <p>This app is not affiliated with, endorsed by, or sponsored by Google LLC.</p>
-    </section>
-
-    <section class="card">
-      <h2>Subscription</h2>
-      <p>The app requires a subscription to use. It is not optional. Your subscription helps pay for Google API costs (Search Console and PageSpeed Insights) and ongoing app maintenance and development.</p>
-      <p><strong>7-day free trial</strong>, then <strong>$5.99/month</strong>. You can try the app before you subscribe. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</p>
-    </section>
-
-    <section class="card">
-      <h2>See the app</h2>
-      <p class="form-note">Click an image to enlarge.</p>
-      <div class="carousel-wrap">
-        <div class="carousel">
-          <div class="carousel-track" id="carousel-track">
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category.png?v=2" alt="Search Console app" loading="lazy"></button></div>
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-1.png?v=2" alt="Search Console feature" loading="lazy"></button></div>
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-2.png?v=2" alt="Search Console feature" loading="lazy"></button></div>
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-3.png?v=2" alt="Search Console feature" loading="lazy"></button></div>
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-4.png?v=2" alt="Search Console feature" loading="lazy"></button></div>
-            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-5.png?v=2" alt="Search Console feature" loading="lazy"></button></div>
-          </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Check your search rankings from your phone</h1>
+          <p>A native iOS app for Google Search Console. See your keywords, top pages, and Core Web Vitals without opening a laptop.</p>
+          <form class="signup-form" id="hero-signup">
+            <input type="email" placeholder="you@example.com" required>
+            <button type="submit">Notify me</button>
+          </form>
+          <p class="signup-note" id="hero-note">You'll be notified when the app launches. No spam.</p>
+          <p class="hero-disclaimer">Not made by Google. An independent app using the official Search Console API.</p>
         </div>
-        <div class="carousel-nav">
-          <button type="button" class="carousel-nav-btn" id="carousel-prev" aria-label="Previous image">&larr;</button>
-          <div class="carousel-dots" id="carousel-dots"></div>
-          <button type="button" class="carousel-nav-btn" id="carousel-next" aria-label="Next image">&rarr;</button>
+        <div class="hero-visual">
+          <div class="phone-preview">
+            <img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics dashboard" loading="eager">
+          </div>
+          <div class="phone-preview">
+            <img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Site overview" loading="eager">
+          </div>
+          <div class="phone-preview">
+            <img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Search queries" loading="eager">
+          </div>
         </div>
       </div>
     </section>
-    <div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarge image" aria-modal="true">
-      <img id="lightbox-img" src="" alt="Enlarged view">
+
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value">$5.99</div>
+            <div class="stat-label">per month</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">7 days</div>
+            <div class="stat-label">free trial</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">Coming soon</div>
+            <div class="stat-label">to App Store</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Everything you need, nothing you don't</h2>
+          <p class="section-desc">Your Search Console data, optimized for mobile. No clutter.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <h3>Search queries</h3>
+            <p>See which keywords bring visitors to your site. Sort by clicks, impressions, CTR, or position.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/>
+              </svg>
+            </div>
+            <h3>Top pages</h3>
+            <p>Your best-performing URLs ranked by traffic. Identify what's working and what needs attention.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3>Core Web Vitals</h3>
+            <p>Monitor LCP, CLS, and INP. Know if site speed is affecting your rankings.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+              </svg>
+            </div>
+            <h3>Performance charts</h3>
+            <p>Interactive charts for clicks, impressions, CTR, and position over any date range.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
+            <h3>PDF reports</h3>
+            <p>Generate reports with one tap. Share with clients or your team.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <h3>Push notifications</h3>
+            <p>Daily or weekly summaries delivered to your phone. Stay informed without checking manually.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section screenshots">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">See it in action</h2>
+          <p class="section-desc">Click to enlarge.</p>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="carousel-track" id="carousel-track">
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3" alt="Analytics" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3" alt="Queries" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category.imageset/Category.jpg?v=3" alt="Overview" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=3" alt="Performance" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=3" alt="Pages" loading="lazy"></div>
+              <div class="carousel-slide"><img src="AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=3" alt="Vitals" loading="lazy"></div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-btn" id="carousel-prev" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <button class="carousel-btn" id="carousel-next" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Simple pricing</h2>
+          <p class="section-desc">One plan, everything included. Cancel anytime.</p>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-badge">7-day free trial</div>
+          <div class="pricing-amount">$5.99</div>
+          <div class="pricing-period">per month</div>
+          <p class="pricing-desc">Billed monthly through the App Store.</p>
+          <ul class="pricing-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              All Search Console sites
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Search queries and top pages
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Core Web Vitals
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              PDF reports
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Push notifications
+            </li>
+          </ul>
+          <a href="#notify" class="btn btn-primary pricing-cta">Get notified at launch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Questions</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              How do I sign in?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Use the same Google account you use for Search Console. Tap "Sign in with Google" and authorize the app. If you don't have any properties, add a site at <a href="https://search.google.com/search-console" target="_blank" rel="noopener">search.google.com/search-console</a> first.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is my data safe?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. The app uses Google's official API and OAuth. Your data stays in your Google account. We don't store, access, or sell your Search Console data.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I cancel anytime?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. Cancel anytime in iPhone Settings > Subscriptions. You keep access until the end of your billing period.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Why can't I see my site?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Make sure the site is added and verified in Google Search Console on the web. The app only shows sites you have access to there. Try signing out and back in to refresh permissions.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is this affiliated with Google?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">No. This is an independent app using Google's public Search Console API. Not affiliated with, endorsed by, or sponsored by Google.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Does it work on iPad?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. The app works on both iPhone and iPad. The interface adapts to larger screens for a better experience on iPad.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How often is data updated?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Data is fetched directly from Google's API each time you open the app. Search Console data typically has a 2-3 day delay from Google's side.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I manage multiple sites?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. All sites you have access to in Google Search Console will appear in the app. Switch between them easily from the main screen.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What date ranges can I view?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">You can view data for the last 7 days, 28 days, 3 months, 6 months, or 16 months. Custom date ranges are also supported.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is there an Android version?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Not yet. We're focused on iOS first. Sign up for updates and we'll let you know if an Android version is planned.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Does it work offline?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">The app caches your most recent data, so you can view it offline. However, an internet connection is required to fetch new data from Google.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="notify">
+      <div class="container">
+        <h2>Get notified when we launch</h2>
+        <p>One email when the app is on the App Store.</p>
+        <form class="signup-form" id="footer-signup">
+          <input type="email" placeholder="you@example.com" required>
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="signup-note" id="footer-note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="app-icon.jpg?v=3" alt="" width="32" height="32">
+            <span>Search Console</span>
+          </a>
+          <p>Native iOS app for Google Search Console. Not affiliated with Google.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit">Send message</button>
+          </form>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Search Console for iOS</span>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <section class="card">
-      <h2>What you get</h2>
-      <ul class="features">
-        <li>All your Search Console sites in one list</li>
-        <li>Search Queries: which keywords drive traffic</li>
-        <li>Top Pages: best-performing URLs</li>
-        <li>Core Web Vitals: LCP, CLS, INP</li>
-        <li>Performance charts by date range</li>
-        <li>PDF reports to share with your team</li>
-        <li>Push notifications: daily or weekly summaries</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Frequently asked questions</h2>
-      <dl class="faq">
-        <dt>How do I sign in?</dt>
-        <dd>Use the same Google account you use for Google Search Console. No extra setup. If you don't have any Search Console properties yet, add a site at <a href="https://search.google.com/search-console" target="_blank" rel="noopener">search.google.com/search-console</a> first.</dd>
-
-        <dt>What data does the app use?</dt>
-        <dd>The app only shows data that Google Search Console already has for your account. It uses Google's official API. Your data stays in your Google account; the app just displays it.</dd>
-
-        <dt>What about the subscription?</dt>
-        <dd>The app requires a subscription. 7-day free trial, then $5.99/month. It helps pay for API costs (Search Console, PageSpeed) and app development and maintenance. Manage or cancel in iPhone Settings under Subscriptions, or at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Subscriptions</a>.</dd>
-
-        <dt>I don't see my site.</dt>
-        <dd>Make sure the site is added and verified in Google Search Console (web). Only properties you can access there will appear in the app. Try signing out and back in if something is missing.</dd>
-
-        <dt>Core Web Vitals or reports not loading?</dt>
-        <dd>Check your internet connection. Some features depend on external APIs. If it keeps failing, pull to refresh or try again later.</dd>
-      </dl>
-    </section>
-
-    <section class="card">
-      <h2>Contact and support</h2>
-      <p>Send a message and it will go to our support channel. You can also email <a href="mailto:info@quackdb.app">info@quackdb.app</a>.</p>
-      <form class="support-form" id="support-form" aria-label="Support request form">
-        <label for="support-name">Name</label>
-        <input type="text" id="support-name" name="name" required placeholder="Your name" autocomplete="name">
-        <label for="support-email">Email</label>
-        <input type="email" id="support-email" name="email" required placeholder="you@example.com" autocomplete="email">
-        <label for="support-device">Device</label>
-        <select id="support-device" name="device" required aria-label="Device type">
-          <option value="">Select device</option>
-          <option value="iPhone">iPhone</option>
-          <option value="iPad">iPad</option>
-          <option value="Other">Other</option>
-        </select>
-        <label for="support-os">iOS version</label>
-        <select id="support-os" name="os" required aria-label="iOS version">
-          <option value="">Select iOS version</option>
-          <option value="iOS 19">iOS 19</option>
-          <option value="iOS 18">iOS 18</option>
-          <option value="iOS 17">iOS 17</option>
-          <option value="iOS 16">iOS 16</option>
-          <option value="iOS 15 or older">iOS 15 or older</option>
-          <option value="Other">Other</option>
-        </select>
-        <label for="support-message">Message</label>
-        <textarea id="support-message" name="message" required placeholder="What happened? (or what do you need help with?)
-
-What did you expect?
-
-Steps to reproduce (if it's a bug):" rows="8"></textarea>
-        <button type="submit" id="support-submit">Send</button>
-        <p class="form-note" id="support-note" aria-live="polite"></p>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Useful links</h2>
-      <ul>
-        <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
-        <li><a href="https://support.google.com/webmasters" target="_blank" rel="noopener">Google Search Central Help</a></li>
-        <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Manage App Store subscriptions</a></li>
-      </ul>
-    </section>
-
-    <footer>
-      <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
-      <p><a href="https://github.com/ZukicT" target="_blank" rel="noopener">GitHub: ZukicT</a></p>
-      <p>Search Console for iOS. Last updated 2026.</p>
-    </footer>
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
   </div>
+
   <script>
-    (function() {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImg = document.getElementById('lightbox-img');
-      document.querySelectorAll('.carousel-btn-img').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          lightboxImg.src = btn.querySelector('img').src;
-          lightbox.classList.add('show');
-        });
-      });
-      lightbox.addEventListener('click', function() { lightbox.classList.remove('show'); });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') lightbox.classList.remove('show');
-      });
-    })();
     (function() {
       var track = document.getElementById('carousel-track');
       var dotsEl = document.getElementById('carousel-dots');
@@ -299,71 +1027,144 @@ Steps to reproduce (if it's a bug):" rows="8"></textarea>
       var slides = track ? track.querySelectorAll('.carousel-slide') : [];
       var count = slides.length;
       var current = 0;
+
       function goTo(i) {
         current = (i + count) % count;
         if (track) track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dotsEl.querySelectorAll('.carousel-dot').forEach(function(dot, j) {
-          dot.classList.toggle('active', j === current);
-        });
+        if (dotsEl) {
+          dotsEl.querySelectorAll('.carousel-dot').forEach(function(dot, j) {
+            dot.classList.toggle('active', j === current);
+          });
+        }
       }
-      if (count > 0) {
+
+      if (count > 0 && dotsEl) {
         for (var d = 0; d < count; d++) {
           var dot = document.createElement('button');
           dot.type = 'button';
           dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Go to image ' + (d + 1));
-          dot.addEventListener('click', function() { goTo(Number(this.getAttribute('data-index'))); });
+          dot.setAttribute('aria-label', 'Go to slide ' + (d + 1));
           dot.setAttribute('data-index', String(d));
+          dot.addEventListener('click', function() { goTo(Number(this.getAttribute('data-index'))); });
           dotsEl.appendChild(dot);
         }
-        prevBtn.addEventListener('click', function() { goTo(current - 1); });
-        nextBtn.addEventListener('click', function() { goTo(current + 1); });
       }
-    })();
-    (function() {
-      var form = document.getElementById('support-form');
-      var note = document.getElementById('support-note');
-      var submitBtn = document.getElementById('support-submit');
-      var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        note.textContent = '';
-        note.className = 'form-note';
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+      if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
 
-        var name = document.getElementById('support-name').value.trim();
-        var email = document.getElementById('support-email').value.trim();
-        var device = document.getElementById('support-device').value;
-        var os = document.getElementById('support-os').value;
-        var message = document.getElementById('support-message').value.trim();
-        var body = '**New support message**\n**Name:** ' + name + '\n**Email:** ' + email + '\n**Device:** ' + device + '\n**iOS version:** ' + os + '\n**Message:**\n' + message;
-
-        fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content: body })
-        })
-        .then(function(res) {
-          if (res.ok) {
-            note.textContent = 'Thanks. Your message was sent.';
-            note.className = 'success';
-            form.reset();
-          } else {
-            note.textContent = 'Something went wrong. Please email info@quackdb.app instead.';
-            note.className = 'error';
-          }
-        })
-        .catch(function() {
-          note.textContent = 'Could not send. Please email info@quackdb.app instead.';
-          note.className = 'error';
-        })
-        .finally(function() {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send';
+      slides.forEach(function(slide) {
+        slide.addEventListener('click', function() {
+          var img = slide.querySelector('img');
+          document.getElementById('lightbox-img').src = img.src;
+          document.getElementById('lightbox').classList.add('show');
         });
       });
+    })();
+
+    document.getElementById('lightbox').addEventListener('click', function() {
+      this.classList.remove('show');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(faq) { faq.classList.remove('open'); });
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    (function() {
+      var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
+      
+      function handleSignup(form, noteEl) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var input = form.querySelector('input');
+          var btn = form.querySelector('button');
+          var email = (input.value || '').trim();
+          if (!email) return;
+
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+
+          fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content: '**New signup:** ' + email })
+          })
+          .then(function(res) {
+            if (res.ok) {
+              noteEl.textContent = "You're on the list. We'll email you when the app launches.";
+              noteEl.className = 'signup-success';
+              form.reset();
+            } else {
+              noteEl.textContent = 'Something went wrong. Try again or email info@quackdb.app';
+            }
+          })
+          .catch(function() {
+            noteEl.textContent = 'Could not connect. Try again later.';
+          })
+          .finally(function() {
+            btn.disabled = false;
+            btn.textContent = 'Notify me';
+          });
+        });
+      }
+
+      var heroForm = document.getElementById('hero-signup');
+      var heroNote = document.getElementById('hero-note');
+      if (heroForm && heroNote) handleSignup(heroForm, heroNote);
+
+      var footerForm = document.getElementById('footer-signup');
+      var footerNote = document.getElementById('footer-note');
+      if (footerForm && footerNote) handleSignup(footerForm, footerNote);
+
+      var contactForm = document.getElementById('contact-form');
+      var contactNote = document.getElementById('contact-note');
+      if (contactForm && contactNote) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var name = contactForm.querySelector('input[name="name"]').value.trim();
+          var email = contactForm.querySelector('input[name="email"]').value.trim();
+          var message = contactForm.querySelector('textarea[name="message"]').value.trim();
+          var btn = contactForm.querySelector('button');
+          
+          if (!name || !email || !message) return;
+
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+
+          fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              content: '**New contact message**\n**From:** ' + name + ' (' + email + ')\n**Message:** ' + message
+            })
+          })
+          .then(function(res) {
+            if (res.ok) {
+              contactNote.textContent = 'Message sent! We\'ll get back to you soon.';
+              contactNote.className = 'contact-note success';
+              contactForm.reset();
+            } else {
+              contactNote.textContent = 'Something went wrong. Try again later.';
+              contactNote.className = 'contact-note error';
+            }
+          })
+          .catch(function() {
+            contactNote.textContent = 'Could not connect. Try again later.';
+            contactNote.className = 'contact-note error';
+          })
+          .finally(function() {
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+          });
+        });
+      }
     })();
   </script>
 </body>
