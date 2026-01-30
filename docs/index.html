@@ -9,7 +9,7 @@
   <meta property="og:title" content="Search Console for iOS - Google Search Analytics on iPhone">
   <meta property="og:description" content="Native iOS app for Google Search Console. Top keywords, top pages, Core Web Vitals, PDF reports. 7-day free trial, then $5.99/month.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="app-logo.png">
+  <meta property="og:image" content="app-icon.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Search Console for iOS">
   <meta name="twitter:description" content="Google Search Console on your iPhone. Top keywords, Core Web Vitals, PDF reports. 7-day free trial, $5.99/month.">
@@ -56,10 +56,19 @@
     }
     .hero h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px; }
     .hero .app-logo { height: 64px; width: auto; margin-bottom: 16px; display: block; margin-left: auto; margin-right: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.12); border: 1px solid #e0e0e0; border-radius: 12px; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 16px; }
-    .gallery-btn { padding: 0; border: none; background: none; cursor: pointer; display: block; width: 100%; border-radius: var(--radius); }
-    .gallery-btn img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
-    .gallery-btn:hover img { opacity: 0.9; }
+    .carousel-wrap { position: relative; margin-top: 16px; }
+    .carousel { overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .carousel-track { display: flex; transition: transform 0.3s ease; }
+    .carousel-slide { flex: 0 0 100%; min-width: 0; }
+    .carousel-btn-img { padding: 0; border: none; background: none; cursor: pointer; display: block; width: 100%; border-radius: var(--radius); }
+    .carousel-btn-img img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
+    .carousel-btn-img:hover img { opacity: 0.9; }
+    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 12px; }
+    .carousel-nav-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: var(--text); }
+    .carousel-nav-btn:hover { background: var(--bg); }
+    .carousel-dots { display: flex; gap: 8px; justify-content: center; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
+    .carousel-dot.active { background: var(--primary); }
     .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; cursor: pointer; }
     .lightbox.show { display: flex; }
     .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); pointer-events: none; }
@@ -133,7 +142,7 @@
     </nav>
 
     <section class="hero">
-      <img src="app-logo.png" alt="Search Console" class="app-logo" width="180" height="64">
+      <img src="app-icon.png" alt="Search Console" class="app-logo" width="180" height="64">
       <h1>Search Console</h1>
       <p class="tagline">Google Search performance on your iPhone. See top keywords, top pages, and Core Web Vitals from anywhere.</p>
       <p>Sign in with Google. No extra setup. Your data stays in your account.</p>
@@ -155,13 +164,22 @@
     <section class="card">
       <h2>See the app</h2>
       <p class="form-note">Click an image to enlarge.</p>
-      <div class="gallery">
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category.png" alt="Search Console app" loading="lazy"></button>
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category-1.png" alt="Search Console feature" loading="lazy"></button>
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category-2.png" alt="Search Console feature" loading="lazy"></button>
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category-3.png" alt="Search Console feature" loading="lazy"></button>
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category-4.png" alt="Search Console feature" loading="lazy"></button>
-        <button type="button" class="gallery-btn" aria-label="Enlarge image"><img src="category-5.png" alt="Search Console feature" loading="lazy"></button>
+      <div class="carousel-wrap">
+        <div class="carousel">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category.png" alt="Search Console app" loading="lazy"></button></div>
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-1.png" alt="Search Console feature" loading="lazy"></button></div>
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-2.png" alt="Search Console feature" loading="lazy"></button></div>
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-3.png" alt="Search Console feature" loading="lazy"></button></div>
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-4.png" alt="Search Console feature" loading="lazy"></button></div>
+            <div class="carousel-slide"><button type="button" class="carousel-btn-img" aria-label="Enlarge image"><img src="category-5.png" alt="Search Console feature" loading="lazy"></button></div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button type="button" class="carousel-nav-btn" id="carousel-prev" aria-label="Previous image">&larr;</button>
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <button type="button" class="carousel-nav-btn" id="carousel-next" aria-label="Next image">&rarr;</button>
+        </div>
       </div>
     </section>
     <div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarge image" aria-modal="true">
@@ -256,7 +274,7 @@ Steps to reproduce (if it's a bug):" rows="8"></textarea>
     (function() {
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightbox-img');
-      document.querySelectorAll('.gallery-btn').forEach(function(btn) {
+      document.querySelectorAll('.carousel-btn-img').forEach(function(btn) {
         btn.addEventListener('click', function() {
           lightboxImg.src = btn.querySelector('img').src;
           lightbox.classList.add('show');
@@ -266,6 +284,35 @@ Steps to reproduce (if it's a bug):" rows="8"></textarea>
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') lightbox.classList.remove('show');
       });
+    })();
+    (function() {
+      var track = document.getElementById('carousel-track');
+      var dotsEl = document.getElementById('carousel-dots');
+      var prevBtn = document.getElementById('carousel-prev');
+      var nextBtn = document.getElementById('carousel-next');
+      var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+      var count = slides.length;
+      var current = 0;
+      function goTo(i) {
+        current = (i + count) % count;
+        if (track) track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dotsEl.querySelectorAll('.carousel-dot').forEach(function(dot, j) {
+          dot.classList.toggle('active', j === current);
+        });
+      }
+      if (count > 0) {
+        for (var d = 0; d < count; d++) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to image ' + (d + 1));
+          dot.addEventListener('click', function() { goTo(Number(this.getAttribute('data-index'))); });
+          dot.setAttribute('data-index', String(d));
+          dotsEl.appendChild(dot);
+        }
+        prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        nextBtn.addEventListener('click', function() { goTo(current + 1); });
+      }
     })();
     (function() {
       var form = document.getElementById('support-form');
