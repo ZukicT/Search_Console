@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://search-console.org/about.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <title>About - Search Console for iOS</title>
+  <meta name="description" content="The story behind Search Console for iOS. Why I built this app and what drives its development.">
+  <meta property="og:title" content="About - Search Console for iOS">
+  <meta property="og:description" content="The story behind Search Console for iOS. Built by someone who needed it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://search-console.org/about.html">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="favicon.png" type="image/png">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VPPTK5JECX');
+  </script>
+  <style>
+    :root {
+      --white: #ffffff;
+      --bg: #f8f9fa;
+      --text: #202124;
+      --text-secondary: #5f6368;
+      --border: #dadce0;
+      --blue: #1a73e8;
+      --blue-hover: #1557b0;
+      --blue-light: #e8f0fe;
+      --green: #1e8e3e;
+      --radius: 8px;
+      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --font: "Inter", "Roboto", -apple-system, sans-serif;
+      --font-body: "Roboto", -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .header .container {
+      max-width: 1200px;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo img { height: 32px; width: 32px; border-radius: 8px; }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    .nav a { 
+      color: var(--text-secondary); 
+      text-decoration: none; 
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: var(--bg); }
+    .nav-cta {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+    .nav-cta:hover { background: var(--blue-hover) !important; }
+    
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font);
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+    }
+    
+    .author-section {
+      padding: 48px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .author-photo {
+      flex-shrink: 0;
+    }
+    .author-photo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+    }
+    .author-photo .placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+    }
+    .author-photo .placeholder svg {
+      width: 48px;
+      height: 48px;
+    }
+    .author-info h2 {
+      font-family: var(--font);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .author-info .role {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      margin-bottom: 16px;
+    }
+    .author-info p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+    
+    .story {
+      padding: 0 0 64px;
+    }
+    .story-content {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .story-content h2 {
+      font-family: var(--font);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    .story-content p {
+      margin-bottom: 20px;
+      font-size: 1.0625rem;
+      color: var(--text);
+    }
+    .story-content p:last-child {
+      margin-bottom: 0;
+    }
+    .story-content .highlight {
+      background: var(--blue-light);
+      padding: 20px 24px;
+      border-radius: 8px;
+      border-left: 4px solid var(--blue);
+      margin: 24px 0;
+    }
+    .story-content .highlight p {
+      margin-bottom: 0;
+      font-style: italic;
+      color: var(--text);
+    }
+    
+    .values {
+      padding: 0 0 64px;
+    }
+    .values h2 {
+      font-family: var(--font);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      text-align: center;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .value-card .icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--blue);
+    }
+    .value-card .icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .value-card h3 {
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .value-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    
+    .cta-section {
+      padding: 48px 0 64px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: var(--font);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .cta-section p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--blue-hover); }
+    
+    .footer {
+      background: var(--bg);
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer .container {
+      max-width: 1200px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { color: var(--blue); }
+    
+    @media (max-width: 768px) {
+      .author-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-content {
+        padding: 24px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer-links a {
+        margin: 0 12px;
+      }
+    }
+    @media (max-width: 640px) {
+      .nav a:not(.nav-cta) { display: none; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="favicon.png" alt="Search Console" width="32" height="32">
+          <span>Search Console</span>
+        </a>
+        <nav class="nav">
+          <a href="/#features">Features</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#notify" class="nav-cta">Get notified</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>About</h1>
+        <p>The story behind Search Console for iOS</p>
+      </div>
+    </section>
+
+    <section class="author-section">
+      <div class="container" style="display: flex; align-items: flex-start; gap: 32px;">
+        <div class="author-photo">
+          <!-- Replace this placeholder with your actual photo -->
+          <!-- <img src="your-photo.jpg" alt="Your Name"> -->
+          <div class="placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="author-info">
+          <h2>Hi, I'm the developer</h2>
+          <p class="role">Creator of Search Console for iOS</p>
+          <p>I built this app because I needed it myself. Now I want to share it with everyone who feels the same frustration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="container">
+        <div class="story-content">
+          <h2>Why I Built This</h2>
+          
+          <p>I use Google Search Console to keep tabs on my websites. It's an essential tool for understanding how your site performs in search. But honestly? The mobile experience is rough.</p>
+          
+          <p>I got tired of jumping into Safari every time I wanted to check something quick. Pinching to zoom, scrolling sideways on tables, waiting for the desktop interface to load on a phone screen. It was frustrating.</p>
+          
+          <div class="highlight">
+            <p>"There has to be a better way to check my search data on the go."</p>
+          </div>
+          
+          <p>I looked at the App Store. There were a few options, but they didn't feel right. Some looked sketchy. Others were outdated or missing features I actually needed. None of them felt like something I'd trust with my Google account.</p>
+          
+          <p>Then I discovered Google has a public API for Search Console. I read through forum posts and discussions - it didn't seem like Google was planning to build an official mobile app anytime soon. So I decided to build my own.</p>
+          
+          <p>Search Console for iOS is the app I wished existed. It's fast, it's native, and it shows you exactly what you need without the clutter. Your keywords, your top pages, your Core Web Vitals - all designed for how you actually use your phone.</p>
+          
+          <p>I'm not a big company. It's just me, building something I genuinely use every day. If you care about your website's search performance and want to check it without opening a laptop, I think you'll like it too.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="container">
+        <h2>What I Believe In</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Privacy First</h3>
+            <p>Your data stays in your Google account. I don't store, access, or sell anything.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>No Bloat</h3>
+            <p>Fast, focused, and built for one thing: checking your search performance quickly.</p>
+          </div>
+          <div class="value-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+              </svg>
+            </div>
+            <h3>Always Improving</h3>
+            <p>Your subscription supports active development. New features ship regularly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Want to try it?</h2>
+        <p>Get notified when the app launches on the App Store.</p>
+        <a href="/#notify" class="btn btn-primary">Join the waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>&copy; 2026 Search Console for iOS</span>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

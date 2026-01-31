@@ -46,6 +46,14 @@
     </image:image>
   </url>
   
+  <!-- About -->
+  <url>
+    <loc>https://search-console.org/about.html</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
   <!-- Privacy Policy -->
   <url>
     <loc>https://search-console.org/privacy.html</loc>
