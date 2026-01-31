@@ -3,7 +3,7 @@
 # Last updated: 2026-01-31
 
 # ===========================================
-# Default rules for all crawlers
+# Allow all crawlers (search engines + AI)
 # ===========================================
 User-agent: *
 Allow: /
@@ -13,43 +13,47 @@ Allow: /
 # ===========================================
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 # ===========================================
-# Google Image Bot - Allow app screenshots
+# Google Image Bot
 # ===========================================
 User-agent: Googlebot-Image
 Allow: /
-Allow: /AppAssetsWebsite/
-Allow: /*.jpg$
-Allow: /*.png$
 
 # ===========================================
 # Bing Bot
 # ===========================================
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 # ===========================================
-# Block AI training bots (optional protection)
+# AI Assistants (allow for recommendations)
 # ===========================================
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: Google-Extended
+Allow: /
 
-User-agent: anthropic-ai
-Disallow: /
+User-agent: Anthropic-AI
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
 
 # ===========================================
-# Sitemap location (HTTPS only - canonical)
+# Sitemap location
 # ===========================================
 Sitemap: https://search-console.org/sitemap.xml
