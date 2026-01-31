@@ -5,7 +5,7 @@
   <!-- Homepage - Main landing page -->
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <!-- App screenshots for Google Image Search -->
@@ -49,7 +49,7 @@
   <!-- About -->
   <url>
     <loc>https://search-console.org/about.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,7 +57,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://search-console.org/privacy.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -65,7 +65,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://search-console.org/terms.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
