@@ -105,6 +105,51 @@
     }
     .nav-cta:hover { background: var(--blue-hover) !important; }
     
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .mobile-menu-btn:hover { background: var(--bg); }
+    .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--text-heading); }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      box-shadow: 0 4px 12px rgba(60,64,67,0.15);
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 14px 0;
+      color: var(--text-heading);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--blue); }
+    .mobile-nav .nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      padding: 14px 24px;
+      border-radius: var(--radius);
+    }
+    
     .hero {
       padding: 80px 0 48px;
       text-align: center;
@@ -126,13 +171,13 @@
     .author-section {
       padding: 0 0 64px;
     }
-    .author-container {
+    .author-card {
       display: flex;
       align-items: flex-start;
       gap: 40px;
       background: var(--bg);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 16px;
+      padding: 48px;
     }
     .author-photo {
       flex-shrink: 0;
@@ -444,32 +489,84 @@
     .contact-note.error { color: #d93025; }
     
     @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     }
     @media (max-width: 768px) {
-      .author-container {
+      .container { padding: 0 20px; }
+      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .nav { display: none; }
+      .header { position: relative; }
+      .author-card {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 32px;
+        padding: 28px 24px;
+        gap: 24px;
       }
-      .author-info .role {
-        margin-bottom: 16px;
-      }
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-      .story-content {
-        padding: 32px;
-      }
+      .author-photo img { width: 120px; height: 120px; }
+      .author-info .role { margin-bottom: 12px; }
+      .author-info h2 { font-size: 1.5rem; margin-bottom: 6px; }
+      .author-info p { font-size: 1rem; }
+      .values-grid { grid-template-columns: 1fr; gap: 20px; }
+      .story-content { padding: 28px 24px; }
+      .story-content h2 { font-size: 1.5rem; }
+      .story-content p { font-size: 1rem; }
     }
     @media (max-width: 640px) {
-      .nav a:not(.nav-cta) { display: none; }
-      .hero { padding: 48px 0 32px; }
-      .hero h1 { font-size: 2.25rem; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .footer-legal a { margin: 0 12px; }
+      .container { padding: 0 16px; }
+      .hero { padding: 40px 0 28px; }
+      .hero h1 { font-size: 1.75rem; line-height: 1.2; }
+      .hero p { font-size: 0.9375rem; }
+      .author-section { padding: 0 0 48px; }
+      .author-card { padding: 24px 20px; border-radius: 12px; gap: 20px; }
+      .author-photo img { width: 100px; height: 100px; }
+      .author-info .role { margin-bottom: 10px; padding: 5px 12px; font-size: 0.9375rem; }
+      .author-info h2 { font-size: 1.25rem; margin-bottom: 4px; }
+      .author-info p { font-size: 0.9375rem; line-height: 1.6; }
+      .story { padding: 0 0 48px; }
+      .story-content { padding: 24px 20px; border-radius: 12px; }
+      .story-content h2 { font-size: 1.375rem; margin-bottom: 20px; }
+      .story-content p { font-size: 0.9375rem; margin-bottom: 16px; }
+      .story-content .highlight { padding: 20px; margin: 20px 0; }
+      .story-content .highlight p { font-size: 1rem; }
+      .values { padding: 0 0 60px; }
+      .values h2 { font-size: 1.375rem; margin-bottom: 24px; }
+      .value-card { padding: 24px 20px; }
+      .value-card .icon { width: 50px; height: 50px; margin-bottom: 20px; }
+      .value-card .icon svg { width: 24px; height: 24px; }
+      .value-card h3 { font-size: 1rem; }
+      .value-card p { font-size: 0.875rem; }
+      .cta-section { padding: 48px 0 60px; }
+      .cta-section h2 { font-size: 1.5rem; }
+      .cta-section p { font-size: 0.9375rem; }
+      .btn { padding: 14px 24px; min-height: 48px; }
+      .footer { padding: 40px 0 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding-top: 24px; }
+      .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+      .footer-legal a { margin: 0 8px; }
+      .contact-form input, .contact-form textarea { padding: 14px; min-height: 48px; }
+      .contact-form button { min-height: 48px; }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+      }
+      .social-share { flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 12px; }
+      .logo span { font-size: 1rem; }
+      .hero h1 { font-size: 1.5rem; }
+      .author-card { 
+        padding: 20px 16px; 
+        border-radius: 10px;
+        gap: 16px;
+      }
+      .author-photo img { width: 90px; height: 90px; }
+      .author-info h2 { font-size: 1.125rem; }
+      .author-info p { font-size: 0.875rem; }
+      .story-content { padding: 20px 16px; border-radius: 10px; }
     }
   </style>
 </head>
@@ -488,7 +585,19 @@
           <a href="about.html">About</a>
           <a href="/#notify" class="nav-cta">Get notified</a>
         </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
+      <nav class="mobile-nav" id="mobile-nav">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="/#notify" class="nav-cta">Get notified</a>
+      </nav>
     </div>
   </header>
 
@@ -501,14 +610,16 @@
     </section>
 
     <section class="author-section">
-      <div class="container author-container">
-        <div class="author-photo">
-          <img src="founder.png" alt="Founder of Search Console for iOS">
-        </div>
-        <div class="author-info">
-          <h2>Hi, I'm the developer</h2>
-          <p class="role">Solo indie developer</p>
-          <p>I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
+      <div class="container">
+        <div class="author-card">
+          <div class="author-photo">
+            <img src="founder.png" alt="Founder of Search Console for iOS">
+          </div>
+          <div class="author-info">
+            <h2>Hi, I'm the developer</h2>
+            <p class="role">Solo indie developer</p>
+            <p>I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -703,6 +814,29 @@
               }, 2000);
             });
           }
+        });
+      }
+
+      // Mobile menu toggle
+      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      var mobileNav = document.getElementById('mobile-nav');
+      var menuIcon = document.getElementById('menu-icon');
+      if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          var isOpen = mobileNav.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+          if (isOpen) {
+            menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+          } else {
+            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+          }
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+          });
         });
       }
     })();
