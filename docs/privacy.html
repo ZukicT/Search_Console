@@ -257,34 +257,6 @@
       font-size: 0.875rem;
       color: var(--text-secondary);
     }
-    .footer-actions {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: var(--font);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .share-btn:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-    .share-btn svg {
-      width: 16px;
-      height: 16px;
-    }
     .footer-legal a {
       color: var(--text-secondary);
       text-decoration: none;
@@ -346,8 +318,6 @@
       .content-section { padding: 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .footer-actions { flex-direction: column; gap: 16px; }
-      .footer-legal { margin-top: 0; }
       .footer-legal a { margin: 0 12px; }
     }
   </style>
@@ -524,18 +494,12 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Search Console for iOS</span>
-        <div class="footer-actions">
-          <button class="share-btn" id="share-btn" aria-label="Share this page">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            Share
-          </button>
-          <div class="footer-legal">
+        <div class="footer-legal">
             <a href="/">Home</a>
             <a href="about.html">About</a>
             <a href="privacy.html">Privacy</a>
             <a href="terms.html">Terms</a>
           </div>
-        </div>
       </div>
     </div>
   </footer>
@@ -588,22 +552,6 @@
         text: 'Native iOS app for Google Search Console - track your search rankings from your iPhone.',
         url: 'https://search-console.org'
       };
-
-      var shareBtn = document.getElementById('share-btn');
-      if (shareBtn) {
-        shareBtn.addEventListener('click', function() {
-          if (navigator.share) {
-            navigator.share(shareData).catch(function() {});
-          } else {
-            navigator.clipboard.writeText(shareData.url).then(function() {
-              shareBtn.textContent = 'Link copied!';
-              setTimeout(function() {
-                shareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share';
-              }, 2000);
-            });
-          }
-        });
-      }
 
       var socialShareBtn = document.getElementById('social-share-btn');
       if (socialShareBtn) {
