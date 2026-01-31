@@ -10,10 +10,13 @@ User-agent: Googlebot
 Allow: /
 Allow: /AppAssetsWebsite/
 
-# Allow Google Images to index screenshots
+# Allow Google Images to index screenshots and app icon
 User-agent: Googlebot-Image
 Allow: /AppAssetsWebsite/
-Allow: /app-icon.jpg
+Allow: /favicon.png
+Allow: /app-icon-512.jpg
+Allow: /app-icon-full.jpg
+Allow: /Bot.png
 
 # Sitemap location
 Sitemap: https://search-console.org/sitemap.xml

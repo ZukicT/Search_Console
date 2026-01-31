@@ -1,13 +1,18 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v1';
+const CACHE_NAME = 'search-console-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/privacy.html',
   '/terms.html',
   '/404.html',
-  '/app-icon.jpg?v=3',
-  '/Bot.png?v=1',
+  '/manifest.json',
+  '/favicon.png',
+  '/favicon-32x32.png',
+  '/favicon-16x16.png',
+  '/apple-touch-icon.png',
+  '/app-icon-512.jpg',
+  '/icon-192.jpg',
   '/AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=3',
   '/AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=3',
   '/AppAssetsWebsite/Category.imageset/Category.jpg?v=3',

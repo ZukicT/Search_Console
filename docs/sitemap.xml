@@ -5,8 +5,8 @@
   <!-- Homepage - Main landing page -->
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <!-- App screenshots for Google Image Search -->
     <image:image>
@@ -40,9 +40,9 @@
       <image:caption>Monitor LCP, CLS, and INP metrics</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/app-icon.jpg</image:loc>
+      <image:loc>https://search-console.org/app-icon-512.jpg</image:loc>
       <image:title>Search Console for iOS App Icon</image:title>
-      <image:caption>Official app icon for Search Console iOS app</image:caption>
+      <image:caption>Official app icon for Search Console iOS app - Bot mascot with colorful background</image:caption>
     </image:image>
   </url>
   
