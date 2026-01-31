@@ -1,27 +1,55 @@
 # Robots.txt for search-console.org
 # Native iOS app for Google Search Console
+# Last updated: 2026-01-31
 
-# Allow all crawlers full access
+# ===========================================
+# Default rules for all crawlers
+# ===========================================
 User-agent: *
 Allow: /
 
-# Specific permissions for Googlebot
+# ===========================================
+# Google Search Bot
+# ===========================================
 User-agent: Googlebot
 Allow: /
-Allow: /AppAssetsWebsite/
+Crawl-delay: 1
 
-# Allow Google Images to index screenshots and app icon
+# ===========================================
+# Google Image Bot - Allow app screenshots
+# ===========================================
 User-agent: Googlebot-Image
+Allow: /
 Allow: /AppAssetsWebsite/
-Allow: /favicon.png
-Allow: /app-icon-512.jpg
-Allow: /app-icon-full.jpg
-Allow: /Bot.png
+Allow: /*.jpg$
+Allow: /*.png$
 
-# Sitemap location
+# ===========================================
+# Bing Bot
+# ===========================================
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# ===========================================
+# Block AI training bots (optional protection)
+# ===========================================
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# ===========================================
+# Sitemap location (HTTPS only - canonical)
+# ===========================================
 Sitemap: https://search-console.org/sitemap.xml
-Sitemap: http://search-console.org/sitemap.xml
-
-# Host directive (canonical domain - prefer https)
-Host: https://search-console.org
-Host: http://search-console.org
