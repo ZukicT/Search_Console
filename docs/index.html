@@ -381,63 +381,55 @@
     }
     .blob {
       position: absolute;
-      border-radius: 50% 40% 60% 50%;
-      opacity: 0.15;
+      opacity: 0.18;
+    }
+    .blob img {
+      width: 100%;
+      height: 100%;
     }
     .blob-yellow {
-      background: #FBBC04;
-      width: 180px;
-      height: 160px;
-      top: -40px;
-      left: -60px;
-      transform: rotate(-15deg);
+      width: 220px;
+      top: -60px;
+      left: -80px;
     }
     .blob-blue {
-      background: #4285F4;
       width: 200px;
-      height: 180px;
-      top: 60px;
-      left: -80px;
-      border-radius: 40% 60% 50% 50%;
+      top: 40px;
+      left: -70px;
     }
     .blob-red {
-      background: #EA4335;
-      width: 160px;
-      height: 140px;
-      top: -30px;
-      right: -50px;
-      transform: rotate(20deg);
+      width: 180px;
+      top: -40px;
+      right: -60px;
     }
     .blob-green {
-      background: #34A853;
-      width: 140px;
-      height: 130px;
-      bottom: 80px;
-      left: -40px;
-      border-radius: 60% 40% 50% 50%;
+      width: 200px;
+      bottom: 40px;
+      left: -60px;
     }
     .blob-yellow-2 {
-      background: #FBBC04;
-      width: 120px;
-      height: 110px;
-      bottom: 60px;
-      right: -30px;
-      transform: rotate(10deg);
+      width: 160px;
+      bottom: 20px;
+      right: -50px;
     }
-    .blob-lines {
+    .blob-line {
       position: absolute;
-      width: 100px;
-      height: 80px;
-      opacity: 0.12;
+      opacity: 0.15;
     }
-    .blob-lines-top {
-      top: 20px;
-      right: 60px;
+    .blob-line img {
+      width: 100%;
+      height: 100%;
     }
-    .blob-lines-bottom {
-      bottom: 100px;
+    .blob-line-1 {
+      width: 180px;
+      top: 30px;
+      right: 40px;
+    }
+    .blob-line-2 {
+      width: 140px;
+      bottom: 80px;
       right: -20px;
-      transform: rotate(-30deg);
+      transform: rotate(-20deg);
     }
     .hero .container {
       position: relative;
@@ -1009,21 +1001,13 @@
   <main>
     <section class="hero">
       <div class="hero-blobs">
-        <div class="blob blob-yellow"></div>
-        <div class="blob blob-blue"></div>
-        <div class="blob blob-red"></div>
-        <div class="blob blob-green"></div>
-        <div class="blob blob-yellow-2"></div>
-        <svg class="blob-lines blob-lines-top" viewBox="0 0 100 80">
-          <path d="M10 10 Q50 5 90 15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M15 30 Q55 25 85 35" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M20 50 Q60 45 80 55" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-        </svg>
-        <svg class="blob-lines blob-lines-bottom" viewBox="0 0 100 80">
-          <path d="M10 10 Q50 5 90 15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M15 30 Q55 25 85 35" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M20 50 Q60 45 80 55" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-        </svg>
+        <div class="blob blob-yellow"><img src="assets/blob-yellow.svg" alt=""></div>
+        <div class="blob blob-blue"><img src="assets/blob-blue.svg" alt=""></div>
+        <div class="blob blob-red"><img src="assets/blob-red.svg" alt=""></div>
+        <div class="blob blob-green"><img src="assets/blob-green.svg" alt=""></div>
+        <div class="blob blob-yellow-2"><img src="assets/blob-yellow-2.svg" alt=""></div>
+        <div class="blob-line blob-line-1"><img src="assets/line-1.svg" alt=""></div>
+        <div class="blob-line blob-line-2"><img src="assets/line-2.svg" alt=""></div>
       </div>
       <div class="container">
         <div class="hero-content">
