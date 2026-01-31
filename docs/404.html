@@ -26,7 +26,8 @@
     :root {
       --white: #ffffff;
       --bg: #f8f9fa;
-      --text: #202124;
+      --text: #5f6368;
+      --text-heading: rgb(32, 33, 36);
       --text-secondary: #5f6368;
       --border: #dadce0;
       --blue: #1a73e8;
@@ -34,6 +35,7 @@
       --blue-light: #e8f0fe;
       --radius: 8px;
       --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
       --font: "Inter", "Roboto", -apple-system, sans-serif;
       --font-body: "Roboto", -apple-system, sans-serif;
     }
@@ -41,8 +43,9 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-body);
+      font-size: 13px;
       background: var(--white);
-      color: var(--text);
+      color: var(--text-heading);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
@@ -51,7 +54,6 @@
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
-    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -72,7 +74,7 @@
       font-family: var(--font);
       font-weight: 500;
       font-size: 1.125rem;
-      color: var(--text);
+      color: var(--text-heading);
       text-decoration: none;
     }
     .logo img { height: 32px; width: 32px; border-radius: 8px; }
@@ -93,52 +95,54 @@
     }
     .nav-cta:hover { background: var(--blue-hover) !important; }
     
-    /* 404 Content */
     main {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 24px;
+      padding: 100px 24px;
     }
     .error-content {
       text-align: center;
-      max-width: 480px;
+      max-width: 520px;
     }
     .error-image {
-      width: 180px;
+      width: 200px;
       height: auto;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
     .error-code {
       font-family: var(--font);
-      font-size: 5rem;
+      font-size: 6rem;
       font-weight: 400;
       color: var(--border);
       line-height: 1;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
     .error-title {
       font-family: var(--font);
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 400;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
     }
     .error-message {
       color: var(--text-secondary);
-      font-size: 1rem;
-      margin-bottom: 32px;
-      line-height: 1.6;
+      font-size: 1.0625rem;
+      margin-bottom: 40px;
+      line-height: 1.7;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       border-radius: var(--radius);
       font-family: var(--font);
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       text-decoration: none;
       transition: all 0.2s;
       border: none;
@@ -157,31 +161,32 @@
     }
     .btn-secondary:hover { background: var(--blue-light); border-color: var(--blue-light); }
     
-    /* Footer */
     .footer {
       background: var(--bg);
-      padding: 24px 0;
+      padding: 28px 0;
       border-top: 1px solid var(--border);
     }
     .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       color: var(--text-secondary);
     }
     .footer-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      margin-left: 24px;
+      margin-left: 28px;
+      transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--blue); }
     
     @media (max-width: 640px) {
       .nav a:not(.nav-cta) { display: none; }
-      .error-image { width: 140px; }
-      .error-code { font-size: 3.5rem; }
-      .error-title { font-size: 1.25rem; }
+      main { padding: 64px 24px; }
+      .error-image { width: 160px; }
+      .error-code { font-size: 4rem; }
+      .error-title { font-size: 1.5rem; }
       .btn { width: 100%; justify-content: center; margin-bottom: 12px; }
       .btn-secondary { margin-left: 0; }
       .footer-content { flex-direction: column; gap: 12px; text-align: center; }
