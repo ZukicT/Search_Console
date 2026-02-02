@@ -31,3 +31,6 @@ Thumbs.db
 Pods/
 *.xcworkspace
 !default.xcworkspace
+
+# Internal development docs (may contain sensitive info)
+dev-docs/
