@@ -183,13 +183,38 @@ Before launching:
 
 ## 🆘 Troubleshooting
 
-**Paywall doesn't appear:**
-- Check that StoreKit Configuration is selected in scheme
+### Live App Store: "Unable to load subscription options"
+
+When the app is downloaded from the **real App Store** and the paywall shows "Unable to load subscription options", StoreKit is returning **no products** for `com.quackdb.searchconsole.monthly`. Fix it in App Store Connect:
+
+1. **In-App Purchase exists and matches**
+   - App Store Connect → Your app → **Features** → **In-App Purchases**
+   - There must be an **Auto-Renewable Subscription** with Product ID **exactly**: `com.quackdb.searchconsole.monthly`
+   - If the ID in App Store Connect is different (e.g. typo, different prefix), products will be empty in production.
+
+2. **Subscription is Ready to Submit and included with the app**
+   - The subscription must be in **Ready to Submit** (no "Missing Metadata" or draft).
+   - It must be **included in the same app version** you submitted. If you added the IAP after submitting the build, create a new version and submit again with the IAP.
+
+3. **Paid Applications Agreement and banking**
+   - **Agreements, Tax, and Banking** must be complete and **Paid Applications** agreement **Active**.
+   - Until this is done, in-app purchases do **not** work in production (only in Sandbox).
+
+4. **Bundle ID**
+   - The in-app purchase is tied to the app’s **Bundle ID** (e.g. `TarikZukic.Search-Console`). The IAP must be under that app in App Store Connect.
+
+5. **Propagation**
+   - New IAPs or new app versions can take a few hours to propagate. If you just submitted, wait and retry later.
+
+After fixing the above, ship a new build if needed and have users update. The paywall now shows the **actual StoreKit error** under "Unable to load subscription options" when present (e.g. "Cannot connect to iTunes Store", or product-not-found style messages) so you can confirm the cause.
+
+**Paywall doesn't appear (local/simulator):**
+- Check that StoreKit Configuration is selected in scheme (for local testing)
 - Verify product ID matches exactly
 - Check SubscriptionService loads products successfully
 
 **Can't complete purchase:**
-- Ensure signed into sandbox account (Settings → App Store)
+- Ensure signed into sandbox account (Settings → App Store) when testing
 - Check that subscription is approved in App Store Connect
 - Verify app has correct capabilities (In-App Purchase)
 

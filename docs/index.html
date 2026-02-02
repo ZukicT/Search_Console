@@ -22,13 +22,13 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Try for free CTA.">
+  <meta property="og:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Download on the App Store.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Search Console for iOS">
   <meta name="twitter:description"
     content="Best SEO app for iPhone. Track search rankings, keywords, Core Web Vitals. 7-day free trial.">
   <meta name="twitter:image" content="https://search-console.org/og-linkedin-share.png">
-  <meta name="twitter:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Try for free CTA.">
+  <meta name="twitter:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Download on the App Store.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="author" content="Search Console for iOS">
@@ -88,7 +88,7 @@
       "price": "5.99",
       "priceCurrency": "USD",
       "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/PreOrder",
+      "availability": "https://schema.org/InStock",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
         "price": "5.99",
@@ -122,7 +122,8 @@
       "@type": "CreativeWork",
       "url": "https://search-console.org/#faq"
     },
-    "releaseNotes": "Coming soon to the App Store",
+    "releaseNotes": "Available on the App Store",
+    "downloadUrl": "https://apps.apple.com/us/app/search-console/id6758431981",
     "permissions": "Requires Google account with Search Console access"
   }
   </script>
@@ -149,21 +150,25 @@
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#faq h3", "#faq p"]
+    },
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the best SEO tool for iPhone?",
+        "name": "What is Search Console for iOS?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Search Console for iOS is one of the best SEO tools for iPhone. It lets you track search rankings, monitor keywords, view clicks and impressions, analyze Core Web Vitals, and generate PDF reports - all from your iPhone. The app connects to Google Search Console to give you real SEO data about your website's performance in Google Search."
+          "text": "Search Console for iOS is a native iPhone and iPad app that connects to Google Search Console via the official API. It lets you monitor your website's search performance, view clicks, impressions, CTR, average position, analyze search queries, check Core Web Vitals, and more - all from your mobile device."
         }
       },
       {
         "@type": "Question",
-        "name": "Are there SEO apps for iPhone?",
+        "name": "Is there an official Google Search Console app for iPhone?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, there are several SEO apps for iPhone. Search Console for iOS is a popular choice that provides access to Google Search Console data including keyword rankings, click-through rates, impressions, and Core Web Vitals. Other SEO tasks like keyword research and site audits typically require desktop tools, but rank tracking and performance monitoring work great on iPhone."
+          "text": "No, Google does not offer an official Search Console app for iPhone. Search Console for iOS is an independent third-party app that uses Google's official Search Console API to bring your search data to your iPhone and iPad."
         }
       },
       {
@@ -171,47 +176,39 @@
         "name": "How do I access Google Search Console on iPhone?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can access Google Search Console on iPhone by downloading a third-party app like Search Console for iOS from the App Store. The app connects to your Google account using OAuth and displays your Search Console data in a mobile-optimized interface. Alternatively, you can use Safari to visit search.google.com/search-console, but a native app provides a better mobile experience."
+          "text": "Download Search Console for iOS from the App Store and sign in with your Google account. The app uses secure OAuth authentication to connect to your Search Console properties. You can also use Safari to visit search.google.com/search-console, but a native app provides a much better mobile experience."
         }
       },
       {
         "@type": "Question",
-        "name": "Is there a Google Search Console app for iPhone?",
+        "name": "What features does Search Console for iOS include?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Google does not offer an official Search Console app for iPhone. However, third-party apps like Search Console for iOS provide full access to your Search Console data on iPhone. These apps use Google's official Search Console API to securely display your clicks, impressions, CTR, keywords, and Core Web Vitals."
+          "text": "The app includes performance analytics (clicks, impressions, CTR, average position), search query analysis, top pages monitoring, Core Web Vitals (LCP, CLS, INP), URL inspection, sitemap management, device and country filtering, custom date ranges, interactive charts, and push notifications for performance alerts."
         }
       },
       {
         "@type": "Question",
-        "name": "What features are available in Search Console mobile apps?",
+        "name": "How do I sign in to the app?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Search Console mobile apps offer: Performance tracking (clicks, impressions, CTR, average position), search query and keyword analysis, top pages monitoring, Core Web Vitals (LCP, CLS, INP), device filtering (mobile/desktop/tablet), custom date ranges, interactive charts, PDF report generation, and push notifications for performance alerts."
+          "text": "Tap 'Sign in with Google' and use the same Google account that has access to your Search Console properties. The app uses OAuth for secure authentication - your password is never stored or accessed by the app."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I sign in to Search Console for iOS?",
+        "name": "Is my data safe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Use the same Google account you use for Search Console. Tap 'Sign in with Google' and authorize the app. The app uses OAuth for secure authentication - your password is never stored."
+          "text": "Yes. The app connects directly to Google's official Search Console API using OAuth 2.0. Your data stays in your Google account - we don't store, collect, or have access to your Search Console data. All communication is encrypted."
         }
       },
       {
         "@type": "Question",
-        "name": "Is my data safe with Search Console for iOS?",
+        "name": "Is this app affiliated with Google?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The app uses Google's official Search Console API and OAuth 2.0 for authentication. Your data stays in your Google account. We don't store, access, or sell your Search Console data. All communication is encrypted."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Search Console for iOS affiliated with Google?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Search Console for iOS is an independent third-party app using Google's public Search Console API. It is not affiliated with, endorsed by, or sponsored by Google LLC."
+          "text": "No. Search Console for iOS is an independent third-party app. It is not made by, affiliated with, endorsed by, or sponsored by Google LLC. The app uses Google's publicly available Search Console API."
         }
       },
       {
@@ -219,39 +216,47 @@
         "name": "How much does Search Console for iOS cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "$5.99 per month with a 7-day free trial. Cancel anytime through your App Store subscription settings."
+          "text": "$5.99 per month with a 7-day free trial. You can cancel anytime through your App Store subscription settings."
         }
       },
       {
         "@type": "Question",
-        "name": "Why is Search Console for iOS not free?",
+        "name": "Why is the app not free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The subscription covers ongoing development, server costs, and App Store fees. Unlike free apps that monetize through ads or selling user data, Search Console for iOS has no ads and never accesses your data. Your subscription directly supports continued updates, new features, and responsive support. The 7-day free trial lets you try everything before committing."
+          "text": "The subscription covers continued app development and API costs. Unlike free apps that rely on ads or selling user data, Search Console for iOS has no ads and never accesses your data. Your subscription directly supports ongoing updates, new features, and improvements. Try it free for 7 days before subscribing."
         }
       },
       {
         "@type": "Question",
-        "name": "Does Search Console for iOS work on iPad?",
+        "name": "Can I cancel my subscription?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The app works on both iPhone and iPad running iOS 18.0 or later. The interface automatically adapts to larger iPad screens for a better experience."
+          "text": "Yes, you can cancel anytime through iPhone Settings > your name > Subscriptions. You'll keep access until the end of your current billing period."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I view Core Web Vitals on iPhone?",
+        "name": "Does the app work on iPad?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Search Console for iOS displays your Core Web Vitals data including Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP). You can see both mobile and desktop scores and track improvements over time."
+          "text": "Yes. Search Console for iOS works on both iPhone and iPad running iOS 18.0 or later. The interface adapts to take advantage of larger iPad screens."
         }
       },
       {
         "@type": "Question",
-        "name": "How often is Search Console data updated?",
+        "name": "Can I view Core Web Vitals?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Data is fetched directly from Google's Search Console API each time you open the app or pull to refresh. Note that Google's Search Console data typically has a 2-3 day processing delay - this is a Google limitation, not an app limitation."
+          "text": "Yes. The app displays your Core Web Vitals including Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP) for both mobile and desktop."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can't I see my website in the app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Make sure your website is verified in Google Search Console on the web first. The app only shows properties you have access to in your Google account. If you recently added a site, try signing out and back in to refresh your properties."
         }
       }
     ]
@@ -302,6 +307,20 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://search-console.org/"
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -314,11 +333,11 @@
           <span>Search Console</span>
         </a>
         <nav class="nav">
+          <a href="index.html">Home</a>
           <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
+          <a href="releases.html">Releases</a>
           <a href="about.html">About</a>
-          <a href="#notify" class="nav-cta">Get notified</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
         </nav>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
@@ -329,11 +348,11 @@
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
         <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+        <a href="releases.html">Releases</a>
         <a href="about.html">About</a>
-        <a href="#notify" class="nav-cta">Get notified</a>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
       </nav>
     </div>
   </header>
@@ -343,22 +362,17 @@
       <div class="container">
         <div class="hero-content">
           <p class="hero-kicker">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-              <line x1="12" y1="18" x2="12.01" y2="18" />
-            </svg>
             Native iOS app for Google Search Console
           </p>
           <h1>Track your search rankings from your iPhone</h1>
           <p>Monitor clicks, impressions, keywords, and Core Web Vitals. Get the data you need to improve your website's
             Google Search performance.</p>
           <div class="hero-ctas">
-            <a href="#notify" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
               </svg>
-              Get notified at launch
+              Download on the App Store
             </a>
             <a href="#features" class="btn btn-secondary">See features</a>
           </div>
@@ -660,7 +674,7 @@
               Push notifications
             </li>
           </ul>
-          <a href="#notify" class="btn btn-primary pricing-cta">Get notified at launch</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary pricing-cta" target="_blank" rel="noopener">Download on the App Store</a>
         </div>
       </div>
     </section>
@@ -673,30 +687,29 @@
         <div class="faq-grid">
           <div class="faq-item">
             <button class="faq-question">
-              What is the best SEO tool for iPhone?
+              What is Search Console for iOS?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Search Console for iOS is one of the best SEO tools for iPhone. It lets you
-                track search rankings, monitor keywords, view clicks and impressions, analyze Core Web Vitals, and
-                generate PDF reports - all from your iPhone. The app connects to Google Search Console to give you real
-                SEO data about your website's performance.</div>
+              <div class="faq-answer-inner">Search Console for iOS is a native iPhone and iPad app that connects to 
+                Google Search Console via the official API. It lets you monitor your website's search performance, 
+                view clicks, impressions, CTR, average position, analyze search queries, check Core Web Vitals, 
+                and more - all from your mobile device.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Are there SEO apps for iPhone?
+              Is there an official Google Search Console app?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Yes, there are several SEO apps for iPhone. Search Console for iOS is a
-                popular choice that provides access to Google Search Console data including keyword rankings,
-                click-through rates, impressions, and Core Web Vitals. It's perfect for tracking your website's search
-                performance on the go.</div>
+              <div class="faq-answer-inner">No, Google does not offer an official Search Console app for iPhone. 
+                Search Console for iOS is an independent third-party app that uses Google's official Search Console 
+                API to bring your search data to your iPhone and iPad.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -707,38 +720,24 @@
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">You can access Google Search Console on iPhone by downloading a third-party
-                app like Search Console for iOS from the App Store. The app connects to your Google account using OAuth
-                and displays your Search Console data in a mobile-optimized interface. Alternatively, you can use Safari
-                to visit search.google.com/search-console, but a native app provides a better mobile experience.</div>
+              <div class="faq-answer-inner">Download Search Console for iOS from the App Store and sign in with your 
+                Google account. The app uses secure OAuth authentication to connect to your Search Console properties. 
+                You can also use Safari to visit search.google.com/search-console, but a native app provides a much 
+                better mobile experience.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Is there a Google Search Console app for iPhone?
+              What features does the app include?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Google does not offer an official Search Console app for iPhone. However,
-                third-party apps like Search Console for iOS provide full access to your Search Console data on iPhone.
-                These apps use Google's official Search Console API to securely display your clicks, impressions, CTR,
-                keywords, and Core Web Vitals.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              What features are available in Search Console mobile apps?
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">Search Console mobile apps offer: Performance tracking (clicks, impressions,
-                CTR, average position), search query and keyword analysis, top pages monitoring, Core Web Vitals (LCP,
-                CLS, INP), device filtering (mobile/desktop/tablet), custom date ranges, interactive charts, PDF report
-                generation, and push notifications for performance alerts.</div>
+              <div class="faq-answer-inner">The app includes performance analytics (clicks, impressions, CTR, average 
+                position), search query analysis, top pages monitoring, Core Web Vitals (LCP, CLS, INP), URL inspection, 
+                sitemap management, device and country filtering, custom date ranges, interactive charts, and push 
+                notifications for performance alerts.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -749,10 +748,9 @@
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Use the same Google account you use for Search Console. Tap "Sign in with
-                Google" and authorize the app. If you don't have any properties, add a site at <a
-                  href="https://search.google.com/search-console" target="_blank"
-                  rel="noopener">search.google.com/search-console</a> first.</div>
+              <div class="faq-answer-inner">Tap "Sign in with Google" and use the same Google account that has access 
+                to your Search Console properties. The app uses OAuth for secure authentication - your password is 
+                never stored or accessed by the app.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -763,20 +761,34 @@
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Yes. The app uses Google's official API and OAuth. Your data stays in your
-                Google account. We don't store, access, or sell your Search Console data.</div>
+              <div class="faq-answer-inner">Yes. The app connects directly to Google's official Search Console API 
+                using OAuth 2.0. Your data stays in your Google account - we don't store, collect, or have access 
+                to your Search Console data. All communication is encrypted.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Can I cancel anytime?
+              Is this app affiliated with Google?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Yes. Cancel anytime in iPhone Settings > Subscriptions. You keep access
-                until the end of your billing period.</div>
+              <div class="faq-answer-inner">No. Search Console for iOS is an independent third-party app. It is not 
+                made by, affiliated with, endorsed by, or sponsored by Google LLC. The app uses Google's publicly 
+                available Search Console API.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I cancel my subscription?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes, you can cancel anytime through iPhone Settings > your name > 
+                Subscriptions. You'll keep access until the end of your current billing period.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -787,71 +799,73 @@
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">The subscription covers ongoing development, server costs, and App Store
-                fees. Unlike free apps that monetize through ads or selling user data, Search Console for iOS has no ads
-                and never accesses your data. Your subscription directly supports continued updates and new features.
-                Try free for 7 days.</div>
+              <div class="faq-answer-inner">The subscription covers continued app development and API costs. Unlike 
+                free apps that rely on ads or selling user data, Search Console for iOS has no ads and never accesses 
+                your data. Your subscription directly supports ongoing updates, new features, and improvements. 
+                Try it free for 7 days before subscribing.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Why can't I see my site?
+              Why can't I see my website?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Make sure the site is added and verified in Google Search Console on the
-                web. The app only shows sites you have access to there. Try signing out and back in to refresh
-                permissions.</div>
+              <div class="faq-answer-inner">Make sure your website is verified in Google Search Console on the web 
+                first. The app only shows properties you have access to in your Google account. If you recently 
+                added a site, try signing out and back in to refresh your properties.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Is this affiliated with Google?
+              Does the app work on iPad?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">No. This is an independent app using Google's public Search Console API. Not
-                affiliated with, endorsed by, or sponsored by Google.</div>
+              <div class="faq-answer-inner">Yes. Search Console for iOS works on both iPhone and iPad running 
+                iOS 18.0 or later. The interface adapts to take advantage of larger iPad screens.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Does it work on iPad?
+              Can I view Core Web Vitals?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Yes. The app works on both iPhone and iPad. The interface adapts to larger
-                screens for a better experience on iPad.</div>
+              <div class="faq-answer-inner">Yes. The app displays your Core Web Vitals including Largest Contentful 
+                Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP) for both mobile 
+                and desktop.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              How often is data updated?
+              Can I manage multiple websites?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Data is fetched directly from Google's API each time you open the app.
-                Search Console data typically has a 2-3 day delay from Google's side.</div>
+              <div class="faq-answer-inner">Yes. All websites you have access to in Google Search Console will appear 
+                in the app. You can easily switch between them from the main screen.</div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-question">
-              Can I manage multiple sites?
+              How often is the data updated?
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Yes. All sites you have access to in Google Search Console will appear in
-                the app. Switch between them easily from the main screen.</div>
+              <div class="faq-answer-inner">Data is fetched directly from Google's Search Console API each time you 
+                open the app or pull to refresh. Note that Google's Search Console data typically has a 2-3 day 
+                processing delay - this is a Google limitation, not an app limitation.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -862,8 +876,8 @@
               </svg>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">You can view data for the last 24 hours, 7 days, 28 days, 3 months, 6
-                months, 12 months, or 16 months.</div>
+              <div class="faq-answer-inner">You can view data for the last 24 hours, 7 days, 28 days, 3 months, 
+                6 months, 12 months, or 16 months - matching the options available in Google Search Console.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -896,11 +910,11 @@
 
     <section class="cta-section" id="notify">
       <div class="container">
-        <h2>Be the first to know when we launch</h2>
-        <p>We'll send you one email when the app is available on the App Store.</p>
+        <h2>Get notified about new features and updates first</h2>
+        <p>We'll email you when we ship new features and updates. No spam, unsubscribe anytime.</p>
         <form class="signup-form" id="footer-signup">
           <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Notify me</button>
+          <button type="submit">Subscribe</button>
         </form>
         <p class="signup-note" id="footer-note">No spam, ever. Unsubscribe anytime.</p>
       </div>
@@ -911,7 +925,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo">
+          <a href="index.html" class="logo">
             <img src="favicon.png" alt="Search Console" width="32" height="32">
             <span>Search Console</span>
           </a>
@@ -955,9 +969,9 @@
         <div>
           <h4>Product</h4>
           <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener">Download on the App Store</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="releases.html">Releases</a></li>
             <li><a href="guides/how-to-use-google-search-console-on-iphone.html">Guide: Use on iPhone</a></li>
           </ul>
         </div>
@@ -982,9 +996,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Search Console for iOS</span>
+        <span>&copy; 2026 Search Console for iOS</span>
         <div class="footer-legal">
-          <a href="/">Home</a>
+          <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
@@ -1073,15 +1087,15 @@
           fetch(webhookUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: '**New signup:** ' + email })
+            body: JSON.stringify({ content: '**New updates list signup:** ' + email })
           })
             .then(function (res) {
               if (res.ok) {
-                noteEl.textContent = "You're on the list. We'll email you when the app launches.";
+                noteEl.textContent = "You're on the list. We'll email you about new features and updates.";
                 noteEl.className = 'signup-success';
                 form.reset();
               } else {
-                noteEl.textContent = 'Something went wrong. Try again or email info@quackdb.app';
+                noteEl.textContent = 'Something went wrong. Try again or email info@search-console.org';
               }
             })
             .catch(function () {
@@ -1089,7 +1103,7 @@
             })
             .finally(function () {
               btn.disabled = false;
-              btn.textContent = 'Notify me';
+              btn.textContent = 'Subscribe';
             });
         });
       }

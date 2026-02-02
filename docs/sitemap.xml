@@ -5,7 +5,7 @@
   <!-- Homepage - Main landing page -->
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <!-- App screenshots for Google Image Search -->
@@ -46,10 +46,18 @@
     </image:image>
   </url>
   
+  <!-- Releases -->
+  <url>
+    <loc>https://search-console.org/releases.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- About -->
   <url>
     <loc>https://search-console.org/about.html</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,7 +65,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://search-console.org/privacy.html</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -65,7 +73,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://search-console.org/terms.html</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -73,7 +81,7 @@
   <!-- Guides -->
   <url>
     <loc>https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

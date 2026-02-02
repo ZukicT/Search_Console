@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://search-console.org/releases.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <title>Release History - Search Console for iOS</title>
+  <meta name="description" content="Track the evolution of Search Console for iOS. See all releases, features, and improvements in a visual timeline.">
+  <meta property="og:title" content="Release History - Search Console for iOS">
+  <meta property="og:description" content="Track the evolution of Search Console for iOS. See all releases, features, and improvements.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://search-console.org/releases.html">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .releases-hero {
+      padding: 80px 0 40px;
+      background: var(--white);
+    }
+    .releases-hero .container {
+      text-align: center;
+    }
+    .releases-hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .releases-hero-kicker svg {
+      width: 18px;
+      height: 18px;
+    }
+    .releases-hero h1 {
+      font-family: var(--font);
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+    }
+    .releases-hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .releases-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .stat-card:hover {
+      box-shadow: var(--shadow);
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .stat-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .stat-icon.blue { background: var(--blue-light); color: var(--blue); }
+    .stat-icon.green { background: var(--green-light); color: var(--green); }
+    .stat-icon.yellow { background: #fef7e0; color: var(--yellow); }
+    .stat-number {
+      font-family: var(--font);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    
+    /* Clean Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: var(--border);
+    }
+    .release-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .release-item:last-child {
+      margin-bottom: 0;
+    }
+    .release-dot {
+      position: absolute;
+      left: -32px;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--blue);
+      z-index: 2;
+    }
+    .release-dot.latest {
+      background: var(--blue);
+      box-shadow: 0 0 0 4px var(--blue-light);
+    }
+    .release-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .release-card:hover {
+      box-shadow: var(--shadow);
+    }
+    .release-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .release-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .release-version {
+      font-family: var(--font);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .release-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-latest {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .badge-pending {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+    .badge-stable {
+      background: var(--green-light);
+      color: var(--green);
+    }
+    .release-note {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #F3F4F6;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .release-note p {
+      margin: 0;
+    }
+    .release-date {
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+    }
+    .release-body {
+      padding: 20px 24px;
+    }
+    .release-section {
+      margin-bottom: 20px;
+    }
+    .release-section:last-child {
+      margin-bottom: 0;
+    }
+    .release-section-title {
+      font-family: var(--font);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 12px;
+    }
+    .release-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .release-list li {
+      position: relative;
+      padding: 8px 0 8px 20px;
+      color: var(--text);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    .release-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+    @media (max-width: 768px) {
+      .releases-hero { padding: 60px 0 30px; }
+      .releases-hero h1 { font-size: 2rem; }
+      .releases-hero p { font-size: 1rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 16px; }
+      .timeline { padding-left: 24px; }
+      .release-dot { left: -24px; width: 12px; height: 12px; }
+      .release-header { padding: 16px; }
+      .release-body { padding: 16px; }
+      .release-version { font-size: 1.125rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Search Console for iOS",
+    "operatingSystem": "iOS 18.0 or later",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "5.99",
+      "priceCurrency": "USD"
+    },
+    "softwareVersion": "1.0.2",
+    "releaseNotes": [
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.2",
+        "datePublished": "2026-02-02",
+        "releaseNotes": "Fixed subscription paywall not loading for some users. Improved error handling and messaging."
+      },
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.1",
+        "datePublished": "2026-01-15",
+        "releaseNotes": "Added search bar in Settings, default Insights date range customization, Patch Notes section, and build number display."
+      },
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.0",
+        "datePublished": "2026-01-01",
+        "releaseNotes": "Initial release with performance analytics, search queries, top pages, Core Web Vitals, URL inspection, sitemaps, notifications, and premium subscription."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://search-console.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Releases",
+        "item": "https://search-console.org/releases.html"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <img src="favicon.png" alt="Search Console" width="32" height="32">
+          <span>Search Console</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="releases.html">Releases</a>
+          <a href="about.html">About</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="releases.html">Releases</a>
+        <a href="about.html">About</a>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="releases-hero">
+    <div class="container">
+      <p class="releases-hero-kicker">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Version History
+      </p>
+      <h1>Release Notes</h1>
+      <p>Track the evolution of Search Console for iOS. Every update brings new features, improvements, and refinements.</p>
+    </div>
+  </section>
+
+  <div class="releases-container">
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Releases</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Features Added</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon yellow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Improvements</div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      <!-- Version 1.0.2 -->
+      <div class="release-item">
+        <div class="release-dot latest"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
+              <h2 class="release-version">Version 1.0.2</h2>
+              <span class="release-badge badge-pending">Pending App Store Approval</span>
+            </div>
+            <div class="release-date">February 2026</div>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <h3 class="release-section-title">Bug Fixes</h3>
+              <ul class="release-list">
+                <li>Fixed subscription paywall not loading for some users</li>
+                <li>Improved error handling and messaging</li>
+              </ul>
+            </div>
+            <div class="release-note">
+              <p>We apologize for any inconvenience caused by the subscription issue. This update resolves the problem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 1.0.1 -->
+      <div class="release-item">
+        <div class="release-dot"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
+              <h2 class="release-version">Version 1.0.1</h2>
+              <span class="release-badge badge-stable">Stable</span>
+            </div>
+            <div class="release-date">January 2026</div>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <h3 class="release-section-title">New Features</h3>
+              <ul class="release-list">
+                <li>Settings: Added search bar to find options quickly</li>
+                <li>Settings: Default Insights date range and Home Quick Actions customization</li>
+                <li>Settings: Open Notification Settings and Rate App in About</li>
+                <li>About: Patch Notes section with high-level updates and bug fixes</li>
+                <li>About: Version row now shows build number</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 1.0.0 -->
+      <div class="release-item">
+        <div class="release-dot"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
+              <h2 class="release-version">Version 1.0.0</h2>
+              <span class="release-badge badge-stable">Initial Release</span>
+            </div>
+            <div class="release-date">January 2026</div>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <h3 class="release-section-title">Core Features</h3>
+              <ul class="release-list">
+                <li>Performance analytics with date range and chart view</li>
+                <li>Search Queries and Top Pages with filters and export</li>
+                <li>Core Web Vitals (LCP, CLS, INP) with mobile and desktop</li>
+                <li>URL Inspection and Sitemap management</li>
+                <li>Insights home with quick actions and customizable tiles</li>
+              </ul>
+            </div>
+
+            <div class="release-section">
+              <h3 class="release-section-title">Notifications & Alerts</h3>
+              <ul class="release-list">
+                <li>Daily, weekly, and monthly report notifications</li>
+                <li>Performance and Web Vitals alerts</li>
+              </ul>
+            </div>
+
+            <div class="release-section">
+              <h3 class="release-section-title">Premium Features</h3>
+              <ul class="release-list">
+                <li>Premium subscription with 7-day free trial</li>
+                <li>Bug report and feedback forms</li>
+              </ul>
+            </div>
+
+            <div class="release-section">
+              <h3 class="release-section-title">Technical Improvements</h3>
+              <ul class="release-list">
+                <li>Memory and async leak fixes for stable usage</li>
+                <li>24-hour chart: hourly interpolation and projected data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="favicon.png" alt="Search Console" width="32" height="32">
+            <span>Search Console</span>
+          </a>
+          <p>Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
+          <p style="margin-top: 8px; font-size: 0.8125rem;">Not affiliated with Google.</p>
+          <div class="social-share">
+            <span class="social-label">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="social-icon social-main" id="social-share-btn" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener">Download on the App Store</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="releases.html">Releases</a></li>
+            <li><a href="guides/how-to-use-google-search-console-on-iphone.html">Guide: Use on iPhone</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit">Send message</button>
+          </form>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Search Console for iOS</span>
+        <div class="footer-legal">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var shareData = {
+        title: 'Search Console for iOS',
+        text: 'Check out Search Console for iOS - track your search rankings from your iPhone',
+        url: 'https://search-console.org'
+      };
+
+      var socialShareBtn = document.getElementById('social-share-btn');
+      if (socialShareBtn) {
+        socialShareBtn.addEventListener('click', function() {
+          if (navigator.share) {
+            navigator.share(shareData).catch(function() {});
+          } else {
+            navigator.clipboard.writeText(shareData.url).then(function() {
+              socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+              setTimeout(function() {
+                socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
+              }, 2000);
+            });
+          }
+        });
+      }
+
+      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      var mobileNav = document.getElementById('mobile-nav');
+      var menuIcon = document.getElementById('menu-icon');
+      if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          var isOpen = mobileNav.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+          if (isOpen) {
+            menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+          } else {
+            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+          }
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>
