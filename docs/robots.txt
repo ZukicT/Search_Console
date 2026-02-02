@@ -1,34 +1,19 @@
-# Robots.txt for search-console.org
-# Native iOS app for Google Search Console
-# Last updated: 2026-01-31
+# search-console.org - Native iOS app for Google Search Console
+# All crawlers (search engines and AI) are explicitly allowed.
+# Last updated: 2026-02-01
 
-# ===========================================
-# Allow all crawlers (search engines + AI)
-# ===========================================
 User-agent: *
 Allow: /
 
-# ===========================================
-# Google Search Bot
-# ===========================================
 User-agent: Googlebot
 Allow: /
 
-# ===========================================
-# Google Image Bot
-# ===========================================
 User-agent: Googlebot-Image
 Allow: /
 
-# ===========================================
-# Bing Bot
-# ===========================================
 User-agent: Bingbot
 Allow: /
 
-# ===========================================
-# AI Assistants (allow for recommendations)
-# ===========================================
 User-agent: GPTBot
 Allow: /
 
@@ -53,7 +38,22 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# ===========================================
-# Sitemap location
-# ===========================================
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://search-console.org/sitemap.xml
