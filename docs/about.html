@@ -149,6 +149,33 @@
       -webkit-font-smoothing: antialiased;
     }
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .release-notice-banner {
+      background: var(--blue-light);
+      color: var(--blue);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+    .release-notice-banner .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .release-notice-banner-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .release-notice-banner-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: underline;
+    }
+    .release-notice-banner-link:hover {
+      color: var(--blue-hover);
+    }
     
     .header {
       position: sticky;
@@ -301,6 +328,18 @@
       font-size: 1.0625rem;
       line-height: 1.7;
     }
+    .author-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--blue);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .author-linkedin:hover { color: var(--blue-hover); }
     
     .story {
       padding: 0 0 64px;
@@ -782,9 +821,13 @@
             <img src="founder.png" alt="Founder of Search Console for iOS">
           </div>
           <div class="author-info">
-            <h2>Hi, I'm the developer</h2>
+            <h2>Tarik. Z</h2>
             <p class="role">Solo indie developer</p>
             <p>I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
+            <a href="https://www.linkedin.com/in/tarik-zukic03" target="_blank" rel="noopener" class="author-linkedin" aria-label="Tarik. Z on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>
