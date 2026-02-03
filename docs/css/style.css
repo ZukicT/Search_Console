@@ -11,6 +11,7 @@
   --green: #1e8e3e;
   --green-light: #e6f4ea;
   --red: #d93025;
+  --red-light: #fce8e6;
   --yellow: #e37400;
   --yellow-light: #fef7e0;
   --radius: 8px;
@@ -36,6 +37,7 @@
   --green: #81c995;
   --green-light: rgba(129, 201, 149, 0.15);
   --red: #f28b82;
+  --red-light: rgba(242, 139, 130, 0.15);
   --yellow: #ffb347;
   --yellow-light: rgba(255, 179, 71, 0.18);
   --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
@@ -59,6 +61,7 @@
     --green: #81c995;
     --green-light: rgba(129, 201, 149, 0.15);
     --red: #f28b82;
+    --red-light: rgba(242, 139, 130, 0.15);
     --yellow: #ffb347;
     --yellow-light: rgba(255, 179, 71, 0.18);
     --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
@@ -342,7 +345,7 @@ body {
 }
 .value-prop-icon.blue { background: var(--blue-light); color: var(--blue); }
 .value-prop-icon.green { background: var(--green-light); color: var(--green); }
-.value-prop-icon.red { background: #fce8e6; color: var(--red); }
+.value-prop-icon.red { background: var(--red-light); color: var(--red); }
 .value-prop h3 {
   font-family: var(--font);
   font-size: 0.9375rem;

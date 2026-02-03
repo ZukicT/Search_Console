@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v5';
+const CACHE_NAME = 'search-console-v6';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -44,49 +44,49 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - network first for HTML (fresh content after deploy), cache first for assets
 self.addEventListener('fetch', event => {
-  // Skip non-GET requests
   if (event.request.method !== 'GET') return;
-  
-  // Skip external requests (fonts, analytics)
   if (!event.request.url.startsWith(self.location.origin)) return;
 
+  var isHtml = event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html');
+
+  if (isHtml) {
+    // HTML: network first so users see new content after deploy; fallback to cache when offline
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response.ok) {
+            var clone = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request).then(cached => cached || caches.match('/404.html')))
+    );
+    return;
+  }
+
+  // Assets: cache first, revalidate in background
   event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        if (cachedResponse) {
-          // Return cached version and update cache in background
-          event.waitUntil(
-            fetch(event.request)
-              .then(response => {
-                if (response.ok) {
-                  caches.open(CACHE_NAME)
-                    .then(cache => cache.put(event.request, response));
-                }
-              })
-              .catch(() => {})
-          );
-          return cachedResponse;
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        event.waitUntil(
+          fetch(event.request)
+            .then(response => {
+              if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response));
+            })
+            .catch(() => {})
+        );
+        return cachedResponse;
+      }
+      return fetch(event.request).then(response => {
+        if (response.ok) {
+          var clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         }
-        
-        // Not in cache - fetch from network
-        return fetch(event.request)
-          .then(response => {
-            // Cache successful responses
-            if (response.ok) {
-              const responseClone = response.clone();
-              caches.open(CACHE_NAME)
-                .then(cache => cache.put(event.request, responseClone));
-            }
-            return response;
-          })
-          .catch(() => {
-            // Offline fallback for HTML pages
-            if (event.request.headers.get('accept').includes('text/html')) {
-              return caches.match('/404.html');
-            }
-          });
-      })
+        return response;
+      }).catch(() => null);
+    })
   );
 });
