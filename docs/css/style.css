@@ -935,7 +935,7 @@ body {
   .hero-ctas { justify-content: center; }
   .hero-trust { justify-content: center; }
   .value-props-grid { grid-template-columns: 1fr; gap: 24px; }
-  .value-prop { justify-content: center; }
+  .value-prop { justify-content: flex-start; }
   .features-grid { grid-template-columns: repeat(2, 1fr) !important; }
   #how-to-use .features-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -968,8 +968,8 @@ body {
   .phone-preview:nth-child(2):hover { transform: translateY(-4px); }
   .phone-preview:nth-child(3) { display: none; }
   .value-props { padding: 32px 0; }
-  .value-prop { flex-direction: column; text-align: center; gap: 12px; }
-  .value-prop-icon { margin: 0 auto; }
+  .value-prop { flex-direction: column; text-align: left; gap: 12px; }
+  .value-prop-icon { margin: 0; }
   .value-prop h3 { font-size: 1rem; }
   .stats { padding: 32px 0; }
   .stats-grid { flex-direction: column; gap: 20px; }
