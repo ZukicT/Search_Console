@@ -568,6 +568,14 @@
     </div>
   </header>
 
+  <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
+  <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
+    <div class="container">
+      <span class="release-notice-banner-text">Bug fix 1.0.3 is in review — pending release.</span>
+      <a href="releases.html" class="release-notice-banner-link">Learn more</a>
+    </div>
+  </div>
+
   <main>
     <div class="container">
       <div class="page-header">
@@ -925,6 +933,13 @@
         navigator.serviceWorker.register('/sw.js').catch(function() {});
       });
     }
+    (function() {
+      var banner = document.getElementById('release-notice-banner');
+      if (!banner) return;
+      var expires = banner.getAttribute('data-expires');
+      if (!expires) return;
+      if (new Date() > new Date(expires)) { banner.style.display = 'none'; }
+    })();
   </script>
 </body>
 </html>

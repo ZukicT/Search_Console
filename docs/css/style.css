@@ -80,6 +80,34 @@ body {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+/* Release notice banner (time-limited; hide via data-expires + JS) */
+.release-notice-banner {
+  background: var(--blue-light);
+  color: var(--blue);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+.release-notice-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.release-notice-banner-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.release-notice-banner-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: underline;
+}
+.release-notice-banner-link:hover {
+  color: var(--blue-hover);
+}
+
 /* Header */
 .header {
   position: sticky;
