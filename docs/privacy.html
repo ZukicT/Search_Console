@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <title>Privacy Policy - Search Console for iOS</title>
   <meta name="robots" content="index, follow">
-  <meta name="download-ping-api" content="">
+  <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
   <meta name="description" content="Privacy policy for Search Console for iOS. How we handle your data, Google OAuth, and what we do not store.">
   <meta property="og:title" content="Privacy Policy - Search Console for iOS">
   <meta property="og:description" content="Privacy policy for Search Console for iOS. How we handle your data.">
@@ -883,8 +883,11 @@
       var meta = document.querySelector('meta[name="download-ping-api"]');
       var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
       if (!base) return;
+      var url = base.replace(/\/$/, '') + '/api/download-click';
       document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
-        a.addEventListener('click', function() { fetch(base + '/api/download-click', { method: 'POST', mode: 'cors' }).catch(function(){}); });
+        a.addEventListener('click', function() {
+          if (navigator.sendBeacon) { navigator.sendBeacon(url); } else { fetch(url, { method: 'POST', mode: 'cors', keepalive: true }).catch(function(){}); }
+        });
       });
     })();
   </script>

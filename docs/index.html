@@ -38,7 +38,7 @@
   <meta name="apple-mobile-web-app-title" content="Search Console">
   <meta name="application-name" content="Search Console for iOS">
   <!-- Set content to your API base URL (e.g. Vercel) to ping Discord when Download is clicked. Leave empty to disable. -->
-  <meta name="download-ping-api" content="">
+  <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
   <!-- DNS Prefetch for external domains -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -1312,9 +1312,14 @@
       var meta = document.querySelector('meta[name="download-ping-api"]');
       var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
       if (!base) return;
+      var url = base.replace(/\/$/, '') + '/api/download-click';
       document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function (a) {
         a.addEventListener('click', function () {
-          fetch(base + '/api/download-click', { method: 'POST', mode: 'cors' }).catch(function () {});
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(url);
+          } else {
+            fetch(url, { method: 'POST', mode: 'cors', keepalive: true }).catch(function () {});
+          }
         });
       });
     })();

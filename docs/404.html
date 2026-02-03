@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <title>Page Not Found - Search Console for iOS</title>
   <meta name="robots" content="noindex, follow">
-  <meta name="download-ping-api" content="">
+  <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
   <meta name="description" content="The page you're looking for doesn't exist.">
   <!-- DNS Prefetch -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -428,8 +428,11 @@
       var meta = document.querySelector('meta[name="download-ping-api"]');
       var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
       if (!base) return;
+      var url = base.replace(/\/$/, '') + '/api/download-click';
       document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
-        a.addEventListener('click', function() { fetch(base + '/api/download-click', { method: 'POST', mode: 'cors' }).catch(function(){}); });
+        a.addEventListener('click', function() {
+          if (navigator.sendBeacon) { navigator.sendBeacon(url); } else { fetch(url, { method: 'POST', mode: 'cors', keepalive: true }).catch(function(){}); }
+        });
       });
     })();
   </script>
