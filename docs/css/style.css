@@ -838,16 +838,22 @@ body {
 .contact-note.success { color: var(--green); }
 .contact-note.error { color: var(--red); }
 
-/* Theme Toggle */
+/* Theme Toggle - Subtle, positioned near logo */
 .theme-toggle {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-left: 8px;
+  gap: 2px;
+  padding: 2px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: 16px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.theme-toggle:hover {
+  opacity: 1;
 }
 .theme-toggle-mobile {
   display: none;
@@ -856,26 +862,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: transparent;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   color: var(--text-secondary);
   transition: all 0.2s;
 }
 .theme-btn:hover {
-  background: var(--border);
+  background: var(--bg);
   color: var(--text-heading);
 }
 .theme-btn.active {
-  background: var(--blue);
-  color: var(--white);
+  color: var(--blue);
 }
 .theme-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 @media (max-width: 768px) {
   .theme-toggle {
@@ -884,12 +889,16 @@ body {
   .theme-toggle-mobile {
     display: flex;
     align-items: center;
-    gap: 4px;
-    padding: 4px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    gap: 2px;
+    padding: 2px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
     margin-right: 8px;
+    opacity: 0.6;
+  }
+  .theme-toggle-mobile:hover {
+    opacity: 1;
   }
 }
 
