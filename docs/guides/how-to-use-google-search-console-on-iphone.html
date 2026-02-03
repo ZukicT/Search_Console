@@ -11,6 +11,7 @@
   
   <title>How to Use Google Search Console on iPhone | Step-by-Step Guide</title>
   <meta name="robots" content="index, follow">
+  <meta name="download-ping-api" content="">
   <meta name="description" content="Learn how to check your website's performance, ranking, and SEO data on iPhone using Google Search Console. Complete guide for 2026.">
   
   <meta property="og:title" content="How to Use Google Search Console on iPhone">
@@ -233,6 +234,14 @@
       var expires = banner.getAttribute('data-expires');
       if (!expires) return;
       if (new Date() > new Date(expires)) { banner.style.display = 'none'; }
+    })();
+    (function() {
+      var meta = document.querySelector('meta[name="download-ping-api"]');
+      var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
+      if (!base) return;
+      document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
+        a.addEventListener('click', function() { fetch(base + '/api/download-click', { method: 'POST', mode: 'cors' }).catch(function(){}); });
+      });
     })();
   </script>
 </body>

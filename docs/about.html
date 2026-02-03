@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <title>About - Search Console for iOS</title>
   <meta name="robots" content="index, follow">
+  <meta name="download-ping-api" content="">
   <meta name="description" content="The story behind Search Console for iOS. Why I built this app and what drives its development.">
   <meta property="og:title" content="About - Search Console for iOS">
   <meta property="og:description" content="The story behind Search Console for iOS. Built by someone who needed it.">
@@ -1047,6 +1048,14 @@
       var expires = banner.getAttribute('data-expires');
       if (!expires) return;
       if (new Date() > new Date(expires)) { banner.style.display = 'none'; }
+    })();
+    (function() {
+      var meta = document.querySelector('meta[name="download-ping-api"]');
+      var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
+      if (!base) return;
+      document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
+        a.addEventListener('click', function() { fetch(base + '/api/download-click', { method: 'POST', mode: 'cors' }).catch(function(){}); });
+      });
     })();
   </script>
 </body>
