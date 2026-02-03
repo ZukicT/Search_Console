@@ -10,6 +10,21 @@ const CORS_HEADERS = {
 };
 
 const REDIS_KEY = 'search-console:download-clicks';
+const MSG_ID_PAD = 6;
+
+function decodeLocation(value) {
+  if (!value || typeof value !== 'string') return '';
+  const s = String(value).trim().slice(0, 100);
+  try {
+    return decodeURIComponent(s.replace(/\+/g, ' '));
+  } catch (_) {
+    return s;
+  }
+}
+
+function formatMsgId(n) {
+  return String(n).padStart(MSG_ID_PAD, '0');
+}
 
 async function incrementDownloadCount() {
   const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -59,10 +74,13 @@ module.exports = async function handler(req, res) {
   const region = (req.headers && req.headers['x-vercel-ip-country-region']) || null;
 
   const countryStr = country ? String(country).toUpperCase() : '—';
-  const cityOrRegion = (city && String(city).trim()) ? String(city).slice(0, 100) : (region && String(region).trim()) ? String(region).slice(0, 100) : '—';
+  const cityDecoded = decodeLocation(city);
+  const regionDecoded = decodeLocation(region);
+  const cityOrRegion = cityDecoded || regionDecoded || '—';
 
+  const msgId = count !== null ? formatMsgId(count) : null;
   let title = 'Download button clicked';
-  if (count !== null) title += ' #' + String(count);
+  if (msgId !== null) title += ' #' + msgId;
 
   const fields = [
     { name: 'Source', value: String(source).slice(0, 256), inline: true },
@@ -76,8 +94,8 @@ module.exports = async function handler(req, res) {
     fields: fields,
     timestamp: new Date().toISOString(),
   };
-  if (count !== null) {
-    embed.footer = { text: 'Total download pings: ' + String(count) };
+  if (msgId !== null) {
+    embed.footer = { text: 'Message ID: ' + msgId + ' (total pings)' };
   }
 
   try {
