@@ -849,6 +849,9 @@ body {
   border-radius: 8px;
   margin-left: 8px;
 }
+.theme-toggle-mobile {
+  display: none;
+}
 .theme-btn {
   display: flex;
   align-items: center;
@@ -876,7 +879,16 @@ body {
 }
 @media (max-width: 768px) {
   .theme-toggle {
-    margin-left: 0;
+    display: none;
+  }
+  .theme-toggle-mobile {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     margin-right: 8px;
   }
 }

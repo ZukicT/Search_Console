@@ -122,8 +122,19 @@
       width: 18px;
       height: 18px;
     }
+    .theme-toggle-mobile { display: none; }
     @media (max-width: 768px) {
-      .theme-toggle { margin-left: 0; margin-right: 8px; }
+      .theme-toggle { display: none; }
+      .theme-toggle-mobile {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-right: 8px;
+      }
     }
     .privacy-highlight {
       background: var(--green-light) !important;
@@ -518,7 +529,7 @@
             </button>
           </div>
         </nav>
-        <div class="theme-toggle" id="theme-toggle-mobile" style="display:none;">
+        <div class="theme-toggle theme-toggle-mobile">
           <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </button>
@@ -755,15 +766,6 @@
             setTheme(theme);
           }
         });
-      });
-      var mobileToggle = document.getElementById('theme-toggle-mobile');
-      if (mobileToggle && window.innerWidth <= 768) {
-        mobileToggle.style.display = 'flex';
-      }
-      window.addEventListener('resize', function() {
-        if (mobileToggle) {
-          mobileToggle.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
-        }
       });
     })();
 
