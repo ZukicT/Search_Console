@@ -89,6 +89,7 @@
       "priceCurrency": "USD",
       "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
+      "description": "7-day free trial, then $5.99/month",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
         "price": "5.99",
@@ -110,10 +111,13 @@
       "Track search queries and keywords",
       "Monitor top pages performance",
       "Core Web Vitals monitoring (LCP, CLS, INP)",
+      "24-hour data access with hourly metrics",
       "Interactive performance charts",
       "Filter by device type (mobile, desktop, tablet)",
       "Custom date range analysis",
-      "PDF report generation",
+      "Export reports as CSV or PDF",
+      "URL inspection and indexing status",
+      "Sitemap management",
       "Push notifications for performance alerts",
       "Multiple sites support",
       "Offline data caching"
@@ -200,7 +204,7 @@
         "name": "Is my data safe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The app connects directly to Google's official Search Console API using OAuth 2.0. Your data stays in your Google account - I don't store, collect, or have access to your Search Console data. All communication is encrypted."
+          "text": "Yes. The app connects directly to Google's official Search Console API using OAuth 2.0. Your data stays in your Google account - I don't store, collect, or have access to your Search Console data. All data shown is based on what Google collects and what you have enabled in your Google Account settings. You can manage your privacy at myaccount.google.com/data-and-privacy."
         }
       },
       {
@@ -339,7 +343,29 @@
           <a href="about.html">About</a>
           <a href="#faq">FAQ</a>
           <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+          <div class="theme-toggle" id="theme-toggle">
+            <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </button>
+            <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+          </div>
         </nav>
+        <div class="theme-toggle" id="theme-toggle-mobile" style="display:none;">
+          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
             <line x1="3" y1="6" x2="21" y2="6" />
@@ -643,40 +669,40 @@
           <div class="pricing-badge">7-day free trial</div>
           <div class="pricing-amount">$5.99</div>
           <div class="pricing-period">per month</div>
-          <p class="pricing-desc">Billed monthly through the App Store.</p>
+          <p class="pricing-desc">Billed monthly through the App Store. Cancel anytime.</p>
           <ul class="pricing-features">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              All Search Console sites
+              Real-time analytics (clicks, impressions, CTR, position)
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Search queries and top pages
+              24-hour data access with hourly metrics
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Core Web Vitals
+              Core Web Vitals (LCP, CLS, INP)
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              PDF reports
+              Export reports as CSV or PDF
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Push notifications
+              Unlimited Search Console properties
             </li>
           </ul>
-          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary pricing-cta" target="_blank" rel="noopener">Download on the App Store</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary pricing-cta" target="_blank" rel="noopener">Start Free Trial</a>
         </div>
       </div>
     </section>
@@ -765,7 +791,8 @@
             <div class="faq-answer">
               <div class="faq-answer-inner">Yes. The app connects directly to Google's official Search Console API 
                 using OAuth 2.0. Your data stays in your Google account - I don't store, collect, or have access 
-                to your Search Console data. All communication is encrypted.</div>
+                to your Search Console data. All data shown is based on what Google collects and what you have 
+                enabled in your Google Account settings. You can <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">manage your Google privacy settings here</a>.</div>
             </div>
           </div>
           <div class="faq-item">
@@ -1014,6 +1041,61 @@
   </div>
 
   <script>
+    // Theme Toggle
+    (function() {
+      var STORAGE_KEY = 'theme-preference';
+      
+      function getThemePreference() {
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) return stored;
+        return 'system';
+      }
+      
+      function setTheme(theme) {
+        localStorage.setItem(STORAGE_KEY, theme);
+        
+        if (theme === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        
+        updateToggleButtons(theme);
+      }
+      
+      function updateToggleButtons(theme) {
+        document.querySelectorAll('.theme-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+        });
+      }
+      
+      // Initialize on load
+      var initialTheme = getThemePreference();
+      setTheme(initialTheme);
+      
+      // Handle toggle clicks
+      document.querySelectorAll('.theme-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          var btn = e.target.closest('.theme-btn');
+          if (btn) {
+            var theme = btn.getAttribute('data-theme');
+            setTheme(theme);
+          }
+        });
+      });
+      
+      // Show mobile toggle
+      var mobileToggle = document.getElementById('theme-toggle-mobile');
+      if (mobileToggle && window.innerWidth <= 768) {
+        mobileToggle.style.display = 'flex';
+      }
+      window.addEventListener('resize', function() {
+        if (mobileToggle) {
+          mobileToggle.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+        }
+      });
+    })();
+
     (function () {
       var track = document.getElementById('carousel-track');
       var dotsEl = document.getElementById('carousel-dots');

@@ -55,6 +55,80 @@
       --font: "Inter", "Roboto", -apple-system, sans-serif;
       --font-body: "Roboto", -apple-system, sans-serif;
     }
+    [data-theme="dark"] {
+      --white: #1a1a1a;
+      --bg: #121212;
+      --text: #9aa0a6;
+      --text-heading: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --border: #3c4043;
+      --blue: #8ab4f8;
+      --blue-hover: #aecbfa;
+      --blue-light: rgba(138, 180, 248, 0.15);
+      --green: #81c995;
+      --green-light: rgba(129, 201, 149, 0.15);
+      --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
+      --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --white: #1a1a1a;
+        --bg: #121212;
+        --text: #9aa0a6;
+        --text-heading: #e8eaed;
+        --text-secondary: #9aa0a6;
+        --border: #3c4043;
+        --blue: #8ab4f8;
+        --blue-hover: #aecbfa;
+        --blue-light: rgba(138, 180, 248, 0.15);
+        --green: #81c995;
+        --green-light: rgba(129, 201, 149, 0.15);
+        --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
+        --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
+      }
+    }
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-left: 8px;
+    }
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .theme-btn:hover {
+      background: var(--border);
+      color: var(--text-heading);
+    }
+    .theme-btn.active {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .theme-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    @media (max-width: 768px) {
+      .theme-toggle { margin-left: 0; margin-right: 8px; }
+    }
+    .privacy-highlight {
+      background: var(--green-light) !important;
+      border-color: var(--green) !important;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -432,7 +506,29 @@
           <a href="about.html">About</a>
           <a href="index.html#faq">FAQ</a>
           <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+          <div class="theme-toggle" id="theme-toggle">
+            <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </button>
+            <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+          </div>
         </nav>
+        <div class="theme-toggle" id="theme-toggle-mobile" style="display:none;">
+          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -454,7 +550,7 @@
     <div class="container">
       <div class="page-header">
         <h1>Privacy Policy</h1>
-        <p>How we handle your data. Last updated: January 2026.</p>
+        <p>How we handle your data. Last updated: February 2026.</p>
       </div>
 
       <section class="content-section">
@@ -463,16 +559,28 @@
         <p>We are committed to protecting your privacy and being transparent about our data practices. This App is not affiliated with, endorsed by, or sponsored by Google LLC.</p>
       </section>
 
+      <section class="content-section privacy-highlight">
+        <h2>Data Source &amp; Google Account Privacy</h2>
+        <p><strong>Important:</strong> This app displays data from your Google Search Console account. All data shown is based on <strong>what Google collects</strong> and <strong>what you have enabled in your Google Account settings</strong>.</p>
+        <p>We do not collect any additional data beyond what Google already collects about your website's search performance. The app acts as a viewer for your existing Google data.</p>
+        <p style="margin-top: 16px;"><strong>Manage Your Google Account Privacy:</strong></p>
+        <ul>
+          <li><a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google Account Data &amp; Privacy Settings</a></li>
+          <li><a href="https://myaccount.google.com/intro/privacycheckup" target="_blank" rel="noopener">Google Privacy Checkup</a></li>
+          <li><a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Manage App Permissions (Revoke Access)</a></li>
+        </ul>
+      </section>
+
       <section class="content-section">
-        <h2>Information We Collect</h2>
-        <p>When you use the App, we access the following through Google's official APIs:</p>
+        <h2>Information We Access</h2>
+        <p>When you use the App, we <strong>access</strong> (not collect) the following through Google's official APIs:</p>
         <ul>
           <li><strong>Google Account Information:</strong> Your name, email address, and profile picture (used for authentication and display within the App)</li>
           <li><strong>Search Console Data:</strong> Website performance metrics including clicks, impressions, CTR, average position, search queries, pages, and device data</li>
           <li><strong>Website Properties:</strong> URLs of websites you have registered in Google Search Console</li>
           <li><strong>PageSpeed Data:</strong> Core Web Vitals metrics when you use that feature</li>
         </ul>
-        <p>Important: All data is fetched directly from Google's servers. We do not operate any backend servers that store your data.</p>
+        <p><strong>Important:</strong> All data shown is based on what Google collects and what you have enabled in your Google Account settings. We do not collect any additional data. All information is fetched directly from Google's servers in real-time and displayed on your device.</p>
       </section>
 
       <section class="content-section">
@@ -615,6 +723,50 @@
   </footer>
 
   <script>
+    // Theme Toggle
+    (function() {
+      var STORAGE_KEY = 'theme-preference';
+      function getThemePreference() {
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) return stored;
+        return 'system';
+      }
+      function setTheme(theme) {
+        localStorage.setItem(STORAGE_KEY, theme);
+        if (theme === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        updateToggleButtons(theme);
+      }
+      function updateToggleButtons(theme) {
+        document.querySelectorAll('.theme-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
+        });
+      }
+      var initialTheme = getThemePreference();
+      setTheme(initialTheme);
+      document.querySelectorAll('.theme-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+          var btn = e.target.closest('.theme-btn');
+          if (btn) {
+            var theme = btn.getAttribute('data-theme');
+            setTheme(theme);
+          }
+        });
+      });
+      var mobileToggle = document.getElementById('theme-toggle-mobile');
+      if (mobileToggle && window.innerWidth <= 768) {
+        mobileToggle.style.display = 'flex';
+      }
+      window.addEventListener('resize', function() {
+        if (mobileToggle) {
+          mobileToggle.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+        }
+      });
+    })();
+
     (function() {
       var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
       var contactForm = document.getElementById('contact-form');
