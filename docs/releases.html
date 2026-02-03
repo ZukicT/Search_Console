@@ -189,6 +189,16 @@
       background: #FEF3C7;
       color: #92400E;
     }
+    @media (prefers-color-scheme: dark) {
+      .badge-pending {
+        background: rgba(255, 179, 71, 0.25);
+        color: var(--yellow);
+      }
+    }
+    [data-theme="dark"] .badge-pending {
+      background: rgba(255, 179, 71, 0.25);
+      color: var(--yellow);
+    }
     .badge-stable {
       background: var(--green-light);
       color: var(--green);
@@ -200,6 +210,14 @@
       border-radius: 8px;
       font-size: 14px;
       color: var(--text-secondary);
+    }
+    @media (prefers-color-scheme: dark) {
+      .release-note {
+        background: rgba(255, 255, 255, 0.06);
+      }
+    }
+    [data-theme="dark"] .release-note {
+      background: rgba(255, 255, 255, 0.06);
     }
     .release-note p {
       margin: 0;
@@ -270,11 +288,11 @@
       "price": "5.99",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "1.0.2",
+    "softwareVersion": "1.0.3",
     "releaseNotes": [
       {
         "@type": "ReleaseNotes",
-        "name": "Version 1.0.2",
+        "name": "Version 1.0.3",
         "datePublished": "2026-02-02",
         "releaseNotes": "Fixed subscription paywall not loading for some users. Improved error handling and messaging."
       },
@@ -421,13 +439,13 @@
 
     <!-- Timeline -->
     <div class="timeline">
-      <!-- Version 1.0.2 -->
+      <!-- Version 1.0.3 -->
       <div class="release-item">
         <div class="release-dot latest"></div>
         <div class="release-card">
           <div class="release-header">
             <div class="release-title">
-              <h2 class="release-version">Version 1.0.2</h2>
+              <h2 class="release-version">Version 1.0.3</h2>
               <span class="release-badge badge-pending">Pending App Store Approval</span>
             </div>
             <div class="release-date">February 2026</div>
