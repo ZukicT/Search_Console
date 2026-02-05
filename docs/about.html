@@ -88,6 +88,9 @@
         --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
         --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
       }
+      :root:not([data-theme="light"]) .lang-picker {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      }
     }
     .theme-toggle {
       display: flex;
@@ -216,6 +219,7 @@
     }
     .nav a:hover { background: var(--bg); }
     .nav-cta {
+      white-space: nowrap;
       background: var(--blue) !important;
       color: var(--white) !important;
     }
@@ -459,6 +463,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      white-space: nowrap;
       gap: 8px;
       padding: 14px 28px;
       border-radius: var(--radius);
@@ -491,6 +496,53 @@
       gap: 56px;
       margin-bottom: 56px;
     }
+    .lang-picker {
+      width: 100%;
+      max-width: 180px;
+      padding: 10px 40px 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+      background-color: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      color: var(--text-heading);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      transition: border-color 0.2s;
+    }
+    .lang-picker:hover,
+    .lang-picker:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .lang-picker option {
+      background: var(--white);
+      color: var(--text-heading);
+      padding: 10px 12px;
+    }
+    [data-theme="dark"] .lang-picker {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    }
+    .footer-bottom .lang-picker {
+      max-width: 140px;
+      padding: 6px 32px 6px 10px;
+      font-size: 0.8125rem;
+      background-position: right 8px center;
+      background-size: 14px;
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    .footer-bottom .lang-picker:hover,
+    .footer-bottom .lang-picker:focus {
+      border-color: var(--blue);
+      color: var(--text-heading);
+    }
     .footer-brand p {
       margin-top: 16px;
       font-size: 0.875rem;
@@ -507,6 +559,7 @@
       font-size: 0.8125rem;
       color: var(--text-secondary);
       font-weight: 500;
+      white-space: nowrap;
     }
     .social-icon {
       display: flex;
@@ -563,15 +616,35 @@
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
       font-size: 0.875rem;
       color: var(--text-secondary);
+    }
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+    .footer-bottom-right .lang-picker {
+      flex-shrink: 0;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 0;
     }
     .footer-legal a {
       color: var(--text-secondary);
       text-decoration: none;
-      margin-left: 28px;
+      margin-left: 20px;
       transition: color 0.2s;
+      white-space: nowrap;
     }
+    .footer-legal a:first-child { margin-left: 0; }
     .footer-legal a:hover { color: var(--blue); }
     .contact-form {
       display: flex;
@@ -671,6 +744,7 @@
       .footer { padding: 40px 0 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding-top: 24px; }
+      .footer-bottom-right { justify-content: center; }
       .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
       .footer-legal a { margin: 0 8px; }
       .contact-form input, .contact-form textarea { padding: 14px; min-height: 48px; }
@@ -749,51 +823,51 @@
       <div class="header-inner">
         <a href="/" class="logo">
           <img src="favicon.png" alt="Search Console" width="32" height="32">
-          <span>Search Console</span>
+          <span data-i18n="common.appNameShort">Search Console</span>
         </a>
         <div class="theme-toggle" id="theme-toggle">
-          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </button>
-          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </button>
-          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
         </div>
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="index.html#features">Features</a>
-          <a href="releases.html">Releases</a>
-          <a href="about.html">About</a>
-          <a href="index.html#faq">FAQ</a>
-          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="index.html#features" data-i18n="nav.features">Features</a>
+          <a href="releases.html" data-i18n="nav.releases">Releases</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
         </nav>
         <div class="theme-toggle theme-toggle-mobile">
-          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </button>
-          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </button>
-          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
         </div>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="releases.html">Releases</a>
-        <a href="about.html">About</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="index.html#features" data-i18n="nav.features">Features</a>
+        <a href="releases.html" data-i18n="nav.releases">Releases</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
       </nav>
     </div>
   </header>
@@ -801,16 +875,16 @@
   <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
   <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
     <div class="container">
-      <span class="release-notice-banner-text">Bug fix 1.0.3 is in review — pending release.</span>
-      <a href="releases.html" class="release-notice-banner-link">Learn more</a>
+      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Bug fix 1.0.3 is in review - pending release.</span>
+      <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">Learn more</a>
     </div>
   </div>
 
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Built by someone<br>who needed it</h1>
-        <p>The story behind Search Console for iOS</p>
+        <h1 data-i18n="about.heroTitle">Built by someone<br>who needed it</h1>
+        <p data-i18n="about.heroSubtitle">The story behind Search Console for iOS</p>
       </div>
     </section>
 
@@ -822,11 +896,11 @@
           </div>
           <div class="author-info">
             <h2>Tarik. Z</h2>
-            <p class="role">Solo indie developer</p>
-            <p>I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
+            <p class="role" data-i18n="about.authorRole">Solo indie developer</p>
+            <p data-i18n="about.authorBio">I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
             <a href="https://www.linkedin.com/in/tarik-zukic03" target="_blank" rel="noopener" class="author-linkedin" aria-label="Tarik. Z on LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
+              <span data-i18n="about.linkedin">LinkedIn</span>
             </a>
           </div>
         </div>
@@ -836,28 +910,28 @@
     <section class="story">
       <div class="container">
         <div class="story-content">
-          <h2>Why I Built This</h2>
+          <h2 data-i18n="about.storyTitle">Why I Built This</h2>
           
-          <p>I use Search Console to keep tabs on my website, but honestly? The mobile experience is rough. I got tired of jumping into Safari every time I wanted to check something quick.</p>
+          <p data-i18n="about.storyP1">I use Search Console to keep tabs on my website, but honestly? The mobile experience is rough. I got tired of jumping into Safari every time I wanted to check something quick.</p>
           
-          <p>I saw Google has an API for it, and based on all the forum posts I've read, it doesn't seem like they're planning to build an app anytime soon. The options on the App Store didn't really do it for me either. One looked sketchy, the others just felt off.</p>
+          <p data-i18n="about.storyP2">I saw Google has an API for it, and based on all the forum posts I've read, it doesn't seem like they're planning to build an app anytime soon. The options on the App Store didn't really do it for me either. One looked sketchy, the others just felt off.</p>
           
           <div class="highlight">
-            <p>"There has to be a better way to check my search data on the&nbsp;go."</p>
+            <p data-i18n="about.storyHighlight">"There has to be a better way to check my search data on the go."</p>
           </div>
           
-          <p>So I built my own.</p>
+          <p data-i18n="about.storyP3">So I built my own.</p>
           
-          <p>It does what I need. I can check my keywords, see which pages are getting traffic, and keep an eye on Core Web Vitals. Nothing fancy, just the stuff I actually want to see when I open the app.</p>
+          <p data-i18n="about.storyP4">It does what I need. I can check my keywords, see which pages are getting traffic, and keep an eye on Core Web Vitals. Nothing fancy, just the stuff I actually want to see when I open the app.</p>
           
-          <p>I'm not a big company. It's just me, building something I use every day. If you've felt the same frustration, maybe it'll work for you too.</p>
+          <p data-i18n="about.storyP5">I'm not a big company. It's just me, building something I use every day. If you've felt the same frustration, maybe it'll work for you too.</p>
         </div>
       </div>
     </section>
 
     <section class="values">
       <div class="container">
-        <h2>What drives this app</h2>
+        <h2 data-i18n="about.valuesTitle">What drives this app</h2>
         <div class="values-grid">
           <div class="value-card">
             <div class="icon blue">
@@ -865,8 +939,8 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
-            <h3>Privacy first</h3>
-            <p>Your data stays in your Google account. The app displays what Google collects - I don't store or sell anything. <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener" style="color: var(--blue);">Manage your Google privacy</a>.</p>
+            <h3 data-i18n="about.valuePrivacyTitle">Privacy first</h3>
+            <p data-i18n="about.valuePrivacyDesc">Your data stays in your Google account. The app displays what Google collects - I don't store or sell anything. <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener" style="color: var(--blue);">Manage your Google privacy</a>.</p>
           </div>
           <div class="value-card">
             <div class="icon green">
@@ -874,8 +948,8 @@
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
-            <h3>Fast and focused</h3>
-            <p>No bloat. Open the app, see your data. Built for quick checks on the go.</p>
+            <h3 data-i18n="about.valueFastTitle">Fast and focused</h3>
+            <p data-i18n="about.valueFastDesc">No bloat. Open the app, see your data. Built for quick checks on the go.</p>
           </div>
           <div class="value-card">
             <div class="icon yellow">
@@ -883,8 +957,8 @@
                 <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
               </svg>
             </div>
-            <h3>Always improving</h3>
-            <p>Your subscription supports active development. New features ship regularly.</p>
+            <h3 data-i18n="about.valueImprovingTitle">Always improving</h3>
+            <p data-i18n="about.valueImprovingDesc">Your subscription supports active development. New features ship regularly.</p>
           </div>
         </div>
       </div>
@@ -892,9 +966,9 @@
 
     <section class="cta-section">
       <div class="container">
-        <h2>Want to try it?</h2>
-        <p>Download Search Console for iOS from the App Store.</p>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener">Download on the App Store</a>
+        <h2 data-i18n="about.ctaTitle">Want to try it?</h2>
+        <p data-i18n="about.ctaSubtitle">Download Search Console for iOS from the App Store.</p>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="about.ctaButton">Download on the App Store</a>
       </div>
     </section>
   </main>
@@ -905,12 +979,12 @@
         <div class="footer-brand">
           <a href="index.html" class="logo">
             <img src="favicon.png" alt="Search Console" width="32" height="32">
-            <span>Search Console</span>
+            <span data-i18n="common.appNameShort">Search Console</span>
           </a>
-          <p>Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
-          <p style="margin-top: 8px; font-size: 0.8125rem;">Not affiliated with Google.</p>
+          <p data-i18n="footer.tagline">Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
+          <p style="margin-top: 8px; font-size: 0.8125rem;" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
           <div class="social-share">
-            <span class="social-label">Share:</span>
+            <span class="social-label" data-i18n="footer.share">Share:</span>
             <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -926,44 +1000,46 @@
           </div>
         </div>
         <div>
-          <h4>Product</h4>
+          <h4 data-i18n="footer.pages">Pages</h4>
           <ul class="footer-links">
-            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener">Download on the App Store</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="releases.html">Releases</a></li>
-            <li><a href="guides/how-to-use-google-search-console-on-iphone.html">Guide: Use on iPhone</a></li>
+            <li><a href="index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="about.html" data-i18n="footer.about">About</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy</a></li>
+            <li><a href="terms.html" data-i18n="footer.terms">Terms</a></li>
           </ul>
         </div>
         <div>
-          <h4>Resources</h4>
+          <h4 data-i18n="footer.resources">Resources</h4>
           <ul class="footer-links">
-            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
-            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Manage subscription</a></li>
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
+            <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="releases.html" data-i18n="nav.releases">Releases</a></li>
+            <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contact">Contact</h4>
           <form class="contact-form" id="contact-form">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message" rows="3" required></textarea>
-            <button type="submit">Send message</button>
+            <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
+            <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
+            <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit" data-i18n="footer.sendMessage">Send message</button>
           </form>
           <p class="contact-note" id="contact-note"></p>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Search Console for iOS</span>
-        <div class="footer-legal">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
+        <span data-i18n="footer.copyright">&copy; 2026 Search Console for iOS</span>
+        <div class="footer-bottom-right">
+          <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script>
     // Theme Toggle
     (function() {

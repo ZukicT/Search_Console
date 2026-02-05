@@ -87,6 +87,9 @@
         --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
         --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
       }
+      :root:not([data-theme="light"]) .lang-picker {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      }
     }
     .theme-toggle {
       display: flex;
@@ -192,6 +195,7 @@
     }
     .nav a:hover { background: var(--bg); }
     .nav-cta {
+      white-space: nowrap;
       background: var(--blue) !important;
       color: var(--white) !important;
     }
@@ -330,6 +334,7 @@
       font-size: 0.8125rem;
       color: var(--text-secondary);
       font-weight: 500;
+      white-space: nowrap;
     }
     .social-icon {
       display: flex;
@@ -386,17 +391,75 @@
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
       font-size: 0.875rem;
       color: var(--text-secondary);
+    }
+    .footer-bottom-right {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+    .footer-bottom-right .lang-picker {
+      flex-shrink: 0;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 0;
     }
     .footer-legal a {
       color: var(--text-secondary);
       text-decoration: none;
-      margin-left: 28px;
+      margin-left: 20px;
       transition: color 0.2s;
+      white-space: nowrap;
     }
+    .footer-legal a:first-child { margin-left: 0; }
     .footer-legal a:hover { color: var(--blue); }
-    
+    .lang-picker {
+      width: 100%;
+      max-width: 180px;
+      padding: 10px 40px 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-family: var(--font-body);
+      background-color: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      color: var(--text-heading);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      transition: border-color 0.2s;
+    }
+    .lang-picker:hover, .lang-picker:focus { outline: none; border-color: var(--blue); }
+    .footer-bottom .lang-picker {
+      max-width: 140px;
+      padding: 6px 32px 6px 10px;
+      font-size: 0.8125rem;
+      background-position: right 8px center;
+      background-size: 14px;
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    .footer-bottom .lang-picker:hover,
+    .footer-bottom .lang-picker:focus {
+      border-color: var(--blue);
+      color: var(--text-heading);
+    }
+    .lang-picker option { background: var(--white); color: var(--text-heading); padding: 10px 12px; }
+    [data-theme="dark"] .lang-picker {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    }
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -464,6 +527,7 @@
       .footer { padding: 40px 0 24px; margin-top: 48px; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding-top: 24px; }
+      .footer-bottom-right { justify-content: center; }
       .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
       .footer-legal a { margin: 0 8px; }
       .contact-form input, .contact-form textarea { padding: 14px; min-height: 48px; }
@@ -509,51 +573,51 @@
       <div class="header-inner">
         <a href="/" class="logo">
           <img src="favicon.png" alt="Search Console" width="32" height="32">
-          <span>Search Console</span>
+          <span data-i18n="common.appNameShort">Search Console</span>
         </a>
         <div class="theme-toggle" id="theme-toggle">
-          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
+          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </button>
-          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </button>
-          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
         </div>
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="index.html#features">Features</a>
-          <a href="releases.html">Releases</a>
-          <a href="about.html">About</a>
-          <a href="index.html#faq">FAQ</a>
-          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="index.html#features" data-i18n="nav.features">Features</a>
+          <a href="releases.html" data-i18n="nav.releases">Releases</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
         </nav>
         <div class="theme-toggle theme-toggle-mobile">
           <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </button>
-          <button class="theme-btn" data-theme="light" title="Light theme" aria-label="Use light theme">
+          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </button>
-          <button class="theme-btn" data-theme="dark" title="Dark theme" aria-label="Use dark theme">
+          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </button>
         </div>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
         </button>
       </div>
       <nav class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="releases.html">Releases</a>
-        <a href="about.html">About</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener">Download</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="index.html#features" data-i18n="nav.features">Features</a>
+        <a href="releases.html" data-i18n="nav.releases">Releases</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
       </nav>
     </div>
   </header>
@@ -561,8 +625,8 @@
   <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
   <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
     <div class="container">
-      <span class="release-notice-banner-text">Bug fix 1.0.3 is in review — pending release.</span>
-      <a href="releases.html" class="release-notice-banner-link">Learn more</a>
+      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Bug fix 1.0.3 is in review - pending release.</span>
+      <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">Learn more</a>
     </div>
   </div>
 
@@ -683,12 +747,12 @@
         <div class="footer-brand">
           <a href="index.html" class="logo">
             <img src="favicon.png" alt="Search Console" width="32" height="32">
-            <span>Search Console</span>
+            <span data-i18n="common.appNameShort">Search Console</span>
           </a>
-          <p>Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
-          <p style="margin-top: 8px; font-size: 0.8125rem;">Not affiliated with Google.</p>
+          <p data-i18n="footer.tagline">Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
+          <p style="margin-top: 8px; font-size: 0.8125rem;" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
           <div class="social-share">
-            <span class="social-label">Share:</span>
+            <span class="social-label" data-i18n="footer.share">Share:</span>
             <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -704,39 +768,40 @@
           </div>
         </div>
         <div>
-          <h4>Product</h4>
+          <h4 data-i18n="footer.pages">Pages</h4>
           <ul class="footer-links">
-            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener">Download on the App Store</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="releases.html">Releases</a></li>
-            <li><a href="guides/how-to-use-google-search-console-on-iphone.html">Guide: Use on iPhone</a></li>
+            <li><a href="index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="about.html" data-i18n="footer.about">About</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy</a></li>
+            <li><a href="terms.html" data-i18n="footer.terms">Terms</a></li>
           </ul>
         </div>
         <div>
-          <h4>Resources</h4>
+          <h4 data-i18n="footer.resources">Resources</h4>
           <ul class="footer-links">
-            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
-            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Manage subscription</a></li>
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
+            <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="releases.html" data-i18n="nav.releases">Releases</a></li>
+            <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contact">Contact</h4>
           <form class="contact-form" id="contact-form">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Your email" required>
-            <textarea name="message" placeholder="Your message" rows="3" required></textarea>
-            <button type="submit">Send message</button>
+            <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
+            <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
+            <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit" data-i18n="footer.sendMessage">Send message</button>
           </form>
           <p class="contact-note" id="contact-note"></p>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Search Console for iOS</span>
-        <div class="footer-legal">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
+        <span data-i18n="footer.copyright">&copy; 2026 Search Console for iOS</span>
+        <div class="footer-bottom-right">
+          <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
         </div>
       </div>
     </div>
@@ -891,5 +956,6 @@
       });
     })();
   </script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
