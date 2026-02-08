@@ -352,13 +352,31 @@
       "price": "5.99",
       "priceCurrency": "USD"
     },
-    "softwareVersion": "1.0.3",
+    "softwareVersion": "1.0.5",
     "releaseNotes": [
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.5",
+        "datePublished": "2026-02-08",
+        "releaseNotes": "Fixed crash when switching result type to Discover or Google News. Multi-language support (German, French, Japanese, Korean, Portuguese, Chinese). Full UI localization. Removed Last 24 hours date range so the chart uses reliable daily data only. No-data alert uses system pop-up; result type reverts to last working selection. Minor bug fixes."
+      },
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.4",
+        "datePublished": "2026-02-06",
+        "releaseNotes": "Minor bug fixes and stability improvements."
+      },
       {
         "@type": "ReleaseNotes",
         "name": "Version 1.0.3",
         "datePublished": "2026-02-02",
         "releaseNotes": "Fixed subscription screen not loading when starting a free trial or subscribing. Clearer error messages and retry when subscription or restore fails. Improved theming for light and dark mode. Version and build shown consistently in About."
+      },
+      {
+        "@type": "ReleaseNotes",
+        "name": "Version 1.0.2",
+        "datePublished": "2026-01-25",
+        "releaseNotes": "Improved subscription loading and error handling. Bug fixes and stability improvements."
       },
       {
         "@type": "ReleaseNotes",
@@ -456,9 +474,9 @@
   </header>
 
   <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
-  <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
+  <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-15T00:00:00Z" role="status">
     <div class="container">
-      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Bug fix 1.0.3 is in review - pending release.</span>
+      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 1.0.5 is here: multi-language support, reliability fixes, and no more misleading 24h chart.</span>
       <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">Learn more</a>
     </div>
   </div>
@@ -486,7 +504,7 @@
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
         </div>
-        <div class="stat-number">3</div>
+        <div class="stat-number">6</div>
         <div class="stat-label" data-i18n="releases.statReleases">Releases</div>
       </div>
       <div class="stat-card">
@@ -511,16 +529,83 @@
 
     <!-- Timeline -->
     <div class="timeline">
-      <!-- Version 1.0.3 -->
+      <!-- Version 1.0.5 -->
       <div class="release-item">
         <div class="release-dot latest"></div>
         <div class="release-card">
           <div class="release-header">
             <div class="release-title">
+              <h2 class="release-version">Version 1.0.5</h2>
+              <span class="release-badge badge-latest" data-i18n="releases.badgeLatest">Latest</span>
+            </div>
+            <div class="release-date" data-i18n="releases.v105Date">February 2026</div>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <h3 class="release-section-title" data-i18n="releases.sectionBugFixes">Bug Fixes</h3>
+              <ul class="release-list">
+                <li data-i18n="releases.v105Fix1">Fixed crash when switching result type to Discover or Google News</li>
+                <li data-i18n="releases.v105Fix2">No-data alert now uses system pop-up; result type reverts to last working selection</li>
+              </ul>
+            </div>
+            <div class="release-section">
+              <h3 class="release-section-title" data-i18n="releases.sectionNewFeatures">New Features</h3>
+              <ul class="release-list">
+                <li data-i18n="releases.v105Feat1">Multi-language support: German, French, Japanese, Korean, Portuguese, Simplified and Traditional Chinese</li>
+                <li data-i18n="releases.v105Feat2">Full UI localization: settings, about, charts, Core Web Vitals, notifications, achievements</li>
+              </ul>
+            </div>
+            <div class="release-section">
+              <h3 class="release-section-title" data-i18n="releases.sectionImprovements">Improvements</h3>
+              <ul class="release-list">
+                <li data-i18n="releases.v105Imp1">Chart: localized axis labels and compact metric cards for all languages</li>
+                <li data-i18n="releases.v105Imp2">Removed Last 24 hours date range: chart now uses reliable daily data only (API does not provide hourly data)</li>
+              </ul>
+            </div>
+            <div class="release-note">
+              <p data-i18n="releases.v105Note">If you selected Discover or Google News and saw no data, the app now shows a simple alert and switches the dropdown back to your last working view.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 1.0.4 -->
+      <div class="release-item release-item--collapsible is-collapsed">
+        <div class="release-dot"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
+              <h2 class="release-version">Version 1.0.4</h2>
+              <span class="release-badge badge-stable" data-i18n="releases.badgeStable">Stable</span>
+            </div>
+            <div class="release-date" data-i18n="releases.v104Date">February 2026</div>
+            <button type="button" class="release-toggle" aria-expanded="false" data-i18n-aria-label-expand="releases.ariaExpand" data-i18n-aria-label-collapse="releases.ariaCollapse" aria-label="Expand release notes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <ul class="release-list">
+                <li data-i18n="releases.v104_1">Minor bug fixes and stability improvements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 1.0.3 -->
+      <div class="release-item release-item--collapsible is-collapsed">
+        <div class="release-dot"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
               <h2 class="release-version">Version 1.0.3</h2>
-              <span class="release-badge badge-pending" data-i18n="releases.badgePending">Pending App Store Approval</span>
+              <span class="release-badge badge-stable" data-i18n="releases.badgeStable">Stable</span>
             </div>
             <div class="release-date" data-i18n="releases.v103Date">February 2026</div>
+            <button type="button" class="release-toggle" aria-expanded="false" data-i18n-aria-label-expand="releases.ariaExpand" data-i18n-aria-label-collapse="releases.ariaCollapse" aria-label="Expand release notes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
           </div>
           <div class="release-body">
             <div class="release-section">
@@ -539,6 +624,31 @@
             </div>
             <div class="release-note">
               <p data-i18n="releases.v103Note">If you had trouble starting a subscription or restoring a purchase, this update fixes that. Thank you for your patience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 1.0.2 -->
+      <div class="release-item release-item--collapsible is-collapsed">
+        <div class="release-dot"></div>
+        <div class="release-card">
+          <div class="release-header">
+            <div class="release-title">
+              <h2 class="release-version">Version 1.0.2</h2>
+              <span class="release-badge badge-stable" data-i18n="releases.badgeStable">Stable</span>
+            </div>
+            <div class="release-date" data-i18n="releases.v102Date">January 2026</div>
+            <button type="button" class="release-toggle" aria-expanded="false" data-i18n-aria-label-expand="releases.ariaExpand" data-i18n-aria-label-collapse="releases.ariaCollapse" aria-label="Expand release notes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+          <div class="release-body">
+            <div class="release-section">
+              <ul class="release-list">
+                <li data-i18n="releases.v102_1">Improved subscription loading and error handling</li>
+                <li data-i18n="releases.v102_2">Bug fixes and stability improvements</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -619,7 +729,6 @@
               <h3 class="release-section-title" data-i18n="releases.sectionTechnical">Technical Improvements</h3>
               <ul class="release-list">
                 <li data-i18n="releases.v100_10">Memory and async leak fixes for stable usage</li>
-                <li data-i18n="releases.v100_11">24-hour chart: hourly interpolation and projected data</li>
               </ul>
             </div>
           </div>
