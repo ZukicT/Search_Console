@@ -8,21 +8,16 @@
     <lastmod>2026-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <!-- App screenshots for Google Image Search -->
+    <!-- App screenshots for Google Image Search (Category through Category-7) -->
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-7.imageset/Category-7.jpg</image:loc>
-      <image:title>Search Console iOS App - Analytics Dashboard</image:title>
-      <image:caption>Analytics dashboard showing clicks, impressions, CTR and position metrics</image:caption>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category.imageset/Category.jpg</image:loc>
+      <image:title>Search Console iOS App - Site Overview</image:title>
+      <image:caption>Overview of your website performance in Google Search</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://search-console.org/AppAssetsWebsite/Category-1.imageset/Category-1.jpg</image:loc>
       <image:title>Search Console iOS App - Search Queries</image:title>
       <image:caption>View your top search queries and keywords</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category.imageset/Category.jpg</image:loc>
-      <image:title>Search Console iOS App - Site Overview</image:title>
-      <image:caption>Overview of your website performance in Google Search</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://search-console.org/AppAssetsWebsite/Category-2.imageset/Category-2.jpg</image:loc>
@@ -38,6 +33,21 @@
       <image:loc>https://search-console.org/AppAssetsWebsite/Category-4.imageset/Category-4.jpg</image:loc>
       <image:title>Search Console iOS App - Core Web Vitals</image:title>
       <image:caption>Monitor LCP, CLS, and INP metrics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-5.imageset/Category-5.jpg</image:loc>
+      <image:title>Search Console iOS App - Sitemaps</image:title>
+      <image:caption>Sitemap management and indexing status</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-6.imageset/Category-6.jpg</image:loc>
+      <image:title>Search Console iOS App - URL Inspection</image:title>
+      <image:caption>Inspect how Google indexes your URLs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Category-7.imageset/Category-7.jpg</image:loc>
+      <image:title>Search Console iOS App - Analytics Dashboard</image:title>
+      <image:caption>Analytics dashboard showing clicks, impressions, CTR and position metrics</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://search-console.org/app-icon-512.jpg</image:loc>
