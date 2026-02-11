@@ -154,6 +154,7 @@ body {
   white-space: nowrap;
   background: var(--blue) !important;
   color: var(--white) !important;
+  border-radius: var(--radius);
 }
 .nav-cta:hover { background: var(--blue-hover) !important; }
 
@@ -236,6 +237,21 @@ body {
   color: var(--text-heading);
   letter-spacing: -0.02em;
 }
+
+/* About page hero – single column, narrower title so line wraps sooner */
+.page-about .hero .container {
+  grid-template-columns: 1fr;
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.page-about .hero h1 {
+  max-width: 11em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero p {
   font-size: 1.125rem;
   color: var(--text-secondary);
