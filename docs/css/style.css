@@ -250,6 +250,7 @@ body {
   max-width: 11em;
   margin-left: auto;
   margin-right: auto;
+  white-space: pre-line;
 }
 
 .hero p {
