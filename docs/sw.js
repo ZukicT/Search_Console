@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v7';
+const CACHE_NAME = 'search-console-v8';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -14,14 +14,14 @@ const ASSETS_TO_CACHE = [
   '/apple-touch-icon.png',
   '/app-icon-512.jpg',
   '/icon-192.jpg',
-  '/AppAssetsWebsite/Category.imageset/Category.jpg?v=4',
-  '/AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=4',
-  '/AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=4',
-  '/AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=4',
-  '/AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=4',
-  '/AppAssetsWebsite/Category-5.imageset/Category-5.jpg?v=4',
-  '/AppAssetsWebsite/Category-6.imageset/Category-6.jpg?v=4',
-  '/AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=4'
+  '/AppAssetsWebsite/Category.imageset/Category.jpg?v=5',
+  '/AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=5',
+  '/AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=5',
+  '/AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=5',
+  '/AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=5',
+  '/AppAssetsWebsite/Category-5.imageset/Category-5.jpg?v=5',
+  '/AppAssetsWebsite/Category-6.imageset/Category-6.jpg?v=5',
+  '/AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=5'
 ];
 
 // Install event - cache assets
