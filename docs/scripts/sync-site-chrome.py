@@ -11,7 +11,7 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "93"
+CSS_VERSION = "95"
 JS_VERSION = "25"
 CHART_CSS_VERSION = "14"
 BLOG_VISUALS_CSS_VERSION = "3"
@@ -83,15 +83,22 @@ def header_block(prefix: str, *, is_home: bool) -> str:
 
 
 def blog_promo_banner_block(prefix: str) -> str:
-    bot_src = f"{prefix}Bot.png"
+    icon_src = f"{prefix}app-icon.jpg"
     return f"""  <aside class="blog-app-promo-banner" aria-label="Search Console app promotion">
-    <div class="container blog-app-promo-banner__inner">
-      <img src="{bot_src}" alt="" width="36" height="36" class="blog-app-promo-banner__mark" aria-hidden="true">
-      <div class="blog-app-promo-banner__copy">
-        <p class="blog-app-promo-banner__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
-        <p class="blog-app-promo-banner__title" data-i18n="blog.promoTitle">Check your data on the go</p>
+    <div class="container">
+      <div class="blog-app-promo-banner__inner">
+        <img src="{icon_src}" alt="" width="44" height="44" class="blog-app-promo-banner__icon" aria-hidden="true">
+        <div class="blog-app-promo-banner__copy">
+          <p class="blog-app-promo-banner__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
+          <p class="blog-app-promo-banner__title" data-i18n="blog.promoTitle">Check your data on the go</p>
+        </div>
+        <a href="{APP_STORE}" class="blog-app-promo-banner__cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          <span data-i18n="nav.download">Download</span>
+        </a>
       </div>
-      <a href="{APP_STORE}" class="btn btn-primary blog-app-promo-banner__cta" target="_blank" rel="noopener" data-i18n="blog.promoCta">Get the app</a>
     </div>
   </aside>"""
 
