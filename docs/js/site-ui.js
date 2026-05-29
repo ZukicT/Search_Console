@@ -688,6 +688,28 @@
     });
   }
 
+  function initServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+
+    navigator.serviceWorker.register('/sw.js').then(function (registration) {
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+
+      registration.addEventListener('updatefound', function () {
+        var installing = registration.installing;
+        if (!installing) return;
+
+        installing.addEventListener('statechange', function () {
+          if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+            installing.postMessage({ type: 'SKIP_WAITING' });
+          }
+        });
+      });
+    }).catch(function () {});
+  }
+
+  initServiceWorker();
   initReveal();
   initHeaderScroll();
   initHeroIntro();

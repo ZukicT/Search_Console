@@ -1,8 +1,9 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v43';
+const CACHE_NAME = 'search-console-v96';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/blog.html',
   '/about.html',
   '/privacy.html',
   '/terms.html',
@@ -15,90 +16,104 @@ const ASSETS_TO_CACHE = [
   '/apple-touch-icon.png',
   '/founder.jpg',
   '/Bot.png',
+  '/app-icon.jpg',
   '/app-icon-512.jpg',
   '/icon-192.png',
-  '/css/style.css?v=86',
-  '/css/performance-chart.css?v=12',
-  '/js/hero-dot-wave.js?v=14',
-  '/js/site-ui.js?v=17',
-  '/js/site-charts.js?v=14',
-  '/js/i18n.js?v=14',
-  '/js/site-chrome-scripts.js?v=14',
-  '/AppAssetsWebsite/Image1.imageset/Image1.png?v=8',
-  '/AppAssetsWebsite/Image2.imageset/Image2.png?v=8',
-  '/AppAssetsWebsite/Image3.imageset/Image3.png?v=8',
-  '/AppAssetsWebsite/Image4.imageset/Image4.png?v=8',
-  '/AppAssetsWebsite/Image5.imageset/Image5.png?v=8',
-  '/AppAssetsWebsite/Image6.imageset/Image6.png?v=8',
-  '/AppAssetsWebsite/Image7.imageset/Image7.png?v=8',
-  '/AppAssetsWebsite/Image8.imageset/Image8.png?v=8'
 ];
 
-// Install event - cache assets
-self.addEventListener('install', event => {
+function isHtmlRequest(request) {
+  var accept = request.headers.get('accept');
+  return accept && accept.indexOf('text/html') !== -1;
+}
+
+function isVersionedAsset(url) {
+  return /\.(?:css|js)(?:\?|$)/.test(url.pathname) || /[?&]v=\d+/.test(url.search);
+}
+
+self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS_TO_CACHE))
-      .then(() => self.skipWaiting())
+      .then(function (cache) { return cache.addAll(ASSETS_TO_CACHE); })
+      .then(function () { return self.skipWaiting(); })
   );
 });
 
-// Activate event - clean up old caches
-self.addEventListener('activate', event => {
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then(function (cacheNames) {
       return Promise.all(
         cacheNames
-          .filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
+          .filter(function (name) { return name !== CACHE_NAME; })
+          .map(function (name) { return caches.delete(name); })
       );
-    }).then(() => self.clients.claim())
+    }).then(function () { return self.clients.claim(); })
   );
 });
 
-// Fetch event - network first for HTML (fresh content after deploy), cache first for assets
-self.addEventListener('fetch', event => {
+self.addEventListener('message', function (event) {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener('fetch', function (event) {
   if (event.request.method !== 'GET') return;
   if (!event.request.url.startsWith(self.location.origin)) return;
 
-  var isHtml = event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html');
+  var url = new URL(event.request.url);
 
-  if (isHtml) {
-    // HTML: network first so users see new content after deploy; fallback to cache when offline
+  if (url.pathname === '/sw.js') {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  if (isHtmlRequest(event.request) || isVersionedAsset(url)) {
     event.respondWith(
       fetch(event.request)
-        .then(response => {
+        .then(function (response) {
           if (response.ok) {
             var clone = response.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, clone);
+            });
           }
           return response;
         })
-        .catch(() => caches.match(event.request).then(cached => cached || caches.match('/404.html')))
+        .catch(function () {
+          return caches.match(event.request).then(function (cached) {
+            return cached || (isHtmlRequest(event.request) ? caches.match('/404.html') : null);
+          });
+        })
     );
     return;
   }
 
-  // Assets: cache first, revalidate in background
   event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
+    caches.match(event.request).then(function (cachedResponse) {
       if (cachedResponse) {
         event.waitUntil(
           fetch(event.request)
-            .then(response => {
-              if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response));
+            .then(function (response) {
+              if (response.ok) {
+                caches.open(CACHE_NAME).then(function (cache) {
+                  cache.put(event.request, response);
+                });
+              }
             })
-            .catch(() => {})
+            .catch(function () {})
         );
         return cachedResponse;
       }
-      return fetch(event.request).then(response => {
+
+      return fetch(event.request).then(function (response) {
         if (response.ok) {
           var clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, clone);
+          });
         }
         return response;
-      }).catch(() => null);
+      }).catch(function () { return null; });
     })
   );
 });
