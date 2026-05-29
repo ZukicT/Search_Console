@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "faq": "Perguntas frequentes"
+  },
+  "aria": {
+    "closeMenu": "Fechar menu",
+    "skipToContent": "Pular para o conteúdo",
+    "primaryNav": "Navegação principal",
+    "heroMeta": "Destaques do app",
+    "heroStats": "O que está incluído",
+    "valuePropsList": "Por que usar o app no iPhone",
+    "screenshotRail": "Capturas de tela do app",
+    "appIcon": "Ícone do app",
+    "gettingStartedSteps": "Etapas para começar",
+    "shareX": "Compartilhar no X",
+    "shareFacebook": "Compartilhar no Facebook",
+    "shareLinkedIn": "Compartilhar no LinkedIn",
+    "moreShareOptions": "Mais opções de compartilhamento"
+  },
+  "hero": {
+    "pill": "Versão 2.0",
+    "role": "Você já confia no Search Console no desktop. Aqui é a mesma conta e os mesmos dados, adaptados para iOS para você ler a resposta antes que o momento passe.",
+    "statApiValue": "Tráfego de pesquisa",
+    "statApiLabel": "Cliques, impressões e consultas",
+    "statVitalsValue": "Experiência da página",
+    "statVitalsLabel": "Core Web Vitals e principais páginas",
+    "statWidgetsValue": "Alertas e widgets",
+    "statWidgetsLabel": "Perceba quando o desempenho muda",
+    "offer": "Teste grátis de 7 dias · US$ 5,99/mês",
+    "eyebrow": "Para iPhone e iPad",
+    "deck": "Um app nativo e independente conectado à API do Search Console do Google. Confira cliques, impressões, consultas e experiência da página sem abrir o Safari.",
+    "point1": "Cliques, impressões, CTR, consultas e posição média",
+    "point2": "Core Web Vitals, principais páginas e inspeção de URL",
+    "point3": "Login seguro com Google. Seus dados ficam na sua conta.",
+    "screenCaption": "Visão geral de desempenho",
+    "metaApi": "API oficial do Search Console",
+    "metaOAuth": "Login com OAuth",
+    "metaPrivacy": "Dados permanecem na sua conta Google"
+  },
+  "chart": {
+    "eyebrow": "Prévia de desempenho",
+    "title": "Últimos 7 dias · Site de exemplo",
+    "metricClicks": "Total de cliques",
+    "legendClicks": "Cliques diários",
+    "legendImpressions": "Impressões",
+    "insightPeak": "Melhor dia: dom · 6 cliques",
+    "insightTemplate": "Melhor dia: {{day}} · {{clicks}} cliques",
+    "days": {
+      "mon": "Seg",
+      "tue": "Ter",
+      "wed": "Qua",
+      "thu": "Qui",
+      "fri": "Sex",
+      "sat": "Sáb",
+      "sun": "Dom"
+    },
+    "kpiClicks": "Cliques",
+    "kpiImpressions": "Impr.",
+    "kpiCtr": "CTR",
+    "kpiPosition": "Pos.",
+    "sparklineCtrEyebrow": "Tendência de CTR",
+    "sparklinePositionEyebrow": "Posição média",
+    "sparklinePeriod": "Últimos 7 dias",
+    "queriesEyebrow": "Principais consultas",
+    "queriesTitle": "Últimos 7 dias · Site de exemplo",
+    "queriesSrOnly": "Gráfico de barras animado com as principais consultas por cliques.",
+    "vitalsEyebrow": "Experiência da página",
+    "vitalsTitle": "Visão geral de Core Web Vitals",
+    "vitalsGood": "Bom",
+    "vitalsNeeds": "Precisa melhorar",
+    "vitalsSrOnly": "Pontuações animadas de Core Web Vitals para LCP, INP e CLS.",
+    "srOnly": "Gráfico de exemplo animado mostrando cliques diários do Search Console em sete dias."
+  },
+  "valueProps": {
+    "eyebrow": "Capítulo 1",
+    "title": "Quando a pergunta chega longe da mesa",
+    "desc": "O tráfego cai. Uma consulta dispara. Alguém pede números antes de uma reunião. O Search Console mobile na web até responde, mas exige esforço demais."
+  },
+  "story": {
+    "proofEyebrow": "Capítulo 2",
+    "proofTitle": "Uma tendência confiável em segundos",
+    "proofDesc": "O desempenho do desktop, reorganizado para tela de celular. Contexto suficiente para decidir se hoje merece uma análise mais profunda.",
+    "proofQuote": "Perceba a queda de terça antes do relatório de sexta explicar.",
+    "bridgeToProof": "Continuar · Ver os números",
+    "bridgeToStart": "Continuar · Seus primeiros dois minutos",
+    "bridgeToFeatures": "Continuar · O que cada tela responde",
+    "bridgeToScreens": "Continuar · Passeio pelo app",
+    "bridgeToFaq": "Continuar · Antes de instalar"
+  },
+  "stats": {
+    "eyebrow": "Quanto isso custa",
+    "title": "Termos simples antes de assinar",
+    "desc": "Sem níveis. Sem fidelidade anual. Comece com teste e continue só se fizer sentido para sua rotina."
+  },
+  "howTo": {
+    "eyebrow": "Capítulo 3"
+  },
+  "features": {
+    "eyebrow": "Capítulo 4"
+  },
+  "screenshots": {
+    "eyebrow": "Capítulo 5",
+    "hint": "Deslize para navegar · toque para ampliar",
+    "vitals": "Métricas vitais",
+    "search": "Pesquisa",
+    "coreWebVitals": "Core Web Vitals",
+    "urlInspection": "Inspeção de URL",
+    "settings": "Ajustes"
+  },
+  "pricing": {
+    "eyebrow": "Preços",
+    "note": "iOS · todas as propriedades da sua conta"
+  },
+  "faq": {
+    "eyebrow": "Antes de instalar",
+    "desc": "Dados, acesso, preço e suporte. Sem letras miúdas."
+  },
+  "footer": {
+    "getApp": "Baixe o app",
+    "downloadTitle": "Leve o Search Console com você",
+    "downloadDesc": "Search Console no seu celular.",
+    "releases": "Versões",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  },
+  "about": {
+    "heroKicker": "Sobre",
+    "founderEyebrow": "Por trás do app",
+    "founderTitle": "Quem constrói isso",
+    "linkedin": "LinkedIn",
+    "founderPhotoAlt": "Tarik Zukic, desenvolvedor do Search Console para iOS",
+    "linkedinAria": "Tarik Zukic no LinkedIn",
+    "bridgeToStory": "Continuar · Por que o mobile parecia errado",
+    "storyEyebrow": "Por que ele existe",
+    "storyMidTitle": "Começou pequeno e segue evoluindo",
+    "storyP6": "A primeira versão era para mim. Uma mudança de palavra-chave em uma terça lenta. Um alerta de vitals antes de um deploy. Prova de que a queda de tráfego era real, não ruído de cache. Se o app respondesse isso rápido, merecia lugar na tela inicial.",
+    "storyP7": "Ainda uso todos os dias e sigo melhorando. A versão 2.0 trouxe erros mais claros, gráficos mais fluidos e ajustes que não atrapalham. Alguns relatórios ainda abrem a web por enquanto. Sua assinatura me ajuda a fechar essa lacuna em vez de correr atrás de anúncios.",
+    "storyP8": "A meta de longo prazo é ter no celular um único lugar para as informações do site que preciso, sem abrir várias abas no navegador. Search Console para iOS é independente. Não é Google. Não é apresentação de agência. Um desenvolvedor, um app, feito para quem já confia no Search Console e quer isso à mão no iOS.",
+    "bridgeToValues": "Continuar · O que não é negociável",
+    "valuesEyebrow": "No que eu acredito",
+    "bridgeToReleases": "Continuar · Ver o que foi lançado"
+  },
+  "releases": {
+    "changelogEyebrow": "Registro de mudanças",
+    "changelogTitle": "O que foi lançado",
+    "changelogLead": "Primeiro o que vem por aí, depois cada versão desde o lançamento até hoje.",
+    "bridgeToFeatures": "Continuar · Explorar recursos",
+    "badgeLatest": "Mais recente",
+    "badgeUpcoming": "Em exploração",
+    "nextTitle": "O que vem por aí",
+    "nextDate": "Ainda sem data",
+    "nextLead": "Ideias que estou avaliando para próximas versões. Nada aqui é promessa nem segue ordem fixa. Eu construo o que ajuda meu fluxo e o seu.",
+    "nextSectionTitle": "Na lista",
+    "nextIdea1": "Pulso de visitantes ao vivo: o app consegue mostrar quem está no seu site agora? Os dados do Search Console têm atraso, então estou avaliando outra fonte ou estimativa quase em tempo real. Ainda sem confirmação.",
+    "nextIdea2": "Mais relatórios nativos: trazer indexação, links e verificações de segurança para o app, em vez de abrir o Safari para cada resposta.",
+    "nextIdea3": "Comparar períodos: esta semana vs semana passada na mesma tela, sem precisar exportar para planilha.",
+    "nextIdea4": "Resumos de Visão Geral mais inteligentes: um resumo curto do que mudou ao abrir uma propriedade.",
+    "nextIdea5": "Widgets mais completos: mais métricas de relance na tela inicial e na tela bloqueada.",
+    "nextFeedback": "Qual dessas ideias te ajudaria mais? Faltou algo? <a href=\"#contact-form\">Envie seu feedback</a> abaixo ou use o feedback no app em Ajustes.",
+    "v200Date": "Maio de 2026",
+    "v200Imp1": "Melhorias de desempenho e confiabilidade em Visão Geral, Pesquisa e detalhes da propriedade",
+    "v200Imp2": "Mensagens no app mais claras para erros, avisos e sucessos",
+    "v200Imp3": "Fluxo de relatório de bug aprimorado com dados do dispositivo e captura opcional",
+    "v200Imp4": "Polimento de Ajustes e interface, incluindo microanimações opcionais",
+    "v200Imp5": "Ajustes reorganizados com seções mais claras e cores semânticas de ícones",
+    "v200Note": "O desenvolvimento nativo para Mac está pausado enquanto o foco fica no lançamento iOS na App Store.",
+    "v105Date": "Fevereiro de 2026",
+    "v105Fix1": "Correção de falha ao trocar o tipo de resultado para Discover ou Google News",
+    "v105Fix2": "Alerta de falta de dados agora usa pop-up do sistema; tipo de resultado volta para a última seleção válida",
+    "v105Feat1": "Suporte multilíngue: alemão, francês, japonês, coreano, português, chinês simplificado e tradicional",
+    "v105Feat2": "Localização completa da interface: ajustes, sobre, gráficos, Core Web Vitals, notificações e conquistas",
+    "v105Imp1": "Gráfico: rótulos de eixo localizados e cartões compactos de métricas para todos os idiomas",
+    "v105Imp2": "Faixa de últimas 24 horas removida: o gráfico agora usa apenas dados diários confiáveis (a API não fornece dados por hora)",
+    "v105Note": "Se você selecionou Discover ou Google News e não viu dados, o app agora mostra um alerta simples e volta o seletor para sua última visualização funcional.",
+    "v104Date": "Fevereiro de 2026",
+    "v104_1": "Pequenas correções de bugs e melhorias de estabilidade",
+    "v102Date": "Janeiro de 2026",
+    "v102_1": "Melhoria no carregamento de assinatura e no tratamento de erros",
+    "v102_2": "Correções de bugs e melhorias de estabilidade"
+  },
+  "error404": {
+    "metaTitle": "Página não encontrada | Search Console para iOS",
+    "metaDescription": "Esta página não existe. Volte para a página inicial do Search Console para iOS.",
+    "imageAlt": "Mascote robô triste",
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe ou foi movida. Vamos te colocar de volta no caminho.",
+    "ctaHome": "Ir para a página inicial",
+    "ctaFeatures": "Ver recursos"
+  }
+}

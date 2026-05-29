@@ -1,6 +1,8 @@
 {
   "locale": "zh-Hant",
-  "common": { "appNameShort": "Search Console" },
+  "common": {
+    "appNameShort": "Search Console"
+  },
   "meta": {
     "title": "Search Console iOS 版",
     "description": "iPhone 最佳 SEO 應用。追蹤搜尋排名、關鍵字、點擊、曝光、點擊率與 Core Web Vitals。Google Search Console 行動應用，7 天免費試用。"
@@ -21,10 +23,23 @@
     "selectLanguage": "選擇語言",
     "carouselPrev": "上一張",
     "carouselNext": "下一張",
-    "carouselSlide": "前往第 {{n}} 張"
+    "carouselSlide": "前往第 {{n}} 張",
+    "heroMeta": "應用亮點",
+    "heroStats": "包含內容",
+    "valuePropsList": "為什麼在 iPhone 上使用此應用",
+    "screenshotRail": "應用截圖",
+    "closeMenu": "關閉選單",
+    "skipToContent": "跳到主要內容",
+    "primaryNav": "主要導覽",
+    "appIcon": "應用圖示",
+    "gettingStartedSteps": "開始使用步驟",
+    "shareX": "分享到 X",
+    "shareFacebook": "分享到 Facebook",
+    "shareLinkedIn": "分享到 LinkedIn",
+    "moreShareOptions": "更多分享選項"
   },
   "banner": {
-    "releaseNotice": "修復 1.0.3 審核中，即將發布。",
+    "releaseNotice": "版本 2.0 現已上線。",
     "learnMore": "了解更多"
   },
   "hero": {
@@ -33,7 +48,28 @@
     "subtitle": "監控點擊、曝光、關鍵字與 Core Web Vitals。取得提升網站在 Google 搜尋表現所需的資料。",
     "downloadAppStore": "在 App Store 下載",
     "seeFeatures": "查看功能",
-    "trust": "使用 Google 官方 Search Console API"
+    "trust": "使用 Google 官方 Search Console API",
+    "pill": "版本 2.0",
+    "role": "你已經信任桌面版 Search Console。這裡使用同一個帳戶、同一份資料，只是依 iOS 場景重新整理，讓你在關鍵時刻前更快看到答案。",
+    "statApiValue": "搜尋流量",
+    "statApiLabel": "點擊、曝光、查詢",
+    "statVitalsValue": "頁面體驗",
+    "statVitalsLabel": "Core Web Vitals 與熱門頁面",
+    "statWidgetsValue": "提醒與小工具",
+    "statWidgetsLabel": "效能變化時即時通知",
+    "bridge": "",
+    "support": "",
+    "offer": "7 天免費試用 · $5.99/月",
+    "disclaimer": "",
+    "eyebrow": "適用於 iPhone 與 iPad",
+    "deck": "這是一款連接 Google Search Console API 的獨立原生 iOS 應用。無需開啟 Safari，即可查看點擊、曝光、查詢與頁面體驗。",
+    "point1": "點擊、曝光、CTR、查詢與平均排名",
+    "point2": "Core Web Vitals、熱門頁面與 URL 檢查",
+    "point3": "安全的 Google 登入。資料保留在你的帳戶中。",
+    "screenCaption": "效能總覽",
+    "metaApi": "官方 Search Console API",
+    "metaOAuth": "OAuth 登入",
+    "metaPrivacy": "資料保留在你的 Google 帳戶"
   },
   "heroAlts": {
     "analytics": "分析儀表板",
@@ -46,12 +82,18 @@
     "vitalsTitle": "Core Web Vitals 監控",
     "vitalsDesc": "追蹤 LCP、CLS、INP 分數。了解速度如何影響排名。",
     "secureTitle": "安全私密",
-    "secureDesc": "OAuth 驗證。您的資料保留在 Google 帳戶中。"
+    "secureDesc": "OAuth 驗證。您的資料保留在 Google 帳戶中。",
+    "eyebrow": "第1章",
+    "title": "離開電腦時也會遇到關鍵問題",
+    "desc": "流量下滑、某個查詢突然上升、開會前臨時要數字。行動網頁版 Search Console 也能看，但要快速取得答案並不輕鬆。"
   },
   "stats": {
     "price": "簡單月付",
     "trial": "含 7 天免費試用",
-    "devices": "iPhone 與 iPad"
+    "devices": "iPhone 與 iPad",
+    "eyebrow": "價格",
+    "title": "註冊前先看清條件",
+    "desc": "無分級方案，無年約綁定。先試用，適合你的工作流程再續用。"
   },
   "howTo": {
     "title": "4 步驟快速上手",
@@ -63,7 +105,8 @@
     "step3Title": "3. 選擇網站",
     "step3Desc": "從已驗證的 Search Console 資源中選擇。",
     "step4Title": "4. 查看資料",
-    "step4Desc": "查看點擊、曝光、關鍵字與 Core Web Vitals。"
+    "step4Desc": "查看點擊、曝光、關鍵字與 Core Web Vitals。",
+    "eyebrow": "第3章"
   },
   "features": {
     "sectionTitle": "行動端核心功能",
@@ -79,7 +122,8 @@
     "pdfTitle": "PDF 報告",
     "pdfDesc": "一鍵產生專業報告。與客戶或團隊分享表現資料。",
     "notificationsTitle": "推播通知",
-    "notificationsDesc": "每日或每週表現摘要。流量顯著變化時接收提醒。"
+    "notificationsDesc": "每日或每週表現摘要。流量顯著變化時接收提醒。",
+    "eyebrow": "第4章"
   },
   "screenshots": {
     "title": "為 iPhone 設計",
@@ -89,7 +133,13 @@
     "overview": "概覽",
     "performance": "表現",
     "pages": "頁面",
-    "vitals": "核心指標"
+    "vitals": "核心指標",
+    "eyebrow": "第5章",
+    "hint": "滑動瀏覽 · 點擊放大",
+    "search": "搜尋",
+    "coreWebVitals": "Core Web Vitals",
+    "urlInspection": "URL 檢查",
+    "settings": "設定"
   },
   "pricing": {
     "title": "簡單定價",
@@ -102,7 +152,9 @@
     "featureCwv": "Core Web Vitals（LCP、CLS、INP）",
     "featureExport": "匯出 CSV 或 PDF 報告",
     "featureUnlimited": "不限 Search Console 資源數量",
-    "cta": "免費試用"
+    "cta": "免費試用",
+    "eyebrow": "定價",
+    "note": "iOS · 帳戶中的所有資源"
   },
   "faq": {
     "title": "常見問題",
@@ -140,7 +192,9 @@
     "q16": "有 Android 版嗎？",
     "a16": "暫無。目前專注 iOS。訂閱更新後，若有 Android 計畫會通知您。",
     "q17": "可以離線使用嗎？",
-    "a17": "應用會快取最近資料，可離線查看。但取得新資料需連線。"
+    "a17": "應用會快取最近資料，可離線查看。但取得新資料需連線。",
+    "eyebrow": "安裝前先看",
+    "desc": "資料、權限、價格與支援一次說清楚，沒有難懂的小字條款。"
   },
   "cta": {
     "title": "搶先了解新功能與更新",
@@ -150,7 +204,7 @@
     "sending": "傳送中...",
     "note": "絕無垃圾郵件，隨時取消訂閱。",
     "success": "已加入名單，將以郵件通知您新功能與更新。",
-    "error": "發生錯誤，請重試或寄信至 info@search-console.org",
+    "error": "發生錯誤，請重試或查看隱私權政策頁面的聯絡方式。",
     "errorConnect": "無法連線，請稍後重試。"
   },
   "footer": {
@@ -173,11 +227,17 @@
     "messageSent": "已傳送！會盡快回覆。",
     "messageError": "發生錯誤，請稍後重試。",
     "messageErrorConnect": "無法連線，請稍後重試。",
-    "copyright": "\u00a9 2026 Search Console iOS \u7248",
+    "copyright": "© 2026 iOS 版 Search Console",
     "home": "首頁",
     "about": "關於",
     "privacy": "隱私",
-    "terms": "條款"
+    "terms": "條款",
+    "getApp": "取得應用",
+    "downloadTitle": "把 Search Console 帶在身邊",
+    "downloadDesc": "在手機上查看 Search Console。",
+    "releases": "更新",
+    "privacyPolicy": "隱私權政策",
+    "termsOfService": "服務條款"
   },
   "share": {
     "title": "Search Console iOS 版",
@@ -207,7 +267,21 @@
     "valueImprovingDesc": "您的訂閱支援持續開發，新功能會定期推出。",
     "ctaTitle": "想試試嗎？",
     "ctaSubtitle": "在 App Store 下載 Search Console iOS 版。",
-    "ctaButton": "在 App Store 下載"
+    "ctaButton": "在 App Store 下載",
+    "heroKicker": "關於",
+    "founderEyebrow": "應用背後",
+    "founderTitle": "誰在開發這款應用",
+    "bridgeToStory": "繼續 · 為什麼行動端一直不順手",
+    "storyEyebrow": "它為何存在",
+    "storyMidTitle": "從小開始，持續打造",
+    "storyP6": "第一版是為我自己做的。安靜週二的關鍵字波動、部署前的 Vitals 警示、以及確認流量下跌到底是真變化還是快取抖動。只要應用能快速回答這些問題，它就值得放在主畫面。",
+    "storyP7": "我現在每天都在用，也持續改善中。2.0 版本帶來更清楚的錯誤提示、更順暢的圖表，以及更不干擾的設定介面。部分報表目前仍會開啟網頁。你的訂閱讓我能持續補上這些缺口，而不是去追逐廣告。",
+    "storyP8": "長期目標是把手機上需要的網站資訊集中在一個地方，不再開一堆瀏覽器分頁。Search Console for iOS 是獨立應用，不是 Google 出品，也不是代理商提案簡報。一位開發者，一款應用，持續為已信任 Search Console、希望在 iOS 上隨手可查的人打磨。",
+    "bridgeToValues": "繼續 · 我不妥協的部分",
+    "valuesEyebrow": "我堅持的原則",
+    "bridgeToReleases": "繼續 · 查看已發布內容",
+    "founderPhotoAlt": "Search Console for iOS 開發者 Tarik Zukic",
+    "linkedinAria": "Tarik Zukic 的 LinkedIn"
   },
   "releases": {
     "metaTitle": "版本歷史 - Search Console iOS 版",
@@ -253,7 +327,43 @@
     "v100_10": "記憶體與非同步洩漏修復，提升穩定性",
     "v100_11": "24 小時圖表：每小時插值與預測資料",
     "ariaExpand": "展開更新說明",
-    "ariaCollapse": "收合更新說明"
+    "ariaCollapse": "收合更新說明",
+    "changelogEyebrow": "變更紀錄",
+    "changelogTitle": "已發布內容",
+    "changelogLead": "先看接下來的方向，再看從首發到今天的每個版本。",
+    "bridgeToFeatures": "繼續 · 探索功能",
+    "badgeLatest": "最新",
+    "badgeUpcoming": "探索中",
+    "nextTitle": "接下來",
+    "nextDate": "尚未排程",
+    "nextLead": "這些是我正在評估的後續方向。這裡的內容不代表承諾，也沒有固定順序。我會優先做對你我工作流程都真正有幫助的項目。",
+    "nextSectionTitle": "候選清單",
+    "nextIdea1": "即時訪客脈動：應用是否能顯示現在站上有哪些人。Search Console 資料有延遲，我正在評估是否可透過其他來源或近即時估算達成，目前尚未確定。",
+    "nextIdea2": "更多原生報表：把索引、連結與安全檢查帶進應用，減少每次都開 Safari。",
+    "nextIdea3": "期間比較：在同一畫面比較本週與上週，不必先匯出試算表。",
+    "nextIdea4": "更聰明的 Overview 摘要：開啟資源時，用簡短摘要說明有哪些變化。",
+    "nextIdea5": "更完整的小工具：在主畫面與鎖定畫面一眼看到更多指標。",
+    "nextFeedback": "這些裡哪一項最有幫助？還缺什麼？可在下方 <a href=\"#contact-form\">傳送回饋</a>，或在應用 Settings 中提交回饋。",
+    "v200Date": "2026 年 5 月",
+    "v200Imp1": "Overview、Search 與資源詳情頁的效能與穩定性改善",
+    "v200Imp2": "錯誤、警示與成功狀態的應用內訊息更清楚",
+    "v200Imp3": "錯誤回報流程改進，支援裝置資訊與可選截圖",
+    "v200Imp4": "設定與介面細節打磨，含可選微動畫",
+    "v200Imp5": "重新整理設定頁結構，分區更清楚，圖示語意配色更明確",
+    "v200Note": "為專注 iOS App Store 版本發布，Mac 原生開發暫時暫停。",
+    "v105Date": "2026 年 2 月",
+    "v105Fix1": "修正切換結果類型到 Discover 或 Google News 時發生的當機問題",
+    "v105Fix2": "無資料提示改為系統彈窗，並自動恢復到上次可用的結果類型",
+    "v105Feat1": "新增多語言支援：德文、法文、日文、韓文、葡萄牙文、簡體中文與繁體中文",
+    "v105Feat2": "完整介面在地化：設定、關於、圖表、Core Web Vitals、通知、成就",
+    "v105Imp1": "圖表座標軸標籤與精簡指標卡支援所有語言在地化",
+    "v105Imp2": "移除最近 24 小時範圍：圖表僅使用可靠的每日資料（API 不提供每小時資料）",
+    "v105Note": "若你選擇 Discover 或 Google News 後沒有資料，應用現在會顯示簡潔提示，並把下拉選項切回上一次可用視圖。",
+    "v104Date": "2026 年 2 月",
+    "v104_1": "小幅錯誤修復與穩定性提升",
+    "v102Date": "2026 年 1 月",
+    "v102_1": "改善訂閱載入與錯誤處理",
+    "v102_2": "錯誤修復與穩定性提升"
   },
   "guide": {
     "metaTitle": "如何在 iPhone 上使用 Google Search Console | 分步指南",
@@ -281,5 +391,59 @@
     "metric1": "總點擊與曝光：流量是否穩定？",
     "metric2": "平均排名：核心關鍵字排名是否穩定？",
     "metric3": "Core Web Vitals：網站在行動可用性上是否達標？"
+  },
+  "chart": {
+    "eyebrow": "效能預覽",
+    "title": "最近 7 天 · 範例網站",
+    "metricClicks": "總點擊",
+    "legendClicks": "每日點擊",
+    "legendImpressions": "曝光",
+    "insightPeak": "最佳日期：週日 · 6 次點擊",
+    "kpiClicks": "點擊",
+    "kpiImpressions": "曝光",
+    "kpiCtr": "CTR",
+    "kpiPosition": "排名",
+    "sparklineCtrEyebrow": "CTR 趨勢",
+    "sparklinePositionEyebrow": "平均排名",
+    "sparklinePeriod": "最近 7 天",
+    "queriesEyebrow": "熱門查詢",
+    "queriesTitle": "最近 7 天 · 範例網站",
+    "queriesSrOnly": "依點擊數顯示熱門搜尋查詢的動畫長條圖。",
+    "vitalsEyebrow": "頁面體驗",
+    "vitalsTitle": "Core Web Vitals 總覽",
+    "vitalsGood": "良好",
+    "vitalsNeeds": "需要改善",
+    "vitalsSrOnly": "顯示 LCP、INP、CLS Core Web Vitals 分數的動畫。",
+    "srOnly": "顯示 Search Console 過去 7 天每日點擊的示例動畫圖表。",
+    "insightTemplate": "最佳日期：{{day}} · {{clicks}} 次點擊",
+    "days": {
+      "mon": "週一",
+      "tue": "週二",
+      "wed": "週三",
+      "thu": "週四",
+      "fri": "週五",
+      "sat": "週六",
+      "sun": "週日"
+    }
+  },
+  "story": {
+    "proofEyebrow": "第2章",
+    "proofTitle": "一眼就能判斷的可信趨勢",
+    "proofDesc": "把桌面版效能資料重排成手機易讀視圖，提供足夠脈絡，讓你判斷今天是否需要深入追查。",
+    "proofQuote": "在週五報告解釋前，先發現週二的下滑。",
+    "bridgeToProof": "繼續 · 查看數據",
+    "bridgeToStart": "繼續 · 你的前兩分鐘",
+    "bridgeToFeatures": "繼續 · 每個畫面回答什麼問題",
+    "bridgeToScreens": "繼續 · 走一遍應用畫面",
+    "bridgeToFaq": "繼續 · 安裝前先看"
+  },
+  "error404": {
+    "metaTitle": "找不到頁面 | Search Console for iOS",
+    "metaDescription": "此頁面不存在。請返回 Search Console for iOS 首頁。",
+    "imageAlt": "悲傷機器人吉祥物",
+    "title": "找不到頁面",
+    "message": "你要找的頁面不存在或已移動。我們帶你回到正確路徑。",
+    "ctaHome": "前往首頁",
+    "ctaFeatures": "查看功能"
   }
 }

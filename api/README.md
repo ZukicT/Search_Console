@@ -14,13 +14,11 @@ Serverless functions that post to Discord. Deploy the `api/` folder to Vercel so
 - `DISCORD_DOWNLOAD_WEBHOOK_URL` – webhook for Download button pings. **Required for download pings.** Set this to your Discord webhook URL; never commit it.
 - `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` – optional. When set, each download ping increments a counter and Discord messages include it (e.g. "Download button clicked #42 …"). Use [Upstash](https://upstash.com) (free tier): create a Redis database, then copy REST URL and REST Token from the dashboard into Vercel env vars. Lets you compare total pings over time.
 
-**Download button ping (no webhook in frontend):**
+**Contact form (optional):**
 
-1. In Vercel, set `DISCORD_DOWNLOAD_WEBHOOK_URL` to your Discord webhook URL (the one that should receive “Download button clicked”).
-2. In every `docs/*.html` page that has Download links, set the meta tag:  
-   `<meta name="download-ping-api" content="https://your-project.vercel.app">`  
-   (use your Vercel project URL, no trailing slash).  
-   When a user clicks a Download/App Store link, the site calls `POST /api/download-click`; the API then posts to Discord. The webhook URL is only in Vercel, so it is not leaked.
+- In `docs/*.html`, set `<meta name="download-ping-api" content="https://your-project.vercel.app">` (same base URL for contact and download pings).
+- Contact form posts to `POST /api/contact` (uses `DISCORD_WEBHOOK_URL` on the server only; never put webhook URLs in HTML).
+- Download links call `POST /api/download-click` (uses `DISCORD_DOWNLOAD_WEBHOOK_URL`).
 
 **Waitlist (optional):**
 

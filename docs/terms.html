@@ -11,25 +11,15 @@
   <title>Terms of Service - Search Console for iOS</title>
   <meta name="robots" content="index, follow">
   <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
-  <meta name="description" content="Terms of service for Search Console for iOS. Usage, subscription, and legal terms.">
+  <meta name="description" content="Terms of service for Search Console for iOS and search-console.org. Subscriptions, usage rules, and legal terms.">
   <meta property="og:title" content="Terms of Service - Search Console for iOS">
   <meta property="og:description" content="Terms of service for Search Console for iOS.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://search-console.org/terms.html">
-  <!-- DNS Prefetch -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Preload -->
   <link rel="preload" as="image" href="favicon.png" type="image/png">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"></noscript>
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="css/style.css?v=66">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,526 +27,6 @@
     gtag('js', new Date());
     gtag('config', 'G-VPPTK5JECX');
   </script>
-  <style>
-    :root {
-      --white: #ffffff;
-      --bg: #f8f9fa;
-      --text: #5f6368;
-      --text-heading: rgb(32, 33, 36);
-      --text-secondary: #5f6368;
-      --border: #dadce0;
-      --blue: #1a73e8;
-      --blue-hover: #1557b0;
-      --blue-light: #e8f0fe;
-      --green: #1e8e3e;
-      --green-light: #e6f4ea;
-      --radius: 8px;
-      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-      --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-      --font: "Inter", "Roboto", -apple-system, sans-serif;
-      --font-body: "Roboto", -apple-system, sans-serif;
-    }
-    [data-theme="dark"] {
-      --white: #1a1a1a;
-      --bg: #121212;
-      --text: #9aa0a6;
-      --text-heading: #e8eaed;
-      --text-secondary: #9aa0a6;
-      --border: #3c4043;
-      --blue: #8ab4f8;
-      --blue-hover: #aecbfa;
-      --blue-light: rgba(138, 180, 248, 0.15);
-      --green: #81c995;
-      --green-light: rgba(129, 201, 149, 0.15);
-      --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
-      --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --white: #1a1a1a;
-        --bg: #121212;
-        --text: #9aa0a6;
-        --text-heading: #e8eaed;
-        --text-secondary: #9aa0a6;
-        --border: #3c4043;
-        --blue: #8ab4f8;
-        --blue-hover: #aecbfa;
-        --blue-light: rgba(138, 180, 248, 0.15);
-        --green: #81c995;
-        --green-light: rgba(129, 201, 149, 0.15);
-        --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
-        --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
-      }
-      :root:not([data-theme="light"]) .lang-picker {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      }
-    }
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      padding: 2px;
-      background: transparent;
-      border: none;
-      border-radius: 6px;
-      margin-left: auto;
-      margin-right: 16px;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-    .theme-toggle:hover { opacity: 1; }
-    .theme-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border: none;
-      background: transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
-    .theme-btn:hover {
-      background: var(--bg);
-      color: var(--text-heading);
-    }
-    .theme-btn.active { color: var(--blue); }
-    .theme-btn svg { width: 16px; height: 16px; }
-    .theme-toggle-mobile { display: none; }
-    @media (max-width: 768px) {
-      .theme-toggle { display: none; }
-      .theme-toggle-mobile {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 2px;
-        background: transparent;
-        border: none;
-        border-radius: 6px;
-        margin-right: 8px;
-        opacity: 0.6;
-      }
-      .theme-toggle-mobile:hover { opacity: 1; }
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      font-size: 13px;
-      background: var(--white);
-      color: var(--text-heading);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-    
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-    }
-    .header .container {
-      max-width: 1200px;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 1.125rem;
-      color: var(--text-heading);
-      text-decoration: none;
-    }
-    .logo img { height: 32px; width: 32px; border-radius: 8px; }
-    .nav { display: flex; align-items: center; gap: 8px; }
-    .nav a { 
-      color: var(--text-secondary); 
-      text-decoration: none; 
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .nav a:hover { background: var(--bg); }
-    .nav-cta {
-      white-space: nowrap;
-      background: var(--blue) !important;
-      color: var(--white) !important;
-    }
-    .nav-cta:hover { background: var(--blue-hover) !important; }
-    
-    /* Mobile Menu */
-    .mobile-menu-btn {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .mobile-menu-btn:hover { background: var(--bg); }
-    .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--text-heading); }
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      box-shadow: 0 4px 12px rgba(60,64,67,0.15);
-    }
-    .mobile-nav.open { display: block; }
-    .mobile-nav a {
-      display: block;
-      padding: 14px 0;
-      color: var(--text-heading);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav a:hover { color: var(--blue); }
-    .mobile-nav .nav-cta {
-      display: block;
-      text-align: center;
-      margin-top: 16px;
-      padding: 14px 24px;
-      border-radius: var(--radius);
-    }
-    
-    .page-header {
-      padding: 64px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
-    }
-    .page-header h1 {
-      font-family: var(--font);
-      font-size: 2.5rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-      color: var(--text-heading);
-      letter-spacing: -0.02em;
-    }
-    .page-header p {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
-    
-    .content-section {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 16px;
-      background: var(--white);
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .content-section:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: transparent;
-    }
-    .content-section h2 {
-      font-family: var(--font);
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-      color: var(--text-heading);
-    }
-    .content-section p {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-      line-height: 1.7;
-    }
-    .content-section p:last-child { margin-bottom: 0; }
-    .content-section ul {
-      margin: 0 0 14px;
-      padding-left: 1.5rem;
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-    }
-    .content-section ul:last-child { margin-bottom: 0; }
-    .content-section li { margin-bottom: 8px; line-height: 1.6; }
-    .content-section li:last-child { margin-bottom: 0; }
-    .content-section strong { color: var(--text-heading); }
-    .content-section a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
-    .content-section a:hover { text-decoration: underline; }
-    .content-section .disclaimer {
-      background: var(--bg);
-      padding: 20px;
-      border-radius: 12px;
-      font-size: 0.9375rem;
-      margin-top: 16px;
-      border-left: 4px solid var(--blue);
-    }
-    .content-section .legal-caps {
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      letter-spacing: 0.02em;
-      color: var(--text-heading);
-    }
-    
-    .footer {
-      background: var(--bg);
-      padding: 56px 0 32px;
-      margin-top: 64px;
-      border-top: 1px solid var(--border);
-    }
-    .footer .container {
-      max-width: 1200px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 0.8fr 1fr 1.7fr;
-      gap: 56px;
-      margin-bottom: 56px;
-    }
-    .footer-brand p {
-      margin-top: 16px;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    .social-share {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .social-label {
-      font-size: 0.8125rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .social-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-      cursor: pointer;
-    }
-    .social-icon:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-    .social-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-    .social-main {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: var(--white);
-    }
-    .social-main:hover {
-      background: var(--blue-hover);
-      border-color: var(--blue-hover);
-      color: var(--white);
-    }
-    .footer h4 {
-      font-family: var(--font);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-heading);
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 12px; }
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9375rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--blue); }
-    .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-    }
-    .footer-bottom-right {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 12px;
-    }
-    .footer-bottom-right .lang-picker {
-      flex-shrink: 0;
-    }
-    .footer-legal {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 0;
-    }
-    .footer-legal a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 20px;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-    .footer-legal a:first-child { margin-left: 0; }
-    .footer-legal a:hover { color: var(--blue); }
-    .lang-picker {
-      width: 100%;
-      max-width: 180px;
-      padding: 10px 40px 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      font-family: var(--font-body);
-      background-color: var(--white);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 16px;
-      color: var(--text-heading);
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      transition: border-color 0.2s;
-    }
-    .lang-picker:hover, .lang-picker:focus { outline: none; border-color: var(--blue); }
-    .footer-bottom .lang-picker {
-      max-width: 140px;
-      padding: 6px 32px 6px 10px;
-      font-size: 0.8125rem;
-      background-position: right 8px center;
-      background-size: 14px;
-      border-color: var(--border);
-      color: var(--text-secondary);
-    }
-    .footer-bottom .lang-picker:hover,
-    .footer-bottom .lang-picker:focus {
-      border-color: var(--blue);
-      color: var(--text-heading);
-    }
-    .lang-picker option { background: var(--white); color: var(--text-heading); padding: 10px 12px; }
-    [data-theme="dark"] .lang-picker {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      font-family: var(--font-body);
-      background: var(--white);
-      resize: vertical;
-      transition: border-color 0.2s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px var(--blue-light);
-    }
-    .contact-form button {
-      padding: 12px 18px;
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .contact-form button:hover { background: var(--blue-hover); }
-    .contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
-    .contact-note {
-      font-size: 0.8125rem;
-      margin-top: 10px;
-    }
-    .contact-note.success { color: var(--green); }
-    .contact-note.error { color: #d93025; }
-    
-    @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-    @media (max-width: 768px) {
-      .container { padding: 0 20px; }
-      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
-      .nav { display: none; }
-      .header { position: relative; }
-      .page-header { padding: 48px 0 32px; }
-      .page-header h1 { font-size: 2rem; }
-    }
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-      .page-header { padding: 36px 0 28px; }
-      .page-header h1 { font-size: 1.625rem; line-height: 1.2; }
-      .page-header p { font-size: 0.9375rem; }
-      .content-section { padding: 20px; border-radius: 10px; margin-bottom: 12px; }
-      .content-section h2 { font-size: 1.125rem; margin-bottom: 12px; }
-      .content-section p { font-size: 0.875rem; margin-bottom: 12px; }
-      .content-section ul { font-size: 0.875rem; padding-left: 1.25rem; }
-      .content-section li { margin-bottom: 6px; }
-      .content-section .disclaimer { padding: 16px; font-size: 0.875rem; }
-      .footer { padding: 40px 0 24px; margin-top: 48px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
-      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding-top: 24px; }
-      .footer-bottom-right { justify-content: center; }
-      .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-      .footer-legal a { margin: 0 8px; }
-      .contact-form input, .contact-form textarea { padding: 14px; min-height: 48px; }
-      .contact-form button { min-height: 48px; }
-      .social-icon {
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-      }
-      .social-share { flex-wrap: wrap; }
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 12px; }
-      .logo span { font-size: 1rem; }
-      .page-header h1 { font-size: 1.5rem; }
-      .content-section { padding: 16px; }
-    }
-  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -578,254 +48,326 @@
   }
   </script>
 </head>
-<body>
+<body class="page-legal page-privacy page-terms">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
   <header class="header">
     <div class="container">
       <div class="header-inner">
-        <a href="/" class="logo">
-          <img src="favicon.png" alt="Search Console" width="32" height="32">
-          <span data-i18n="common.appNameShort">Search Console</span>
+        <a href="index.html" class="logo">
+          <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
         </a>
-        <div class="theme-toggle" id="theme-toggle">
-          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
-        <nav class="nav">
-          <a href="index.html" data-i18n="nav.home">Home</a>
-          <a href="index.html#features" data-i18n="nav.features">Features</a>
-          <a href="releases.html" data-i18n="nav.releases">Releases</a>
-          <a href="about.html" data-i18n="nav.about">About</a>
-          <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+            <a href="index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+            <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+            <a href="index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+          </div>
         </nav>
-        <div class="theme-toggle theme-toggle-mobile">
-          <button class="theme-btn" data-theme="system" title="System theme" aria-label="Use system theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
         </button>
       </div>
-      <nav class="mobile-nav" id="mobile-nav">
-        <a href="index.html" data-i18n="nav.home">Home</a>
-        <a href="index.html#features" data-i18n="nav.features">Features</a>
-        <a href="releases.html" data-i18n="nav.releases">Releases</a>
-        <a href="about.html" data-i18n="nav.about">About</a>
-        <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
-      </nav>
     </div>
+    <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
+      <div class="container">
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+        <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+        <a href="index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+    </nav>
   </header>
 
-  <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
-  <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
-    <div class="container">
-      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Bug fix 1.0.3 is in review - pending release.</span>
-      <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">Learn more</a>
-    </div>
-  </div>
 
-  <main>
-    <div class="container">
-      <div class="page-header">
-        <h1>Terms of Service</h1>
-        <p>Please read these terms carefully. Last updated: February 2026.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main id="main">
+    <section class="story-chapter page-privacy-intro" id="top">
+      <div class="hero-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
+      <div class="story-chapter__inner">
+        <header class="chapter-header reveal-stagger" data-reveal>
+          <p class="chapter-eyebrow">Legal</p>
+          <h1 class="chapter-title">Terms of Service</h1>
+          <p class="chapter-lead">Rules for using Search Console for iOS and search-console.org. The App is an independent client for Google Search Console, not made or endorsed by Google.</p>
+          <p class="legal-meta">Last updated: May 28, 2026 · Applies to the iOS app and this website</p>
+        </header>
+
+</section>
+
+    <section class="story-chapter story-chapter--alt" id="terms">
+      <div class="story-chapter__inner legal-doc">
+        <nav class="legal-toc reveal" data-reveal aria-label="Terms of service sections">
+          <h2 class="legal-toc__title">On this page</h2>
+          <ol class="legal-toc__list">
+            <li><a href="#acceptance">Acceptance of terms</a></li>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#service">Description of service</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#subscriptions">Subscriptions and billing</a></li>
+            <li><a href="#responsibilities">User responsibilities</a></li>
+            <li><a href="#ip">Intellectual property</a></li>
+            <li><a href="#accuracy">Data accuracy</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#third-parties">Third-party services</a></li>
+            <li><a href="#google-api">Google API user data</a></li>
+            <li><a href="#warranties">Disclaimer of warranties</a></li>
+            <li><a href="#liability">Limitation of liability</a></li>
+            <li><a href="#indemnification">Indemnification</a></li>
+            <li><a href="#termination">Termination</a></li>
+            <li><a href="#changes">Changes to terms</a></li>
+            <li><a href="#governing-law">Governing law</a></li>
+            <li><a href="#severability">Severability</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+
+        <article class="legal-body reveal-stagger reveal-stagger--tight" data-reveal>
+          <section class="legal-section" id="acceptance">
+            <h2>1. Acceptance of terms</h2>
+            <p>By downloading, installing, accessing, or using Search Console for iOS ("the App") or the website at search-console.org ("the Site"), you agree to these Terms of Service ("Terms"). If you do not agree, do not use the App or Site.</p>
+            <p>These Terms are a legal agreement between you and the independent developer of the App and Site ("the developer," "we," or "us"). They apply together with our <a href="privacy.html">Privacy Policy</a>.</p>
+          </section>
+
+          <section class="legal-section" id="scope">
+            <h2>2. Scope</h2>
+            <p>The App is a client for Google Search Console. It is developed and operated by a solo developer, not by Google LLC.</p>
+            <p class="legal-callout"><strong>Not affiliated with Google.</strong> The App and Site are not made by, endorsed by, sponsored by, or officially connected with Google LLC. "Google," "Google Search Console," and related marks are trademarks of Google LLC.</p>
+            <p class="legal-callout"><strong>Plain-language note:</strong> These Terms describe how you may use the App and Site today. They are not legal advice.</p>
+          </section>
+
+          <section class="legal-section" id="service">
+            <h2>3. Description of service</h2>
+            <p>The App lets you view and work with Google Search Console data on iPhone, iPad, and Mac. Depending on your plan and permissions, features include:</p>
+            <ul>
+              <li>Google Sign-In with read-only or optional editing access to Search Console</li>
+              <li>Performance analytics, search queries, top pages, Insights, and filters</li>
+              <li>URL Inspection and sitemap viewing; submit or delete sitemaps only with editing access where your Google role allows</li>
+              <li>Core Web Vitals through Google's PageSpeed Insights API for URLs you choose to analyze</li>
+              <li>CSV and PDF export of reports you generate</li>
+              <li>Optional Home Screen widgets (Pro, iPhone and iPad)</li>
+              <li>Optional local push reminders and in-app notification history</li>
+              <li>Optional in-app feedback and bug reporting</li>
+            </ul>
+            <p>The free tier on iPhone and iPad includes one Search Console property and may show Google AdMob ads. Pro unlocks additional properties, removes in-app ads on supported platforms, and enables widgets as described in the App. The Mac app does not show in-app ads or Home Screen widgets.</p>
+            <p>The Site provides product information, release notes, legal pages, and links to download the App from the Apple App Store.</p>
+          </section>
+
+          <section class="legal-section" id="requirements">
+            <h2>4. Requirements</h2>
+            <p>To use the App's Google-connected features, you must:</p>
+            <ul>
+              <li>Have a valid Google account and access to the Search Console properties you want to view</li>
+              <li>Approve the OAuth permissions the App requests (read-only or editing, plus email and profile for sign-in)</li>
+              <li>Use a compatible iPhone, iPad, or Mac with a supported OS version and an internet connection when fetching new data from Google</li>
+              <li>Comply with Google's terms and policies when using Google services through the App</li>
+            </ul>
+            <p>Cached data may be available offline for review, but new reports require a connection to Google's services.</p>
+          </section>
+
+          <section class="legal-section" id="subscriptions">
+            <h2>5. Subscriptions and billing</h2>
+            <p>Pro subscriptions are sold through Apple's App Store using StoreKit. Available plans, prices, and any free trial (such as a 7-day trial on the monthly plan when offered) are shown in the App at purchase time.</p>
+            <ul>
+              <li><strong>Billing:</strong> Apple charges your Apple ID account. The developer does not process payment card data.</li>
+              <li><strong>Auto-renewal:</strong> Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current period in your App Store account settings.</li>
+              <li><strong>Management and refunds:</strong> Manage or cancel at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Apple subscription settings</a>. Refunds are handled by Apple under Apple's policies.</li>
+              <li><strong>Entitlements:</strong> Pro features (such as multiple properties, ad removal on supported platforms, and widgets) apply while your subscription is active and recognized by StoreKit on your device.</li>
+            </ul>
+            <p>By subscribing, you also agree to Apple's applicable terms for in-app purchases.</p>
+          </section>
+
+          <section class="legal-section" id="responsibilities">
+            <h2>6. User responsibilities</h2>
+            <p>You agree to:</p>
+            <ul>
+              <li>Use the App and Site only for lawful purposes</li>
+              <li>Keep your Google and Apple account credentials secure</li>
+              <li>Not reverse engineer, decompile, or modify the App except where applicable law allows</li>
+              <li>Not use the App to violate third-party rights or applicable law</li>
+              <li>Not misuse Google APIs or attempt unauthorized access to Search Console data</li>
+              <li>Report security issues responsibly through <a href="#contact">Contact</a> or in-app feedback</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="ip">
+            <h2>7. Intellectual property</h2>
+            <ul>
+              <li>The App's design, code, graphics, and Site content (except third-party marks and your data) belong to the developer</li>
+              <li>Google trademarks and services remain Google's property</li>
+              <li>Your Search Console data remains yours; the App displays it under your Google permissions</li>
+              <li>You may not copy, sell, or redistribute the App or Site content except as allowed by law or with written permission</li>
+              <li>Personal, non-commercial screenshots of the App are generally fine for reviews or demos</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="accuracy">
+            <h2>8. Data accuracy</h2>
+            <p>Metrics and reports come from Google's APIs and are formatted for display. The developer does not guarantee that App data matches the web Search Console UI at every moment.</p>
+            <ul>
+              <li>Delays, rounding, API limits, or Google outages can affect completeness or timing</li>
+              <li>Historical ranges depend on Google's retention and your property's data</li>
+              <li>Business or SEO decisions based on App data are your responsibility</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="privacy">
+            <h2>9. Privacy</h2>
+            <p>How information is handled is described in the <a href="privacy.html">Privacy Policy</a>. In summary: Search Console content is fetched from Google for display on your device; the developer does not operate a database of your Search Console metrics. Optional support messages you send are handled as described there.</p>
+          </section>
+
+          <section class="legal-section" id="third-parties">
+            <h2>10. Third-party services</h2>
+            <p>The App and Site rely on services the developer does not control, including:</p>
+            <ul>
+              <li><strong>Google</strong> - Sign-In, Search Console API, PageSpeed Insights, AdMob (free tier on iPhone and iPad), and Google Analytics on the Site</li>
+              <li><strong>Apple</strong> - App Store distribution, StoreKit, notifications, and Keychain</li>
+              <li><strong>Support delivery</strong> - optional feedback and Site contact messages routed through infrastructure the developer uses to receive support</li>
+            </ul>
+            <p>Your use of those services is subject to their terms and privacy policies. The developer is not responsible for third-party outages, policy changes, or data practices.</p>
+            <p><a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google Terms</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Apple Media Services Terms</a></p>
+          </section>
+
+          <section class="legal-section" id="google-api">
+            <h2>11. Google API user data</h2>
+            <p>The App's use of information from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including Limited Use. Google user data is used only to provide user-facing features you request in the App, not for ads or resale by the developer.</p>
+          </section>
+
+          <section class="legal-section" id="warranties">
+            <h2>12. Disclaimer of warranties</h2>
+            <p class="legal-caps">The App and Site are provided "as is" and "as available" without warranties of any kind, whether express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement, to the extent permitted by law.</p>
+            <p>The developer does not warrant uninterrupted, secure, or error-free operation, compatibility with every future OS or API version, or that defects will be corrected.</p>
+          </section>
+
+          <section class="legal-section" id="liability">
+            <h2>13. Limitation of liability</h2>
+            <p class="legal-caps">To the maximum extent permitted by applicable law, the developer shall not be liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits, data, or business opportunities.</p>
+            <p>Where liability cannot be excluded, the developer's total liability for claims relating to the App or Site shall not exceed the greater of (a) the amount you paid the developer for the App or subscriptions in the twelve months before the claim, or (b) fifty U.S. dollars (USD $50).</p>
+            <p>The developer is not liable for acts or omissions of Google, Apple, or other third parties.</p>
+          </section>
+
+          <section class="legal-section" id="indemnification">
+            <h2>14. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless the developer from claims, damages, losses, and expenses (including reasonable legal fees) arising from your use of the App or Site, your violation of these Terms, or your violation of third-party rights or applicable law, except where prohibited by law.</p>
+          </section>
+
+          <section class="legal-section" id="termination">
+            <h2>15. Termination</h2>
+            <ul>
+              <li>You may stop using the App by uninstalling it and revoke Google access at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a></li>
+              <li>The developer may discontinue the App or Site or change features at any time</li>
+              <li>Sections that by nature should survive (disclaimers, liability limits, indemnity, governing law) survive termination</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="changes">
+            <h2>16. Changes to terms</h2>
+            <p>These Terms may be updated from time to time. The current version will be posted on this page with a new "Last updated" date. Material changes may also be noted in the App or release notes. Continued use after changes means you accept the updated Terms.</p>
+          </section>
+
+          <section class="legal-section" id="governing-law">
+            <h2>17. Governing law</h2>
+            <p>These Terms are governed by applicable law in the developer's jurisdiction, without regard to conflict-of-law rules. Disputes shall be brought in the courts that have jurisdiction there, unless mandatory consumer protection law in your country requires otherwise.</p>
+          </section>
+
+          <section class="legal-section" id="severability">
+            <h2>18. Severability</h2>
+            <p>If any provision is held invalid or unenforceable, the remaining provisions stay in effect to the fullest extent permitted by law.</p>
+          </section>
+
+          <section class="legal-section" id="contact">
+            <h2>19. Contact</h2>
+            <p>Questions about these Terms:</p>
+            <p><strong>Email:</strong> <a href="mailto:info@quackdb.app">info@quackdb.app</a></p>
+            <p>You can also use the Site footer contact form or in-app Send Feedback / Report a Bug (only if you choose to send something). Privacy questions: see the <a href="privacy.html#contact">Privacy Policy contact section</a>.</p>
+          </section>
+        </article>
+
+        <p class="chapter-bridge">
+          <a href="privacy.html" class="chapter-bridge__link">
+            <span>Back · Privacy Policy</span>
+            <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
-
-      <section class="content-section">
-        <h2>1. Acceptance of Terms</h2>
-        <p>By downloading, installing, or using Search Console for iOS ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
-        <p>These Terms constitute a legal agreement between you and the independent developer of this App. Please read them carefully.</p>
-      </section>
-
-      <section class="content-section">
-        <h2>2. Description of Service</h2>
-        <p>The App provides a mobile interface to view and analyze data from Google Search Console. The service allows you to:</p>
-        <ul>
-          <li>View website performance metrics (clicks, impressions, CTR, position)</li>
-          <li>Inspect URLs and indexing status</li>
-          <li>Manage sitemaps</li>
-          <li>Analyze Core Web Vitals</li>
-          <li>Export data as CSV or PDF reports</li>
-        </ul>
-        <div class="disclaimer">
-          <strong>Important:</strong> This App is an independent application developed by a solo developer. It is NOT affiliated with, endorsed by, maintained by, or in any way officially connected with Google LLC or any of its subsidiaries or affiliates. "Google", "Google Search Console", and related names are trademarks of Google LLC.
-        </div>
-      </section>
-
-      <section class="content-section">
-        <h2>3. Requirements</h2>
-        <p>To use the App, you must:</p>
-        <ul>
-          <li>Have a valid Google account</li>
-          <li>Have access to Google Search Console</li>
-          <li>Grant the App permission to access your Search Console data</li>
-          <li>Use a compatible iOS device</li>
-          <li>Have an active internet connection</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>4. User Responsibilities</h2>
-        <p>By using the App, you agree to:</p>
-        <ul>
-          <li>Provide accurate authentication credentials</li>
-          <li>Use the App only for lawful purposes</li>
-          <li>Not attempt to reverse engineer, decompile, or modify the App</li>
-          <li>Not use the App to violate any third-party rights</li>
-          <li>Not use the App to collect data for unauthorized purposes</li>
-          <li>Comply with Google's Terms of Service when accessing Search Console data</li>
-          <li>Not share or transfer your authentication credentials</li>
-          <li>Report any security vulnerabilities you discover</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>5. Intellectual Property</h2>
-        <ul>
-          <li>The App's design, source code, graphics, and content are the intellectual property of the developer</li>
-          <li>"Google", "Google Search Console", "Google Search", and related logos are trademarks of Google LLC</li>
-          <li>Your Search Console data belongs to you; the App merely displays it</li>
-          <li>You may not copy, modify, or distribute the App or its components</li>
-          <li>Screenshots of the App may be shared for personal, non-commercial purposes</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>6. Data Accuracy Disclaimer</h2>
-        <p>The data displayed in this App comes directly from Google's Search Console API. We do not modify, alter, or process this data beyond formatting it for display.</p>
-        <ul>
-          <li>We cannot guarantee the accuracy of data provided by Google's API</li>
-          <li>Data may be delayed or differ slightly from the web version of Search Console</li>
-          <li>Historical data availability depends on Google's data retention policies</li>
-          <li>API limitations may affect data completeness</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>7. Disclaimer of Warranties</h2>
-        <p class="legal-caps">The App is provided "as is" and "as available" without warranties of any kind, either express or implied.</p>
-        <p>We do not warrant that:</p>
-        <ul>
-          <li>The App will be uninterrupted, timely, secure, or error-free</li>
-          <li>The results obtained from using the App will be accurate or reliable</li>
-          <li>The App will be compatible with future iOS versions or API changes</li>
-          <li>Any errors in the App will be corrected</li>
-        </ul>
-        <p>You use the App at your own risk. The developer is not responsible for any decisions made based on data displayed in the App.</p>
-      </section>
-
-      <section class="content-section">
-        <h2>8. Limitation of Liability</h2>
-        <p class="legal-caps">To the maximum extent permitted by applicable law:</p>
-        <ul>
-          <li>The developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
-          <li>Total liability shall not exceed the amount you paid for the App (if any)</li>
-          <li>The developer is not liable for any loss of data, revenue, or business opportunities</li>
-          <li>The developer is not liable for actions or inactions of Google or their APIs</li>
-          <li>The developer is not liable for any service interruptions</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>9. Indemnification</h2>
-        <p>You agree to indemnify and hold harmless the developer from any claims, damages, losses, or expenses (including reasonable attorney fees) arising from:</p>
-        <ul>
-          <li>Your use of the App</li>
-          <li>Your violation of these Terms</li>
-          <li>Your violation of any third-party rights</li>
-          <li>Your violation of any applicable laws</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>10. Data Source and Google Services</h2>
-        <p>This App displays data from Google Search Console via Google's official APIs. <strong>All data shown is based on what Google collects</strong> about your website's search performance and <strong>what you have enabled in your Google Account settings</strong>.</p>
-        <p>The App does not collect, store, or transmit your Search Console data to third-party servers. All information is fetched directly from Google's servers and displayed on your device.</p>
-        <p>The App relies on third-party services:</p>
-        <ul>
-          <li>Google Sign-In for authentication</li>
-          <li>Google Search Console API for data</li>
-          <li>PageSpeed Insights API for Core Web Vitals</li>
-        </ul>
-        <p>Your use of these services is subject to Google's Terms of Service and Privacy Policy. We have no control over these services and are not responsible for their availability or functionality.</p>
-        <p>You can manage what data Google collects through your <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google Account privacy settings</a>.</p>
-        <p><a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google Terms of Service</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> · <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a></p>
-      </section>
-
-      <section class="content-section">
-        <h2>11. Termination</h2>
-        <ul>
-          <li>You may stop using the App at any time by uninstalling it</li>
-          <li>You can revoke the App's access through your Google Account settings</li>
-          <li>We reserve the right to discontinue the App at any time</li>
-          <li>These Terms remain in effect until terminated</li>
-          <li>Sections regarding disclaimers and liability survive termination</li>
-        </ul>
-      </section>
-
-      <section class="content-section">
-        <h2>12. Changes to Terms</h2>
-        <p>We reserve the right to modify these Terms at any time. Changes will be posted within the App. Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
-        <p>We recommend reviewing these Terms periodically. Material changes will be highlighted in the App's update notes.</p>
-      </section>
-
-      <section class="content-section">
-        <h2>13. Governing Law</h2>
-        <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles. Any disputes shall be resolved in the appropriate courts of the developer's jurisdiction.</p>
-      </section>
-
-      <section class="content-section">
-        <h2>14. Severability</h2>
-        <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
-      </section>
-
-      <section class="content-section">
-        <h2>15. Contact Information</h2>
-        <p>For questions, concerns, or feedback about these Terms of Service, please use the contact form below.</p>
-      </section>
-    </div>
+    </section>
   </main>
 
-  <footer class="footer">
+      <footer class="footer">
+    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
     <div class="container">
+      <div class="footer-download">
+        <div class="footer-download-copy">
+          <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
+          <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
+      </div>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="favicon.png" alt="Search Console" width="32" height="32">
-            <span data-i18n="common.appNameShort">Search Console</span>
+            <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
-          <p data-i18n="footer.tagline">Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
-          <p style="margin-top: 8px; font-size: 0.8125rem;" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
+          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
           <div class="social-share">
             <span class="social-label" data-i18n="footer.share">Share:</span>
-            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on X">
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on Facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on LinkedIn">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <button class="social-icon social-main" id="social-share-btn" aria-label="More share options">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
             </button>
           </div>
         </div>
@@ -833,9 +375,10 @@
           <h4 data-i18n="footer.pages">Pages</h4>
           <ul class="footer-links">
             <li><a href="index.html" data-i18n="footer.home">Home</a></li>
-            <li><a href="about.html" data-i18n="footer.about">About</a></li>
-            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy</a></li>
-            <li><a href="terms.html" data-i18n="footer.terms">Terms</a></li>
+            <li><a href="about.html" data-nav="about" data-i18n="footer.about">About</a></li>
+            <li><a href="releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
+            <li><a href="privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+            <li><a href="terms.html" data-nav="terms" data-i18n="footer.termsOfService">Terms of Service</a></li>
           </ul>
         </div>
         <div>
@@ -843,7 +386,6 @@
           <ul class="footer-links">
             <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
             <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
-            <li><a href="releases.html" data-i18n="nav.releases">Releases</a></li>
             <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
@@ -866,133 +408,8 @@
           <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
         </div>
       </div>
-    </div>
-  </footer>
+    </div></footer>
 
-  <script>
-    // Theme Toggle
-    (function() {
-      var STORAGE_KEY = 'theme-preference';
-      function getThemePreference() {
-        var stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) return stored;
-        return 'system';
-      }
-      function setTheme(theme) {
-        localStorage.setItem(STORAGE_KEY, theme);
-        if (theme === 'system') {
-          document.documentElement.removeAttribute('data-theme');
-        } else {
-          document.documentElement.setAttribute('data-theme', theme);
-        }
-        updateToggleButtons(theme);
-      }
-      function updateToggleButtons(theme) {
-        document.querySelectorAll('.theme-btn').forEach(function(btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
-        });
-      }
-      var initialTheme = getThemePreference();
-      setTheme(initialTheme);
-      document.querySelectorAll('.theme-toggle').forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-          var btn = e.target.closest('.theme-btn');
-          if (btn) {
-            var theme = btn.getAttribute('data-theme');
-            setTheme(theme);
-          }
-        });
-      });
-    })();
-
-    (function() {
-      var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
-      var contactForm = document.getElementById('contact-form');
-      var contactNote = document.getElementById('contact-note');
-      if (contactForm && contactNote) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var name = contactForm.querySelector('input[name="name"]').value.trim();
-          var email = contactForm.querySelector('input[name="email"]').value.trim();
-          var message = contactForm.querySelector('textarea[name="message"]').value.trim();
-          var btn = contactForm.querySelector('button');
-          if (!name || !email || !message) return;
-          btn.disabled = true;
-          btn.textContent = 'Sending...';
-          fetch(webhookUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              content: '**New contact message**\n**From:** ' + name + ' (' + email + ')\n**Message:** ' + message
-            })
-          })
-          .then(function(res) {
-            if (res.ok) {
-              contactNote.textContent = 'Message sent! I\'ll get back to you soon.';
-              contactNote.className = 'contact-note success';
-              contactForm.reset();
-            } else {
-              contactNote.textContent = 'Something went wrong. Try again later.';
-              contactNote.className = 'contact-note error';
-            }
-          })
-          .catch(function() {
-            contactNote.textContent = 'Could not connect. Try again later.';
-            contactNote.className = 'contact-note error';
-          })
-          .finally(function() {
-            btn.disabled = false;
-            btn.textContent = 'Send message';
-          });
-        });
-      }
-
-      var shareData = {
-        title: 'Search Console for iOS',
-        text: 'Native iOS app for Google Search Console - track your search rankings from your iPhone.',
-        url: 'https://search-console.org'
-      };
-
-      var socialShareBtn = document.getElementById('social-share-btn');
-      if (socialShareBtn) {
-        socialShareBtn.addEventListener('click', function() {
-          if (navigator.share) {
-            navigator.share(shareData).catch(function() {});
-          } else {
-            navigator.clipboard.writeText(shareData.url).then(function() {
-              socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-              setTimeout(function() {
-                socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
-              }, 2000);
-            });
-          }
-        });
-      }
-
-      // Mobile menu toggle
-      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      var mobileNav = document.getElementById('mobile-nav');
-      var menuIcon = document.getElementById('menu-icon');
-      if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-          var isOpen = mobileNav.classList.toggle('open');
-          mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-          if (isOpen) {
-            menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
-          } else {
-            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-          }
-        });
-        mobileNav.querySelectorAll('a').forEach(function(link) {
-          link.addEventListener('click', function() {
-            mobileNav.classList.remove('open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-          });
-        });
-      }
-    })();
-  </script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
@@ -1018,6 +435,9 @@
       });
     })();
   </script>
-  <script src="js/i18n.js"></script>
+  <script src="js/hero-dot-wave.js?v=9"></script>
+  <script src="js/site-ui.js?v=9"></script>
+  <script src="js/i18n.js?v=9"></script>
+  <script src="js/site-chrome-scripts.js?v=9"></script>
 </body>
 </html>

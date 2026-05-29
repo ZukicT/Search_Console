@@ -11,6 +11,8 @@
     ko: '\ud55c\uad6d\uc5b4'
   };
   var FALLBACK_LOCALE = 'en';
+  var currentTranslations = null;
+  var currentLocale = FALLBACK_LOCALE;
 
   function getLocalesUrl(locale) {
     var script = document.querySelector('script[src*="i18n.js"]');
@@ -69,11 +71,58 @@
     return obj;
   }
 
-  function applyTranslations(t) {
-    if (!t) return;
+  function interpolate(str, vars) {
+    if (!vars || typeof str !== 'string') return str;
+    return str.replace(/\{\{(\w+)\}\}/g, function (_, key) {
+      return vars[key] != null ? String(vars[key]) : '';
+    });
+  }
+
+  function t(key, vars) {
+    var val = getNested(currentTranslations, key);
+    if (typeof val !== 'string') return '';
+    return interpolate(val, vars);
+  }
+
+  function applyMeta(translations) {
+    if (!translations) return;
+    var body = document.body;
+    var titleKey = (body && body.getAttribute('data-i18n-title-key')) || 'meta.title';
+    var descriptionKey = (body && body.getAttribute('data-i18n-description-key')) || 'meta.description';
+    var title = getNested(translations, titleKey);
+    var description = getNested(translations, descriptionKey);
+
+    if (typeof title === 'string') {
+      document.title = title.replace(/\n/g, ' ').trim();
+    }
+
+    if (typeof description === 'string') {
+      var metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', description);
+
+      var ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) ogDescription.setAttribute('content', description);
+
+      var twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      if (twitterDescription) twitterDescription.setAttribute('content', description);
+    }
+
+    if (typeof title === 'string') {
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', title.replace(/\n/g, ' ').trim());
+
+      var twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twitterTitle) twitterTitle.setAttribute('content', title.replace(/\n/g, ' ').trim());
+    }
+  }
+
+  function applyTranslations(translations) {
+    if (!translations) return;
+    currentTranslations = translations;
+    applyMeta(translations);
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
-      var val = getNested(t, key);
+      var val = getNested(translations, key);
       if (typeof val === 'string') {
         if (val.indexOf('<') !== -1) {
           el.innerHTML = val;
@@ -84,28 +133,38 @@
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-placeholder');
-      var val = getNested(t, key);
+      var val = getNested(translations, key);
       if (typeof val === 'string') el.placeholder = val;
     });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-aria-label');
-      var val = getNested(t, key);
+      var val = getNested(translations, key);
       if (typeof val === 'string') el.setAttribute('aria-label', val);
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      var val = getNested(translations, key);
+      if (typeof val === 'string') el.setAttribute('alt', val);
     });
     document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-title');
-      var val = getNested(t, key);
+      var val = getNested(translations, key);
       if (typeof val === 'string') el.setAttribute('title', val);
     });
     document.querySelectorAll('[data-i18n-aria-label-expand]').forEach(function (el) {
       var keyExpand = el.getAttribute('data-i18n-aria-label-expand');
       var keyCollapse = el.getAttribute('data-i18n-aria-label-collapse');
-      var valExpand = keyExpand ? getNested(t, keyExpand) : '';
-      var valCollapse = keyCollapse ? getNested(t, keyCollapse) : '';
+      var valExpand = keyExpand ? getNested(translations, keyExpand) : '';
+      var valCollapse = keyCollapse ? getNested(translations, keyCollapse) : '';
       if (typeof valExpand === 'string') el.setAttribute('data-aria-label-expand', valExpand);
       if (typeof valCollapse === 'string') el.setAttribute('data-aria-label-collapse', valCollapse);
       if (typeof valExpand === 'string') el.setAttribute('aria-label', valExpand);
     });
+    document.dispatchEvent(
+      new CustomEvent('locale:applied', {
+        detail: { locale: currentLocale, translations: translations }
+      })
+    );
   }
 
   function initPicker(locale) {
@@ -135,11 +194,12 @@
 
   function loadAndApply(locale) {
     if (!LOCALES[locale]) locale = FALLBACK_LOCALE;
+    currentLocale = locale;
     var url = getLocalesUrl(locale);
     fetch(url)
       .then(function (res) { return res.ok ? res.json() : Promise.reject(); })
-      .then(function (t) {
-        applyTranslations(t);
+      .then(function (translations) {
+        applyTranslations(translations);
         initPicker(locale);
         document.documentElement.lang = locale === 'zh-Hans' || locale === 'zh-Hant' ? 'zh' : locale;
       })
@@ -147,6 +207,12 @@
         if (locale !== FALLBACK_LOCALE) loadAndApply(FALLBACK_LOCALE);
       });
   }
+
+  window.SC_I18N = {
+    t: t,
+    getLocale: function () { return currentLocale; },
+    getTranslations: function () { return currentTranslations; }
+  };
 
   function run() {
     var locale = getCurrentLocale();

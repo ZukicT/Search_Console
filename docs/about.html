@@ -8,12 +8,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <title>About - Search Console for iOS</title>
+  <title>About | Search Console for iOS (independent app)</title>
   <meta name="robots" content="index, follow">
   <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
-  <meta name="description" content="The story behind Search Console for iOS. Why I built this app and what drives its development.">
-  <meta property="og:title" content="About - Search Console for iOS">
-  <meta property="og:description" content="The story behind Search Console for iOS. Built by someone who needed it.">
+  <meta name="description" content="Why I built an independent iOS app for Google Search Console data. Solo developer, not made by Google.">
+  <meta property="og:title" content="About | Search Console for iOS (independent app)">
+  <meta property="og:description" content="Why I built an independent iOS app for Google Search Console data. Solo developer, not made by Google.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://search-console.org/about.html">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -22,9 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="favicon.png" type="image/png">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"></noscript>
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="css/style.css?v=66">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -32,745 +31,6 @@
     gtag('js', new Date());
     gtag('config', 'G-VPPTK5JECX');
   </script>
-  <style>
-    :root {
-      --white: #ffffff;
-      --bg: #f8f9fa;
-      --text: #5f6368;
-      --text-heading: rgb(32, 33, 36);
-      --text-secondary: #5f6368;
-      --border: #dadce0;
-      --blue: #1a73e8;
-      --blue-hover: #1557b0;
-      --blue-light: #e8f0fe;
-      --green: #1e8e3e;
-      --green-light: #e6f4ea;
-      --yellow: #e37400;
-      --yellow-light: #fef7e0;
-      --radius: 8px;
-      --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-      --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-      --font: "Inter", "Roboto", -apple-system, sans-serif;
-      --font-body: "Roboto", -apple-system, sans-serif;
-    }
-    [data-theme="dark"] {
-      --white: #1a1a1a;
-      --bg: #121212;
-      --text: #9aa0a6;
-      --text-heading: #e8eaed;
-      --text-secondary: #9aa0a6;
-      --border: #3c4043;
-      --blue: #8ab4f8;
-      --blue-hover: #aecbfa;
-      --blue-light: rgba(138, 180, 248, 0.15);
-      --green: #81c995;
-      --green-light: rgba(129, 201, 149, 0.15);
-      --yellow: #ffb347;
-      --yellow-light: rgba(255, 179, 71, 0.18);
-      --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
-      --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --white: #1a1a1a;
-        --bg: #121212;
-        --text: #9aa0a6;
-        --text-heading: #e8eaed;
-        --text-secondary: #9aa0a6;
-        --border: #3c4043;
-        --blue: #8ab4f8;
-        --blue-hover: #aecbfa;
-        --blue-light: rgba(138, 180, 248, 0.15);
-        --green: #81c995;
-        --green-light: rgba(129, 201, 149, 0.15);
-        --yellow: #ffb347;
-        --yellow-light: rgba(255, 179, 71, 0.18);
-        --shadow: 0 1px 2px 0 rgba(0,0,0,0.5), 0 1px 3px 1px rgba(0,0,0,0.3);
-        --shadow-hover: 0 1px 3px 0 rgba(0,0,0,0.5), 0 4px 8px 3px rgba(0,0,0,0.35);
-      }
-      :root:not([data-theme="light"]) .lang-picker {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      }
-    }
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      padding: 2px;
-      background: transparent;
-      border: none;
-      border-radius: 6px;
-      margin-left: auto;
-      margin-right: 16px;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-    .theme-toggle:hover { opacity: 1; }
-    .theme-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border: none;
-      background: transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
-    .theme-btn:hover {
-      background: var(--bg);
-      color: var(--text-heading);
-    }
-    .theme-btn.active { color: var(--blue); }
-    .theme-btn svg { width: 16px; height: 16px; }
-    .theme-toggle-mobile { display: none; }
-    @media (max-width: 768px) {
-      .theme-toggle { display: none; }
-      .theme-toggle-mobile {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 2px;
-        background: transparent;
-        border: none;
-        border-radius: 6px;
-        margin-right: 8px;
-        opacity: 0.6;
-      }
-      .theme-toggle-mobile:hover { opacity: 1; }
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      font-size: 13px;
-      background: var(--white);
-      color: var(--text-heading);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-
-    .release-notice-banner {
-      background: var(--blue-light);
-      color: var(--blue);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 0;
-    }
-    .release-notice-banner .container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .release-notice-banner-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    .release-notice-banner-link {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--blue);
-      text-decoration: underline;
-    }
-    .release-notice-banner-link:hover {
-      color: var(--blue-hover);
-    }
-    
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-    }
-    .header .container {
-      max-width: 1200px;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 1.125rem;
-      color: var(--text-heading);
-      text-decoration: none;
-    }
-    .logo img { height: 32px; width: 32px; border-radius: 8px; }
-    .nav { display: flex; align-items: center; gap: 8px; }
-    .nav a { 
-      color: var(--text-secondary); 
-      text-decoration: none; 
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .nav a:hover { background: var(--bg); }
-    .nav-cta {
-      white-space: nowrap;
-      background: var(--blue) !important;
-      color: var(--white) !important;
-    }
-    .nav-cta:hover { background: var(--blue-hover) !important; }
-    
-    /* Mobile Menu */
-    .mobile-menu-btn {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .mobile-menu-btn:hover { background: var(--bg); }
-    .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--text-heading); }
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      box-shadow: 0 4px 12px rgba(60,64,67,0.15);
-    }
-    .mobile-nav.open { display: block; }
-    .mobile-nav a {
-      display: block;
-      padding: 14px 0;
-      color: var(--text-heading);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav a:hover { color: var(--blue); }
-    .mobile-nav .nav-cta {
-      display: block;
-      text-align: center;
-      margin-top: 16px;
-      padding: 14px 24px;
-      border-radius: var(--radius);
-    }
-    
-    .hero {
-      padding: 80px 0 48px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: var(--font);
-      font-size: 3rem;
-      font-weight: 400;
-      margin-bottom: 16px;
-      color: var(--text-heading);
-      letter-spacing: -0.02em;
-    }
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    
-    .author-section {
-      padding: 0 0 64px;
-    }
-    .author-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
-      background: var(--bg);
-      border-radius: 16px;
-      padding: 48px;
-    }
-    .author-photo {
-      flex-shrink: 0;
-    }
-    .author-photo img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--white);
-      box-shadow: 0 4px 20px rgba(60,64,67,0.15);
-    }
-    .author-info h2 {
-      font-family: var(--font);
-      font-size: 1.75rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: var(--text-heading);
-    }
-    .author-info .role {
-      color: var(--blue);
-      font-size: 1rem;
-      margin-bottom: 20px;
-      font-weight: 500;
-      display: inline-block;
-      background: var(--blue-light);
-      padding: 6px 14px;
-      border-radius: 100px;
-    }
-    .author-info p {
-      color: var(--text-secondary);
-      font-size: 1.0625rem;
-      line-height: 1.7;
-    }
-    .author-linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      color: var(--blue);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .author-linkedin:hover { color: var(--blue-hover); }
-    
-    .story {
-      padding: 0 0 64px;
-    }
-    .story-content {
-      background: var(--bg);
-      border-radius: 16px;
-      padding: 48px;
-    }
-    .story-content h2 {
-      font-family: var(--font);
-      font-size: 1.75rem;
-      font-weight: 400;
-      margin-bottom: 28px;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-    }
-    .story-content p {
-      margin-bottom: 20px;
-      font-size: 1.0625rem;
-      color: var(--text-heading);
-      line-height: 1.7;
-    }
-    .story-content p:last-child {
-      margin-bottom: 0;
-    }
-    .story-content .highlight {
-      background: var(--blue-light);
-      padding: 24px 28px;
-      border-radius: 12px;
-      border-left: 4px solid var(--blue);
-      margin: 28px 0;
-    }
-    .story-content .highlight p {
-      margin-bottom: 0;
-      font-style: italic;
-      color: var(--text-heading);
-      font-size: 1.125rem;
-    }
-    
-    .values {
-      padding: 0 0 80px;
-    }
-    .values h2 {
-      font-family: var(--font);
-      font-size: 1.75rem;
-      font-weight: 400;
-      margin-bottom: 32px;
-      text-align: center;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .value-card {
-      text-align: center;
-      padding: 32px 24px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--white);
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .value-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: transparent;
-    }
-    .value-card .icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-    .value-card .icon svg {
-      width: 30px;
-      height: 30px;
-    }
-    .value-card .icon.blue { background: var(--blue-light); color: var(--blue); }
-    .value-card .icon.green { background: var(--green-light); color: var(--green); }
-    .value-card .icon.yellow { background: var(--yellow-light); color: var(--yellow); }
-    .value-card h3 {
-      font-family: var(--font);
-      font-size: 1.0625rem;
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: var(--text-heading);
-    }
-    .value-card p {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    
-    .cta-section {
-      padding: 64px 0 80px;
-      text-align: center;
-      background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
-    }
-    .cta-section h2 {
-      font-family: var(--font);
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-      color: var(--text-heading);
-      letter-spacing: -0.02em;
-    }
-    .cta-section p {
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-      font-size: 1.0625rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--blue);
-      color: var(--white);
-    }
-    .btn-primary:hover { 
-      background: var(--blue-hover); 
-      box-shadow: var(--shadow);
-    }
-    
-    .footer {
-      background: var(--bg);
-      padding: 56px 0 32px;
-      border-top: 1px solid var(--border);
-    }
-    .footer .container {
-      max-width: 1200px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 0.8fr 1fr 1.7fr;
-      gap: 56px;
-      margin-bottom: 56px;
-    }
-    .lang-picker {
-      width: 100%;
-      max-width: 180px;
-      padding: 10px 40px 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      font-family: var(--font-body);
-      background-color: var(--white);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 16px;
-      color: var(--text-heading);
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      transition: border-color 0.2s;
-    }
-    .lang-picker:hover,
-    .lang-picker:focus {
-      outline: none;
-      border-color: var(--blue);
-    }
-    .lang-picker option {
-      background: var(--white);
-      color: var(--text-heading);
-      padding: 10px 12px;
-    }
-    [data-theme="dark"] .lang-picker {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239aa0a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    }
-    .footer-bottom .lang-picker {
-      max-width: 140px;
-      padding: 6px 32px 6px 10px;
-      font-size: 0.8125rem;
-      background-position: right 8px center;
-      background-size: 14px;
-      border-color: var(--border);
-      color: var(--text-secondary);
-    }
-    .footer-bottom .lang-picker:hover,
-    .footer-bottom .lang-picker:focus {
-      border-color: var(--blue);
-      color: var(--text-heading);
-    }
-    .footer-brand p {
-      margin-top: 16px;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    .social-share {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .social-label {
-      font-size: 0.8125rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .social-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-      cursor: pointer;
-    }
-    .social-icon:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-    .social-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-    .social-main {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: var(--white);
-    }
-    .social-main:hover {
-      background: var(--blue-hover);
-      border-color: var(--blue-hover);
-      color: var(--white);
-    }
-    .footer h4 {
-      font-family: var(--font);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-heading);
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 12px; }
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9375rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--blue); }
-    .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-    }
-    .footer-bottom-right {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 12px;
-    }
-    .footer-bottom-right .lang-picker {
-      flex-shrink: 0;
-    }
-    .footer-legal {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 0;
-    }
-    .footer-legal a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin-left: 20px;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-    .footer-legal a:first-child { margin-left: 0; }
-    .footer-legal a:hover { color: var(--blue); }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      font-family: var(--font-body);
-      background: var(--white);
-      resize: vertical;
-      transition: border-color 0.2s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px var(--blue-light);
-    }
-    .contact-form button {
-      padding: 12px 18px;
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-family: var(--font);
-      font-weight: 500;
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .contact-form button:hover { background: var(--blue-hover); }
-    .contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
-    .contact-note {
-      font-size: 0.8125rem;
-      margin-top: 10px;
-    }
-    .contact-note.success { color: var(--green); }
-    .contact-note.error { color: #d93025; }
-    
-    @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    }
-    @media (max-width: 768px) {
-      .container { padding: 0 20px; }
-      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
-      .nav { display: none; }
-      .header { position: relative; }
-      .author-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 28px 24px;
-        gap: 24px;
-      }
-      .author-photo img { width: 120px; height: 120px; }
-      .author-info .role { margin-bottom: 12px; }
-      .author-info h2 { font-size: 1.5rem; margin-bottom: 6px; }
-      .author-info p { font-size: 1rem; }
-      .values-grid { grid-template-columns: 1fr; gap: 20px; }
-      .story-content { padding: 28px 24px; }
-      .story-content h2 { font-size: 1.5rem; }
-      .story-content p { font-size: 1rem; }
-    }
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-      .hero { padding: 40px 0 28px; }
-      .hero h1 { font-size: 1.75rem; line-height: 1.2; }
-      .hero p { font-size: 0.9375rem; }
-      .author-section { padding: 0 0 48px; }
-      .author-card { padding: 24px 20px; border-radius: 12px; gap: 20px; }
-      .author-photo img { width: 100px; height: 100px; }
-      .author-info .role { margin-bottom: 10px; padding: 5px 12px; font-size: 0.9375rem; }
-      .author-info h2 { font-size: 1.25rem; margin-bottom: 4px; }
-      .author-info p { font-size: 0.9375rem; line-height: 1.6; }
-      .story { padding: 0 0 48px; }
-      .story-content { padding: 24px 20px; border-radius: 12px; }
-      .story-content h2 { font-size: 1.375rem; margin-bottom: 20px; }
-      .story-content p { font-size: 0.9375rem; margin-bottom: 16px; }
-      .story-content .highlight { padding: 20px; margin: 20px 0; }
-      .story-content .highlight p { font-size: 1rem; }
-      .values { padding: 0 0 60px; }
-      .values h2 { font-size: 1.375rem; margin-bottom: 24px; }
-      .value-card { padding: 24px 20px; }
-      .value-card .icon { width: 50px; height: 50px; margin-bottom: 20px; }
-      .value-card .icon svg { width: 24px; height: 24px; }
-      .value-card h3 { font-size: 1rem; }
-      .value-card p { font-size: 0.875rem; }
-      .cta-section { padding: 48px 0 60px; }
-      .cta-section h2 { font-size: 1.5rem; }
-      .cta-section p { font-size: 0.9375rem; }
-      .btn { padding: 14px 24px; min-height: 48px; }
-      .footer { padding: 40px 0 24px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
-      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; padding-top: 24px; }
-      .footer-bottom-right { justify-content: center; }
-      .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-      .footer-legal a { margin: 0 8px; }
-      .contact-form input, .contact-form textarea { padding: 14px; min-height: 48px; }
-      .contact-form button { min-height: 48px; }
-      .social-icon {
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-      }
-      .social-share { flex-wrap: wrap; }
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 12px; }
-      .logo span { font-size: 1rem; }
-      .hero h1 { font-size: 1.5rem; }
-      .author-card { 
-        padding: 20px 16px; 
-        border-radius: 10px;
-        gap: 16px;
-      }
-      .author-photo img { width: 90px; height: 90px; }
-      .author-info h2 { font-size: 1.125rem; }
-      .author-info p { font-size: 0.875rem; }
-      .story-content { padding: 20px 16px; border-radius: 10px; }
-    }
-  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -817,185 +77,245 @@
   }
   </script>
 </head>
-<body class="page-about">
+<body class="page-about" data-i18n-title-key="about.metaTitle" data-i18n-description-key="about.metaDescription">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
   <header class="header">
     <div class="container">
       <div class="header-inner">
-        <a href="/" class="logo">
-          <img src="favicon.png" alt="Search Console" width="32" height="32">
-          <span data-i18n="common.appNameShort">Search Console</span>
+        <a href="index.html" class="logo">
+          <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
         </a>
-        <div class="theme-toggle" id="theme-toggle">
-          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
-        <nav class="nav">
-          <a href="index.html" data-i18n="nav.home">Home</a>
-          <a href="index.html#features" data-i18n="nav.features">Features</a>
-          <a href="releases.html" data-i18n="nav.releases">Releases</a>
-          <a href="about.html" data-i18n="nav.about">About</a>
-          <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+            <a href="index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+            <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+            <a href="index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+          </div>
         </nav>
-        <div class="theme-toggle theme-toggle-mobile">
-          <button class="theme-btn" data-theme="system" data-i18n-title="aria.themeSystem" data-i18n-aria-label="aria.themeSystem" title="System theme" aria-label="Use system theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="light" data-i18n-title="aria.themeLight" data-i18n-aria-label="aria.themeLight" title="Light theme" aria-label="Use light theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          </button>
-          <button class="theme-btn" data-theme="dark" data-i18n-title="aria.themeDark" data-i18n-aria-label="aria.themeDark" title="Dark theme" aria-label="Use dark theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
         </button>
       </div>
-      <nav class="mobile-nav" id="mobile-nav">
-        <a href="index.html" data-i18n="nav.home">Home</a>
-        <a href="index.html#features" data-i18n="nav.features">Features</a>
-        <a href="releases.html" data-i18n="nav.releases">Releases</a>
-        <a href="about.html" data-i18n="nav.about">About</a>
-        <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
-      </nav>
     </div>
+    <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
+      <div class="container">
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+        <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
+        <a href="index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+    </nav>
   </header>
 
-  <!-- Banner: update data-expires to 24h from deploy (ISO). After that it hides automatically. -->
-  <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-02-04T00:00:00Z" role="status">
-    <div class="container">
-      <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Bug fix 1.0.3 is in review - pending release.</span>
-      <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">Learn more</a>
-    </div>
-  </div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Built by someone<br>who needed it</h1>
-        <p data-i18n="about.heroSubtitle">The story behind Search Console for iOS</p>
-      </div>
-    </section>
 
-    <section class="author-section">
-      <div class="container">
-        <div class="author-card">
-          <div class="author-photo">
-            <img src="founder.png" alt="Founder of Search Console for iOS">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main id="main">
+    <section class="story-chapter page-about-intro" id="top">
+      <div class="hero-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
+      <div class="story-chapter__inner">
+        <header class="chapter-header reveal-stagger" data-reveal>
+          <p class="chapter-eyebrow" data-i18n="about.heroKicker">About</p>
+          <h1 class="chapter-title" data-i18n="about.heroTitle">The app I kept
+wishing existed</h1>
+          <p class="chapter-lead" data-i18n="about.heroSubtitle">Why I built a native Search Console app for iOS, and where it is headed.</p>
+        </header>
+
+</section>
+
+    <section class="story-chapter story-chapter--alt" id="founder">
+      <div class="story-chapter__inner">
+        <header class="chapter-header reveal-stagger" data-reveal>
+          <p class="chapter-eyebrow" data-i18n="about.founderEyebrow">Behind the app</p>
+          <h2 class="chapter-title" data-i18n="about.founderTitle">Who builds this</h2>
+        </header>
+        <div class="about-founder reveal-stagger" data-reveal>
+          <div class="about-founder__photo">
+            <img src="founder.jpg" data-i18n-alt="about.founderPhotoAlt" alt="Tarik Zukic, developer of Search Console for iOS" width="112" height="112">
           </div>
-          <div class="author-info">
-            <h2>Tarik. Z</h2>
-            <p class="role" data-i18n="about.authorRole">Solo indie developer</p>
-            <p data-i18n="about.authorBio">I built this app because I needed it myself. No big company, no VC funding - just one developer solving a problem I face every day.</p>
-            <a href="https://www.linkedin.com/in/tarik-zukic03" target="_blank" rel="noopener" class="author-linkedin" aria-label="Tarik. Z on LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <div class="about-founder__copy">
+            <h3 class="about-founder__name">Tarik. Z</h3>
+            <p class="about-founder__role" data-i18n="about.authorRole">Developer · solo project</p>
+            <p class="about-founder__bio" data-i18n="about.authorBio">I'm Tarik. I run a few sites and check Search Console on my laptop most days. I wanted that same clarity on iOS. When nothing else matched how I work, I built the app I kept reaching for.</p>
+            <a href="https://www.linkedin.com/in/tarik-zukic03" target="_blank" rel="noopener" class="about-founder__link" data-i18n-aria-label="about.linkedinAria" aria-label="Tarik Zukic on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               <span data-i18n="about.linkedin">LinkedIn</span>
             </a>
           </div>
         </div>
+
+        <p class="chapter-bridge reveal" data-reveal>
+          <a href="#story" class="chapter-bridge__link">
+            <span data-i18n="about.bridgeToStory">Continue · Why mobile felt wrong</span>
+            <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
     </section>
 
-    <section class="story">
-      <div class="container">
-        <div class="story-content">
-          <h2 data-i18n="about.storyTitle">Why I Built This</h2>
-          
-          <p data-i18n="about.storyP1">I use Search Console to keep tabs on my website, but honestly? The mobile experience is rough. I got tired of jumping into Safari every time I wanted to check something quick.</p>
-          
-          <p data-i18n="about.storyP2">I saw Google has an API for it, and based on all the forum posts I've read, it doesn't seem like they're planning to build an app anytime soon. The options on the App Store didn't really do it for me either. One looked sketchy, the others just felt off.</p>
-          
-          <div class="highlight">
-            <p data-i18n="about.storyHighlight">"There has to be a better way to check my search data on the go."</p>
-          </div>
-          
-          <p data-i18n="about.storyP3">So I built my own.</p>
-          
-          <p data-i18n="about.storyP4">It does what I need. I can check my keywords, see which pages are getting traffic, and keep an eye on Core Web Vitals. Nothing fancy, just the stuff I actually want to see when I open the app.</p>
-          
-          <p data-i18n="about.storyP5">I'm not a big company. It's just me, building something I use every day. If you've felt the same frustration, maybe it'll work for you too.</p>
+    <section class="story-chapter" id="story">
+      <div class="story-chapter__inner">
+        <header class="chapter-header reveal-stagger" data-reveal>
+          <p class="chapter-eyebrow" data-i18n="about.storyEyebrow">Why it exists</p>
+          <h2 class="chapter-title" data-i18n="about.storyTitle">The gap on mobile</h2>
+        </header>
+
+        <div class="chapter-body reveal-stagger" data-reveal>
+          <p data-i18n="about.storyP1">Search Console became part of my routine. Traffic dips, new queries, a page that suddenly ranks. I checked often enough that opening the desktop site on a phone stopped feeling like a workaround and started feeling like friction.</p>
+          <p data-i18n="about.storyP2">Safari on iOS gets the job done if you zoom and wait. I did that for months. Between meetings, on a train, standing in line. Each time I had the same thought: this data matters right now, and the interface was built for a monitor.</p>
+          <p data-i18n="about.storyP3">Google publishes an official API. Forum threads go back years asking for a native app. Nothing shipped from Google. Fair enough. They own the web product.</p>
+          <p data-i18n="about.storyP4">I tried what was already on the App Store. Some apps asked for more trust than I was willing to give. Others buried the numbers I cared about behind menus and upsells. None felt like opening my own Search Console account.</p>
+
+          <blockquote class="chapter-pull-quote">
+            <p data-i18n="about.storyHighlight">I wanted one native place for the questions I already ask at my desk: how is traffic, which queries moved, which pages matter, are vitals still healthy.</p>
+          </blockquote>
+
+          <h3 class="chapter-subtitle" data-i18n="about.storyMidTitle">Starting small, still building</h3>
+
+          <p data-i18n="about.storyP5">So I started with the basics. Sign in with Google. Pick a property. Read performance, queries, top pages, Core Web Vitals, URL inspection, and sitemaps without relearning a new stack. Same account, same API data, less tab hopping.</p>
+          <p data-i18n="about.storyP6">The first version was for me. A keyword shift on a slow Tuesday. A vitals warning before a deploy. Proof that a traffic dip was real, not a caching glitch. If the app could answer those quickly, it earned a home screen slot.</p>
+          <p data-i18n="about.storyP7">I still use it every day, and I am still improving it. Version 2.0 brought clearer errors, smoother charts, and settings that stay out of the way. Some reports still open the web for now. Your subscription helps me close that gap instead of chasing ads.</p>
+          <p data-i18n="about.storyP8">The long-term goal is one spot on my phone for the site information I need, without opening a pile of browser tabs. Search Console for iOS is independent. Not Google. Not an agency pitch deck. One developer, one app, built for people who already trust Search Console and want it within reach on iOS.</p>
         </div>
+
+        <p class="chapter-bridge reveal" data-reveal>
+          <a href="#values" class="chapter-bridge__link">
+            <span data-i18n="about.bridgeToValues">Continue · What I will not compromise on</span>
+            <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
     </section>
 
-    <section class="values">
-      <div class="container">
-        <h2 data-i18n="about.valuesTitle">What drives this app</h2>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="icon blue">
+    <section class="story-chapter story-chapter--alt" id="values">
+      <div class="story-chapter__inner">
+        <header class="chapter-header reveal-stagger" data-reveal>
+          <p class="chapter-eyebrow" data-i18n="about.valuesEyebrow">What I stand by</p>
+          <h2 class="chapter-title" data-i18n="about.valuesTitle">How the app stays honest</h2>
+        </header>
+
+        <ul class="feature-stack reveal-stagger" data-reveal>
+          <li class="feature-stack__item">
+            <div class="feature-stack__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
-            <h3 data-i18n="about.valuePrivacyTitle">Privacy first</h3>
-            <p data-i18n="about.valuePrivacyDesc">Your data stays in your Google account. The app displays what Google collects - I don't store or sell anything. <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener" style="color: var(--blue);">Manage your Google privacy</a>.</p>
-          </div>
-          <div class="value-card">
-            <div class="icon green">
+            <div class="feature-stack__copy">
+              <h3 data-i18n="about.valuePrivacyTitle">Your account, your data</h3>
+              <p data-i18n="about.valuePrivacyDesc">The app reads from Google's Search Console API and shows it on your device. I do not store your search data on my servers or sell it. <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Manage your Google privacy</a>.</p>
+            </div>
+          </li>
+          <li class="feature-stack__item">
+            <div class="feature-stack__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
-            <h3 data-i18n="about.valueFastTitle">Fast and focused</h3>
-            <p data-i18n="about.valueFastDesc">No bloat. Open the app, see your data. Built for quick checks on the go.</p>
-          </div>
-          <div class="value-card">
-            <div class="icon yellow">
+            <div class="feature-stack__copy">
+              <h3 data-i18n="about.valueFastTitle">Built for a quick read</h3>
+              <p data-i18n="about.valueFastDesc">Open, scan, decide. No feed of notifications pretending to be insights. The layout favors the numbers you opened the app for.</p>
+            </div>
+          </li>
+          <li class="feature-stack__item">
+            <div class="feature-stack__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
               </svg>
             </div>
-            <h3 data-i18n="about.valueImprovingTitle">Always improving</h3>
-            <p data-i18n="about.valueImprovingDesc">Your subscription supports active development. New features ship regularly.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="feature-stack__copy">
+              <h3 data-i18n="about.valueImprovingTitle">Built in the open, one release at a time</h3>
+              <p data-i18n="about.valueImprovingDesc">I dogfood every build. If a screen feels slow or vague to me, it gets fixed. If something important is still missing, it goes on the list.</p>
+            </div>
+          </li>
+        </ul>
 
-    <section class="cta-section">
-      <div class="container">
-        <h2 data-i18n="about.ctaTitle">Want to try it?</h2>
-        <p data-i18n="about.ctaSubtitle">Download Search Console for iOS from the App Store.</p>
-        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="about.ctaButton">Download on the App Store</a>
+        <p class="chapter-bridge reveal" data-reveal>
+          <a href="releases.html" class="chapter-bridge__link">
+            <span data-i18n="about.bridgeToReleases">Continue · See what shipped</span>
+            <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+      <footer class="footer">
+    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
     <div class="container">
+      <div class="footer-download">
+        <div class="footer-download-copy">
+          <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
+          <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
+      </div>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="favicon.png" alt="Search Console" width="32" height="32">
-            <span data-i18n="common.appNameShort">Search Console</span>
+            <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
-          <p data-i18n="footer.tagline">Native iOS app for Google Search Console. Not made by Google; an independent app using the official Search Console API.</p>
-          <p style="margin-top: 8px; font-size: 0.8125rem;" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
+          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
           <div class="social-share">
             <span class="social-label" data-i18n="footer.share">Share:</span>
-            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on X">
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on Facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" aria-label="Share on LinkedIn">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <button class="social-icon social-main" id="social-share-btn" aria-label="More share options">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
             </button>
           </div>
         </div>
@@ -1003,9 +323,10 @@
           <h4 data-i18n="footer.pages">Pages</h4>
           <ul class="footer-links">
             <li><a href="index.html" data-i18n="footer.home">Home</a></li>
-            <li><a href="about.html" data-i18n="footer.about">About</a></li>
-            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy</a></li>
-            <li><a href="terms.html" data-i18n="footer.terms">Terms</a></li>
+            <li><a href="about.html" data-nav="about" data-i18n="footer.about">About</a></li>
+            <li><a href="releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
+            <li><a href="privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+            <li><a href="terms.html" data-nav="terms" data-i18n="footer.termsOfService">Terms of Service</a></li>
           </ul>
         </div>
         <div>
@@ -1013,7 +334,6 @@
           <ul class="footer-links">
             <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
             <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
-            <li><a href="releases.html" data-i18n="nav.releases">Releases</a></li>
             <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
@@ -1036,149 +356,11 @@
           <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
         </div>
       </div>
-    </div>
-  </footer>
+    </div></footer>
 
-  <script src="js/i18n.js"></script>
-  <script>
-    // Theme Toggle
-    (function() {
-      var STORAGE_KEY = 'theme-preference';
-      function getThemePreference() {
-        var stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) return stored;
-        return 'system';
-      }
-      function setTheme(theme) {
-        localStorage.setItem(STORAGE_KEY, theme);
-        if (theme === 'system') {
-          document.documentElement.removeAttribute('data-theme');
-        } else {
-          document.documentElement.setAttribute('data-theme', theme);
-        }
-        updateToggleButtons(theme);
-      }
-      function updateToggleButtons(theme) {
-        document.querySelectorAll('.theme-btn').forEach(function(btn) {
-          btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
-        });
-      }
-      var initialTheme = getThemePreference();
-      setTheme(initialTheme);
-      document.querySelectorAll('.theme-toggle').forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-          var btn = e.target.closest('.theme-btn');
-          if (btn) {
-            var theme = btn.getAttribute('data-theme');
-            setTheme(theme);
-          }
-        });
-      });
-    })();
-
-    (function() {
-      var webhookUrl = 'https://discord.com/api/webhooks/1466367341502927015/AzOS6JUIeoJDBIaGJ7TgYp_ZLSnexTg2ha1UYKe2d7JN5ANBXx56h1U5GhipKIhmYxV-';
-      var contactForm = document.getElementById('contact-form');
-      var contactNote = document.getElementById('contact-note');
-      if (contactForm && contactNote) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var name = contactForm.querySelector('input[name="name"]').value.trim();
-          var email = contactForm.querySelector('input[name="email"]').value.trim();
-          var message = contactForm.querySelector('textarea[name="message"]').value.trim();
-          var btn = contactForm.querySelector('button');
-          if (!name || !email || !message) return;
-          btn.disabled = true;
-          btn.textContent = 'Sending...';
-          fetch(webhookUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: '**New contact message**\n**From:** ' + name + ' (' + email + ')\n**Message:** ' + message })
-          })
-          .then(function(res) {
-            if (res.ok) {
-              contactNote.textContent = 'Message sent! I\'ll get back to you soon.';
-              contactNote.className = 'contact-note success';
-              contactForm.reset();
-            } else {
-              contactNote.textContent = 'Something went wrong. Try again later.';
-              contactNote.className = 'contact-note error';
-            }
-          })
-          .catch(function() {
-            contactNote.textContent = 'Could not connect. Try again later.';
-            contactNote.className = 'contact-note error';
-          })
-          .finally(function() {
-            btn.disabled = false;
-            btn.textContent = 'Send message';
-          });
-        });
-      }
-
-      var shareData = {
-        title: 'Search Console for iOS',
-        text: 'Native iOS app for Google Search Console - track your search rankings from your iPhone.',
-        url: 'https://search-console.org'
-      };
-
-      var socialShareBtn = document.getElementById('social-share-btn');
-      if (socialShareBtn) {
-        socialShareBtn.addEventListener('click', function() {
-          if (navigator.share) {
-            navigator.share(shareData).catch(function() {});
-          } else {
-            navigator.clipboard.writeText(shareData.url).then(function() {
-              socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-              setTimeout(function() {
-                socialShareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
-              }, 2000);
-            });
-          }
-        });
-      }
-
-      // Mobile menu toggle
-      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      var mobileNav = document.getElementById('mobile-nav');
-      var menuIcon = document.getElementById('menu-icon');
-      if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-          var isOpen = mobileNav.classList.toggle('open');
-          mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-          if (isOpen) {
-            menuIcon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
-          } else {
-            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-          }
-        });
-        mobileNav.querySelectorAll('a').forEach(function(link) {
-          link.addEventListener('click', function() {
-            mobileNav.classList.remove('open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-          });
-        });
-      }
-    })();
-    (function() {
-      var banner = document.getElementById('release-notice-banner');
-      if (!banner) return;
-      var expires = banner.getAttribute('data-expires');
-      if (!expires) return;
-      if (new Date() > new Date(expires)) { banner.style.display = 'none'; }
-    })();
-    (function() {
-      var meta = document.querySelector('meta[name="download-ping-api"]');
-      var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
-      if (!base) return;
-      var url = base.replace(/\/$/, '') + '/api/download-click';
-      document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
-        a.addEventListener('click', function() {
-          if (navigator.sendBeacon) { navigator.sendBeacon(url); } else { fetch(url, { method: 'POST', mode: 'cors', keepalive: true }).catch(function(){}); }
-        });
-      });
-    })();
-  </script>
+  <script src="js/hero-dot-wave.js?v=9"></script>
+  <script src="js/site-ui.js?v=9"></script>
+  <script src="js/i18n.js?v=9"></script>
+  <script src="js/site-chrome-scripts.js?v=9"></script>
 </body>
 </html>

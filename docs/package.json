@@ -1,0 +1,17 @@
+{
+  "name": "search-console-site",
+  "private": true,
+  "description": "Marketing site for Search Console for iOS (search-console.org)",
+  "scripts": {
+    "dev": "npx --yes serve . -l 8080",
+    "preview": "npm run dev",
+    "sync-assets": "node scripts/sync-website-assets.mjs",
+    "sync-chrome": "python3 scripts/sync-site-chrome.py",
+    "locale:sync": "node scripts/locale-sync-keys.mjs",
+    "locale:check": "node scripts/locale-sync-keys.mjs --check",
+    "locale:untranslated": "node scripts/locale-sync-keys.mjs --check-untranslated",
+    "locale:overrides": "node scripts/apply-locale-overrides.mjs",
+    "locale:finalize": "node scripts/locale-finalize-chapters.mjs",
+    "seo:faq-schema": "node scripts/generate-faq-schema.mjs"
+  }
+}

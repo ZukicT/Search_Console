@@ -1,0 +1,54 @@
+<!--
+  Reusable animated Search Console performance chart.
+
+  Usage on any page that already loads css/style.css:
+    1. Add: <link rel="stylesheet" href="css/performance-chart.css?v=2">
+    2. Paste this block where the chart should appear.
+    3. Add: <script src="js/performance-chart.js"></script> before </body>
+
+  i18n keys live under chart.* in locales/en.json.
+-->
+<figure class="performance-chart" data-performance-chart>
+  <div class="performance-chart-card">
+    <div class="performance-chart-card__header">
+      <div class="performance-chart-card__intro">
+        <p class="performance-chart-card__eyebrow" data-i18n="chart.eyebrow">Performance preview</p>
+        <p class="performance-chart-card__title" data-i18n="chart.title">Last 7 days · Sample site</p>
+      </div>
+      <dl class="performance-chart-card__metric">
+        <dt class="performance-chart-card__metric-label" data-i18n="chart.metricClicks">Total clicks</dt>
+        <dd class="performance-chart-card__metric-value" data-chart-metric="6">6</dd>
+      </dl>
+    </div>
+    <div class="performance-chart-card__plot" data-performance-chart-plot></div>
+    <ul class="performance-chart-legend" aria-hidden="true">
+      <li class="performance-chart-legend__item">
+        <span class="performance-chart-legend__swatch performance-chart-legend__swatch--clicks"></span>
+        <span data-i18n="chart.legendClicks">Clicks</span>
+      </li>
+      <li class="performance-chart-legend__item">
+        <span class="performance-chart-legend__swatch performance-chart-legend__swatch--impressions"></span>
+        <span data-i18n="chart.legendImpressions">Impressions</span>
+      </li>
+    </ul>
+    <dl class="performance-chart-stats" aria-hidden="true">
+      <div class="performance-chart-stats__item performance-chart-stats__item--clicks">
+        <dt class="performance-chart-stats__label" data-i18n="chart.kpiClicks">Clicks</dt>
+        <dd class="performance-chart-stats__value">6</dd>
+      </div>
+      <div class="performance-chart-stats__item performance-chart-stats__item--impressions">
+        <dt class="performance-chart-stats__label" data-i18n="chart.kpiImpressions">Impr.</dt>
+        <dd class="performance-chart-stats__value">42</dd>
+      </div>
+      <div class="performance-chart-stats__item performance-chart-stats__item--ctr">
+        <dt class="performance-chart-stats__label" data-i18n="chart.kpiCtr">CTR</dt>
+        <dd class="performance-chart-stats__value">14.3%</dd>
+      </div>
+      <div class="performance-chart-stats__item performance-chart-stats__item--position">
+        <dt class="performance-chart-stats__label" data-i18n="chart.kpiPosition">Pos.</dt>
+        <dd class="performance-chart-stats__value">4.8</dd>
+      </div>
+    </dl>
+  </div>
+  <figcaption class="sr-only" data-i18n="chart.srOnly">Animated sample chart showing Search Console clicks and impressions over seven days.</figcaption>
+</figure>

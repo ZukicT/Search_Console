@@ -1,0 +1,323 @@
+#!/usr/bin/env python3
+"""Sync shared site chrome across static HTML pages.
+
+See docs/WEBSITE-PAGE-STANDARD.md for layout rules.
+"""
+
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+DOCS = Path(__file__).resolve().parents[1]
+APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
+CSS_VERSION = "66"
+JS_VERSION = "9"
+
+
+def scroll_progress_block() -> str:
+    return '  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>\n'
+
+
+def header_block(prefix: str, *, is_home: bool) -> str:
+    logo_href = "/" if is_home and prefix == "" else f"{prefix}index.html"
+    home_href = "#hero" if is_home else f"{prefix}index.html#hero"
+    features_href = "#features" if is_home else f"{prefix}index.html#features"
+    faq_href = "#faq" if is_home else f"{prefix}index.html#faq"
+    bot_src = f"{prefix}Bot.png"
+
+    return f"""  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="{logo_href}" class="logo">
+          <img src="{bot_src}" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+        </a>
+        <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
+            <a href="{features_href}" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="{prefix}releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+            <a href="{prefix}about.html" data-nav="about" data-i18n="nav.about">About</a>
+            <a href="{faq_href}" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="{APP_STORE}" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+          </div>
+        </nav>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
+      <div class="container">
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <a href="{prefix}releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+      <div class="mobile-nav-header">
+        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="{features_href}" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="{prefix}releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+        <a href="{prefix}about.html" data-nav="about" data-i18n="nav.about">About</a>
+        <a href="{faq_href}" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <a href="{APP_STORE}" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+    </nav>
+  </header>"""
+
+
+def footer_block(prefix: str) -> str:
+    bot_src = f"{prefix}Bot.png"
+    return f"""
+    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-download">
+        <div class="footer-download-copy">
+          <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
+          <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+        </div>
+        <a href="{APP_STORE}" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="{prefix}index.html" class="logo">
+            <img src="{bot_src}" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
+          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+          <div class="social-share">
+            <span class="social-label" data-i18n="footer.share">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <ul class="footer-links">
+            <li><a href="{prefix}index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="{prefix}about.html" data-nav="about" data-i18n="footer.about">About</a></li>
+            <li><a href="{prefix}releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
+            <li><a href="{prefix}privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+            <li><a href="{prefix}terms.html" data-nav="terms" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="{APP_STORE}" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
+            <li><a href="{prefix}index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="{prefix}guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
+            <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
+            <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit" data-i18n="footer.sendMessage">Send message</button>
+          </form>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Search Console for iOS</span>
+        <div class="footer-bottom-right">
+          <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
+        </div>
+      </div>
+    </div>"""
+
+
+def scripts_block(prefix: str, *, include_performance_chart: bool = False) -> str:
+    lines = [f'  <script src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}"></script>']
+    if include_performance_chart:
+        lines.append(f'  <script src="{prefix}js/site-charts.js"></script>')
+    lines.extend(
+        [
+            f'  <script src="{prefix}js/site-ui.js?v={JS_VERSION}"></script>',
+            f'  <script src="{prefix}js/i18n.js?v={JS_VERSION}"></script>',
+            f'  <script src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}"></script>',
+        ]
+    )
+    return "\n".join(lines)
+
+
+def replace_block(text: str, start_marker: str, end_marker: str, replacement: str) -> str:
+    pattern = re.compile(
+        re.escape(start_marker) + r".*?" + re.escape(end_marker),
+        re.S,
+    )
+    updated, count = pattern.subn(start_marker + replacement + end_marker, text, count=1)
+    if count != 1:
+        raise ValueError(f"Could not replace block between {start_marker!r} and {end_marker!r}")
+    return updated
+
+
+STANDALONE_BANNER = re.compile(
+    r"\s*(?:<!-- Banner:[\s\S]*?-->\s*)?"
+    r"<div class=\"release-notice-banner\"[\s\S]*?</div>\s*</div>\s*",
+    re.S,
+)
+
+
+def sync_stylesheet_version(text: str, prefix: str) -> str:
+    return re.sub(
+        rf'href="{re.escape(prefix)}css/style\.css\?v=\d+"',
+        f'href="{prefix}css/style.css?v={CSS_VERSION}"',
+        text,
+    )
+
+
+def sync_script_versions(text: str, prefix: str) -> str:
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/hero-dot-wave\.js(?:\?v=\d+)?"',
+        f'src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/site-ui\.js(?:\?v=\d+)?"',
+        f'src="{prefix}js/site-ui.js?v={JS_VERSION}"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/i18n\.js(?:\?v=\d+)?"',
+        f'src="{prefix}js/i18n.js?v={JS_VERSION}"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/site-chrome-scripts\.js(?:\?v=\d+)?"',
+        f'src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/site-charts\.js(?:\?v=\d+)?"',
+        lambda match: match.group(0)
+        if "?v=" in match.group(0)
+        else f'src="{prefix}js/site-charts.js?v={JS_VERSION}"',
+        text,
+    )
+    return text
+
+
+def sync_scroll_progress(text: str) -> str:
+    if 'id="scroll-progress"' in text:
+        return text
+    return re.sub(
+        r"(<body[^>]*>\n)",
+        r"\1" + scroll_progress_block(),
+        text,
+        count=1,
+    )
+
+
+def sync_scripts(text: str, prefix: str, *, include_performance_chart: bool) -> str:
+    block = scripts_block(prefix, include_performance_chart=include_performance_chart)
+
+    pattern = re.compile(
+        r"(?:  <script src=\""
+        + re.escape(prefix)
+        + r"js/(?:hero-dot-wave|site-charts|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n?)+",
+        re.S,
+    )
+    if pattern.search(text):
+        text = pattern.sub(block + "\n", text, count=1)
+
+    orphan = re.compile(
+        rf"  <script src=\"{re.escape(prefix)}js/(?:hero-dot-wave|site-charts|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n",
+    )
+    while orphan.search(text):
+        text = orphan.sub("", text, count=1)
+
+    if f'{prefix}js/site-ui.js' not in text:
+        text = text.replace("</body>", block + "\n</body>", 1)
+
+    return text
+
+
+def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
+    text = path.read_text()
+    include_performance_chart = (
+        "data-performance-chart" in text
+        or "data-sparkline-chart" in text
+        or "data-query-chart" in text
+        or "data-vitals-chart" in text
+        or "site-charts.js" in text
+        or "performance-chart.js" in text
+    )
+    text = STANDALONE_BANNER.sub("\n", text, count=1)
+    text = re.sub(r"</header>\s*</div>\s*", "</header>\n\n", text)
+    if "<header class=\"header\">" not in text:
+        raise ValueError(f"No header in {path}")
+
+    header_pattern = re.compile(
+        r"(?:\s*<a class=\"skip-link\"[^>]*>.*?</a>)?\s*<header class=\"header\">.*?</header>",
+        re.S,
+    )
+    updated, count = header_pattern.subn("\n" + header_block(prefix, is_home=is_home) + "\n", text, count=1)
+    if count != 1:
+        raise ValueError(f"Could not replace header in {path}")
+    text = updated
+
+    text = replace_block(text, "<footer class=\"footer\">", "</footer>", footer_block(prefix))
+
+    if "<main>" in text and "id=\"main\"" not in text:
+        text = text.replace("<main>", "<main id=\"main\">", 1)
+
+    text = sync_stylesheet_version(text, prefix)
+    text = sync_script_versions(text, prefix)
+    text = sync_scroll_progress(text)
+    text = sync_scripts(text, prefix, include_performance_chart=include_performance_chart)
+
+    path.write_text(text)
+    print(f"synced {path.relative_to(DOCS)}")
+
+
+def main() -> None:
+    pages = [
+        (DOCS / "index.html", "", True),
+        (DOCS / "about.html", "", False),
+        (DOCS / "releases.html", "", False),
+        (DOCS / "privacy.html", "", False),
+        (DOCS / "terms.html", "", False),
+        (DOCS / "404.html", "", False),
+        (DOCS / "guides" / "how-to-use-google-search-console-on-iphone.html", "../", False),
+    ]
+    for path, prefix, is_home in pages:
+        sync_page(path, prefix, is_home=is_home)
+
+
+if __name__ == "__main__":
+    main()

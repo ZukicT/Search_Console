@@ -1,0 +1,35 @@
+Google discontinued their official Search Console mobile app, leaving website owners without a native way to check search performance on the go. Search Console for iPhone fills that gap. It's the SEO app for iPhone and Search Console mobile companion you need: monitor your site's Google Search performance from your phone with access to clicks, impressions, rankings, positions, and Core Web Vitals. Whether you manage client sites, run an e-commerce store, or grow a blog, you get the same Google Search Console data and analytics you're used to, in a dedicated iOS app. Use it as your website performance tracker, SEO dashboard for iPhone, and site performance app—all in one.
+
+KEY FEATURES
+• All properties in one place – View all your Search Console sites and domains in a single list.
+• Search query tracking – See which keywords drive traffic; sort by clicks, CTR, or position. Get the SEO metrics on iPhone that matter.
+• Performance analytics – Charts and metrics for 24 hours, 7, 28, or 90 days, and up to 16 months. Stats, statistics, and trends at a glance.
+• Core Web Vitals – Track LCP, CLS, and INP, the metrics that affect how Google evaluates your pages.
+• PDF reports – Export reports with keyword data, page performance, and device breakdowns.
+• Sitemap – List, submit, and manage sitemaps per property.
+
+BENEFITS
+• Convenience – Check search performance and website analytics on iPhone without opening a desktop browser.
+• Efficiency – Get to your Search Console data, SEO analytics, and insights quickly with a native iOS app.
+• Flexibility – Review performance when traveling, in meetings, or away from your desk.
+• Audience – Built for SEOs, marketers, site owners, bloggers, and agencies. The SEO tool and SEO monitoring app for iOS you can rely on.
+
+USAGE SCENARIOS
+• On the go – Check ranking and traffic trends while commuting or traveling.
+• At home – Review weekly performance and export reports for client or stakeholder updates.
+• During work – Pull up search data and insights in strategy meetings and spot trends.
+• Client work – Share PDF reports from your phone.
+
+ADDITIONAL FEATURES
+• Notifications – Daily, weekly, or monthly summaries; optional Core Web Vitals alerts.
+• URL Inspection – Inspect how Google sees a URL and troubleshoot indexing. Use it as an SEO checker for your pages.
+• Top pages – See which URLs and links get the most search traffic.
+• Device & geography – Break down traffic by device and country.
+• Secure OAuth – Sign in with Google; no passwords stored in the app.
+• Dashboard – One place to monitor impressions, clicks, positions, and performance metrics.
+
+PRIVACY & SECURITY
+Your data stays between you and Google. The app uses a direct OAuth connection to Search Console; no third-party servers and no storage of your Search Console data by us.
+
+GET STARTED
+Download Search Console for iPhone, sign in with your Google account, pick a property, and start viewing performance. No extra setup.

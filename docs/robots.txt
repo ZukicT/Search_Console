@@ -1,6 +1,6 @@
 # search-console.org - Native iOS app for Google Search Console
 # All crawlers (search engines and AI) are explicitly allowed.
-# Last updated: 2026-02-01
+# Last updated: 2026-05-28
 
 User-agent: *
 Allow: /

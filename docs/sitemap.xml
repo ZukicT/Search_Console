@@ -5,49 +5,49 @@
   <!-- Homepage - Main landing page -->
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <!-- App screenshots for Google Image Search (Category through Category-7) -->
+    <!-- App screenshots for Google Image Search (Image1 through Image8) -->
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category.imageset/Category.jpg</image:loc>
-      <image:title>Search Console iOS App - Site Overview</image:title>
-      <image:caption>Overview of your website performance in Google Search</image:caption>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image1.imageset/Image1.png</image:loc>
+      <image:title>Search Console iOS App - Overview</image:title>
+      <image:caption>Overview dashboard with site visits and performance summary</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-1.imageset/Category-1.jpg</image:loc>
-      <image:title>Search Console iOS App - Search Queries</image:title>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image2.imageset/Image2.png</image:loc>
+      <image:title>Search Console iOS App - Search</image:title>
+      <image:caption>Search analytics and query performance</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image3.imageset/Image3.png</image:loc>
+      <image:title>Search Console iOS App - Queries</image:title>
       <image:caption>View your top search queries and keywords</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-2.imageset/Category-2.jpg</image:loc>
-      <image:title>Search Console iOS App - Performance Charts</image:title>
-      <image:caption>Interactive performance charts for your website</image:caption>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image4.imageset/Image4.png</image:loc>
+      <image:title>Search Console iOS App - Performance</image:title>
+      <image:caption>Performance charts for clicks, impressions, and CTR</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-3.imageset/Category-3.jpg</image:loc>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image5.imageset/Image5.png</image:loc>
       <image:title>Search Console iOS App - Top Pages</image:title>
       <image:caption>See your best performing pages ranked by traffic</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-4.imageset/Category-4.jpg</image:loc>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image6.imageset/Image6.png</image:loc>
       <image:title>Search Console iOS App - Core Web Vitals</image:title>
       <image:caption>Monitor LCP, CLS, and INP metrics</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-5.imageset/Category-5.jpg</image:loc>
-      <image:title>Search Console iOS App - Sitemaps</image:title>
-      <image:caption>Sitemap management and indexing status</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-6.imageset/Category-6.jpg</image:loc>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image7.imageset/Image7.png</image:loc>
       <image:title>Search Console iOS App - URL Inspection</image:title>
       <image:caption>Inspect how Google indexes your URLs</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://search-console.org/AppAssetsWebsite/Category-7.imageset/Category-7.jpg</image:loc>
-      <image:title>Search Console iOS App - Analytics Dashboard</image:title>
-      <image:caption>Analytics dashboard showing clicks, impressions, CTR and position metrics</image:caption>
+      <image:loc>https://search-console.org/AppAssetsWebsite/Image8.imageset/Image8.png</image:loc>
+      <image:title>Search Console iOS App - Settings</image:title>
+      <image:caption>App settings and account preferences</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://search-console.org/app-icon-512.jpg</image:loc>
@@ -59,7 +59,7 @@
   <!-- Releases -->
   <url>
     <loc>https://search-console.org/releases.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -67,7 +67,7 @@
   <!-- About -->
   <url>
     <loc>https://search-console.org/about.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -75,7 +75,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://search-console.org/privacy.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -83,7 +83,7 @@
   <!-- Terms of Service -->
   <url>
     <loc>https://search-console.org/terms.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -91,7 +91,7 @@
   <!-- Guides -->
   <url>
     <loc>https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

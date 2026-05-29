@@ -1,27 +1,37 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v8';
+const CACHE_NAME = 'search-console-v40';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/about.html',
   '/privacy.html',
   '/terms.html',
+  '/releases.html',
   '/404.html',
   '/manifest.json',
   '/favicon.png',
   '/favicon-32x32.png',
   '/favicon-16x16.png',
   '/apple-touch-icon.png',
+  '/founder.jpg',
+  '/Bot.png',
   '/app-icon-512.jpg',
-  '/icon-192.jpg',
-  '/AppAssetsWebsite/Category.imageset/Category.jpg?v=5',
-  '/AppAssetsWebsite/Category-1.imageset/Category-1.jpg?v=5',
-  '/AppAssetsWebsite/Category-2.imageset/Category-2.jpg?v=5',
-  '/AppAssetsWebsite/Category-3.imageset/Category-3.jpg?v=5',
-  '/AppAssetsWebsite/Category-4.imageset/Category-4.jpg?v=5',
-  '/AppAssetsWebsite/Category-5.imageset/Category-5.jpg?v=5',
-  '/AppAssetsWebsite/Category-6.imageset/Category-6.jpg?v=5',
-  '/AppAssetsWebsite/Category-7.imageset/Category-7.jpg?v=5'
+  '/icon-192.png',
+  '/css/style.css?v=66',
+  '/css/performance-chart.css?v=12',
+  '/js/hero-dot-wave.js?v=9',
+  '/js/site-ui.js?v=9',
+  '/js/site-charts.js?v=15',
+  '/js/i18n.js?v=9',
+  '/js/site-chrome-scripts.js?v=9',
+  '/AppAssetsWebsite/Image1.imageset/Image1.png?v=8',
+  '/AppAssetsWebsite/Image2.imageset/Image2.png?v=8',
+  '/AppAssetsWebsite/Image3.imageset/Image3.png?v=8',
+  '/AppAssetsWebsite/Image4.imageset/Image4.png?v=8',
+  '/AppAssetsWebsite/Image5.imageset/Image5.png?v=8',
+  '/AppAssetsWebsite/Image6.imageset/Image6.png?v=8',
+  '/AppAssetsWebsite/Image7.imageset/Image7.png?v=8',
+  '/AppAssetsWebsite/Image8.imageset/Image8.png?v=8'
 ];
 
 // Install event - cache assets

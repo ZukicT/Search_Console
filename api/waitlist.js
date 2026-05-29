@@ -1,4 +1,4 @@
-const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_URL || 'https://discord.com/api/webhooks/1466648872771260508/bU5B75iRvvLYRysZGZXSizfGgQm09IuBeGC-6eiw9DPnNLZcjjWhra9rFRGEmqTsR4Wp';
+const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_URL;
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
