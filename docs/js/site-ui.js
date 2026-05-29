@@ -2,6 +2,10 @@
   var APP_STORE_URL = 'https://apps.apple.com/us/app/search-console/id6758431981';
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function preferredScrollBehavior() {
+    return prefersReducedMotion ? 'auto' : 'smooth';
+  }
+
   function initReveal() {
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       document.querySelectorAll('[data-reveal]').forEach(function (node) {
@@ -53,10 +57,143 @@
     return segment || 'index.html';
   }
 
+  function isHomePage() {
+    var page = normalizePath(window.location.pathname);
+    return page === 'index.html' || page === '';
+  }
+
+  function getScrollPaddingTop() {
+    var header = document.querySelector('.header');
+    if (!header) return 88;
+    return Math.ceil(header.getBoundingClientRect().height) + 8;
+  }
+
+  var scrollNavLockUntil = 0;
+
+  function scrollToSection(target) {
+    if (!target) return;
+    scrollNavLockUntil = Date.now() + 900;
+    var top = window.scrollY + target.getBoundingClientRect().top - getScrollPaddingTop();
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: preferredScrollBehavior(),
+    });
+  }
+
+  function setHomeHash(sectionId) {
+    var suffix = sectionId === 'hero' ? '' : '#' + sectionId;
+    var nextUrl = window.location.pathname + window.location.search + suffix;
+    if (window.location.pathname + window.location.search + window.location.hash === nextUrl) return;
+    if (history.replaceState) {
+      history.replaceState(null, '', nextUrl);
+    } else {
+      window.location.hash = suffix || '#hero';
+    }
+    initNavActiveState();
+  }
+
+  function initInPageAnchorNav() {
+    if (!isHomePage()) return;
+
+    var sectionNavMap = {
+      hero: 'home',
+      features: 'features',
+      faq: 'faq',
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      var sectionId = href.slice(1);
+      if (!sectionNavMap[sectionId]) return;
+
+      link.addEventListener('click', function (event) {
+        var target = document.getElementById(sectionId);
+        if (!target) return;
+        event.preventDefault();
+        scrollToSection(target);
+        setHomeHash(sectionId);
+
+        var mobileNav = document.getElementById('mobile-nav');
+        if (mobileNav && mobileNav.classList.contains('open')) {
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('menu-open');
+          var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+          if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          var mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+          if (mobileNavBackdrop) {
+            mobileNavBackdrop.classList.remove('is-visible');
+            mobileNavBackdrop.setAttribute('aria-hidden', 'true');
+          }
+        }
+      });
+    });
+
+    var sections = Object.keys(sectionNavMap)
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    var scrollSpyFrame = 0;
+
+    function updateScrollSpy() {
+      scrollSpyFrame = 0;
+      if (Date.now() < scrollNavLockUntil) return;
+      if (window.scrollY < 64) {
+        setHomeHash('hero');
+        return;
+      }
+
+      var paddingTop = getScrollPaddingTop();
+      var activeSection = 'hero';
+      var bestVisibleArea = -1;
+
+      sections.forEach(function (section) {
+        var rect = section.getBoundingClientRect();
+        if (rect.bottom <= paddingTop) return;
+        if (rect.top >= window.innerHeight * 0.55) return;
+
+        var visibleTop = Math.max(rect.top, paddingTop);
+        var visibleBottom = Math.min(rect.bottom, window.innerHeight);
+        var visibleArea = visibleBottom - visibleTop;
+        if (visibleArea > bestVisibleArea) {
+          bestVisibleArea = visibleArea;
+          activeSection = section.id;
+        }
+      });
+
+      setHomeHash(activeSection);
+    }
+
+    window.addEventListener('scroll', function () {
+      if (scrollSpyFrame) return;
+      scrollSpyFrame = window.requestAnimationFrame(updateScrollSpy);
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      if (scrollSpyFrame) window.cancelAnimationFrame(scrollSpyFrame);
+      scrollSpyFrame = window.requestAnimationFrame(updateScrollSpy);
+    });
+
+    updateScrollSpy();
+
+    var initialHash = window.location.hash.replace('#', '');
+    if (initialHash && sectionNavMap[initialHash]) {
+      var initialTarget = document.getElementById(initialHash);
+      if (initialTarget) {
+        scrollNavLockUntil = Date.now() + 900;
+        window.requestAnimationFrame(function () {
+          scrollToSection(initialTarget);
+        });
+      }
+    }
+  }
+
   function initNavActiveState() {
     var page = normalizePath(window.location.pathname);
     var hash = window.location.hash;
-    var onHome = page === 'index.html' || page === '';
+    var onHome = isHomePage();
 
     document.querySelectorAll('[data-nav]').forEach(function (link) {
       var key = link.getAttribute('data-nav');
@@ -189,7 +326,7 @@
     }
 
     function scrollBehavior() {
-      return prefersReducedMotion ? 'auto' : 'smooth';
+      return preferredScrollBehavior();
     }
 
     function setActiveIndex(index) {
@@ -292,12 +429,19 @@
       }
     });
 
+    var lastRailWidth = rail.clientWidth;
+
     window.addEventListener('resize', function () {
+      var nextWidth = rail.clientWidth;
+      if (Math.abs(nextWidth - lastRailWidth) < 2) return;
+      lastRailWidth = nextWidth;
       scrollToIndex(activeIndex);
     });
 
     setActiveIndex(0);
-    scrollToIndex(0);
+    if (rail.scrollWidth <= rail.clientWidth + 2) {
+      scrollToIndex(0);
+    }
 
     document.addEventListener('locale:applied', function () {
       setActiveIndex(activeIndex);
@@ -447,6 +591,7 @@
   initBotCoinEasterEgg();
   initReleaseBanner();
   initNavActiveState();
+  initInPageAnchorNav();
   initMobileMenu();
   initLightbox();
   initScreenshotRail();
