@@ -5,6 +5,7 @@
     de: 'Deutsch',
     fr: 'Fran\u00e7ais',
     pt: 'Portugu\u00eas',
+    hr: 'Hrvatski / Bosanski',
     ja: '\u65e5\u672c\u8a9e',
     'zh-Hans': '\u7b80\u4f53\u4e2d\u6587',
     'zh-Hant': '\u7e41\u9ad4\u4e2d\u6587',
@@ -25,7 +26,8 @@
     var path = window.location.pathname;
     var last = path.lastIndexOf('/');
     var base = last === -1 ? '' : path.substring(0, last + 1);
-    return base + (base.indexOf('/guides/') !== -1 ? '../locales/' : 'locales/') + locale + '.json';
+    var inSubdir = base.indexOf('/guides/') !== -1 || base.indexOf('/blog/') !== -1;
+    return base + (inSubdir ? '../locales/' : 'locales/') + locale + '.json';
   }
 
   function getStoredLocale() {
@@ -36,16 +38,34 @@
     return null;
   }
 
+  function resolveLocaleTag(lang) {
+    if (!lang || typeof lang !== 'string') return null;
+    var tag = lang.toLowerCase().replace(/_/g, '-');
+    if (tag.startsWith('zh-cn') || tag === 'zh-hans') return 'zh-Hans';
+    if (tag.startsWith('zh-tw') || tag.startsWith('zh-hk') || tag === 'zh-hant') return 'zh-Hant';
+    if (tag.startsWith('ko')) return 'ko';
+    if (tag.startsWith('hr') || tag.startsWith('bs')) return 'hr';
+    if (tag.startsWith('de')) return 'de';
+    if (tag.startsWith('fr')) return 'fr';
+    if (tag.startsWith('pt')) return 'pt';
+    if (tag.startsWith('ja')) return 'ja';
+    if (tag.startsWith('en')) return 'en';
+    return null;
+  }
+
   function getBrowserLocale() {
-    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (lang.startsWith('zh-cn') || lang === 'zh-hans') return 'zh-Hans';
-    if (lang.startsWith('zh-tw') || lang.startsWith('zh-hk') || lang === 'zh-hant') return 'zh-Hant';
-    if (lang.startsWith('ko')) return 'ko';
-    if (lang.startsWith('de')) return 'de';
-    if (lang.startsWith('fr')) return 'fr';
-    if (lang.startsWith('pt')) return 'pt';
-    if (lang.startsWith('ja')) return 'ja';
-    if (lang.startsWith('en')) return 'en';
+    var candidates = [];
+    if (navigator.languages && navigator.languages.length) {
+      candidates = Array.prototype.slice.call(navigator.languages);
+    } else if (navigator.language) {
+      candidates = [navigator.language];
+    } else if (navigator.userLanguage) {
+      candidates = [navigator.userLanguage];
+    }
+    for (var i = 0; i < candidates.length; i++) {
+      var resolved = resolveLocaleTag(candidates[i]);
+      if (resolved) return resolved;
+    }
     return FALLBACK_LOCALE;
   }
 
@@ -211,7 +231,9 @@
   window.SC_I18N = {
     t: t,
     getLocale: function () { return currentLocale; },
-    getTranslations: function () { return currentTranslations; }
+    getTranslations: function () { return currentTranslations; },
+    resolveLocaleTag: resolveLocaleTag,
+    getBrowserLocale: getBrowserLocale
   };
 
   function run() {

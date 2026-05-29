@@ -1,6 +1,6 @@
 # search-console.org - Native iOS app for Google Search Console
 # All crawlers (search engines and AI) are explicitly allowed.
-# Last updated: 2026-05-28
+# Last updated: 2026-05-29
 
 User-agent: *
 Allow: /
@@ -57,3 +57,6 @@ User-agent: YouBot
 Allow: /
 
 Sitemap: https://search-console.org/sitemap.xml
+
+# Machine-readable site summary for AI assistants and crawlers
+# https://search-console.org/llms.txt

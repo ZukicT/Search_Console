@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Regenerate FAQPage JSON-LD in index.html from locales/en.json faq.* keys.
+ * Regenerate FAQPage JSON-LD in faq.html from locales/en.json faq.* keys.
  */
 
 import fs from 'node:fs';
@@ -9,9 +9,9 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const enPath = path.join(__dirname, '..', 'locales', 'en.json');
-const indexPath = path.join(__dirname, '..', 'index.html');
+const faqPath = path.join(__dirname, '..', 'faq.html');
 const START = '  <script type="application/ld+json" id="faq-schema">\n';
-const END = '  </script>\n  <script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@type": "HowTo"';
+const END = '  </script>\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList"';
 
 function stripHtml(value) {
   return value
@@ -43,21 +43,21 @@ const schema = {
   '@type': 'FAQPage',
   speakable: {
     '@type': 'SpeakableSpecification',
-    cssSelector: ['#faq .faq-question', '#faq .faq-answer-inner'],
+    cssSelector: ['.faq-question', '.faq-answer-inner'],
   },
   mainEntity,
 };
 
-const block = `${START}${JSON.stringify(schema, null, 2)}\n  </script>\n  <script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@type": "HowTo"`;
+const block = `${START}${JSON.stringify(schema, null, 2)}\n  </script>\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BreadcrumbList"`;
 
-const html = fs.readFileSync(indexPath, 'utf8');
-const pattern = /  <script type="application\/ld\+json"(?: id="faq-schema")?>\s*\{\s*"@context": "https:\/\/schema\.org",\s*"@type": "FAQPage"[\s\S]*?  <\/script>\s*  <script type="application\/ld\+json">\s*\{\s*"@context": "https:\/\/schema\.org",\s*"@type": "HowTo"/;
+const html = fs.readFileSync(faqPath, 'utf8');
+const pattern = /  <script type="application\/ld\+json"(?: id="faq-schema")?>[\s\S]*?  <\/script>\s*  <script type="application\/ld\+json">\s*\{\s*"@context": "https:\/\/schema\.org",\s*"@type": "BreadcrumbList"/;
 
 if (!pattern.test(html)) {
-  console.error('Could not find FAQPage JSON-LD block in index.html');
+  console.error('Could not find FAQPage JSON-LD block in faq.html');
   process.exit(1);
 }
 
 const updated = html.replace(pattern, block);
-fs.writeFileSync(indexPath, updated, 'utf8');
-console.log(`Updated FAQ schema with ${mainEntity.length} questions.`);
+fs.writeFileSync(faqPath, updated, 'utf8');
+console.log(`Updated FAQ schema in faq.html with ${mainEntity.length} questions.`);

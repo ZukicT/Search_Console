@@ -10,23 +10,26 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
-  <title>Search Console for iOS | Independent app (not Google)</title>
+  <title>Google Search Console iPhone App | Native iOS (not Google)</title>
   <meta name="description"
-    content="Independent native iOS app for Google Search Console data. Review traffic, queries, and page experience on iPhone. 7-day free trial. Not made by Google.">
-  <meta property="og:title" content="Search Console for iOS | Independent app (not Google)">
+    content="Native iOS app to check Google Search Console on iPhone. Review traffic, queries, Core Web Vitals, and URL inspection. 7-day free trial. Not made by Google.">
+  <meta property="og:title" content="Google Search Console iPhone App | Native iOS (not Google)">
   <meta property="og:description"
-    content="Independent native iOS app for Google Search Console data. Review traffic, queries, and page experience on iPhone. 7-day free trial. Not made by Google.">
+    content="Native iOS app to check Google Search Console on iPhone. Review traffic, queries, Core Web Vitals, and URL inspection. 7-day free trial. Not made by Google.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://search-console.org/">
+<meta property="og:site_name" content="Search Console for iOS">
+  <meta property="og:locale" content="en_US">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://search-console.org/sitemap.xml">
   <meta property="og:image" content="https://search-console.org/og-linkedin-share.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Download on the App Store.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Search Console for iOS | Independent app (not Google)">
+  <meta name="twitter:title" content="Google Search Console iPhone App | Native iOS (not Google)">
   <meta name="twitter:description"
-    content="Independent native iOS app for Google Search Console data. Review traffic, queries, and page experience on iPhone. 7-day free trial. Not made by Google.">
+    content="Native iOS app to check Google Search Console on iPhone. Review traffic, queries, Core Web Vitals, and URL inspection. 7-day free trial. Not made by Google.">
   <meta name="twitter:image" content="https://search-console.org/og-linkedin-share.png">
   <meta name="twitter:image:alt" content="Search Console for iOS app: Track your search rankings on the go. Phone showing performance dashboard with clicks, impressions, and Download on the App Store.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -125,10 +128,16 @@
     ],
     "softwareHelp": {
       "@type": "CreativeWork",
-      "url": "https://search-console.org/#faq"
+      "url": "https://search-console.org/faq.html"
     },
     "releaseNotes": "Available on the App Store",
     "downloadUrl": "https://apps.apple.com/us/app/search-console/id6758431981",
+    "installUrl": "https://apps.apple.com/us/app/search-console/id6758431981",
+    "url": "https://search-console.org/",
+    "sameAs": [
+      "https://apps.apple.com/us/app/search-console/id6758431981",
+      "https://search-console.org/"
+    ],
     "permissions": "Requires Google account with Search Console access"
   }
   </script>
@@ -143,159 +152,61 @@
       "@type": "Person",
       "name": "Tarik Zukic",
       "url": "https://search-console.org/about.html"
-    }
+    },
+    "hasPart": [
+      {"@type": "WebPage", "name": "Blog", "url": "https://search-console.org/blog.html"},
+      {"@type": "WebPage", "name": "FAQ", "url": "https://search-console.org/faq.html"},
+      {"@type": "WebPage", "name": "About", "url": "https://search-console.org/about.html"},
+      {"@type": "WebPage", "name": "Release history", "url": "https://search-console.org/releases.html"},
+      {"@type": "WebPage", "name": "Privacy policy", "url": "https://search-console.org/privacy.html"},
+      {"@type": "WebPage", "name": "Terms of service", "url": "https://search-console.org/terms.html"},
+      {"@type": "WebPage", "name": "How to Use Google Search Console on iPhone", "url": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html"},
+      {"@type": "WebPage", "name": "Is There an Official Google Search Console App?", "url": "https://search-console.org/guides/is-there-an-official-google-search-console-app.html"},
+      {"@type": "WebPage", "name": "Google Search Console Mobile App Options", "url": "https://search-console.org/guides/google-search-console-mobile-app-options.html"},
+      {"@type": "WebPage", "name": "How to Check Core Web Vitals on iPhone", "url": "https://search-console.org/guides/check-core-web-vitals-on-iphone.html"},
+      {"@type": "WebPage", "name": "How to Track Keyword Rankings from iPhone", "url": "https://search-console.org/guides/track-keyword-rankings-from-iphone.html"}
+    ]
   }
   </script>
-  <script type="application/ld+json" id="faq-schema">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "#faq .faq-question",
-      "#faq .faq-answer-inner"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Search Console for iPhone guides",
+    "description": "Practical guides for using Google Search Console on iPhone with an independent native iOS app.",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "How to Use Google Search Console on iPhone",
+        "url": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Is There an Official Google Search Console App?",
+        "url": "https://search-console.org/guides/is-there-an-official-google-search-console-app.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Google Search Console Mobile App Options",
+        "url": "https://search-console.org/guides/google-search-console-mobile-app-options.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "How to Check Core Web Vitals on iPhone",
+        "url": "https://search-console.org/guides/check-core-web-vitals-on-iphone.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "How to Track Keyword Rankings from iPhone",
+        "url": "https://search-console.org/guides/track-keyword-rankings-from-iphone.html"
+      }
     ]
-  },
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is this app?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A native iPhone and iPad app that connects to your Google Search Console account. You can review search traffic, queries, page experience, and other property tools without using Safari."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there an official Google Search Console app?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Google does not ship a Search Console app for iPhone. This is an independent app that uses Google's official Search Console API."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I use Search Console on my phone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Download the app from the App Store and sign in with the Google account that already has access to your properties. You can also open Search Console in Safari, but the app is built for quick mobile reads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What can I do in the app?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Review performance reports, explore queries and pages, check Core Web Vitals, inspect URLs, manage sitemaps, filter by device or country, pick date ranges, export CSV, download custom PDF reports, and turn on performance alerts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I sign in?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tap Sign in with Google and choose the account tied to your properties. The app uses OAuth. Your password is never stored."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data safe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The app talks directly to Google's Search Console API with OAuth 2.0. Your data stays in your Google account. We do not store or sell your Search Console data. You can manage your Google privacy settings here."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this app affiliated with Google?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. This is an independent third-party app. It is not made by, affiliated with, endorsed by, or sponsored by Google LLC."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel my subscription?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Cancel anytime in iPhone Settings, your name, Subscriptions. Access continues until the end of the billing period."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is the app not free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The subscription supports ongoing development and API costs. There are no ads and we do not access your data. Try it free for 7 days before subscribing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why can't I see my website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Verify the site in Search Console on the web first. The app only lists properties your Google account can already access. If you just added a site, sign out and back in to refresh the list."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the app work on iPad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It runs on iPhone and iPad with iOS 18.0 or later and adapts to larger screens."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I view Core Web Vitals?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. You can see LCP, CLS, and INP for mobile and desktop from the same property view."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I manage multiple websites?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every property your account can access in Search Console appears in the app. Switch between them from the main screen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How often is the data updated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The app fetches fresh data when you open it or pull to refresh. Google Search Console itself often has a 2 to 3 day processing delay. That limit comes from Google, not the app."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What date ranges can I view?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The same ranges as on the web: 7 days, 28 days, 3 months, 6 months, 12 months, and 16 months."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there an Android version?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not yet. iOS is the focus for now. Sign up for updates if you want to hear about other platforms."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work offline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Recent data is cached so you can review it offline. You need a connection to fetch new reports from Google."
-      }
-    }
-  ]
-}
+  }
   </script>
   <script type="application/ld+json">
     {
@@ -303,6 +214,7 @@
       "@type": "HowTo",
     "name": "How to Use Google Search Console on iPhone",
     "description": "Step-by-step guide to access and use Google Search Console data on your iPhone using the Search Console for iOS app.",
+    "url": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html",
     "totalTime": "PT2M",
     "tool": [
       {
@@ -356,7 +268,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=66">
+  <link rel="stylesheet" href="css/style.css?v=92">
   <link rel="stylesheet" href="css/performance-chart.css?v=12">
 </head>
 
@@ -366,21 +278,21 @@
   <header class="header">
     <div class="container">
       <div class="header-inner">
-        <a href="#hero" class="logo">
+        <a href="/" class="logo">
           <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
           <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
         </a>
         <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
           <div class="nav-links">
             <a href="#hero" data-nav="home" data-i18n="nav.home">Home</a>
-            <a href="#features" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
             <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
             <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
-            <a href="#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
             <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
           </div>
         </nav>
-        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label-expand="aria.openMenu" data-i18n-aria-label-collapse="aria.closeMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="12" x2="21" y2="12"/>
@@ -395,26 +307,33 @@
         <a href="releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
       </div>
     </div>
-    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
-    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
-      <div class="mobile-nav-header">
-        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+  </header>
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-toolbar">
         <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
       </div>
       <div class="mobile-nav-links">
         <a href="#hero" data-nav="home" data-i18n="nav.home">Home</a>
-        <a href="#features" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
         <a href="releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
         <a href="about.html" data-nav="about" data-i18n="nav.about">About</a>
-        <a href="#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+        <a href="faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
       </div>
-      <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
-    </nav>
-  </header>
+      <div class="mobile-nav-footer">
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <p class="mobile-nav-note" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+      </div>
+    </div>
+  </nav>
+  </div>
 
 
 
@@ -433,7 +352,9 @@
 
 
 
-<main id="main">
+
+
+  <main id="main">
     <section class="hero hero-chapter hero--home" id="hero" aria-labelledby="hero-heading">
       <div class="hero-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
       <div class="container hero-chapter__inner">
@@ -665,23 +586,26 @@
             </div>
           </li>
         </ol>
+        <p class="chapter-lead chapter-teaser reveal" data-reveal data-i18n="guidesHub.homeTeaser">
+          Deep dives: <a href="guides/how-to-use-google-search-console-on-iphone.html" class="text-link">iPhone setup</a>, <a href="guides/is-there-an-official-google-search-console-app.html" class="text-link">official app</a>, <a href="guides/google-search-console-mobile-app-options.html" class="text-link">mobile options</a>, <a href="guides/check-core-web-vitals-on-iphone.html" class="text-link">Core Web Vitals</a>, and <a href="guides/track-keyword-rankings-from-iphone.html" class="text-link">keyword tracking</a>.
+        </p>
         <p class="chapter-bridge reveal" data-reveal>
-          <a href="#features" class="chapter-bridge__link">
-            <span data-i18n="story.bridgeToFeatures">Continue · What each view answers</span>
+          <a href="blog.html" class="chapter-bridge__link">
+            <span data-i18n="story.bridgeToBlog">Continue · Improve your site</span>
             <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
           </a>
         </p>
       </div>
     </section>
 
-    <section class="story-chapter story-chapter--alt" id="features">
+    <section class="story-chapter story-chapter--wide story-chapter--alt" id="features">
       <div class="story-chapter__inner">
         <header class="chapter-header reveal-stagger" data-reveal>
           <p class="chapter-eyebrow" data-i18n="features.eyebrow">Chapter 4</p>
           <h2 class="chapter-title" data-i18n="features.sectionTitle">Every screen answers a real question</h2>
           <p class="chapter-lead" data-i18n="features.sectionDesc">Not a wall of menus. Each view maps to what you already ask in Search Console, sized for a quick read on iOS. When you need to share, export CSV or download a custom PDF report.</p>
         </header>
-        <div class="chart-grid chart-grid--showcase">
+        <div class="chart-grid chart-grid--showcase reveal-stagger" data-reveal>
           <figure class="site-chart site-chart--queries" data-query-chart>
             <div class="site-chart-card">
               <div class="site-chart-card__header">
@@ -690,7 +614,6 @@
                   <p class="site-chart-card__title" data-i18n="chart.queriesTitle">Last 7 days · Sample site</p>
                 </div>
               </div>
-              <div class="site-chart-card__body">
               <ol class="query-chart-list">
                 <li class="query-chart-row">
                   <span class="query-chart-row__rank">1</span>
@@ -723,7 +646,6 @@
                   <span class="query-chart-row__value" data-chart-metric="9">9</span>
                 </li>
               </ol>
-              </div>
             </div>
             <figcaption class="sr-only" data-i18n="chart.queriesSrOnly">Animated bar chart of top search queries by clicks.</figcaption>
           </figure>
@@ -735,7 +657,6 @@
                   <p class="site-chart-card__title" data-i18n="chart.vitalsTitle">Core Web Vitals overview</p>
                 </div>
               </div>
-              <div class="site-chart-card__body">
               <ul class="vitals-chart-grid">
                 <li class="vitals-chart-item vitals-chart-item--good" data-vital="lcp">
                   <div data-vitals-ring></div>
@@ -753,7 +674,6 @@
                   <span class="vitals-chart-item__status" data-i18n="chart.vitalsGood">Good</span>
                 </li>
               </ul>
-              </div>
             </div>
             <figcaption class="sr-only" data-i18n="chart.vitalsSrOnly">Animated Core Web Vitals scores for LCP, INP, and CLS.</figcaption>
           </figure>
@@ -797,20 +717,6 @@
           <li class="feature-stack__item">
             <div class="feature-stack__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <path d="M14 2v6h6" />
-                <path d="M16 13H8" />
-                <path d="M16 17H8" />
-              </svg>
-            </div>
-            <div class="feature-stack__copy">
-              <h3 data-i18n="features.topPagesTitle">Where is attention going?</h3>
-              <p data-i18n="features.topPagesDesc">Spot pages pulling clicks and pages quietly losing ground.</p>
-            </div>
-          </li>
-          <li class="feature-stack__item">
-            <div class="feature-stack__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
@@ -831,6 +737,20 @@
             <div class="feature-stack__copy">
               <h3 data-i18n="features.notificationsTitle">Did something change overnight?</h3>
               <p data-i18n="features.notificationsDesc">Alerts when performance moves enough to matter.</p>
+            </div>
+          </li>
+          <li class="feature-stack__item">
+            <div class="feature-stack__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div class="feature-stack__copy">
+              <h3 data-i18n="features.topPagesTitle">Where is attention going?</h3>
+              <p data-i18n="features.topPagesDesc">Spot pages pulling clicks and pages quietly losing ground.</p>
             </div>
           </li>
         </ul>
@@ -894,7 +814,7 @@
           </div>
         </div>
         <p class="chapter-bridge reveal" data-reveal>
-          <a href="#faq" class="chapter-bridge__link">
+          <a href="faq.html" class="chapter-bridge__link">
             <span data-i18n="story.bridgeToFaq">Continue · Before you install</span>
             <span class="chapter-bridge__arrow" aria-hidden="true">→</span>
           </a>
@@ -911,7 +831,7 @@
         </header>
         <div class="faq-grid reveal-stagger" data-reveal>
           <div class="faq-item">
-            <button class="faq-question">
+            <button type="button" class="faq-question">
               <span data-i18n="faq.q1">What is this app?</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
@@ -922,7 +842,7 @@
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-question">
+            <button type="button" class="faq-question">
               <span data-i18n="faq.q2">Is there an official Google Search Console app?</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
@@ -933,7 +853,7 @@
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-question">
+            <button type="button" class="faq-question">
               <span data-i18n="faq.q3">How do I use Search Console on my phone?</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
@@ -944,7 +864,7 @@
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-question">
+            <button type="button" class="faq-question">
               <span data-i18n="faq.q4">What can I do in the app?</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9" />
@@ -954,150 +874,11 @@
               <div class="faq-answer-inner" data-i18n="faq.a4">Review performance reports, explore queries and pages, check Core Web Vitals, inspect URLs, manage sitemaps, filter by device or country, pick date ranges, export CSV, download custom PDF reports, and turn on performance alerts.</div>
             </div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q5">How do I sign in?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a5">Tap Sign in with Google and choose the account tied to your properties. The app uses OAuth. Your password is never stored.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q6">Is my data safe?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a6">Yes. The app talks directly to Google's Search Console API with OAuth 2.0. Your data stays in your Google account. We do not store or sell your Search Console data. You can <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">manage your Google privacy settings here</a>.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q7">Is this app affiliated with Google?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a7">No. This is an independent third-party app. It is not made by, affiliated with, endorsed by, or sponsored by Google LLC.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q8">Can I cancel my subscription?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a8">Yes. Cancel anytime in iPhone Settings, your name, Subscriptions. Access continues until the end of the billing period.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q9">Why is the app not free?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a9">The subscription supports ongoing development and API costs. There are no ads and we do not access your data. Try it free for 7 days before subscribing.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q10">Why can't I see my website?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a10">Verify the site in Search Console on the web first. The app only lists properties your Google account can already access. If you just added a site, sign out and back in to refresh the list.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q11">Does the app work on iPad?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a11">Yes. It runs on iPhone and iPad with iOS 18.0 or later and adapts to larger screens.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q12">Can I view Core Web Vitals?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a12">Yes. You can see LCP, CLS, and INP for mobile and desktop from the same property view.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q13">Can I manage multiple websites?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a13">Yes. Every property your account can access in Search Console appears in the app. Switch between them from the main screen.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q14">How often is the data updated?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a14">The app fetches fresh data when you open it or pull to refresh. Google Search Console itself often has a 2 to 3 day processing delay. That limit comes from Google, not the app.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q15">What date ranges can I view?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a15">The same ranges as on the web: 7 days, 28 days, 3 months, 6 months, 12 months, and 16 months.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q16">Is there an Android version?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a16">Not yet. iOS is the focus for now. Sign up for updates if you want to hear about other platforms.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              <span data-i18n="faq.q17">Does it work offline?</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer-inner" data-i18n="faq.a17">Recent data is cached so you can review it offline. You need a connection to fetch new reports from Google.</div>
-            </div>
-          </div>
         </div>
+        <p class="chapter-lead chapter-teaser reveal" data-reveal>
+          <a href="faq.html" class="text-link" data-i18n="story.teaserFaq">Read all FAQ</a>
+          <span data-i18n="story.teaserFaqSuffix"> (17 questions).</span>
+        </p>
       </div>
     </section>
   </main>
@@ -1113,6 +894,7 @@
         </div>
         <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
       </div>
+      <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
@@ -1141,9 +923,9 @@
           </div>
         </div>
         <div>
-          <h4 data-i18n="footer.pages">Pages</h4>
+          <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
           <ul class="footer-links">
-            <li><a href="#hero" data-i18n="footer.home">Home</a></li>
+            <li><a href="index.html" data-i18n="footer.home">Home</a></li>
             <li><a href="about.html" data-nav="about" data-i18n="footer.about">About</a></li>
             <li><a href="releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
             <li><a href="privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
@@ -1151,17 +933,22 @@
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.resources">Resources</h4>
+          <h3 class="footer-col-title" data-i18n="footer.resources">Resources</h3>
           <ul class="footer-links">
             <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
-            <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
             <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
+            <li><a href="guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
+            <li><a href="guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
+            <li><a href="guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.contact">Contact</h4>
+          <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
           <form class="contact-form" id="contact-form">
             <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
             <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
@@ -1180,7 +967,7 @@
     </div></footer>
 
   <div class="lightbox" id="lightbox">
-    <img id="lightbox-img" src="" alt="">
+    <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" decoding="async" hidden>
   </div>
 
 
@@ -1222,11 +1009,11 @@
       });
     })();
   </script>
-  <script src="js/hero-dot-wave.js?v=9"></script>
-  <script src="js/site-charts.js"></script>
-  <script src="js/site-ui.js?v=10"></script>
-  <script src="js/i18n.js?v=9"></script>
-  <script src="js/site-chrome-scripts.js?v=9"></script>
+  <script src="js/hero-dot-wave.js?v=22"></script>
+  <script src="js/site-charts.js?v=22"></script>
+  <script src="js/site-ui.js?v=22"></script>
+  <script src="js/i18n.js?v=22"></script>
+  <script src="js/site-chrome-scripts.js?v=22"></script>
 </body>
 
 </html>

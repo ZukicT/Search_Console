@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VPPTK5JECX');
+  </script>
   <link rel="canonical" href="https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -10,7 +18,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   
   <title>How to Use Google Search Console on iPhone | Independent iOS app guide</title>
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="author" content="Tarik Zukic">
   <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
   <meta name="description" content="Step-by-step guide to check Search Console data on iPhone with an independent native app. Not made by Google.">
   
@@ -18,6 +28,9 @@
   <meta property="og:description" content="Step-by-step guide to check Search Console data on iPhone with an independent native app. Not made by Google.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html">
+<meta property="og:site_name" content="Search Console for iOS">
+  <meta property="og:locale" content="en_US">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://search-console.org/sitemap.xml">
   <meta property="og:image" content="https://search-console.org/app-icon-512.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
@@ -25,8 +38,7 @@
   <meta name="twitter:description" content="Step-by-step guide to check Search Console data on iPhone with an independent native app. Not made by Google.">
   <meta name="twitter:image" content="https://search-console.org/app-icon-512.jpg">
   
-  <link rel="stylesheet" href="../css/style.css?v=66">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=92">
   
   <!-- Schema for Article -->
   <script type="application/ld+json">
@@ -47,7 +59,7 @@
       "url": "https://search-console.org/about.html"
     },
     "datePublished": "2026-02-01",
-    "dateModified": "2026-05-28"
+    "dateModified": "2026-05-29"
   }
   </script>
   <script type="application/ld+json">
@@ -64,12 +76,6 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Guides",
-        "item": "https://search-console.org/guides/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
         "name": "How to Use Google Search Console on iPhone",
         "item": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html"
       }
@@ -77,7 +83,7 @@
   }
   </script>
 </head>
-<body data-i18n-title-key="guide.metaTitle" data-i18n-description-key="guide.metaDescription">
+<body class="page-guide" data-i18n-title-key="guide.metaTitle" data-i18n-description-key="guide.metaDescription">
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
   <header class="header">
@@ -90,14 +96,14 @@
         <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
           <div class="nav-links">
             <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
-            <a href="../index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
             <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
             <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
-            <a href="../index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
             <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
           </div>
         </nav>
-        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label-expand="aria.openMenu" data-i18n-aria-label-collapse="aria.closeMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="12" x2="21" y2="12"/>
@@ -112,26 +118,33 @@
         <a href="../releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
       </div>
     </div>
-    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
-    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
-      <div class="mobile-nav-header">
-        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+  </header>
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-toolbar">
         <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
       </div>
       <div class="mobile-nav-links">
         <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
-        <a href="../index.html#features" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
         <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
         <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
-        <a href="../index.html#faq" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+        <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
       </div>
-      <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
-    </nav>
-  </header>
+      <div class="mobile-nav-footer">
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <p class="mobile-nav-note" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+      </div>
+    </div>
+  </nav>
+  </div>
 
 
 
@@ -151,59 +164,69 @@
 
 
 
-<main id="main">
-    <article class="section page-guide">
-      <div class="container guide-content reveal-stagger reveal-stagger--tight" data-reveal style="max-width: 800px;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 24px; line-height: 1.2;" data-i18n="guide.title">How to Use Google Search Console on iPhone</h1>
-        <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 48px;" data-i18n="guide.intro">
+
+  <main id="main">
+    <article class="section">
+      <div class="container guide-content reveal-stagger reveal-stagger--tight" data-reveal>
+        <h1 class="guide-title" data-i18n="guide.title">How to Use Google Search Console on iPhone</h1>
+        <p class="guide-byline" data-i18n="guidesCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
+        <p class="guide-updated" data-i18n="guidesCommon.lastUpdated">Last updated: May 29, 2026</p>
+        <p class="guide-lead" data-i18n="guide.intro">
           Checking your website's SEO performance on the go shouldn't be hard. This guide explains how to access Google Search Console data directly from your iPhone.
         </p>
 
-        <h2 style="font-size: 1.75rem; margin: 40px 0 20px;" data-i18n="guide.whyTitle">Why Monitor Search Console on Mobile?</h2>
-        <p style="margin-bottom: 24px; font-size: 1.0625rem; color: var(--text-secondary);" data-i18n="guide.whyBody">
-          Website issues can happen anytime. Being able to check your critical metrics - like organic traffic drops or indexing errors - from your phone allows you to react faster. Whether you are an SEO professional, a developer, or a business owner, having access to your search data in your pocket is a game-changer.
+        <h2 class="guide-heading" data-i18n="guide.whyTitle">Why Monitor Search Console on Mobile?</h2>
+        <p class="guide-body-text" data-i18n="guide.whyBody">
+          Website issues can happen anytime. Checking traffic drops or indexing errors from your phone lets you react faster. Whether you are an SEO, a developer, or a site owner, having Search Console data in your pocket saves the back-and-forth to a laptop.
         </p>
 
-        <h2 style="font-size: 1.75rem; margin: 40px 0 20px;" data-i18n="guide.method1Title">Method 1: Using a Native App (Recommended)</h2>
-        <p style="margin-bottom: 24px; font-size: 1.0625rem; color: var(--text-secondary);" data-i18n="guide.method1Body">
+        <h2 class="guide-heading" data-i18n="guide.method1Title">Method 1: Using a Native App (Recommended)</h2>
+        <p class="guide-body-text" data-i18n="guide.method1Body">
           Google does not provide an official iOS app for Search Console. However, third-party apps like <strong>Search Console for iOS</strong> fill this gap by using Google's official API to provide a secure and optimized mobile experience.
         </p>
         
-        <div style="background: var(--bg); padding: 32px; border-radius: 12px; margin: 32px 0;">
-          <h3 style="margin-bottom: 16px;" data-i18n="guide.benefitsTitle">Benefits of using the app:</h3>
-          <ul style="list-style-position: inside; line-height: 1.8; color: var(--text-secondary);">
+        <div class="guide-callout">
+          <h3 class="guide-callout-title" data-i18n="guide.benefitsTitle">Benefits of using the app:</h3>
+          <ul class="guide-callout-list">
             <li data-i18n="guide.benefit1"><strong>Native Charts:</strong> Smooth, interactive charts optimized for touch screens.</li>
-            <li data-i18n="guide.benefit2"><strong>Push Notifications:</strong> Get alerted daily or weekly about your site's performance.</li>
-            <li data-i18n="guide.benefit3"><strong>Widgets:</strong> View key metrics right on your home screen.</li>
-            <li data-i18n="guide.benefit4"><strong>Multiple Accounts:</strong> Easily switch between different Google accounts and properties.</li>
+            <li data-i18n="guide.benefit2"><strong>Push Notifications:</strong> Optional daily, weekly, or monthly reminders to open the app and review performance.</li>
+            <li data-i18n="guide.benefit3"><strong>Widgets (Pro):</strong> Pin clicks, impressions, CTR, and position on your home screen with an active subscription.</li>
+            <li data-i18n="guide.benefit4"><strong>Multiple properties:</strong> Switch between every site your Google account can access in Search Console.</li>
           </ul>
         </div>
         
-        <p style="margin-bottom: 24px;">
-            <a href="/" class="btn btn-primary" data-i18n="guide.downloadCta">Download Search Console for iOS</a>
+        <p class="guide-cta">
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="guide.downloadCta">Download Search Console for iOS</a>
         </p>
 
-        <h2 style="font-size: 1.75rem; margin: 40px 0 20px;" data-i18n="guide.method2Title">Method 2: Using Safari</h2>
-        <p style="margin-bottom: 24px; font-size: 1.0625rem; color: var(--text-secondary);" data-i18n="guide.method2Body">
+        <h2 class="guide-heading" data-i18n="guide.method2Title">Method 2: Using Safari</h2>
+        <p class="guide-body-text" data-i18n="guide.method2Body">
           You can also access the web version of Google Search Console via Safari or Chrome on your iPhone.
         </p>
-        <ol style="padding-left: 20px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
+        <ol class="guide-steps">
           <li data-i18n="guide.method2Step1">Open Safari.</li>
           <li data-i18n="guide.method2Step2">Go to search.google.com/search-console.</li>
           <li data-i18n="guide.method2Step3">Sign in with your Google account.</li>
         </ol>
-        <p style="font-size: 1.0625rem; color: var(--text-secondary);" data-i18n="guide.method2Note">
+        <p class="guide-body-text" data-i18n="guide.method2Note">
           While this works, the web interface is designed for desktop monitors. Charts may be hard to read, and navigating complex reports on a small screen can be frustrating.
         </p>
 
-        <h2 style="font-size: 1.75rem; margin: 40px 0 20px;" data-i18n="guide.metricsTitle">What Metrics Should You Track?</h2>
-        <p style="margin-bottom: 24px; font-size: 1.0625rem; color: var(--text-secondary);" data-i18n="guide.metricsIntro">
+        <h2 class="guide-heading" data-i18n="guide.metricsTitle">What Metrics Should You Track?</h2>
+        <p class="guide-body-text" data-i18n="guide.metricsIntro">
             When checking from your phone, focus on high-level health metrics:
         </p>
-        <ul style="padding-left: 20px; line-height: 1.8; color: var(--text-secondary);">
+        <ul class="guide-list">
             <li data-i18n="guide.metric1"><strong>Total Clicks & Impressions:</strong> Is your traffic stable?</li>
             <li data-i18n="guide.metric2"><strong>Average Position:</strong> Are your key rankings holding steady?</li>
-            <li data-i18n="guide.metric3"><strong>Core Web Vitals:</strong> Is your site passing mobile usability tests?</li>
+            <li data-i18n="guide.metric3"><strong>Core Web Vitals:</strong> Run LCP, CLS, and INP checks in the app (Pro), or open the Page Experience report in Search Console on the web for field data.</li>
+        </ul>
+
+        <h2 class="guide-heading" data-i18n="guidesCommon.relatedHeading">Related guides</h2>
+        <ul class="guide-list guide-list--related">
+          <li><a href="is-there-an-official-google-search-console-app.html" data-i18n="guidesHub.item2Title">Is there an official Google Search Console app?</a></li>
+          <li><a href="google-search-console-mobile-app-options.html" data-i18n="guidesHub.item3Title">Google Search Console mobile app options</a></li>
+          <li><a href="../index.html" data-i18n="guidesCommon.homepage">Search Console for iOS homepage</a></li>
         </ul>
 
       </div>
@@ -221,6 +244,7 @@
         </div>
         <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
       </div>
+      <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="../index.html" class="logo">
@@ -249,7 +273,7 @@
           </div>
         </div>
         <div>
-          <h4 data-i18n="footer.pages">Pages</h4>
+          <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
           <ul class="footer-links">
             <li><a href="../index.html" data-i18n="footer.home">Home</a></li>
             <li><a href="../about.html" data-nav="about" data-i18n="footer.about">About</a></li>
@@ -259,17 +283,22 @@
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.resources">Resources</h4>
+          <h3 class="footer-col-title" data-i18n="footer.resources">Resources</h3>
           <ul class="footer-links">
             <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
-            <li><a href="../index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="../blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="../faq.html" data-i18n="nav.faq">FAQ</a></li>
             <li><a href="../guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="../guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
+            <li><a href="../guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
+            <li><a href="../guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
+            <li><a href="../guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.contact">Contact</h4>
+          <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
           <form class="contact-form" id="contact-form">
             <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
             <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
@@ -306,9 +335,9 @@
       });
     })();
   </script>
-  <script src="../js/hero-dot-wave.js?v=9"></script>
-  <script src="../js/site-ui.js?v=9"></script>
-  <script src="../js/i18n.js?v=9"></script>
-  <script src="../js/site-chrome-scripts.js?v=9"></script>
+  <script src="../js/hero-dot-wave.js?v=22"></script>
+  <script src="../js/site-ui.js?v=22"></script>
+  <script src="../js/i18n.js?v=22"></script>
+  <script src="../js/site-chrome-scripts.js?v=22"></script>
 </body>
 </html>

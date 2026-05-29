@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VPPTK5JECX');
+  </script>
+  <link rel="canonical" href="https://search-console.org/guides/check-core-web-vitals-on-iphone.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <title>How to Check Core Web Vitals on iPhone | Search Console guide</title>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="author" content="Tarik Zukic">
+  <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
+  <meta name="description" content="Check Core Web Vitals on iPhone with Search Console field data in Safari, or run PageSpeed lab analysis in Search Console for iOS (Pro). LCP, INP, and CLS without a laptop.">
+
+  <meta property="og:title" content="How to Check Core Web Vitals on iPhone | Search Console guide">
+  <meta property="og:description" content="Check Core Web Vitals on iPhone with Search Console field data in Safari, or run PageSpeed lab analysis in Search Console for iOS (Pro). LCP, INP, and CLS without a laptop.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://search-console.org/guides/check-core-web-vitals-on-iphone.html">
+<meta property="og:site_name" content="Search Console for iOS">
+  <meta property="og:locale" content="en_US">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://search-console.org/sitemap.xml">
+  <meta property="og:image" content="https://search-console.org/app-icon-512.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Check Core Web Vitals on iPhone | Search Console guide">
+  <meta name="twitter:description" content="Check Core Web Vitals on iPhone with Search Console field data in Safari, or run PageSpeed lab analysis in Search Console for iOS (Pro). LCP, INP, and CLS without a laptop.">
+  <meta name="twitter:image" content="https://search-console.org/app-icon-512.jpg">
+
+  <link rel="stylesheet" href="../css/style.css?v=92">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Check Core Web Vitals on iPhone",
+    "description": "Check Core Web Vitals on iPhone with Search Console field data in Safari, or run PageSpeed lab analysis in Search Console for iOS (Pro). LCP, INP, and CLS without a laptop.",
+    "image": "https://search-console.org/app-icon-512.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Tarik Zukic",
+      "url": "https://search-console.org/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Tarik Zukic",
+      "url": "https://search-console.org/about.html"
+    },
+    "datePublished": "2026-05-29",
+    "dateModified": "2026-05-29"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://search-console.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "How to Check Core Web Vitals on iPhone",
+        "item": "https://search-console.org/guides/check-core-web-vitals-on-iphone.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-guide" data-i18n-title-key="guideCwv.metaTitle" data-i18n-description-key="guideCwv.metaDescription">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">
+          <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+        </a>
+        <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+            <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
+            <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+            <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
+            <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+          </div>
+        </nav>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label-expand="aria.openMenu" data-i18n-aria-label-collapse="aria.closeMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
+      <div class="container">
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <a href="../releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-toolbar">
+        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
+        <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+        <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
+        <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <p class="mobile-nav-note" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <main id="main">
+    <article class="section">
+      <div class="container guide-content reveal-stagger reveal-stagger--tight" data-reveal>
+        <h1 class="guide-title" data-i18n="guideCwv.title">How to Check Core Web Vitals on iPhone</h1>
+        <p class="guide-byline" data-i18n="guidesCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
+        <p class="guide-updated" data-i18n="guidesCommon.lastUpdated">Last updated: May 29, 2026</p>
+        <p class="guide-lead guide-lead--compact" data-i18n="guideCwv.intro">
+          Core Web Vitals measure real user experience: how fast your page loads, how quickly it responds to taps, and how stable the layout is. You can check Core Web Vitals on iPhone through Google Search Console without running lab tools on your Mac.
+        </p>
+        <p class="guide-disclaimer" data-i18n="guidesCommon.disclaimer">
+          Search Console for iOS is an independent app. It is not made by or affiliated with Google.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2ThreeMetrics">The three metrics that matter</h2>
+        <p class="guide-body-text" data-i18n="guideCwv.pThreeMetrics1">
+          Google tracks three Core Web Vitals for page experience signals. Largest Contentful Paint (LCP) measures loading. Interaction to Next Paint (INP) measures responsiveness after a user action. Cumulative Layout Shift (CLS) measures visual stability while the page loads.
+        </p>
+        <p class="guide-body-text" data-i18n="guideCwv.pThreeMetrics2">
+          Search Console shows field data from Chrome users visiting your site. That is real-world performance, not a one-off Lighthouse run on your Wi-Fi. For mobile SEO, pay close attention to the mobile report because many of your visitors load pages on phones like the one in your hand.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2FindReport">Where to find the report on mobile web</h2>
+        <p class="guide-body-text" data-i18n="guideCwv.pFindReport1">
+          Open Search Console in Safari, select your property, and go to Experience, then Core Web Vitals. You will see URL groups classified as Good, Needs improvement, or Poor for mobile and desktop. Tap a status bucket to see example URLs and which metric failed.
+        </p>
+        <p class="guide-body-text" data-i18n="guideCwv.pFindReport2">
+          The mobile web UI works but the tables are cramped. If you only need a pass or fail answer before a deploy review, that may be enough. If you check vitals weekly across multiple sites, a native app that surfaces the same API data in a phone-first layout saves time.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2UsingApp">Using Search Console for iOS (PageSpeed lab analysis)</h2>
+        <p class="guide-body-text" data-i18n="guideCwv.pUsingApp1">
+          Search Console for iOS includes a Core Web Vitals screen that runs PageSpeed Insights on your property URL. You sign in with Google, open a property, and run the analysis to see LCP, CLS, and INP lab scores for mobile and desktop. Results are cached on device for about 24 hours between runs. This feature requires an active Pro subscription (monthly or weekly plan).
+        </p>
+        <p class="guide-body-text" data-i18n="guideCwv.pUsingApp2">
+          That is lab data from a fresh PageSpeed run, not the same URL-group field report you see under Experience in Search Console on the web. Use it for quick before-and-after checks on your homepage or a key landing page. For field data across many URLs, open Page Experience from the app&apos;s Web Console links or use Safari.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2FieldVsLab">Field data vs lab tools</h2>
+        <p class="guide-body-text" data-i18n="guideCwv.pFieldVsLab1">
+          PageSpeed Insights and Lighthouse give lab scores from a simulated load. Search Console field data reflects actual Chrome sessions over the past 28 days. Both are useful. Use field data in Search Console to prioritize URLs affecting real users. Use lab tools on desktop when you need step-by-step diagnostics for a specific page you are fixing.
+        </p>
+        <p class="guide-body-text" data-i18n="guideCwv.pFieldVsLab2">
+          Do not panic over a single Poor URL if traffic to that URL is tiny. Focus on templates and URL patterns with high impressions that sit in Needs improvement or Poor. Those are the pages where vitals work moves the needle.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2Fixes">Common fixes when vitals slip</h2>
+        <p class="guide-body-text" data-i18n="guideCwv.pFixes1">
+          Poor LCP on mobile often traces to hero images without compression, slow server response, or render-blocking scripts. High INP frequently ties to heavy JavaScript on interactive elements. Bad CLS usually means ads, fonts, or images loading without reserved space. You will still fix those on desktop dev tools, but Search Console on iPhone tells you which URL groups deserve that work first.
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guideCwv.h2Routine">A simple mobile monitoring routine</h2>
+        <ol class="guide-steps">
+          <li data-i18n="guideCwv.routineStep1">Once a week, open Core Web Vitals for mobile on your primary property.</li>
+          <li data-i18n="guideCwv.routineStep2">Note any URL group that moved from Good to Needs improvement.</li>
+          <li data-i18n="guideCwv.routineStep3">Cross-check whether a deploy or plugin update landed in the same window.</li>
+          <li data-i18n="guideCwv.routineStep4">Share the affected URL pattern with whoever owns front-end performance.</li>
+        </ol>
+        <p class="guide-body-text" data-i18n="guideCwv.pRoutineOutro">
+          That four-step loop takes minutes on a phone and keeps small regressions from sitting unnoticed until a client or stakeholder asks why mobile rankings slipped.
+        </p>
+
+        <p class="guide-cta">
+          <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="guideCwv.downloadCta">Get Search Console for iOS</a>
+        </p>
+
+        <h2 class="guide-heading" data-i18n="guidesCommon.relatedHeading">Related guides</h2>
+        <ul class="guide-list guide-list--related">
+          <li><a href="how-to-use-google-search-console-on-iphone.html" data-i18n="guidesHub.item1Title">How to use Google Search Console on iPhone</a></li>
+          <li><a href="track-keyword-rankings-from-iphone.html" data-i18n="guidesHub.item5Title">Track keyword rankings from iPhone</a></li>
+          <li><a href="../index.html" data-i18n="guidesCommon.homepage">Search Console for iOS homepage</a></li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-download">
+        <div class="footer-download-copy">
+          <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
+          <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
+      </div>
+      <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
+          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+          <div class="social-share">
+            <span class="social-label" data-i18n="footer.share">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="../about.html" data-nav="about" data-i18n="footer.about">About</a></li>
+            <li><a href="../releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
+            <li><a href="../privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+            <li><a href="../terms.html" data-nav="terms" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.resources">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
+            <li><a href="../blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="../faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="../guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="../guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
+            <li><a href="../guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
+            <li><a href="../guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
+            <li><a href="../guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
+            <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
+            <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit" data-i18n="footer.sendMessage">Send message</button>
+          </form>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Search Console for iOS</span>
+        <div class="footer-bottom-right">
+          <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
+        </div>
+      </div>
+    </div></footer>
+  <script>
+    (function() {
+      var banner = document.getElementById('release-notice-banner');
+      if (!banner) return;
+      var expires = banner.getAttribute('data-expires');
+      if (!expires) return;
+      if (new Date() > new Date(expires)) { banner.style.display = 'none'; }
+    })();
+    (function() {
+      var meta = document.querySelector('meta[name="download-ping-api"]');
+      var base = (meta && meta.getAttribute('content')) ? meta.getAttribute('content').trim() : '';
+      if (!base) return;
+      var url = base.replace(/\/$/, '') + '/api/download-click';
+      document.querySelectorAll('a[href*="apps.apple.com"][href*="search-console"]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (navigator.sendBeacon) { navigator.sendBeacon(url); } else { fetch(url, { method: 'POST', mode: 'cors', keepalive: true }).catch(function(){}); }
+        });
+      });
+    })();
+  </script>
+  <script src="../js/hero-dot-wave.js?v=22"></script>
+  <script src="../js/site-ui.js?v=22"></script>
+  <script src="../js/i18n.js?v=22"></script>
+  <script src="../js/site-chrome-scripts.js?v=22"></script>
+</body>
+</html>

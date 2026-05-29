@@ -31,7 +31,7 @@ Required in `<body>`:
 Stylesheet:
 
 ```html
-<link rel="stylesheet" href="css/style.css?v=44">
+<link rel="stylesheet" href="css/style.css?v=76">
 ```
 
 Add `performance-chart.css` only when the page embeds `[data-performance-chart]`.

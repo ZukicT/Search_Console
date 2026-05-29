@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VPPTK5JECX');
+  </script>
+  <link rel="canonical" href="https://search-console.org/blog/improve-search-click-through-rate.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <title>How to Improve Search Click-Through Rate Using Query Data | Search Console blog</title>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="author" content="Tarik Zukic">
+  <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
+  <meta name="description" content="Use Search Console query data to find high-impression keywords with weak CTR and improve titles and meta descriptions.">
+  <meta property="og:title" content="How to Improve Search Click-Through Rate Using Query Data | Search Console blog">
+  <meta property="og:description" content="Use Search Console query data to find high-impression keywords with weak CTR and improve titles and meta descriptions.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://search-console.org/blog/improve-search-click-through-rate.html">
+  <meta property="og:site_name" content="Search Console for iOS">
+  <meta property="og:locale" content="en_US">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://search-console.org/sitemap.xml">
+  <meta property="og:image" content="https://search-console.org/og-linkedin-share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Improve Search Click-Through Rate Using Query Data | Search Console blog">
+  <meta name="twitter:description" content="Use Search Console query data to find high-impression keywords with weak CTR and improve titles and meta descriptions.">
+  <meta name="twitter:image" content="https://search-console.org/og-linkedin-share.png">
+  <link rel="stylesheet" href="../css/style.css?v=92">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=3">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Improve Search Click-Through Rate Using Query Data",
+    "description": "Use Search Console query data to find high-impression keywords with weak CTR and improve titles and meta descriptions.",
+    "image": "https://search-console.org/og-linkedin-share.png",
+    "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://search-console.org/about.html"},
+    "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://search-console.org/about.html"},
+    "datePublished": "2026-05-29",
+    "dateModified": "2026-05-29",
+    "mainEntityOfPage": "https://search-console.org/blog/improve-search-click-through-rate.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://search-console.org/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://search-console.org/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "How to Improve Search Click-Through Rate Using Query Data", "item": "https://search-console.org/blog/improve-search-click-through-rate.html"}
+    ]
+  }
+  </script>
+</head>
+<body class="page-guide page-blog-post" data-i18n-title-key="blogPostCtr.metaTitle" data-i18n-description-key="blogPostCtr.metaDescription">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">
+          <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+        </a>
+        <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+            <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
+            <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+            <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
+            <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+            <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+          </div>
+        </nav>
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label-expand="aria.openMenu" data-i18n-aria-label-collapse="aria.closeMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
+      <div class="container">
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <a href="../releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-toolbar">
+        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="../index.html#hero" data-nav="home" data-i18n="nav.home">Home</a>
+        <a href="../blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
+        <a href="../releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
+        <a href="../about.html" data-nav="about" data-i18n="nav.about">About</a>
+        <a href="../faq.html" data-nav="faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <p class="mobile-nav-note" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+      </div>
+    </div>
+  </nav>
+  </div>
+  <aside class="blog-app-promo-banner" aria-label="Search Console app promotion">
+    <div class="container blog-app-promo-banner__inner">
+      <img src="../Bot.png" alt="" width="36" height="36" class="blog-app-promo-banner__mark" aria-hidden="true">
+      <div class="blog-app-promo-banner__copy">
+        <p class="blog-app-promo-banner__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
+        <p class="blog-app-promo-banner__title" data-i18n="blog.promoTitle">Check your data on the go</p>
+      </div>
+      <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary blog-app-promo-banner__cta" target="_blank" rel="noopener" data-i18n="blog.promoCta">Get the app</a>
+    </div>
+  </aside>
+<main id="main">
+    <article class="blog-article section">
+      <div class="container blog-article-layout reveal-stagger reveal-stagger--tight" data-reveal>
+        <div class="blog-article-main">
+        <p class="guide-back"><a href="../blog.html" data-i18n="blog.backToBlog">&larr; Back to blog</a></p>
+        <header class="blog-article-header">
+          <p class="blog-article-meta">
+            <span class="blog-article-category" data-i18n="blogCommon.categoryPerformance">Performance</span>
+            <time datetime="2026-05-29" data-i18n="blogCommon.datePublished">May 29, 2026</time>
+          </p>
+          <h1 class="guide-title" data-i18n="blogPostCtr.title">How to Improve Search Click-Through Rate Using Query Data</h1>
+          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
+        </header>
+
+        <figure class="blog-visual blog-visual--ctr reveal" data-blog-visual="ctr" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCtr.visualCaptionCtr">High-impression queries with weak CTR</figcaption>
+          <div class="blog-visual__panel">
+            <div class="blog-visual-ctr">
+              <div class="blog-visual-ctr__row" style="--i: 0">
+                <span class="blog-visual-ctr__query">google search console app</span>
+                <div class="blog-visual-ctr__bars">
+                  <span class="blog-visual-ctr__impr" style="--impr: 100"></span>
+                  <span class="blog-visual-ctr__click blog-visual-ctr__click--warn" style="--click: 7"></span>
+                </div>
+                <span class="blog-visual-ctr__pct">1.4%</span>
+              </div>
+              <div class="blog-visual-ctr__row" style="--i: 1">
+                <span class="blog-visual-ctr__query">search console mobile</span>
+                <div class="blog-visual-ctr__bars">
+                  <span class="blog-visual-ctr__impr" style="--impr: 86"></span>
+                  <span class="blog-visual-ctr__click blog-visual-ctr__click--warn" style="--click: 9"></span>
+                </div>
+                <span class="blog-visual-ctr__pct">2.1%</span>
+              </div>
+              <div class="blog-visual-ctr__row blog-visual-ctr__row--target" style="--i: 2">
+                <span class="blog-visual-ctr__query">search console api ios</span>
+                <div class="blog-visual-ctr__bars">
+                  <span class="blog-visual-ctr__impr" style="--impr: 64"></span>
+                  <span class="blog-visual-ctr__click" style="--click: 28"></span>
+                </div>
+                <span class="blog-visual-ctr__pct">6.8%</span>
+              </div>
+            </div>
+            <ul class="blog-visual__legend">
+              <li class="blog-visual__legend-item" data-i18n="blogCommon.legendImpressions"><span class="blog-visual__legend-swatch blog-visual__legend-swatch--impr" aria-hidden="true"></span> Impressions</li>
+              <li class="blog-visual__legend-item" data-i18n="blogCommon.legendClicks"><span class="blog-visual__legend-swatch blog-visual__legend-swatch--click" aria-hidden="true"></span> Clicks</li>
+            </ul>
+          </div>
+        </figure>
+        <div class="blog-article-body">
+        <p class="guide-body-text" data-i18n="blogPostCtr.pIntro">Click-through rate (CTR) in Search Console is clicks divided by impressions for a query, page, or other dimension. Google describes CTR as a useful signal for whether users think your result answers their search. Improving snippets on high-impression queries is often faster than chasing ranking changes because you are already visible.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Performance">What the Performance report actually shows</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pPerformance1">Open <strong>Performance</strong> for <strong>Search results</strong> in Search Console. The default view covers about the last three months, but you can narrow the range (for example, Last 28 days) when you want a recent, stable window. The chart totals clicks, impressions, average CTR, and average position for your property. The table breaks the same metrics down by dimension: Queries, Pages, Countries, Devices, Search appearance, and Dates.</p>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pPerformance2">Newer days can show as <strong>preliminary data</strong> in the chart (Google marks this when you hover). Wait a few days after a title or description change before you judge results, because reporting can lag and early numbers may still move.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Step1">Step 1: Find queries with impressions but weak CTR</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep1Intro">Google's own workflow for low-CTR pages also applies at the query level:</p>
+        <ul class="guide-list">
+          <li data-i18n="blogPostCtr.liStep1_1">Select the <strong>CTR</strong> metric above the chart.</li>
+          <li data-i18n="blogPostCtr.liStep1_2">Open the <strong>Queries</strong> tab.</li>
+          <li data-i18n="blogPostCtr.liStep1_3">Sort by <strong>Impressions</strong> so you see terms where Google already shows you often.</li>
+          <li data-i18n="blogPostCtr.liStep1_4">Look for queries with meaningful impressions and CTR below your property average.</li>
+        </ul>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep1Outro">Brand queries usually CTR higher than broad informational terms. Prioritize commercial or conversion pages first, but do not ignore informational queries that drive discovery if impressions are large.</p>
+
+        <figure class="blog-visual reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCtr.visualCaptionPerformance">Performance report: sort Queries by Impressions</figcaption>
+          <div class="blog-visual__panel">
+            <div class="blog-visual-metrics">
+              <span class="blog-visual-metrics__pill" data-i18n="blogCommon.visualMetricClicks">Clicks</span>
+              <span class="blog-visual-metrics__pill blog-visual-metrics__pill--active" data-i18n="blogCommon.visualMetricCtr">CTR</span>
+              <span class="blog-visual-metrics__pill" data-i18n="blogCommon.visualMetricImpressions">Impressions</span>
+              <span class="blog-visual-metrics__pill" data-i18n="blogCommon.visualMetricPosition">Position</span>
+            </div>
+            <p class="blog-visual-metrics__note" data-i18n="blogPostCtr.visualMetricsNote"><strong>Queries</strong> tab · sorted by <strong>Impressions</strong> · filter queries below your property average CTR</p>
+          </div>
+        </figure>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Step2">Step 2: Confirm which URL earns the click</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep2">Click a query row, then open the <strong>Pages</strong> tab while that query filter is active. You need the URL Google actually ranks for that term. If the wrong URL appears, fix internal linking, consolidate duplicate content, or adjust on-page focus before you rewrite the snippet. Changing a title on page A will not help if Google prefers page B for that query.</p>
+
+        <figure class="blog-visual reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCtr.visualCaptionQueryPage">Query filter → Pages tab: which URL earns the click</figcaption>
+          <div class="blog-visual__panel">
+            <div class="blog-visual-query-page">
+              <div class="blog-visual-query-page__query"><span data-i18n="blogCommon.visualLabelFilteredQuery">Filtered query</span>google search console app</div>
+              <div class="blog-visual-query-page__arrow" aria-hidden="true" data-i18n="blogCommon.visualPagesTabArrow">↓ Pages tab</div>
+              <div class="blog-visual-query-page__pages">
+                <div class="blog-visual-query-page__url blog-visual-query-page__url--primary">
+                  <span>/guides/google-search-console-mobile-app-options.html</span>
+                  <span class="blog-visual-query-page__share" data-i18n="blogPostCtr.visualPagesShare1">78% clicks</span>
+                </div>
+                <div class="blog-visual-query-page__url">
+                  <span>/index.html</span>
+                  <span class="blog-visual-query-page__share" data-i18n="blogPostCtr.visualPagesShare2">14% clicks</span>
+                </div>
+                <div class="blog-visual-query-page__url">
+                  <span>/faq.html</span>
+                  <span class="blog-visual-query-page__share" data-i18n="blogPostCtr.visualPagesShare3">8% clicks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Step3">Step 3: Improve the title link and snippet Google may use</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep3Intro">Google generates title links and snippets automatically. It usually starts from your <code>&lt;title&gt;</code> element and visible page content, and may use your meta description when it better summarizes the page. You cannot force exact wording in live results, but you can follow Google's published best practices:</p>
+        <ul class="guide-list">
+          <li data-i18n="blogPostCtr.liStep3_1"><strong>Title:</strong> Unique, descriptive, concise. Avoid keyword stuffing and repeated boilerplate across pages.</li>
+          <li data-i18n="blogPostCtr.liStep3_2"><strong>Meta description:</strong> Accurate summary of that specific page. Google may ignore generic or duplicate descriptions.</li>
+          <li data-i18n="blogPostCtr.liStep3_3"><strong>On-page heading:</strong> Make the main topic obvious so Google does not substitute different text.</li>
+        </ul>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep3Outro">Match language to search intent. If the query is transactional, say what the user gets. If it is informational, state what the page explains. Misleading titles that do not match the page are exactly the kind Google may rewrite.</p>
+
+        <figure class="blog-visual reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCtr.visualCaptionSnippet">Title and meta description aligned to query intent</figcaption>
+          <div class="blog-visual__panel">
+            <div class="blog-visual-snippet">
+              <div class="blog-visual-snippet__card">
+                <span class="blog-visual-snippet__label" data-i18n="blogCommon.visualLabelBefore">Before</span>
+                <p class="blog-visual-snippet__title" data-i18n="blogPostCtr.visualSnippetTitleBefore">Search Console App - Home</p>
+                <p class="blog-visual-snippet__url">search-console.org › guides › mobile-app-options</p>
+                <p class="blog-visual-snippet__desc" data-i18n="blogPostCtr.visualSnippetDescBefore">Learn about our app. Download today for iOS devices and more features.</p>
+              </div>
+              <div class="blog-visual-snippet__arrow" aria-hidden="true">→</div>
+              <div class="blog-visual-snippet__card blog-visual-snippet__card--after">
+                <span class="blog-visual-snippet__label" data-i18n="blogCommon.visualLabelAfter">After</span>
+                <p class="blog-visual-snippet__title" data-i18n="blogPostCtr.visualSnippetTitleAfter">Google Search Console on iPhone: Mobile App Options</p>
+                <p class="blog-visual-snippet__url">search-console.org › guides › mobile-app-options</p>
+                <p class="blog-visual-snippet__desc" data-i18n="blogPostCtr.visualSnippetDescAfter">Compare official mobile access vs third-party iOS apps that use Google's Search Console API.</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Step4">Step 4: Use Search appearance and device filters</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep4">CTR differs by device and result type. Filter by <strong>Device</strong> to see whether mobile snippets underperform desktop. Use the <strong>Search appearance</strong> dimension when you have rich results (FAQ, product, and similar). A drop in CTR can reflect a SERP layout change rather than a bad title on the page itself.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2Step5">Step 5: Measure in a clean date window</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pStep5">After you ship changes, compare a fresh date range against the period before the edit. Use the <strong>Date</strong> filter's <strong>Compare</strong> tab if you want side-by-side clicks and CTR in one table. Google notes you can run only one comparison at a time. Focus on impressions and clicks over time, not daily average position noise.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostCtr.h2WontFix">What CTR work will not fix</h2>
+        <p class="guide-body-text" data-i18n="blogPostCtr.pWontFix">Low CTR with falling impressions usually points to ranking or indexing problems, not snippet copy alone. Very low impression counts can make CTR swing wildly; ignore tail queries until volume is real. And even perfect snippets cannot help if the page is not indexed or not eligible to appear.</p>
+        </div>
+        <aside class="blog-sources" aria-labelledby="blog-sources-ctr">
+          <h2 id="blog-sources-ctr" class="blog-sources__title" data-i18n="blogCommon.sourcesTitle">Google documentation</h2>
+          <ul class="blog-sources__list">
+            <li><a href="https://support.google.com/webmasters/answer/7576553" target="_blank" rel="noopener noreferrer" data-i18n="blogPostCtr.source1">Performance report (Search results) - Search Console Help</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/10268906" target="_blank" rel="noopener noreferrer" data-i18n="blogPostCtr.source2">How are you performing on Google? - Search Console Help</a></li>
+            <li><a href="https://developers.google.com/search/docs/appearance/snippet" target="_blank" rel="noopener noreferrer" data-i18n="blogPostCtr.source3">Control your snippets in search results - Google Search Central</a></li>
+            <li><a href="https://developers.google.com/search/docs/appearance/title-link" target="_blank" rel="noopener noreferrer" data-i18n="blogPostCtr.source4">Influencing title links in search results - Google Search Central</a></li>
+          </ul>
+        </aside>
+        <div class="blog-related">
+          <h2 class="blog-related__title" data-i18n="blog.relatedHeading">More on the blog</h2>
+          <ul class="guide-list guide-list--related">
+            <li><a href="../blog.html" data-i18n="blog.backToBlog">Back to blog</a></li>
+            <li><a href="find-pages-losing-traffic.html" data-i18n="blogPostCtr.relatedTraffic">How to Find Pages Losing Traffic in Search Console</a></li>
+            <li><a href="catch-indexing-issues-early.html" data-i18n="blogPostCtr.relatedIndexing">How to Catch Indexing Issues Before They Cost Clicks</a></li>
+          </ul>
+        </div>
+        </div>
+        <aside class="blog-sidebar" aria-label="Sidebar">
+          <div class="blog-app-promo">
+            <div class="blog-app-promo__inner surface-card">
+              <img src="../Bot.png" alt="" width="48" height="48" class="blog-app-promo__mark" aria-hidden="true">
+              <p class="blog-app-promo__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
+              <h2 class="blog-app-promo__title" data-i18n="blog.promoTitle">Check your data on the go</h2>
+              <p class="blog-app-promo__desc" data-i18n="blog.promoDesc">Independent iOS app connected to Google's Search Console API. Same Google account and properties, in a native app.</p>
+              <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary blog-app-promo__cta" target="_blank" rel="noopener" data-i18n="blog.promoCta">Get the app</a>
+              <p class="blog-app-promo__note" data-i18n="blog.promoNote">Not made by or affiliated with Google.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-download">
+        <div class="footer-download-copy">
+          <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
+          <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+        </div>
+        <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
+      </div>
+      <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
+          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+          <div class="social-share">
+            <span class="social-label" data-i18n="footer.share">Share:</span>
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="../about.html" data-nav="about" data-i18n="footer.about">About</a></li>
+            <li><a href="../releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
+            <li><a href="../privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
+            <li><a href="../terms.html" data-nav="terms" data-i18n="footer.termsOfService">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.resources">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
+            <li><a href="../blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="../faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="../guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="../guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
+            <li><a href="../guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
+            <li><a href="../guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
+            <li><a href="../guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
+            <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
+            <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
+            <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
+            <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <button type="submit" data-i18n="footer.sendMessage">Send message</button>
+          </form>
+          <p class="contact-note" id="contact-note"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Search Console for iOS</span>
+        <div class="footer-bottom-right">
+          <select id="lang-picker" class="lang-picker" data-i18n-aria-label="aria.selectLanguage" aria-label="Select language"></select>
+        </div>
+      </div>
+    </div></footer>
+  <script src="../js/hero-dot-wave.js?v=22"></script>
+  <script src="../js/blog-visuals.js?v=22"></script>
+  <script src="../js/site-ui.js?v=22"></script>
+  <script src="../js/i18n.js?v=22"></script>
+  <script src="../js/site-chrome-scripts.js?v=22"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# Search Console for iOS
+
+> Independent native iOS app for Google Search Console. Not made by or affiliated with Google LLC. Uses Google's official Search Console API so you can review traffic, queries, Core Web Vitals, URL inspection, and sitemaps on iPhone and iPad.
+
+## Primary pages
+
+- [Home](https://search-console.org/): Product overview, features, screenshots, and App Store download.
+- [Blog](https://search-console.org/blog.html): Practical SEO tips to improve your site using Search Console data.
+- [FAQ](https://search-console.org/faq.html): 17 questions on data access, Google affiliation, pricing, iPad support, and sign-in.
+- [About](https://search-console.org/about.html): Author, product story, and independence from Google.
+- [Release history](https://search-console.org/releases.html): Changelog for the iOS app.
+- [Privacy policy](https://search-console.org/privacy.html): OAuth, analytics, ads, and California privacy rights.
+- [Terms of service](https://search-console.org/terms.html): Subscription and usage terms.
+
+## Guides (long-tail SEO)
+
+- [How to use Google Search Console on iPhone](https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html)
+- [Is there an official Google Search Console app?](https://search-console.org/guides/is-there-an-official-google-search-console-app.html)
+- [Google Search Console mobile app options](https://search-console.org/guides/google-search-console-mobile-app-options.html)
+- [How to check Core Web Vitals on iPhone](https://search-console.org/guides/check-core-web-vitals-on-iphone.html)
+- [How to track keyword rankings from iPhone](https://search-console.org/guides/track-keyword-rankings-from-iphone.html)
+
+## App
+
+- [Download on the App Store](https://apps.apple.com/us/app/search-console/id6758431981)
+- Pricing: 7-day free trial, then USD 5.99/month via App Store subscription. Cancel anytime in iOS Settings.
+
+## Crawling
+
+- [Sitemap](https://search-console.org/sitemap.xml)
+- [Robots.txt](https://search-console.org/robots.txt)
+
+## Entity
+
+- Developer: Tarik Zukic
+- [About the author](https://search-console.org/about.html)
+- [LinkedIn](https://www.linkedin.com/in/tarik-zukic03)
+- Contact: info@quackdb.app (also used in App Store privacy disclosures)
+
+## Optional
+
+- [Google Search Console (web product)](https://search.google.com/search-console): Official Google web console this app connects to.

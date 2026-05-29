@@ -11,8 +11,10 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "66"
-JS_VERSION = "9"
+CSS_VERSION = "92"
+JS_VERSION = "22"
+CHART_CSS_VERSION = "12"
+BLOG_VISUALS_CSS_VERSION = "3"
 
 
 def scroll_progress_block() -> str:
@@ -22,8 +24,8 @@ def scroll_progress_block() -> str:
 def header_block(prefix: str, *, is_home: bool) -> str:
     logo_href = "/" if is_home and prefix == "" else f"{prefix}index.html"
     home_href = "#hero" if is_home else f"{prefix}index.html#hero"
-    features_href = "#features" if is_home else f"{prefix}index.html#features"
-    faq_href = "#faq" if is_home else f"{prefix}index.html#faq"
+    blog_href = "blog.html" if is_home else f"{prefix}blog.html"
+    faq_href = "faq.html" if is_home else f"{prefix}faq.html"
     bot_src = f"{prefix}Bot.png"
 
     return f"""  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
@@ -37,14 +39,14 @@ def header_block(prefix: str, *, is_home: bool) -> str:
         <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
           <div class="nav-links">
             <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
-            <a href="{features_href}" data-nav="features" data-i18n="nav.features">Features</a>
+            <a href="{blog_href}" data-nav="blog" data-i18n="nav.blog">Blog</a>
             <a href="{prefix}releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
             <a href="{prefix}about.html" data-nav="about" data-i18n="nav.about">About</a>
             <a href="{faq_href}" data-nav="faq" data-i18n="nav.faq">FAQ</a>
             <a href="{APP_STORE}" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
           </div>
         </nav>
-        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria-label-expand="aria.openMenu" data-i18n-aria-label-collapse="aria.closeMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="menu-icon" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="12" x2="21" y2="12"/>
@@ -59,26 +61,62 @@ def header_block(prefix: str, *, is_home: bool) -> str:
         <a href="{prefix}releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
       </div>
     </div>
-    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
-    <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
-      <div class="mobile-nav-header">
-        <span class="mobile-nav-title" data-i18n="common.appNameShort">Search Console</span>
+  </header>
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-toolbar">
         <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
       </div>
       <div class="mobile-nav-links">
         <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
-        <a href="{features_href}" data-nav="features" data-i18n="nav.features">Features</a>
+        <a href="{blog_href}" data-nav="blog" data-i18n="nav.blog">Blog</a>
         <a href="{prefix}releases.html" data-nav="releases" data-i18n="nav.releases">Releases</a>
         <a href="{prefix}about.html" data-nav="about" data-i18n="nav.about">About</a>
         <a href="{faq_href}" data-nav="faq" data-i18n="nav.faq">FAQ</a>
       </div>
-      <a href="{APP_STORE}" class="nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
-    </nav>
-  </header>"""
+      <div class="mobile-nav-footer">
+        <a href="{APP_STORE}" class="btn btn-primary nav-cta nav-cta--mobile" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+        <p class="mobile-nav-note" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
+      </div>
+    </div>
+  </nav>
+  </div>"""
+
+
+def blog_promo_banner_block(prefix: str) -> str:
+    bot_src = f"{prefix}Bot.png"
+    return f"""  <aside class="blog-app-promo-banner" aria-label="Search Console app promotion">
+    <div class="container blog-app-promo-banner__inner">
+      <img src="{bot_src}" alt="" width="36" height="36" class="blog-app-promo-banner__mark" aria-hidden="true">
+      <div class="blog-app-promo-banner__copy">
+        <p class="blog-app-promo-banner__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
+        <p class="blog-app-promo-banner__title" data-i18n="blog.promoTitle">Check your data on the go</p>
+      </div>
+      <a href="{APP_STORE}" class="btn btn-primary blog-app-promo-banner__cta" target="_blank" rel="noopener" data-i18n="blog.promoCta">Get the app</a>
+    </div>
+  </aside>"""
+
+
+BLOG_PROMO_BANNER = re.compile(
+    r"\s*<aside class=\"blog-app-promo-banner\"[\s\S]*?</aside>\s*",
+    re.S,
+)
+
+
+def sync_blog_promo_banner(text: str, prefix: str) -> str:
+    if "blog-app-promo" not in text:
+        return BLOG_PROMO_BANNER.sub("\n", text)
+    banner = blog_promo_banner_block(prefix) + "\n"
+    if 'class="blog-app-promo-banner"' in text:
+        return BLOG_PROMO_BANNER.sub("\n" + banner, text, count=1)
+    return re.sub(r"(\n\s*<main id=\"main\">)", "\n\n" + banner + r"\1", text, count=1)
 
 
 def footer_block(prefix: str) -> str:
@@ -94,6 +132,7 @@ def footer_block(prefix: str) -> str:
         </div>
         <a href="{APP_STORE}" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
       </div>
+      <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="{prefix}index.html" class="logo">
@@ -122,7 +161,7 @@ def footer_block(prefix: str) -> str:
           </div>
         </div>
         <div>
-          <h4 data-i18n="footer.pages">Pages</h4>
+          <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
           <ul class="footer-links">
             <li><a href="{prefix}index.html" data-i18n="footer.home">Home</a></li>
             <li><a href="{prefix}about.html" data-nav="about" data-i18n="footer.about">About</a></li>
@@ -132,17 +171,22 @@ def footer_block(prefix: str) -> str:
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.resources">Resources</h4>
+          <h3 class="footer-col-title" data-i18n="footer.resources">Resources</h3>
           <ul class="footer-links">
             <li><a href="{APP_STORE}" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
-            <li><a href="{prefix}index.html#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="{prefix}blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="{prefix}faq.html" data-i18n="nav.faq">FAQ</a></li>
             <li><a href="{prefix}guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
+            <li><a href="{prefix}guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
+            <li><a href="{prefix}guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
+            <li><a href="{prefix}guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
+            <li><a href="{prefix}guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.contact">Contact</h4>
+          <h3 class="footer-col-title" data-i18n="footer.contact">Contact</h3>
           <form class="contact-form" id="contact-form">
             <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
             <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
@@ -161,10 +205,12 @@ def footer_block(prefix: str) -> str:
     </div>"""
 
 
-def scripts_block(prefix: str, *, include_performance_chart: bool = False) -> str:
+def scripts_block(prefix: str, *, include_performance_chart: bool = False, include_blog_visuals: bool = False) -> str:
     lines = [f'  <script src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}"></script>']
     if include_performance_chart:
-        lines.append(f'  <script src="{prefix}js/site-charts.js"></script>')
+        lines.append(f'  <script src="{prefix}js/site-charts.js?v={JS_VERSION}"></script>')
+    if include_blog_visuals:
+        lines.append(f'  <script src="{prefix}js/blog-visuals.js?v={JS_VERSION}"></script>')
     lines.extend(
         [
             f'  <script src="{prefix}js/site-ui.js?v={JS_VERSION}"></script>',
@@ -192,6 +238,21 @@ STANDALONE_BANNER = re.compile(
     re.S,
 )
 
+ORPHAN_MOBILE_NAV = re.compile(
+    r'<nav class="mobile-nav" id="mobile-nav"[\s\S]*?</nav>\s*(?:</div>\s*)?',
+    re.S,
+)
+
+
+def remove_orphan_mobile_nav(text: str) -> str:
+    """Keep the first mobile nav (inside #mobile-menu-layer); drop duplicate blocks."""
+    blocks = list(ORPHAN_MOBILE_NAV.finditer(text))
+    if len(blocks) <= 1:
+        return text
+    for match in reversed(blocks[1:]):
+        text = text[: match.start()] + text[match.end() :]
+    return text
+
 
 def sync_stylesheet_version(text: str, prefix: str) -> str:
     return re.sub(
@@ -199,6 +260,45 @@ def sync_stylesheet_version(text: str, prefix: str) -> str:
         f'href="{prefix}css/style.css?v={CSS_VERSION}"',
         text,
     )
+
+
+def sync_chart_stylesheet(text: str, prefix: str, *, include: bool) -> str:
+    link = f'  <link rel="stylesheet" href="{prefix}css/performance-chart.css?v={CHART_CSS_VERSION}">\n'
+    pattern = re.compile(
+        rf'  <link rel="stylesheet" href="{re.escape(prefix)}css/performance-chart\.css\?v=\d+">\n'
+    )
+    if include:
+        if pattern.search(text):
+            return pattern.sub(link, text)
+        return re.sub(
+            rf'(  <link rel="stylesheet" href="{re.escape(prefix)}css/style\.css\?v={CSS_VERSION}">\n)',
+            r"\1" + link,
+            text,
+            count=1,
+        )
+    return pattern.sub("", text)
+
+
+def sync_blog_visuals_stylesheet(text: str, prefix: str, *, include: bool) -> str:
+    link = f'  <link rel="stylesheet" href="{prefix}css/blog-visuals.css?v={BLOG_VISUALS_CSS_VERSION}">\n'
+    pattern = re.compile(
+        rf'  <link rel="stylesheet" href="{re.escape(prefix)}css/blog-visuals\.css\?v=\d+">\n'
+    )
+    if include:
+        if pattern.search(text):
+            return pattern.sub(link, text)
+        chart_pattern = re.compile(
+            rf'  <link rel="stylesheet" href="{re.escape(prefix)}css/performance-chart\.css\?v=\d+">\n'
+        )
+        if chart_pattern.search(text):
+            return chart_pattern.sub(lambda m: m.group(0) + link, text, count=1)
+        return re.sub(
+            rf'(  <link rel="stylesheet" href="{re.escape(prefix)}css/style\.css\?v={CSS_VERSION}">\n)',
+            r"\1" + link,
+            text,
+            count=1,
+        )
+    return pattern.sub("", text)
 
 
 def sync_script_versions(text: str, prefix: str) -> str:
@@ -229,6 +329,11 @@ def sync_script_versions(text: str, prefix: str) -> str:
         else f'src="{prefix}js/site-charts.js?v={JS_VERSION}"',
         text,
     )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}js/blog-visuals\.js(?:\?v=\d+)?"',
+        f'src="{prefix}js/blog-visuals.js?v={JS_VERSION}"',
+        text,
+    )
     return text
 
 
@@ -243,20 +348,24 @@ def sync_scroll_progress(text: str) -> str:
     )
 
 
-def sync_scripts(text: str, prefix: str, *, include_performance_chart: bool) -> str:
-    block = scripts_block(prefix, include_performance_chart=include_performance_chart)
+def sync_scripts(text: str, prefix: str, *, include_performance_chart: bool, include_blog_visuals: bool = False) -> str:
+    block = scripts_block(
+        prefix,
+        include_performance_chart=include_performance_chart,
+        include_blog_visuals=include_blog_visuals,
+    )
 
     pattern = re.compile(
         r"(?:  <script src=\""
         + re.escape(prefix)
-        + r"js/(?:hero-dot-wave|site-charts|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n?)+",
+        + r"js/(?:hero-dot-wave|site-charts|blog-visuals|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n?)+",
         re.S,
     )
     if pattern.search(text):
         text = pattern.sub(block + "\n", text, count=1)
 
     orphan = re.compile(
-        rf"  <script src=\"{re.escape(prefix)}js/(?:hero-dot-wave|site-charts|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n",
+        rf"  <script src=\"{re.escape(prefix)}js/(?:hero-dot-wave|site-charts|blog-visuals|performance-chart|site-ui|i18n|site-chrome-scripts)\.js(?:\?v=\d+)?\"></script>\n",
     )
     while orphan.search(text):
         text = orphan.sub("", text, count=1)
@@ -267,6 +376,41 @@ def sync_scripts(text: str, prefix: str, *, include_performance_chart: bool) -> 
     return text
 
 
+def sync_theme_color(text: str) -> str:
+    if 'name="theme-color"' in text:
+        return text
+    line = '  <meta name="theme-color" content="#000000">\n'
+    viewport = '<meta name="viewport"'
+    idx = text.find(viewport)
+    if idx == -1:
+        return text
+    end = text.find("\n", idx)
+    return text[: end + 1] + line + text[end + 1 :]
+
+
+def sync_gtag(text: str) -> str:
+    if "googletagmanager.com/gtag" in text:
+        return text
+    block = """  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VPPTK5JECX');
+  </script>
+"""
+    marker = '<meta name="theme-color"'
+    idx = text.find(marker)
+    if idx != -1:
+        end = text.find("\n", idx)
+        return text[: end + 1] + block + text[end + 1 :]
+    styles = '<link rel="stylesheet"'
+    idx = text.find(styles)
+    if idx != -1:
+        return text[:idx] + block + text[idx:]
+    return text
+
+
 def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
     text = path.read_text()
     include_performance_chart = (
@@ -274,22 +418,26 @@ def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
         or "data-sparkline-chart" in text
         or "data-query-chart" in text
         or "data-vitals-chart" in text
-        or "site-charts.js" in text
-        or "performance-chart.js" in text
     )
+    include_blog_visuals = "data-blog-visual" in text
     text = STANDALONE_BANNER.sub("\n", text, count=1)
+    text = remove_orphan_mobile_nav(text)
     text = re.sub(r"</header>\s*</div>\s*", "</header>\n\n", text)
     if "<header class=\"header\">" not in text:
         raise ValueError(f"No header in {path}")
 
     header_pattern = re.compile(
-        r"(?:\s*<a class=\"skip-link\"[^>]*>.*?</a>)?\s*<header class=\"header\">.*?</header>",
+        r"(?:\s*<a class=\"skip-link\"[^>]*>.*?</a>)?\s*"
+        r"<header class=\"header\">.*?</header>"
+        r"(?:\s*<div class=\"mobile-menu-layer\"[\s\S]*?</nav>\s*</div>)?"
+        r"(?:\s*<nav class=\"mobile-nav\"[\s\S]*?</nav>\s*(?:</div>\s*)?)*",
         re.S,
     )
     updated, count = header_pattern.subn("\n" + header_block(prefix, is_home=is_home) + "\n", text, count=1)
     if count != 1:
         raise ValueError(f"Could not replace header in {path}")
-    text = updated
+    text = remove_orphan_mobile_nav(updated)
+    text = sync_blog_promo_banner(text, prefix)
 
     text = replace_block(text, "<footer class=\"footer\">", "</footer>", footer_block(prefix))
 
@@ -297,9 +445,18 @@ def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
         text = text.replace("<main>", "<main id=\"main\">", 1)
 
     text = sync_stylesheet_version(text, prefix)
+    text = sync_theme_color(text)
+    text = sync_gtag(text)
+    text = sync_chart_stylesheet(text, prefix, include=include_performance_chart)
+    text = sync_blog_visuals_stylesheet(text, prefix, include=include_blog_visuals)
     text = sync_script_versions(text, prefix)
     text = sync_scroll_progress(text)
-    text = sync_scripts(text, prefix, include_performance_chart=include_performance_chart)
+    text = sync_scripts(
+        text,
+        prefix,
+        include_performance_chart=include_performance_chart,
+        include_blog_visuals=include_blog_visuals,
+    )
 
     path.write_text(text)
     print(f"synced {path.relative_to(DOCS)}")
@@ -308,12 +465,22 @@ def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
 def main() -> None:
     pages = [
         (DOCS / "index.html", "", True),
+        (DOCS / "blog.html", "", False),
+        (DOCS / "faq.html", "", False),
         (DOCS / "about.html", "", False),
         (DOCS / "releases.html", "", False),
         (DOCS / "privacy.html", "", False),
         (DOCS / "terms.html", "", False),
         (DOCS / "404.html", "", False),
         (DOCS / "guides" / "how-to-use-google-search-console-on-iphone.html", "../", False),
+        (DOCS / "guides" / "is-there-an-official-google-search-console-app.html", "../", False),
+        (DOCS / "guides" / "google-search-console-mobile-app-options.html", "../", False),
+        (DOCS / "guides" / "check-core-web-vitals-on-iphone.html", "../", False),
+        (DOCS / "guides" / "track-keyword-rankings-from-iphone.html", "../", False),
+        (DOCS / "blog" / "improve-search-click-through-rate.html", "../", False),
+        (DOCS / "blog" / "find-pages-losing-traffic.html", "../", False),
+        (DOCS / "blog" / "prioritize-core-web-vitals-fixes.html", "../", False),
+        (DOCS / "blog" / "catch-indexing-issues-early.html", "../", False),
     ]
     for path, prefix, is_home in pages:
         sync_page(path, prefix, is_home=is_home)
