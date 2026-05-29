@@ -268,8 +268,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=92">
-  <link rel="stylesheet" href="css/performance-chart.css?v=12">
+  <link rel="stylesheet" href="css/style.css?v=93">
+  <link rel="stylesheet" href="css/performance-chart.css?v=14">
 </head>
 
 <body class="page-home" data-i18n-title-key="meta.title" data-i18n-description-key="meta.description">
@@ -312,14 +312,6 @@
   <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
   <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
     <div class="mobile-nav-panel">
-      <div class="mobile-nav-toolbar">
-        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
       <div class="mobile-nav-links">
         <a href="#hero" data-nav="home" data-i18n="nav.home">Home</a>
         <a href="blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
@@ -334,6 +326,7 @@
     </div>
   </nav>
   </div>
+
 
 
 
@@ -441,7 +434,7 @@
           <p class="chapter-lead" data-i18n="story.proofDesc">Performance on desktop, reframed for a phone screen. Enough context to decide if today needs a deeper look.</p>
         </header>
         <div class="chart-stack">
-        <figure class="performance-chart" data-performance-chart>
+        <figure class="performance-chart reveal" data-reveal data-performance-chart>
           <div class="site-chart-card performance-chart-card">
             <div class="site-chart-card__header performance-chart-card__header">
               <div class="site-chart-card__intro performance-chart-card__intro">
@@ -488,7 +481,7 @@
           <figcaption class="sr-only" data-i18n="chart.srOnly">Animated sample chart showing Search Console daily clicks over seven days.</figcaption>
         </figure>
         <div class="chart-grid chart-grid--duo">
-          <figure class="site-chart site-chart--sparkline" data-sparkline-chart data-sparkline-type="ctr">
+          <figure class="site-chart site-chart--sparkline reveal" data-reveal data-sparkline-chart data-sparkline-type="ctr">
             <div class="site-chart-card">
               <div class="site-chart-card__header">
                 <div class="site-chart-card__intro">
@@ -503,7 +496,7 @@
               <div class="site-chart-card__plot site-chart-card__plot--sparkline" data-sparkline-plot></div>
             </div>
           </figure>
-          <figure class="site-chart site-chart--sparkline" data-sparkline-chart data-sparkline-type="position">
+          <figure class="site-chart site-chart--sparkline reveal" data-reveal data-sparkline-chart data-sparkline-type="position">
             <div class="site-chart-card">
               <div class="site-chart-card__header">
                 <div class="site-chart-card__intro">
@@ -605,7 +598,7 @@
           <h2 class="chapter-title" data-i18n="features.sectionTitle">Every screen answers a real question</h2>
           <p class="chapter-lead" data-i18n="features.sectionDesc">Not a wall of menus. Each view maps to what you already ask in Search Console, sized for a quick read on iOS. When you need to share, export CSV or download a custom PDF report.</p>
         </header>
-        <div class="chart-grid chart-grid--showcase reveal-stagger" data-reveal>
+        <div class="chart-grid chart-grid--showcase reveal reveal-stagger" data-reveal>
           <figure class="site-chart site-chart--queries" data-query-chart>
             <div class="site-chart-card">
               <div class="site-chart-card__header">
@@ -1009,11 +1002,11 @@
       });
     })();
   </script>
-  <script src="js/hero-dot-wave.js?v=22"></script>
-  <script src="js/site-charts.js?v=22"></script>
-  <script src="js/site-ui.js?v=22"></script>
-  <script src="js/i18n.js?v=22"></script>
-  <script src="js/site-chrome-scripts.js?v=22"></script>
+  <script src="js/hero-dot-wave.js?v=25"></script>
+  <script src="js/site-charts.js?v=25"></script>
+  <script src="js/site-ui.js?v=25"></script>
+  <script src="js/i18n.js?v=25"></script>
+  <script src="js/site-chrome-scripts.js?v=25"></script>
 </body>
 
 </html>

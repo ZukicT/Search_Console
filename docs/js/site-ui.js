@@ -219,8 +219,6 @@
     var mobileMenuLayer = document.getElementById('mobile-menu-layer');
     var mobileNav = document.getElementById('mobile-nav');
     var mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
-    var mobileNavClose = document.getElementById('mobile-nav-close');
-    var mobileNavPanel = mobileNav ? mobileNav.querySelector('.mobile-nav-panel') : null;
     var menuIcon = document.getElementById('menu-icon');
     var mainContent = document.getElementById('main');
     if (!mobileMenuBtn || !mobileNav) return;
@@ -316,15 +314,7 @@
         mainContent.inert = isOpen;
       }
 
-      if (isOpen) {
-        window.requestAnimationFrame(function () {
-          if (mobileNavClose) {
-            mobileNavClose.focus();
-          } else {
-            mobileMenuBtn.focus();
-          }
-        });
-      } else {
+      if (!isOpen) {
         mobileMenuBtn.focus();
       }
     }
@@ -333,13 +323,6 @@
       event.stopPropagation();
       setMenuOpen(!menuIsOpen);
     });
-
-    if (mobileNavClose) {
-      mobileNavClose.addEventListener('click', function (event) {
-        event.stopPropagation();
-        setMenuOpen(false);
-      });
-    }
 
     if (mobileNavBackdrop) {
       mobileNavBackdrop.addEventListener('click', function () {

@@ -11,9 +11,9 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "92"
-JS_VERSION = "22"
-CHART_CSS_VERSION = "12"
+CSS_VERSION = "93"
+JS_VERSION = "25"
+CHART_CSS_VERSION = "14"
 BLOG_VISUALS_CSS_VERSION = "3"
 
 
@@ -66,14 +66,6 @@ def header_block(prefix: str, *, is_home: bool) -> str:
   <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
   <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
     <div class="mobile-nav-panel">
-      <div class="mobile-nav-toolbar">
-        <button type="button" class="mobile-nav-close" id="mobile-nav-close" data-i18n-aria-label="aria.closeMenu" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
       <div class="mobile-nav-links">
         <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
         <a href="{blog_href}" data-nav="blog" data-i18n="nav.blog">Blog</a>
