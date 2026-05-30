@@ -9,7 +9,7 @@ from pathlib import Path
 DOCS = Path(__file__).resolve().parents[1]
 SITE = "https://search-console.org"
 SITEMAP = f"{SITE}/sitemap.xml"
-OG_SOCIAL_VERSION = "3"
+OG_SOCIAL_VERSION = "4"
 OG_SOCIAL_JPG = f"{SITE}/og/social-card.jpg?v={OG_SOCIAL_VERSION}"
 OG_SOCIAL_GIF = f"{SITE}/og/social-card.gif?v={OG_SOCIAL_VERSION}"
 OG_SOCIAL_WEBP = f"{SITE}/og/social-card.webp?v={OG_SOCIAL_VERSION}"
@@ -52,12 +52,10 @@ SOCIAL_CARD_OG_BLOCK = f"""  <meta property="og:image" content="{OG_SOCIAL_JPG}"
 
 
 def extract_meta_content(html: str, name: str, *, prop: bool = False) -> str | None:
-    if prop:
-        pattern = rf'<meta property="{re.escape(name)}" content="([^"]*)"'
-    else:
-        pattern = rf'<meta name="{re.escape(name)}" content="([^"]*)"'
-    match = re.search(pattern, html)
-    return match.group(1) if match else None
+    attr = "property" if prop else "name"
+    pattern = rf'<meta\s+{attr}="{re.escape(name)}"[^>]*?\scontent="([^"]*)"'
+    match = re.search(pattern, html, re.DOTALL | re.IGNORECASE)
+    return match.group(1).strip() if match else None
 
 
 def insert_after_first(html: str, needle: str, block: str) -> str:
@@ -110,6 +108,11 @@ def replace_social_card_og_block(html: str) -> str:
     html = html.replace('"image": "https://search-console.org/og/social-card.jpg?v=2"', f'"image": "{OG_SOCIAL_JPG}"')
     html = html.replace('"logo": "https://search-console.org/og/social-card.jpg"', f'"logo": "{OG_SOCIAL_JPG}"')
     html = html.replace('"logo": "https://search-console.org/og/social-card.jpg?v=2"', f'"logo": "{OG_SOCIAL_JPG}"')
+    html = re.sub(
+        r'<meta name="twitter:image" content="[^"]*">',
+        f'<meta name="twitter:image" content="{OG_SOCIAL_GIF}">',
+        html,
+    )
     return html
 
 

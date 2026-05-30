@@ -119,20 +119,6 @@
     if (typeof description === 'string') {
       var metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) metaDescription.setAttribute('content', description);
-
-      var ogDescription = document.querySelector('meta[property="og:description"]');
-      if (ogDescription) ogDescription.setAttribute('content', description);
-
-      var twitterDescription = document.querySelector('meta[name="twitter:description"]');
-      if (twitterDescription) twitterDescription.setAttribute('content', description);
-    }
-
-    if (typeof title === 'string') {
-      var ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute('content', title.replace(/\n/g, ' ').trim());
-
-      var twitterTitle = document.querySelector('meta[name="twitter:title"]');
-      if (twitterTitle) twitterTitle.setAttribute('content', title.replace(/\n/g, ' ').trim());
     }
   }
 
