@@ -202,6 +202,11 @@
       initHeroDotWave(wrap);
     }
 
+    if (wrap.hasAttribute('data-hero-dot-wave-immediate')) {
+      start();
+      return;
+    }
+
     if (!isFooterWave) {
       if ('requestIdleCallback' in window) {
         requestIdleCallback(start, { timeout: 1200 });

@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1200, initial-scale=1">
+  <meta name="viewport" content="width=1080, initial-scale=1">
   <title>Search Console for iOS - Social Share Card</title>
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="description" content="Internal marketing capture frame for Search Console for iOS. Not indexed.">
   <link rel="icon" type="image/png" href="../favicon-32x32.png">
-  <link rel="stylesheet" href="../css/marketing-social-card.css?v=2">
+  <link rel="stylesheet" href="../css/marketing-social-card.css?v=3">
   <script>
     if (location.search.indexOf('capture=1') !== -1) {
       document.documentElement.setAttribute('data-capture', 'true');
@@ -16,32 +16,13 @@
   </script>
 </head>
 <body>
-  <p class="capture-hint">Screenshot the card below (1200 x 630). This page is hidden from search and site nav.</p>
+  <p class="capture-hint">Screenshot the square card below (1080 x 1080). Wait ~1s for the dot ripple. Add ?capture=1 to hide this bar.</p>
 
   <article class="social-card" id="social-share-card" aria-label="Search Console for iOS marketing card">
-    <header class="header header--scrolled">
-      <div class="header-inner">
-        <div class="logo">
-          <img src="../Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
-          <span class="logo-text">Search Console</span>
-        </div>
-        <nav class="nav nav--desktop" aria-label="Primary">
-          <div class="nav-links">
-            <span class="nav-link">Home</span>
-            <span class="nav-link">Blog</span>
-            <span class="nav-link">FAQ</span>
-            <span class="nav-cta">Download</span>
-          </div>
-        </nav>
-      </div>
-    </header>
-
     <section class="hero hero-chapter hero--home social-card__hero" aria-labelledby="hero-heading">
-      <div class="hero-dot-wave-wrap" aria-hidden="true">
-        <div class="hero-dot-wave hero-dot-wave--css"></div>
-      </div>
+      <div class="hero-dot-wave-wrap" data-hero-dot-wave data-hero-dot-wave-immediate aria-hidden="true"></div>
 
-      <div class="social-card__hero-grid">
+      <div class="hero-chapter__inner social-card__hero-inner">
         <div class="hero-chapter__content">
           <div class="hero-app-mark" aria-hidden="true">
             <span class="hero-app-mark__bounce">
@@ -54,7 +35,7 @@
           <div class="hero-identity">
             <p class="hero-pill availability-pill">Version 2.0</p>
             <h1 id="hero-heading">See how your site performs in search</h1>
-            <p class="hero-role">You already trust Search Console on desktop. This is the same account and the same data, shaped for iOS so you can read the answer before the moment passes.</p>
+            <p class="hero-role">Same Search Console account and data, shaped for iOS so you can read the answer before the moment passes.</p>
           </div>
 
           <dl class="hero-stats" aria-label="What's included">
@@ -83,17 +64,10 @@
 
           <p class="hero-offer">7-day free trial · $5.99/mo</p>
         </div>
-
-        <figure class="screenshot-slide is-active social-card__screenshot" aria-hidden="true">
-          <img
-            src="../AppAssetsWebsite/Image1.imageset/Image1.png"
-            alt=""
-            width="266"
-            height="576"
-          >
-        </figure>
       </div>
     </section>
   </article>
+
+  <script src="../js/hero-dot-wave.js?v=28"></script>
 </body>
 </html>
