@@ -9,7 +9,7 @@ from pathlib import Path
 DOCS = Path(__file__).resolve().parents[1]
 SITE = "https://search-console.org"
 SITEMAP = f"{SITE}/sitemap.xml"
-OG_SOCIAL_VERSION = "2"
+OG_SOCIAL_VERSION = "3"
 OG_SOCIAL_JPG = f"{SITE}/og/social-card.jpg?v={OG_SOCIAL_VERSION}"
 OG_SOCIAL_GIF = f"{SITE}/og/social-card.gif?v={OG_SOCIAL_VERSION}"
 OG_SOCIAL_WEBP = f"{SITE}/og/social-card.webp?v={OG_SOCIAL_VERSION}"
@@ -82,21 +82,34 @@ def ensure_common_meta(html: str) -> str:
     return insert_after_first(html, match.group(0), COMMON_META)
 
 
+def insert_before(html: str, needle: str, block: str) -> str:
+    idx = html.find(needle)
+    if idx == -1:
+        return html
+    return html[:idx] + block + "\n" + html[idx:]
+
+
 def replace_social_card_og_block(html: str) -> str:
     html = re.sub(
-        r'<meta property="og:image" content="[^"]*">\s*'
-        r'(?:<meta property="og:image:width" content="[^"]*">\s*)?'
-        r'(?:<meta property="og:image:height" content="[^"]*">\s*)?'
-        r'(?:<meta property="og:image:type" content="[^"]*">\s*)?'
-        r'(?:<meta property="og:image:alt" content="[^"]*">\s*)?',
-        SOCIAL_CARD_OG_BLOCK + "\n",
+        r'[ \t]*<meta property="og:image(?::[^"]+)?" content="[^"]*">\n?',
+        "",
         html,
-        count=1,
     )
+
+    anchor = re.search(r'<meta name="twitter:card"[^>]*>', html)
+    if anchor:
+        html = insert_before(html, anchor.group(0), SOCIAL_CARD_OG_BLOCK)
+    else:
+        og_url = re.search(r'<meta property="og:url"[^>]*>', html)
+        if og_url:
+            html = insert_after_first(html, og_url.group(0), SOCIAL_CARD_OG_BLOCK)
+
     html = html.replace('"image": "https://search-console.org/og-linkedin-share.png"', f'"image": "{OG_SOCIAL_JPG}"')
     html = html.replace('"image": "https://search-console.org/app-icon-512.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
     html = html.replace('"image": "https://search-console.org/og/social-card.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://search-console.org/og/social-card.jpg?v=2"', f'"image": "{OG_SOCIAL_JPG}"')
     html = html.replace('"logo": "https://search-console.org/og/social-card.jpg"', f'"logo": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"logo": "https://search-console.org/og/social-card.jpg?v=2"', f'"logo": "{OG_SOCIAL_JPG}"')
     return html
 
 
