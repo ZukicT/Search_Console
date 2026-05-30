@@ -4,11 +4,9 @@
 
 User-agent: *
 Allow: /
-Disallow: /marketing/
 
 User-agent: Googlebot
 Allow: /
-Disallow: /marketing/
 
 User-agent: Googlebot-Image
 Allow: /

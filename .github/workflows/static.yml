@@ -40,6 +40,8 @@ jobs:
           cd docs
           npm install --no-save puppeteer canvas gifenc
           node scripts/build-og-social-card.mjs
+      - name: Remove dev-only paths from production artifact
+        run: rm -rf docs/marketing
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

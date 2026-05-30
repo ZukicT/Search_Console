@@ -13,9 +13,10 @@ const require = createRequire(import.meta.url);
 const { createCanvas, loadImage } = require('canvas');
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DOCS = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(DOCS, '..');
 const OG_DIR = path.join(DOCS, 'og');
 const PORT = Number(process.env.OG_BUILD_PORT || 8099);
-const CARD_URL = `http://127.0.0.1:${PORT}/marketing/social-share-card.html?capture=1`;
+const CARD_URL = `http://127.0.0.1:${PORT}/dev/social-share-card/social-share-card.html?capture=1`;
 
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -36,7 +37,7 @@ async function waitForServer(url, attempts = 40) {
 
 function startServer() {
   return spawn('npx', ['--yes', 'serve', '.', '-l', String(PORT), '--no-port-switching'], {
-    cwd: DOCS,
+    cwd: REPO_ROOT,
     stdio: 'ignore',
     detached: true,
   });
