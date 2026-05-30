@@ -178,8 +178,8 @@
     "pdfDesc": "Export results to CSV for your spreadsheet, or download a custom PDF report ready to send.",
     "notificationsTitle": "Did something change overnight?",
     "notificationsDesc": "Alerts when performance moves enough to matter.",
-    "metaTitle": "Google Search Console iOS App Features | Search Console for iOS",
-    "metaDescription": "See what the independent Search Console iOS app covers: traffic, queries, pages, Core Web Vitals, URL inspection, exports, and alerts. Not made by Google.",
+    "metaTitle": "Google Search Console iPhone App Features | Search Console for iOS",
+    "metaDescription": "Clicks, impressions, queries, Core Web Vitals, URL inspection, CSV and PDF exports, and performance alerts in a native iPhone app for Google Search Console.",
     "pageLead1": "Search Console for iOS is a native google search console ios app built for quick reads between meetings, commutes, and site checks. Each screen maps to a question you already ask in the web console, without hunting through desktop tabs on a small screen.",
     "pageLead2": "Sign in with Google, pick a property, and move from traffic overview to queries, pages, Core Web Vitals, URL inspection, and sitemaps. Export CSV or download a PDF report when you need to share numbers with a client or teammate."
   },
@@ -250,8 +250,8 @@
     "a16": "Not yet. iOS is the focus for now. Sign up for updates if you want to hear about other platforms.",
     "q17": "Does it work offline?",
     "a17": "Recent data is cached so you can review it offline. You need a connection to fetch new reports from Google.",
-    "metaTitle": "Google Search Console App for iPhone FAQ | Search Console for iOS",
-    "metaDescription": "FAQ for the independent Search Console iOS app: official Google app, pricing, data safety, iPad support, and how to sign in. Not made by Google.",
+    "metaTitle": "Google Search Console iPhone App FAQ | Pricing, Sign In, Features",
+    "metaDescription": "FAQ for Search Console on iPhone: pricing, Google sign-in, iPad support, Core Web Vitals, data safety, widgets, and how the app compares to mobile web.",
     "pageLead": "Answers about the Google Search Console app for iPhone: data access, pricing, Google affiliation, and day-to-day use."
   },
   "cta": {
@@ -307,8 +307,8 @@
     "text": "Native iOS app for Google Search Console - track your search rankings from your iPhone."
   },
   "about": {
-    "metaTitle": "About | Search Console for iOS (independent app)",
-    "metaDescription": "Why I built an independent iOS app for Google Search Console data. Solo developer, not made by Google.",
+    "metaTitle": "About Search Console for iPhone | Native iOS SEO App",
+    "metaDescription": "Built by Tarik Zukic for site owners who check Google Search Console on the go. Native iPhone app with the same API data, faster reads on iOS.",
     "heroKicker": "About",
     "heroTitle": "The app I kept\nwishing existed",
     "heroSubtitle": "Why I built a native Search Console app for iOS, and where it is headed.",
@@ -346,7 +346,7 @@
   },
   "releases": {
     "metaTitle": "Release History | Search Console for iOS",
-    "metaDescription": "Changelog for the independent Search Console iOS app. Features, fixes, and what's next. Not made by Google.",
+    "metaDescription": "Search Console for iPhone release notes: Version 2.0 performance updates, widgets, exports, languages, and the full iOS changelog.",
     "heroKicker": "Version History",
     "heroTitle": "Release Notes",
     "heroDesc": "Track the evolution of Search Console for iOS. Every update brings new features, improvements, and refinements.",
@@ -427,8 +427,8 @@
     "ariaCollapse": "Collapse release notes"
   },
   "guide": {
-    "metaTitle": "How to Use Google Search Console on iPhone | Independent iOS app guide",
-    "metaDescription": "Step-by-step guide to check Search Console data on iPhone with an independent native app. Not made by Google.",
+    "metaTitle": "How to Use Google Search Console on iPhone | Step-by-Step Guide",
+    "metaDescription": "Check clicks, queries, and Core Web Vitals on iPhone. Step-by-step setup for Search Console for iOS and when to use Safari on mobile.",
     "title": "How to Use Google Search Console on iPhone",
     "intro": "Checking your website's SEO performance on the go shouldn't be hard. This guide explains how to access Google Search Console data directly from your iPhone.",
     "whyTitle": "Why Monitor Search Console on Mobile?",
@@ -455,7 +455,7 @@
   },
   "guidesHub": {
     "metaTitle": "Guides | Search Console for iOS",
-    "metaDescription": "Practical guides for using Google Search Console on iPhone. Independent iOS app tips, mobile workflows, and SEO monitoring from your phone.",
+    "metaDescription": "Guides for Google Search Console on iPhone: mobile setup, native app options, Core Web Vitals, and keyword tracking from your phone.",
     "title": "Guides for using Search Console on iPhone",
     "lead": "These guides cover practical ways to check Google Search Console data from your iPhone. Whether you need a mobile workflow, want to know about official apps, or need to monitor Core Web Vitals on the go, start here.",
     "allHeading": "All guides",
