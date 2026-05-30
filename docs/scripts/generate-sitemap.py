@@ -61,6 +61,8 @@ def discover_entries() -> list[tuple[str, str, Path]]:
             continue
         if "partials" in html_path.parts:
             continue
+        if "marketing" in html_path.parts:
+            continue
 
         page_html = html_path.read_text(encoding="utf-8")
         if is_noindex(page_html):
