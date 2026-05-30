@@ -9,8 +9,10 @@ from pathlib import Path
 DOCS = Path(__file__).resolve().parents[1]
 SITE = "https://search-console.org"
 SITEMAP = f"{SITE}/sitemap.xml"
-OG_SOCIAL_JPG = f"{SITE}/og/social-card.jpg"
-OG_SOCIAL_GIF = f"{SITE}/og/social-card.gif"
+OG_SOCIAL_VERSION = "2"
+OG_SOCIAL_JPG = f"{SITE}/og/social-card.jpg?v={OG_SOCIAL_VERSION}"
+OG_SOCIAL_GIF = f"{SITE}/og/social-card.gif?v={OG_SOCIAL_VERSION}"
+OG_SOCIAL_WEBP = f"{SITE}/og/social-card.webp?v={OG_SOCIAL_VERSION}"
 OG_SOCIAL_ALT = (
     "Search Console for iOS. See how your site performs in search. "
     "Same account. Same data. Built for iPhone."
@@ -42,6 +44,7 @@ ROBOTS_INDEX = 'content="index, follow, max-image-preview:large, max-snippet:-1,
 ROBOTS_NOINDEX = 'content="noindex, follow"'
 
 SOCIAL_CARD_OG_BLOCK = f"""  <meta property="og:image" content="{OG_SOCIAL_JPG}">
+  <meta property="og:image:secure_url" content="{OG_SOCIAL_JPG}">
   <meta property="og:image:width" content="{OG_SOCIAL_WIDTH}">
   <meta property="og:image:height" content="{OG_SOCIAL_HEIGHT}">
   <meta property="og:image:type" content="image/jpeg">
@@ -92,6 +95,8 @@ def replace_social_card_og_block(html: str) -> str:
     )
     html = html.replace('"image": "https://search-console.org/og-linkedin-share.png"', f'"image": "{OG_SOCIAL_JPG}"')
     html = html.replace('"image": "https://search-console.org/app-icon-512.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://search-console.org/og/social-card.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"logo": "https://search-console.org/og/social-card.jpg"', f'"logo": "{OG_SOCIAL_JPG}"')
     return html
 
 

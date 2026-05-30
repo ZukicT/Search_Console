@@ -149,7 +149,8 @@ def page_shell(
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="{og_type}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://search-console.org/og/social-card.jpg">
+  <meta property="og:image" content="https://search-console.org/og/social-card.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://search-console.org/og/social-card.jpg?v=2">
   <meta property="og:image:width" content="2064">
   <meta property="og:image:height" content="2064">
   <meta property="og:image:type" content="image/jpeg">
@@ -157,7 +158,7 @@ def page_shell(
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="https://search-console.org/og/social-card.gif">
+  <meta name="twitter:image" content="https://search-console.org/og/social-card.gif?v=2">
   <link rel="stylesheet" href="css/style.css?v={CSS_VERSION}">{chart_css}
 {extra_head}
 </head>
