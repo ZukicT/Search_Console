@@ -7,6 +7,7 @@
     "preview": "npm run dev",
     "sync-assets": "node scripts/sync-website-assets.mjs",
     "sync-chrome": "python3 scripts/sync-site-chrome.py",
+    "build:perf": "node scripts/build-perf-assets.mjs",
     "locale:sync": "node scripts/locale-sync-keys.mjs",
     "locale:check": "node scripts/locale-sync-keys.mjs --check",
     "locale:untranslated": "node scripts/locale-sync-keys.mjs --check-untranslated",

@@ -38,7 +38,20 @@ for (const name of ['app-icon.jpg', 'app-icon-full.jpg', 'app-icon-512.jpg']) {
 copyFile(headshot, join(docsDir, 'founder.jpg'));
 
 const botMark = join(assetsRoot, 'Bot.imageset', 'App Logo Search Console-2.png');
-copyFile(botMark, join(docsDir, 'Bot.png'));
+const botSource = join(docsDir, 'Bot-source.png');
+copyFile(botMark, botSource);
+
+for (const [size, name] of [
+  [36, 'Bot-72.png'],
+  [48, 'Bot-96.png'],
+  [72, 'Bot-144.png'],
+  [144, 'Bot.png'],
+  [200, 'Bot-200.png'],
+]) {
+  execSync(`sips -z ${size} ${size} "${botSource}" --out "${join(docsDir, name)}"`, {
+    stdio: 'inherit',
+  });
+}
 
 const botSad = join(assetsRoot, 'Bot-Sad.imageset');
 if (existsSync(botSad)) {

@@ -215,6 +215,11 @@
   function loadAndApply(locale) {
     if (!LOCALES[locale]) locale = FALLBACK_LOCALE;
     currentLocale = locale;
+    if (locale === FALLBACK_LOCALE) {
+      initPicker(locale);
+      document.documentElement.lang = 'en';
+      return;
+    }
     var url = getLocalesUrl(locale);
     fetch(url)
       .then(function (res) { return res.ok ? res.json() : Promise.reject(); })

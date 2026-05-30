@@ -16,9 +16,9 @@
   };
 
   var VITALS = [
-    { key: 'lcp', label: 'LCP', score: 92, color: '#30d158' },
-    { key: 'inp', label: 'INP', score: 78, color: '#ffd60a' },
-    { key: 'cls', label: 'CLS', score: 96, color: '#30d158' },
+    { key: 'lcp', label: 'LCP', score: 92, color: '#30d158', delay: '0.05s' },
+    { key: 'inp', label: 'INP', score: 78, color: '#ffd60a', delay: '0.2s' },
+    { key: 'cls', label: 'CLS', score: 96, color: '#30d158', delay: '0.35s' },
   ];
 
   var LINE_VIEW = {
@@ -33,7 +33,14 @@
     plot: { left: 6, right: 6, top: 12, bottom: 22 },
   };
 
-  var chartInstance = 0;
+
+  function mountLineDraw(line) {
+    if (!line) return;
+    var length = line.getTotalLength();
+    if (!length) return;
+    line.style.strokeDasharray = String(length);
+    line.style.strokeDashoffset = String(length);
+  }
 
   function translate(key, fallback) {
     if (window.SC_I18N && typeof SC_I18N.t === 'function') {
@@ -41,6 +48,20 @@
       if (value) return value;
     }
     return fallback || '';
+  }
+
+  function prepareVitalsProgress(circle, score, delay) {
+    var radius = parseFloat(circle.getAttribute('r'));
+    if (!radius) return;
+    var circumference = 2 * Math.PI * radius;
+    var filled = (score / 100) * circumference;
+    var circ = circumference.toFixed(2);
+    var target = (circumference - filled).toFixed(2);
+    circle.style.setProperty('--circ', circ);
+    circle.style.setProperty('--target', target);
+    circle.style.setProperty('--ring-delay', delay || '0s');
+    circle.setAttribute('stroke-dasharray', circ);
+    circle.setAttribute('stroke-dashoffset', circ);
   }
 
   function getDayLabels() {
@@ -138,21 +159,6 @@
     );
   }
 
-  function appendPlotClip(defs, clipId, view) {
-    var pad = 4;
-    var bounds = laneBounds(view);
-    var clip = createSvgElement('clipPath', { id: clipId });
-    clip.appendChild(
-      createSvgElement('rect', {
-        x: String(view.plot.left - pad),
-        y: String(bounds.top - pad),
-        width: String(plotWidth(view) + pad * 2),
-        height: String(bounds.height + pad * 2),
-      }),
-    );
-    defs.appendChild(clip);
-  }
-
   function formatTick(value) {
     if (value >= 1000) {
       return (value / 1000).toFixed(value % 1000 === 0 ? 0 : 1) + 'k';
@@ -210,8 +216,6 @@
 
     var view = LINE_VIEW;
     var peak = seriesPeak(PERFORMANCE_CLICKS);
-    chartInstance += 1;
-    var clipId = 'performance-chart-clip-' + chartInstance;
 
     var svg = createSvgElement('svg', {
       class: 'performance-chart-svg',
@@ -221,14 +225,10 @@
       focusable: 'false',
     });
 
-    var defs = createSvgElement('defs', {});
-    appendPlotClip(defs, clipId, view);
-    svg.appendChild(defs);
-
     renderChartGrid(svg, view, peak);
     renderYAxisLabels(svg, PERFORMANCE_CLICKS, view);
 
-    var seriesLayer = createSvgElement('g', { 'clip-path': 'url(#' + clipId + ')' });
+    var seriesLayer = createSvgElement('g', {});
     seriesLayer.appendChild(
       createSvgElement('path', {
         class: 'performance-chart-area',
@@ -247,16 +247,16 @@
 
     PERFORMANCE_CLICKS.forEach(function (value, index) {
       var point = pointAt(index, value, peak, view, PERFORMANCE_CLICKS.length);
-      seriesLayer.appendChild(
-        createSvgElement('circle', {
-          class: 'performance-chart-point',
-          cx: String(point.x),
-          cy: String(point.y),
-          r: '3.5',
-          fill: ACCENT,
-          'fill-opacity': '0.85',
-        }),
-      );
+      var circle = createSvgElement('circle', {
+        class: 'performance-chart-point',
+        cx: String(point.x),
+        cy: String(point.y),
+        r: '3.5',
+        fill: ACCENT,
+        'fill-opacity': '0.85',
+        style: '--point-index:' + index,
+      });
+      seriesLayer.appendChild(circle);
     });
 
     svg.appendChild(seriesLayer);
@@ -274,6 +274,7 @@
     });
 
     plot.replaceChildren(svg);
+    mountLineDraw(svg.querySelector('.performance-chart-line'));
   }
 
   function renderSparkline(plot, config) {
@@ -281,8 +282,6 @@
 
     var view = SPARK_VIEW;
     var peak = seriesPeak(config.values);
-    chartInstance += 1;
-    var clipId = 'sparkline-clip-' + chartInstance;
 
     var svg = createSvgElement('svg', {
       class: 'sparkline-chart-svg',
@@ -292,11 +291,7 @@
       focusable: 'false',
     });
 
-    var defs = createSvgElement('defs', {});
-    appendPlotClip(defs, clipId, view);
-    svg.appendChild(defs);
-
-    var seriesLayer = createSvgElement('g', { 'clip-path': 'url(#' + clipId + ')' });
+    var seriesLayer = createSvgElement('g', {});
     seriesLayer.appendChild(
       createSvgElement('path', {
         class: 'sparkline-chart-area',
@@ -315,6 +310,7 @@
     svg.appendChild(seriesLayer);
 
     plot.replaceChildren(svg);
+    mountLineDraw(svg.querySelector('.sparkline-chart-line'));
   }
 
   function renderVitalsRing(container, vital) {
@@ -323,8 +319,6 @@
     var size = 72;
     var stroke = 5;
     var radius = (size - stroke) / 2;
-    var circumference = 2 * Math.PI * radius;
-    var dash = (vital.score / 100) * circumference;
 
     var svg = createSvgElement('svg', {
       class: 'vitals-ring',
@@ -350,9 +344,13 @@
         cy: String(size / 2),
         r: String(radius),
         stroke: vital.color,
-        'stroke-dasharray': dash + ' ' + circumference,
-        'stroke-dashoffset': '0',
       }),
+    );
+
+    prepareVitalsProgress(
+      svg.querySelector('.vitals-ring__progress'),
+      vital.score,
+      vital.delay,
     );
 
     var label = createSvgElement('text', {
@@ -410,10 +408,33 @@
     });
   }
 
+  function observeWhenNearViewport(root, initFn) {
+    if (!('IntersectionObserver' in window)) {
+      initFn(root);
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+        observer.disconnect();
+        initFn(root);
+      },
+      { threshold: 0, rootMargin: '160px' },
+    );
+    observer.observe(root);
+  }
+
   function initSiteCharts() {
-    document.querySelectorAll('[data-performance-chart]').forEach(initPerformanceChart);
-    document.querySelectorAll('[data-sparkline-chart]').forEach(initSparklineChart);
-    document.querySelectorAll('[data-vitals-chart]').forEach(initVitalsChart);
+    document.querySelectorAll('[data-performance-chart]').forEach(function (root) {
+      observeWhenNearViewport(root, initPerformanceChart);
+    });
+    document.querySelectorAll('[data-sparkline-chart]').forEach(function (root) {
+      observeWhenNearViewport(root, initSparklineChart);
+    });
+    document.querySelectorAll('[data-vitals-chart]').forEach(function (root) {
+      observeWhenNearViewport(root, initVitalsChart);
+    });
   }
 
   if (document.readyState === 'loading') {

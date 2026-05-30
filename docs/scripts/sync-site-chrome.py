@@ -11,10 +11,13 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "98"
-JS_VERSION = "26"
+CSS_VERSION = "99"
+JS_VERSION = "28"
 CHART_CSS_VERSION = "14"
 BLOG_VISUALS_CSS_VERSION = "3"
+PAGES_CSS_VERSION = "1"
+LOGO_BOT = "Bot-72.png"
+PROMO_BOT = "Bot-96.png"
 
 
 def scroll_progress_block() -> str:
@@ -26,7 +29,7 @@ def header_block(prefix: str, *, is_home: bool) -> str:
     home_href = "#hero" if is_home else f"{prefix}index.html#hero"
     blog_href = "blog.html" if is_home else f"{prefix}blog.html"
     faq_href = "faq.html" if is_home else f"{prefix}faq.html"
-    bot_src = f"{prefix}Bot.png"
+    bot_src = f"{prefix}{LOGO_BOT}"
 
     return f"""  <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
   <header class="header">
@@ -120,8 +123,27 @@ def sync_blog_promo_banner(text: str, prefix: str) -> str:
     return re.sub(r"(\n\s*<main id=\"main\">)", "\n\n" + banner + r"\1", text, count=1)
 
 
+def sync_bot_assets(text: str, prefix: str) -> str:
+    text = re.sub(
+        rf'src="{re.escape(prefix)}Bot\.png" alt="" width="48" height="48" class="blog-app-promo__mark"',
+        f'src="{prefix}{PROMO_BOT}" alt="" width="48" height="48" class="blog-app-promo__mark"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}Bot\.png\?v=1"',
+        f'src="{prefix}Bot-200.png"',
+        text,
+    )
+    text = re.sub(
+        rf'src="{re.escape(prefix)}Bot\.png" alt="" width="72" height="72"',
+        f'src="{prefix}Bot-144.png" alt="" width="72" height="72"',
+        text,
+    )
+    return text
+
+
 def footer_block(prefix: str) -> str:
-    bot_src = f"{prefix}Bot.png"
+    bot_src = f"{prefix}{LOGO_BOT}"
     return f"""
     <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
     <div class="container">
@@ -207,16 +229,16 @@ def footer_block(prefix: str) -> str:
 
 
 def scripts_block(prefix: str, *, include_performance_chart: bool = False, include_blog_visuals: bool = False) -> str:
-    lines = [f'  <script src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}"></script>']
+    lines = [f'  <script src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}" defer></script>']
     if include_performance_chart:
-        lines.append(f'  <script src="{prefix}js/site-charts.js?v={JS_VERSION}"></script>')
+        lines.append(f'  <script src="{prefix}js/site-charts.js?v={JS_VERSION}" defer></script>')
     if include_blog_visuals:
-        lines.append(f'  <script src="{prefix}js/blog-visuals.js?v={JS_VERSION}"></script>')
+        lines.append(f'  <script src="{prefix}js/blog-visuals.js?v={JS_VERSION}" defer></script>')
     lines.extend(
         [
-            f'  <script src="{prefix}js/site-ui.js?v={JS_VERSION}"></script>',
-            f'  <script src="{prefix}js/i18n.js?v={JS_VERSION}"></script>',
-            f'  <script src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}"></script>',
+            f'  <script src="{prefix}js/site-ui.js?v={JS_VERSION}" defer></script>',
+            f'  <script src="{prefix}js/i18n.js?v={JS_VERSION}" defer></script>',
+            f'  <script src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}" defer></script>',
         ]
     )
     return "\n".join(lines)
@@ -263,6 +285,23 @@ def sync_stylesheet_version(text: str, prefix: str) -> str:
     )
 
 
+def sync_pages_stylesheet(text: str, prefix: str, *, include: bool) -> str:
+    link = f'  <link rel="stylesheet" href="{prefix}css/style-pages.css?v={PAGES_CSS_VERSION}">\n'
+    pattern = re.compile(
+        rf'  <link rel="stylesheet" href="{re.escape(prefix)}css/style-pages\.css\?v=\d+">\n'
+    )
+    if include:
+        if pattern.search(text):
+            return pattern.sub(link, text)
+        return re.sub(
+            rf'(  <link rel="stylesheet" href="{re.escape(prefix)}css/style\.css\?v={CSS_VERSION}">\n)',
+            r"\1" + link,
+            text,
+            count=1,
+        )
+    return pattern.sub("", text)
+
+
 def sync_chart_stylesheet(text: str, prefix: str, *, include: bool) -> str:
     link = f'  <link rel="stylesheet" href="{prefix}css/performance-chart.css?v={CHART_CSS_VERSION}">\n'
     pattern = re.compile(
@@ -304,35 +343,33 @@ def sync_blog_visuals_stylesheet(text: str, prefix: str, *, include: bool) -> st
 
 def sync_script_versions(text: str, prefix: str) -> str:
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/hero-dot-wave\.js(?:\?v=\d+)?"',
-        f'src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/hero-dot-wave\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/hero-dot-wave.js?v={JS_VERSION}" defer',
         text,
     )
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/site-ui\.js(?:\?v=\d+)?"',
-        f'src="{prefix}js/site-ui.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/site-ui\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/site-ui.js?v={JS_VERSION}" defer',
         text,
     )
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/i18n\.js(?:\?v=\d+)?"',
-        f'src="{prefix}js/i18n.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/i18n\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/i18n.js?v={JS_VERSION}" defer',
         text,
     )
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/site-chrome-scripts\.js(?:\?v=\d+)?"',
-        f'src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/site-chrome-scripts\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}" defer',
         text,
     )
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/site-charts\.js(?:\?v=\d+)?"',
-        lambda match: match.group(0)
-        if "?v=" in match.group(0)
-        else f'src="{prefix}js/site-charts.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/site-charts\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/site-charts.js?v={JS_VERSION}" defer',
         text,
     )
     text = re.sub(
-        rf'src="{re.escape(prefix)}js/blog-visuals\.js(?:\?v=\d+)?"',
-        f'src="{prefix}js/blog-visuals.js?v={JS_VERSION}"',
+        rf'src="{re.escape(prefix)}js/blog-visuals\.js(?:\?v=\d+)?"(?: defer)?',
+        f'src="{prefix}js/blog-visuals.js?v={JS_VERSION}" defer',
         text,
     )
     return text
@@ -389,17 +426,40 @@ def sync_theme_color(text: str) -> str:
     return text[: end + 1] + line + text[end + 1 :]
 
 
-def sync_gtag(text: str) -> str:
-    if "googletagmanager.com/gtag" in text:
-        return text
-    block = """  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
-  <script>
+GTAG_DEFERRED = """  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VPPTK5JECX');
+    function loadGoogleTag() {
+      if (loadGoogleTag.loaded) return;
+      loadGoogleTag.loaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
+      document.head.appendChild(script);
+      gtag('js', new Date());
+      gtag('config', 'G-VPPTK5JECX');
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
+    } else {
+      window.addEventListener('load', loadGoogleTag, { once: true });
+    }
   </script>
 """
+
+GTAG_LEGACY = re.compile(
+    r'  <script async src="https://www\.googletagmanager\.com/gtag/js\?id=G-VPPTK5JECX"></script>\s*'
+    r'<script>\s*window\.dataLayer[\s\S]*?gtag\(\'config\', \'G-VPPTK5JECX\'\);\s*</script>\n',
+    re.S,
+)
+
+
+def sync_gtag(text: str) -> str:
+    if GTAG_LEGACY.search(text):
+        return GTAG_LEGACY.sub(GTAG_DEFERRED, text, count=1)
+    if "loadGoogleTag" in text:
+        return text
+    block = GTAG_DEFERRED
     marker = '<meta name="theme-color"'
     idx = text.find(marker)
     if idx != -1:
@@ -445,7 +505,9 @@ def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
     if "<main>" in text and "id=\"main\"" not in text:
         text = text.replace("<main>", "<main id=\"main\">", 1)
 
+    text = sync_bot_assets(text, prefix)
     text = sync_stylesheet_version(text, prefix)
+    text = sync_pages_stylesheet(text, prefix, include=not is_home)
     text = sync_theme_color(text)
     text = sync_gtag(text)
     text = sync_chart_stylesheet(text, prefix, include=include_performance_chart)

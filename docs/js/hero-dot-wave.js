@@ -1,5 +1,6 @@
 (function () {
   var DOT_RGB = [148, 148, 163];
+  var FRAME_INTERVAL_MS = 33;
 
   function fract(value) {
     return value - Math.floor(value);
@@ -12,7 +13,7 @@
   function cellPhase(cellX, cellY) {
     return {
       primary: hash21(cellX, cellY) * Math.PI * 2,
-      secondary: hash21(cellX + 19, cellY + 43) * Math.PI * 2
+      secondary: hash21(cellX + 19, cellY + 43) * Math.PI * 2,
     };
   }
 
@@ -30,31 +31,23 @@
     return alongX + alongY + diagonal + ripple + wobble + drift;
   }
 
-  function dotAlphaAtCell(cellX, cellY, width, height, spacing, time) {
+  function dotMetricsAtCell(cellX, cellY, width, height, spacing, time) {
     var centerX = (cellX + 0.5) * spacing;
     var centerY = (cellY + 0.5) * spacing;
     var uvX = centerX / width;
     var uvY = centerY / height;
     var wave = waveField(uvX, uvY, time, cellX, cellY);
     var grain = hash21(cellX, cellY);
-    var sizeScale = 1;
-    if (grain < 0.22) sizeScale = 0.52;
-    else if (grain < 0.48) sizeScale = 0.76;
+    var sizeScale = grain < 0.22 ? 0.52 : grain < 0.48 ? 0.76 : 1;
     var peak = Math.max(wave, 0);
-    return Math.min(0.82, (0.16 + wave * 0.26 + peak * 0.18) * (0.75 + sizeScale * 0.25));
-  }
-
-  function dotRadiusAtCell(cellX, cellY, width, height, spacing, time) {
-    var centerX = (cellX + 0.5) * spacing;
-    var centerY = (cellY + 0.5) * spacing;
-    var uvX = centerX / width;
-    var uvY = centerY / height;
-    var wave = waveField(uvX, uvY, time, cellX, cellY);
-    var grain = hash21(cellX, cellY);
-    var sizeScale = 1;
-    if (grain < 0.22) sizeScale = 0.52;
-    else if (grain < 0.48) sizeScale = 0.76;
-    return spacing * (0.34 + wave * 0.17) * sizeScale * 0.5;
+    var alpha = Math.min(0.82, (0.16 + wave * 0.26 + peak * 0.18) * (0.75 + sizeScale * 0.25));
+    var radius = spacing * (0.34 + wave * 0.17) * sizeScale * 0.5;
+    return {
+      alpha: alpha,
+      radius: radius,
+      x: centerX,
+      y: centerY,
+    };
   }
 
   function spacingForSize(width, height) {
@@ -71,15 +64,19 @@
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
+  function mountCssFallback(wrap) {
+    var fallback = document.createElement('div');
+    fallback.className = 'hero-dot-wave hero-dot-wave--css';
+    fallback.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(fallback);
+  }
+
   function initHeroDotWave(wrap) {
     if (!wrap || wrap.dataset.initialized === 'true') return;
     wrap.dataset.initialized = 'true';
 
     if (prefersReducedMotion()) {
-      var fallback = document.createElement('div');
-      fallback.className = 'hero-dot-wave hero-dot-wave--css';
-      fallback.setAttribute('aria-hidden', 'true');
-      wrap.appendChild(fallback);
+      mountCssFallback(wrap);
       return;
     }
 
@@ -93,10 +90,13 @@
 
     var animationFrame = 0;
     var startTime = performance.now();
+    var lastDrawTime = 0;
     var spacing = 16;
     var layoutWidth = 0;
     var layoutHeight = 0;
     var pixelRatio = 1;
+    var isVisible = false;
+    var isDocumentVisible = !document.hidden;
 
     function resize() {
       var rect = wrap.getBoundingClientRect();
@@ -122,25 +122,57 @@
 
       for (var row = 0; row < rows; row += 1) {
         for (var col = 0; col < cols; col += 1) {
-          var alpha = dotAlphaAtCell(col, row, layoutWidth, layoutHeight, spacing, elapsed);
-          if (alpha < 0.04) continue;
-          var radius = dotRadiusAtCell(col, row, layoutWidth, layoutHeight, spacing, elapsed);
-          var x = (col + 0.5) * spacing;
-          var y = (row + 0.5) * spacing;
-          ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+          var dot = dotMetricsAtCell(col, row, layoutWidth, layoutHeight, spacing, elapsed);
+          if (dot.alpha < 0.04) continue;
+          ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + dot.alpha + ')';
           ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
     }
 
+    function shouldAnimate() {
+      return isVisible && isDocumentVisible;
+    }
+
     function tick(time) {
-      drawFrame(time);
       animationFrame = window.requestAnimationFrame(tick);
+      if (!shouldAnimate()) return;
+      if (time - lastDrawTime < FRAME_INTERVAL_MS) return;
+      lastDrawTime = time;
+      drawFrame(time);
+    }
+
+    function setVisible(nextVisible) {
+      isVisible = nextVisible;
+      if (isVisible && shouldAnimate() && !lastDrawTime) {
+        lastDrawTime = 0;
+        drawFrame(performance.now());
+      }
     }
 
     resize();
+
+    if ('IntersectionObserver' in window) {
+      var visibilityObserver = new IntersectionObserver(
+        function (entries) {
+          setVisible(entries.some(function (entry) { return entry.isIntersecting; }));
+        },
+        { threshold: 0, rootMargin: '48px' },
+      );
+      visibilityObserver.observe(wrap);
+      window.addEventListener('pagehide', function () {
+        visibilityObserver.disconnect();
+      });
+    } else {
+      setVisible(true);
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      isDocumentVisible = !document.hidden;
+    });
+
     animationFrame = window.requestAnimationFrame(tick);
 
     var resizeObserver = typeof ResizeObserver !== 'undefined'
@@ -155,5 +187,49 @@
     });
   }
 
-  document.querySelectorAll('[data-hero-dot-wave]').forEach(initHeroDotWave);
+  function scheduleInit(wrap) {
+    if (!wrap || wrap.dataset.initialized === 'true') return;
+
+    if (prefersReducedMotion()) {
+      wrap.dataset.initialized = 'true';
+      mountCssFallback(wrap);
+      return;
+    }
+
+    var isFooterWave = wrap.classList.contains('footer-dot-wave-wrap');
+
+    function start() {
+      initHeroDotWave(wrap);
+    }
+
+    if (!isFooterWave) {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(start, { timeout: 1200 });
+      } else {
+        setTimeout(start, 1);
+      }
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      start();
+      return;
+    }
+
+    var bootObserver = new IntersectionObserver(
+      function (entries) {
+        if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+        bootObserver.disconnect();
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(start, { timeout: 1500 });
+        } else {
+          setTimeout(start, 1);
+        }
+      },
+      { threshold: 0, rootMargin: '160px' },
+    );
+    bootObserver.observe(wrap);
+  }
+
+  document.querySelectorAll('[data-hero-dot-wave]').forEach(scheduleInit);
 })();

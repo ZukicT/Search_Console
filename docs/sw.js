@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v96';
+const CACHE_NAME = 'search-console-v99';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -16,6 +16,10 @@ const ASSETS_TO_CACHE = [
   '/apple-touch-icon.png',
   '/founder.jpg',
   '/Bot.png',
+  '/Bot-72.png',
+  '/Bot-96.png',
+  '/Bot-144.png',
+  '/Bot-200.png',
   '/app-icon.jpg',
   '/app-icon-512.jpg',
   '/icon-192.png',

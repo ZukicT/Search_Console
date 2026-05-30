@@ -4,12 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VPPTK5JECX');
+    function loadGoogleTag() {
+      if (loadGoogleTag.loaded) return;
+      loadGoogleTag.loaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
+      document.head.appendChild(script);
+      gtag('js', new Date());
+      gtag('config', 'G-VPPTK5JECX');
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
+    } else {
+      window.addEventListener('load', loadGoogleTag, { once: true });
+    }
   </script>
   <link rel="canonical" href="https://search-console.org/blog/prioritize-core-web-vitals-fixes.html">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -34,7 +46,8 @@
   <meta name="twitter:title" content="How to Prioritize Core Web Vitals Fixes That Actually Matter | Search Console blog">
   <meta name="twitter:description" content="Use Search Console field data to fix URL groups with the most impressions first, not every Poor URL equally.">
   <meta name="twitter:image" content="https://search-console.org/og-linkedin-share.png">
-  <link rel="stylesheet" href="../css/style.css?v=98">
+  <link rel="stylesheet" href="../css/style.css?v=99">
+  <link rel="stylesheet" href="../css/style-pages.css?v=1">
   <link rel="stylesheet" href="../css/blog-visuals.css?v=3">
   <script type="application/ld+json">
   {
@@ -69,7 +82,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="../index.html" class="logo">
-          <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <img src="../Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
           <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
         </a>
         <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
@@ -293,7 +306,7 @@
         <aside class="blog-sidebar" aria-label="Sidebar">
           <div class="blog-app-promo">
             <div class="blog-app-promo__inner surface-card">
-              <img src="../Bot.png" alt="" width="48" height="48" class="blog-app-promo__mark" aria-hidden="true">
+              <img src="../Bot-96.png" alt="" width="48" height="48" class="blog-app-promo__mark" aria-hidden="true">
               <p class="blog-app-promo__eyebrow" data-i18n="blog.promoEyebrow">Search Console on iPhone</p>
               <h2 class="blog-app-promo__title" data-i18n="blog.promoTitle">Check your data on the go</h2>
               <p class="blog-app-promo__desc" data-i18n="blog.promoDesc">Independent iOS app connected to Google's Search Console API. Same Google account and properties, in a native app.</p>
@@ -320,7 +333,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="../index.html" class="logo">
-            <img src="../Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <img src="../Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
             <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
           <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
@@ -387,10 +400,10 @@
         </div>
       </div>
     </div></footer>
-  <script src="../js/hero-dot-wave.js?v=26"></script>
-  <script src="../js/blog-visuals.js?v=26"></script>
-  <script src="../js/site-ui.js?v=26"></script>
-  <script src="../js/i18n.js?v=26"></script>
-  <script src="../js/site-chrome-scripts.js?v=26"></script>
+  <script src="../js/hero-dot-wave.js?v=28" defer></script>
+  <script src="../js/blog-visuals.js?v=28" defer></script>
+  <script src="../js/site-ui.js?v=28" defer></script>
+  <script src="../js/i18n.js?v=28" defer></script>
+  <script src="../js/site-chrome-scripts.js?v=28" defer></script>
 </body>
 </html>

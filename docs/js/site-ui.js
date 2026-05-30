@@ -709,22 +709,33 @@
     }).catch(function () {});
   }
 
-  initServiceWorker();
-  initReveal();
+  function runWhenIdle(fn, timeout) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout: timeout || 2000 });
+      return;
+    }
+    setTimeout(fn, 1);
+  }
+
   initHeaderScroll();
   initHeroIntro();
-  initHeroScrollCue();
-  initBotCoinEasterEgg();
-  initReleaseBanner();
+  initReveal();
   initNavActiveState();
   initInPageAnchorNav();
   initMobileMenu();
-  initLightbox();
-  initScreenshotRail();
   initMobileDownloadBar();
   initFaqAccordion();
-  initReleaseTimeline();
-  initScrollProgress();
+  initReleaseBanner();
+  initBotCoinEasterEgg();
+  initHeroScrollCue();
+
+  runWhenIdle(function () {
+    initLightbox();
+    initScreenshotRail();
+    initReleaseTimeline();
+    initScrollProgress();
+    initServiceWorker();
+  }, 2500);
 
   window.addEventListener('hashchange', initNavActiveState);
 })();

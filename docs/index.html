@@ -51,13 +51,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Preload critical assets -->
-  <link rel="preload" as="image" href="favicon.png" type="image/png">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX"></script>
+  <link rel="preload" as="image" href="Bot-144.png" type="image/png">
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VPPTK5JECX');
+    function gtag(){dataLayer.push(arguments);}
+    function loadGoogleTag() {
+      if (loadGoogleTag.loaded) return;
+      loadGoogleTag.loaded = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
+      document.head.appendChild(script);
+      gtag('js', new Date());
+      gtag('config', 'G-VPPTK5JECX');
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
+    } else {
+      window.addEventListener('load', loadGoogleTag, { once: true });
+    }
   </script>
   <script type="application/ld+json">
   {
@@ -268,7 +280,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=98">
+  <link rel="stylesheet" href="css/style.css?v=99">
   <link rel="stylesheet" href="css/performance-chart.css?v=14">
 </head>
 
@@ -279,7 +291,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="/" class="logo">
-          <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <img src="Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
           <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
         </a>
         <nav class="nav nav--desktop" data-i18n-aria-label="aria.primaryNav" aria-label="Primary">
@@ -352,6 +364,8 @@
 
 
 
+
+
   <main id="main">
     <section class="hero hero-chapter hero--home" id="hero" aria-labelledby="hero-heading">
       <div class="hero-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
@@ -360,7 +374,7 @@
           <button type="button" class="hero-app-mark" data-bot-coin data-i18n-aria-label="aria.appIcon" aria-label="App icon">
             <span class="hero-app-mark__bounce">
               <span class="hero-app-mark__coin">
-                <img src="Bot.png" alt="" width="72" height="72" aria-hidden="true">
+                <img src="Bot-144.png" alt="" width="72" height="72" aria-hidden="true">
               </span>
             </span>
           </button>
@@ -896,7 +910,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="Bot.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+            <img src="Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
             <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
           <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
@@ -1007,11 +1021,11 @@
       });
     })();
   </script>
-  <script src="js/hero-dot-wave.js?v=26"></script>
-  <script src="js/site-charts.js?v=26"></script>
-  <script src="js/site-ui.js?v=26"></script>
-  <script src="js/i18n.js?v=26"></script>
-  <script src="js/site-chrome-scripts.js?v=26"></script>
+  <script src="js/hero-dot-wave.js?v=28" defer></script>
+  <script src="js/site-charts.js?v=28" defer></script>
+  <script src="js/site-ui.js?v=28" defer></script>
+  <script src="js/i18n.js?v=28" defer></script>
+  <script src="js/site-chrome-scripts.js?v=28" defer></script>
 </body>
 
 </html>
