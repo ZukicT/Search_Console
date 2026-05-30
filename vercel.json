@@ -2,7 +2,22 @@
   "buildCommand": "",
   "installCommand": "",
   "outputDirectory": "docs",
+  "rewrites": [
+    {
+      "source": "/og/social-card",
+      "destination": "/api/og-social-card"
+    }
+  ],
   "headers": [
+    {
+      "source": "/og/social-card.(gif|webp|jpg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/sw.js",
       "headers": [

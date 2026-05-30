@@ -35,6 +35,11 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build performance assets
         run: node docs/scripts/build-perf-assets.mjs
+      - name: Build OG social card assets
+        run: |
+          cd docs
+          npm install --no-save puppeteer canvas gifenc
+          node scripts/build-og-social-card.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

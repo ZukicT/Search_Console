@@ -35,12 +35,22 @@ body {
   color: var(--ink);
 }
 
-.capture-hint {
+.capture-toolbar {
   position: fixed;
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: min(94vw, 520px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(94vw, 520px);
+  z-index: 10;
+}
+
+.capture-hint {
+  width: 100%;
+  margin: 0;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--line);
@@ -49,10 +59,54 @@ body {
   font-size: 12px;
   line-height: 1.4;
   text-align: center;
-  z-index: 10;
 }
 
-html[data-capture="true"] .capture-hint {
+.capture-export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.capture-export-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.capture-export-btn--secondary {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.capture-export-btn:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.capture-export-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.capture-export-status {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted-strong);
+  text-align: center;
+}
+
+html[data-capture="true"] .capture-toolbar {
   display: none;
 }
 
@@ -165,24 +219,25 @@ html[data-capture="true"] body {
 }
 
 .social-card .hero--home h1 {
-  font-size: 2.75rem;
+  font-size: 3.375rem;
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1.08;
   margin: 0 0 16px;
   color: var(--ink);
-  letter-spacing: -0.045em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
 .social-card .hero-role {
   margin: 0 auto 28px;
-  max-width: 30rem;
-  font-size: 1.1875rem;
-  line-height: 1.45;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--muted-strong);
-  text-wrap: pretty;
+  max-width: 26rem;
+  font-size: 1.3125rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-wrap: balance;
 }
 
 .social-card .hero-actions {
@@ -232,11 +287,11 @@ html[data-capture="true"] body {
   }
 
   .social-card .hero--home h1 {
-    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    font-size: clamp(2.35rem, 10vw, 3.375rem);
   }
 
   .social-card .hero-role {
-    font-size: clamp(1.0625rem, 4.5vw, 1.1875rem);
+    font-size: clamp(1.125rem, 4.8vw, 1.3125rem);
   }
 
   .social-card .btn {
@@ -249,7 +304,7 @@ html[data-capture="true"] body {
 }
 
 @media print {
-  .capture-hint {
+  .capture-toolbar {
     display: none;
   }
 

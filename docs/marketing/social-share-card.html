@@ -8,7 +8,7 @@
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="description" content="Internal marketing capture frame for Search Console for iOS. Not indexed.">
   <link rel="icon" type="image/png" href="../favicon-32x32.png">
-  <link rel="stylesheet" href="../css/marketing-social-card.css?v=6">
+  <link rel="stylesheet" href="../css/marketing-social-card.css?v=10">
   <script>
     if (location.search.indexOf('capture=1') !== -1) {
       document.documentElement.setAttribute('data-capture', 'true');
@@ -16,7 +16,15 @@
   </script>
 </head>
 <body>
-  <p class="capture-hint">Square card 720 x 720. Wait ~1s for dot ripple. Use ?capture=1 to hide this bar.</p>
+  <div class="capture-toolbar">
+    <p class="capture-hint">Square card 720 x 720. Wait ~1s for dot ripple. Use ?capture=1 to hide this bar.</p>
+    <div class="capture-export-actions">
+      <button type="button" class="capture-export-btn" id="download-jpeg-btn">Download JPEG</button>
+      <button type="button" class="capture-export-btn capture-export-btn--secondary" id="download-webp-btn">Download WebP</button>
+      <button type="button" class="capture-export-btn capture-export-btn--secondary" id="download-gif-btn">Download GIF</button>
+    </div>
+    <p class="capture-export-status" id="export-status" hidden></p>
+  </div>
 
   <article class="social-card" id="social-share-card" aria-label="Search Console for iOS marketing card">
     <section class="hero hero-chapter hero--home social-card__hero" aria-labelledby="hero-heading">
@@ -34,8 +42,8 @@
 
           <div class="hero-identity">
             <p class="hero-pill availability-pill">Version 2.0</p>
-            <h1 id="hero-heading">Google Search Console, native on iPhone</h1>
-            <p class="hero-role">Same account. Same data. Check clicks, queries, and Core Web Vitals in seconds - no Safari required.</p>
+            <h1 id="hero-heading">See how your site performs in search</h1>
+            <p class="hero-role">Same account. Same data. Built for iPhone.</p>
           </div>
 
           <div class="hero-actions">
@@ -54,5 +62,6 @@
   </article>
 
   <script src="../js/hero-dot-wave.js?v=28"></script>
+  <script type="module" src="../js/marketing-social-card-export.js?v=2"></script>
 </body>
 </html>
