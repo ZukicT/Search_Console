@@ -8,7 +8,7 @@
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="description" content="Internal marketing capture frame for Search Console for iOS. Not indexed.">
   <link rel="icon" type="image/png" href="../favicon-32x32.png">
-  <link rel="stylesheet" href="../css/marketing-social-card.css?v=1">
+  <link rel="stylesheet" href="../css/marketing-social-card.css?v=2">
   <script>
     if (location.search.indexOf('capture=1') !== -1) {
       document.documentElement.setAttribute('data-capture', 'true');
@@ -19,54 +19,81 @@
   <p class="capture-hint">Screenshot the card below (1200 x 630). This page is hidden from search and site nav.</p>
 
   <article class="social-card" id="social-share-card" aria-label="Search Console for iOS marketing card">
-    <div class="social-card__glow" aria-hidden="true"></div>
-    <div class="social-card__dots" aria-hidden="true"></div>
-
-    <div class="social-card__inner">
-      <div class="social-card__copy">
-        <div class="social-card__brand">
-          <img src="../app-icon.jpg" alt="" width="44" height="44">
-          <div>
-            <span class="social-card__brand-name">Search Console for iOS</span>
-            <span class="social-card__brand-tag">Native iPhone and iPad app</span>
+    <header class="header header--scrolled">
+      <div class="header-inner">
+        <div class="logo">
+          <img src="../Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
+          <span class="logo-text">Search Console</span>
+        </div>
+        <nav class="nav nav--desktop" aria-label="Primary">
+          <div class="nav-links">
+            <span class="nav-link">Home</span>
+            <span class="nav-link">Blog</span>
+            <span class="nav-link">FAQ</span>
+            <span class="nav-cta">Download</span>
           </div>
-        </div>
+        </nav>
+      </div>
+    </header>
 
-        <p class="social-card__eyebrow">Independent app · Official API</p>
-        <h1 class="social-card__title">Track search performance on the go</h1>
-        <p class="social-card__lead">Clicks, impressions, queries, and Core Web Vitals in a native iOS app built for quick checks between meetings.</p>
-
-        <div class="social-card__meta">
-          <span class="social-card__url">search-console.org</span>
-          <span class="social-card__offer">7-day free trial · $5.99/mo</span>
-        </div>
-
-        <div class="social-card__cta" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <path d="M12 3v12"></path>
-            <path d="m7 10 5 5 5-5"></path>
-            <path d="M5 21h14"></path>
-          </svg>
-          Download on the App Store
-        </div>
-
-        <p class="social-card__disclaimer">Not affiliated with Google.</p>
+    <section class="hero hero-chapter hero--home social-card__hero" aria-labelledby="hero-heading">
+      <div class="hero-dot-wave-wrap" aria-hidden="true">
+        <div class="hero-dot-wave hero-dot-wave--css"></div>
       </div>
 
-      <div class="social-card__visual">
-        <figure class="social-card__phone">
-          <div class="social-card__phone-notch" aria-hidden="true"></div>
+      <div class="social-card__hero-grid">
+        <div class="hero-chapter__content">
+          <div class="hero-app-mark" aria-hidden="true">
+            <span class="hero-app-mark__bounce">
+              <span class="hero-app-mark__coin">
+                <img src="../Bot-144.png" alt="" width="72" height="72">
+              </span>
+            </span>
+          </div>
+
+          <div class="hero-identity">
+            <p class="hero-pill availability-pill">Version 2.0</p>
+            <h1 id="hero-heading">See how your site performs in search</h1>
+            <p class="hero-role">You already trust Search Console on desktop. This is the same account and the same data, shaped for iOS so you can read the answer before the moment passes.</p>
+          </div>
+
+          <dl class="hero-stats" aria-label="What's included">
+            <div class="hero-stat">
+              <dt class="hero-stat-value">Search traffic</dt>
+              <dd class="hero-stat-label">Clicks, impressions, queries</dd>
+            </div>
+            <div class="hero-stat">
+              <dt class="hero-stat-value">Page experience</dt>
+              <dd class="hero-stat-label">Core Web Vitals and top pages</dd>
+            </div>
+            <div class="hero-stat">
+              <dt class="hero-stat-value">Alerts and widgets</dt>
+              <dd class="hero-stat-label">Notice when performance shifts</dd>
+            </div>
+          </dl>
+
+          <div class="hero-actions">
+            <span class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+              </svg>
+              <span>Download on the App Store</span>
+            </span>
+          </div>
+
+          <p class="hero-offer">7-day free trial · $5.99/mo</p>
+        </div>
+
+        <figure class="screenshot-slide is-active social-card__screenshot" aria-hidden="true">
           <img
-            class="social-card__phone-screen"
             src="../AppAssetsWebsite/Image1.imageset/Image1.png"
             alt=""
             width="266"
             height="576"
           >
-          <figcaption class="social-card__phone-caption">Performance overview</figcaption>
         </figure>
       </div>
-    </div>
+    </section>
   </article>
 </body>
 </html>
