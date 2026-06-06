@@ -256,9 +256,9 @@
   .page-legal .footer { margin-top: 48px; }
 }
 
-/* Privacy policy page (story-chapter layout) */
+/* Legal pages (privacy + terms story-chapter layout) */
 
-.page-privacy .story-chapter.page-privacy-intro,
+.page-legal .story-chapter.page-privacy-intro,
 .page-legal .story-chapter.page-legal-intro {
   position: relative;
   overflow: hidden;
@@ -266,25 +266,28 @@
   padding-top: clamp(3rem, 8vw, 5rem);
 }
 
-.page-privacy .page-privacy-intro .story-chapter__inner,
+.page-legal .page-privacy-intro .story-chapter__inner,
 .page-legal .page-legal-intro .story-chapter__inner {
   position: relative;
   z-index: 1;
 }
 
-.page-privacy .legal-meta,
 .page-legal .legal-meta {
   margin: 0.75rem 0 0;
   font-size: 0.875rem;
   color: var(--muted);
 }
 
-.page-privacy .legal-doc,
 .page-legal .legal-doc {
   max-width: none;
 }
 
-.page-privacy .legal-toc {
+.page-legal .legal-body > * {
+  opacity: 1;
+  transform: none;
+}
+
+.page-legal .legal-toc {
   padding: 1.25rem 1.5rem;
   margin-bottom: 2rem;
   border: 1px solid var(--line);
@@ -292,18 +295,18 @@
   transition: border-color var(--duration-base) var(--ease-apple);
 }
 
-.page-privacy .legal-toc a {
+.page-legal .legal-toc a {
   color: var(--accent);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-apple);
 }
 
-.page-privacy .legal-toc a:hover {
+.page-legal .legal-toc a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
 }
 
-.page-privacy .legal-toc__title {
+.page-legal .legal-toc__title {
   margin: 0 0 0.75rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -312,35 +315,35 @@
   color: var(--muted);
 }
 
-.page-privacy .legal-toc__list {
+.page-legal .legal-toc__list {
   margin: 0;
   padding-left: 1.25rem;
   columns: 2;
   column-gap: 2rem;
 }
 
-.page-privacy .legal-toc__list li {
+.page-legal .legal-toc__list li {
   margin-bottom: 0.35rem;
   break-inside: avoid;
   font-size: 0.875rem;
 }
 
-.page-privacy .legal-section {
+.page-legal .legal-section {
   scroll-margin-top: 5.5rem;
   padding: 2rem 0;
   border-bottom: 1px solid var(--line);
 }
 
-.page-privacy .legal-section:last-child {
+.page-legal .legal-section:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.page-privacy .legal-section--highlight {
+.page-legal .legal-section--highlight {
   padding: 1.25rem 0 2rem;
 }
 
-.page-privacy .legal-section h2 {
+.page-legal .legal-section h2 {
   scroll-margin-top: 5.5rem;
   margin: 0 0 1rem;
   font-family: var(--font);
@@ -350,105 +353,105 @@
   color: var(--ink);
 }
 
-.page-privacy .legal-section h3 {
+.page-legal .legal-section h3 {
   margin: 1.5rem 0 0.75rem;
   font-size: 1rem;
   font-weight: 600;
   color: var(--ink);
 }
 
-.page-privacy .legal-section p,
-.page-privacy .legal-section li {
+.page-legal .legal-section p,
+.page-legal .legal-section li {
   font-size: 0.9375rem;
   line-height: 1.7;
   color: var(--muted);
 }
 
-.page-privacy .legal-section p {
+.page-legal .legal-section p {
   margin: 0 0 0.875rem;
 }
 
-.page-privacy .legal-section p:last-child {
+.page-legal .legal-section p:last-child {
   margin-bottom: 0;
 }
 
-.page-privacy .legal-section ul,
-.page-privacy .legal-section ol {
+.page-legal .legal-section ul,
+.page-legal .legal-section ol {
   margin: 0 0 0.875rem;
   padding-left: 1.35rem;
 }
 
-.page-privacy .legal-section li {
+.page-legal .legal-section li {
   margin-bottom: 0.45rem;
 }
 
-.page-privacy .legal-section strong {
+.page-legal .legal-section strong {
   color: var(--ink);
 }
 
-.page-privacy .legal-section a {
+.page-legal .legal-section a {
   color: var(--accent);
   text-decoration: none;
 }
 
-.page-privacy .legal-section a:hover {
+.page-legal .legal-section a:hover {
   text-decoration: underline;
 }
 
-.page-privacy .legal-callout {
+.page-legal .legal-callout {
   margin: 1rem 0 0;
   padding: 0.875rem 1rem;
   border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
   background: color-mix(in srgb, var(--accent-soft) 40%, var(--surface));
 }
 
-.page-privacy .legal-callout p {
+.page-legal .legal-callout p {
   margin: 0;
 }
 
-.page-privacy .legal-table-wrap {
+.page-legal .legal-table-wrap {
   overflow-x: auto;
   margin: 1rem 0 1.25rem;
   border: 1px solid var(--line);
 }
 
-.page-privacy .legal-table {
+.page-legal .legal-table {
   width: 100%;
   min-width: 36rem;
   border-collapse: collapse;
   font-size: 0.8125rem;
 }
 
-.page-privacy .legal-table th,
-.page-privacy .legal-table td {
+.page-legal .legal-table th,
+.page-legal .legal-table td {
   padding: 0.625rem 0.75rem;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
 }
 
-.page-privacy .legal-table th {
+.page-legal .legal-table th {
   font-weight: 600;
   color: var(--ink);
   background: color-mix(in srgb, var(--surface) 70%, transparent);
 }
 
-.page-privacy .legal-table tr:last-child td {
+.page-legal .legal-table tr:last-child td {
   border-bottom: none;
 }
 
-.page-privacy .legal-caps {
+.page-legal .legal-caps {
   text-transform: uppercase;
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
 }
 
 @media (max-width: 768px) {
-  .page-privacy .legal-toc__list {
+  .page-legal .legal-toc__list {
     columns: 1;
   }
 
-  .page-privacy .legal-section {
+  .page-legal .legal-section {
     padding: 1.5rem 0;
   }
 }
