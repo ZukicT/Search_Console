@@ -278,10 +278,6 @@
   color: var(--muted);
 }
 
-.page-legal .legal-doc {
-  max-width: none;
-}
-
 .page-legal .legal-body > * {
   opacity: 1;
   transform: none;
