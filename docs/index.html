@@ -37,6 +37,7 @@
   <meta name="googlebot" content="index, follow">
   <meta name="author" content="Tarik Zukic">
   <meta name="theme-color" content="#000000">
+  <meta name="apple-itunes-app" content="app-id=6758431981">
   <meta name="apple-mobile-web-app-title" content="Search Console">
   <meta name="application-name" content="Search Console for iOS">
   <!-- Set content to your API base URL (e.g. Vercel) to ping Discord when Download is clicked. Leave empty to disable. -->
@@ -96,6 +97,13 @@
       "@type": "Person",
       "name": "Tarik Zukic",
       "url": "https://search-console.org/about.html"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.0",
+      "ratingCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "offers": {
       "@type": "Offer",
@@ -173,6 +181,7 @@
       {"@type": "WebPage", "name": "Release history", "url": "https://search-console.org/releases.html"},
       {"@type": "WebPage", "name": "Privacy policy", "url": "https://search-console.org/privacy.html"},
       {"@type": "WebPage", "name": "Terms of service", "url": "https://search-console.org/terms.html"},
+      {"@type": "WebPage", "name": "Guides", "url": "https://search-console.org/guides/"},
       {"@type": "WebPage", "name": "How to Use Google Search Console on iPhone", "url": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html"},
       {"@type": "WebPage", "name": "Is There an Official Google Search Console App?", "url": "https://search-console.org/guides/is-there-an-official-google-search-console-app.html"},
       {"@type": "WebPage", "name": "Google Search Console Mobile App Options", "url": "https://search-console.org/guides/google-search-console-mobile-app-options.html"},
@@ -217,52 +226,6 @@
         "position": 5,
         "name": "How to Track Keyword Rankings from iPhone",
         "url": "https://search-console.org/guides/track-keyword-rankings-from-iphone.html"
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-    "name": "How to Use Google Search Console on iPhone",
-    "description": "Step-by-step guide to access and use Google Search Console data on your iPhone using the Search Console for iOS app.",
-    "url": "https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html",
-    "totalTime": "PT2M",
-    "tool": [
-      {
-        "@type": "HowToTool",
-        "name": "iPhone or iPad with iOS 18+"
-      },
-      {
-        "@type": "HowToTool",
-        "name": "Google account with Search Console access"
-      }
-    ],
-    "step": [
-      {
-        "@type": "HowToStep",
-        "position": 1,
-        "name": "Download the app",
-        "text": "Download Search Console for iOS from the Apple App Store on your iPhone or iPad."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 2,
-        "name": "Sign in with Google",
-        "text": "Open the app and tap 'Sign in with Google'. Use the same Google account that has access to your Search Console properties."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 3,
-        "name": "Select your website",
-        "text": "Choose the website property you want to analyze from your list of verified sites."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 4,
-        "name": "View performance data",
-        "text": "View your clicks, impressions, CTR, and average position. Analyze search queries, top pages, and Core Web Vitals from your phone."
       }
     ]
   }
@@ -339,6 +302,8 @@
     </div>
   </nav>
   </div>
+
+
 
 
 
@@ -910,7 +875,7 @@
       <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
+          <a href="/" class="logo">
             <img src="Bot-72.png" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
             <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
@@ -938,7 +903,7 @@
         <div>
           <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
           <ul class="footer-links">
-            <li><a href="index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="/" data-i18n="footer.home">Home</a></li>
             <li><a href="about.html" data-nav="about" data-i18n="footer.about">About</a></li>
             <li><a href="releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
             <li><a href="privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
@@ -951,6 +916,7 @@
             <li><a href="https://apps.apple.com/us/app/search-console/id6758431981" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
             <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
             <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="/guides/" data-i18n="nav.guides">Guides</a></li>
             <li><a href="guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
             <li><a href="guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
             <li><a href="guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>

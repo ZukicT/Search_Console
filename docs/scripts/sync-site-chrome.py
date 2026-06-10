@@ -25,8 +25,8 @@ def scroll_progress_block() -> str:
 
 
 def header_block(prefix: str, *, is_home: bool) -> str:
-    logo_href = "/" if is_home and prefix == "" else f"{prefix}index.html"
-    home_href = "#hero" if is_home else f"{prefix}index.html#hero"
+    logo_href = "/"
+    home_href = "#hero" if is_home else "/#hero"
     blog_href = "blog.html" if is_home else f"{prefix}blog.html"
     faq_href = "faq.html" if is_home else f"{prefix}faq.html"
     bot_src = f"{prefix}{LOGO_BOT}"
@@ -158,7 +158,7 @@ def footer_block(prefix: str) -> str:
       <h2 class="sr-only" data-i18n="footer.siteNavigation">Site navigation</h2>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="{prefix}index.html" class="logo">
+          <a href="/" class="logo">
             <img src="{bot_src}" alt="" class="logo-mark" width="36" height="36" aria-hidden="true">
             <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
@@ -186,7 +186,7 @@ def footer_block(prefix: str) -> str:
         <div>
           <h3 class="footer-col-title" data-i18n="footer.pages">Pages</h3>
           <ul class="footer-links">
-            <li><a href="{prefix}index.html" data-i18n="footer.home">Home</a></li>
+            <li><a href="/" data-i18n="footer.home">Home</a></li>
             <li><a href="{prefix}about.html" data-nav="about" data-i18n="footer.about">About</a></li>
             <li><a href="{prefix}releases.html" data-nav="releases" data-i18n="footer.releases">Releases</a></li>
             <li><a href="{prefix}privacy.html" data-nav="privacy" data-i18n="footer.privacyPolicy">Privacy Policy</a></li>
@@ -199,6 +199,7 @@ def footer_block(prefix: str) -> str:
             <li><a href="{APP_STORE}" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
             <li><a href="{prefix}blog.html" data-i18n="nav.blog">Blog</a></li>
             <li><a href="{prefix}faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="/guides/" data-i18n="nav.guides">Guides</a></li>
             <li><a href="{prefix}guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
             <li><a href="{prefix}guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
             <li><a href="{prefix}guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
@@ -426,6 +427,19 @@ def sync_theme_color(text: str) -> str:
     return text[: end + 1] + line + text[end + 1 :]
 
 
+def sync_smart_app_banner(text: str) -> str:
+    """Safari shows a native App Store banner when this meta is present."""
+    if 'name="apple-itunes-app"' in text:
+        return text
+    line = '  <meta name="apple-itunes-app" content="app-id=6758431981">\n'
+    marker = '<meta name="theme-color"'
+    idx = text.find(marker)
+    if idx == -1:
+        return text
+    end = text.find("\n", idx)
+    return text[: end + 1] + line + text[end + 1 :]
+
+
 GTAG_DEFERRED = """  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -509,6 +523,7 @@ def sync_page(path: Path, prefix: str, *, is_home: bool) -> None:
     text = sync_stylesheet_version(text, prefix)
     text = sync_pages_stylesheet(text, prefix, include=not is_home)
     text = sync_theme_color(text)
+    text = sync_smart_app_banner(text)
     text = sync_gtag(text)
     text = sync_chart_stylesheet(text, prefix, include=include_performance_chart)
     text = sync_blog_visuals_stylesheet(text, prefix, include=include_blog_visuals)
@@ -535,6 +550,7 @@ def main() -> None:
         (DOCS / "privacy.html", "", False),
         (DOCS / "terms.html", "", False),
         (DOCS / "404.html", "", False),
+        (DOCS / "guides" / "index.html", "../", False),
         (DOCS / "guides" / "how-to-use-google-search-console-on-iphone.html", "../", False),
         (DOCS / "guides" / "is-there-an-official-google-search-console-app.html", "../", False),
         (DOCS / "guides" / "google-search-console-mobile-app-options.html", "../", False),

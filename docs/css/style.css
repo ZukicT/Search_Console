@@ -24,7 +24,21 @@
   --font-body: var(--font);
   --carousel-border: #424245;
   --lightbox-bg: rgba(0, 0, 0, 0.92);
-  --header-bg: color-mix(in srgb, var(--screen) 92%, transparent);
+  --header-bg: color-mix(in srgb, var(--screen) 72%, transparent);
+  --glass-blur: 40px;
+  --glass-saturate: 185%;
+  --glass-fill: rgba(255, 255, 255, 0.07);
+  --glass-fill-hover: rgba(255, 255, 255, 0.1);
+  --glass-fill-active: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-soft: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.24);
+  --glass-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.18);
+  --glass-inset:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -0.5px 0 rgba(0, 0, 0, 0.14);
   --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.32, 0.94, 0.6, 1);
@@ -742,18 +756,29 @@ body.menu-open {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--header-bg);
+  background: transparent;
   border-bottom: 1px solid transparent;
   padding: 0;
   padding-top: env(safe-area-inset-top, 0);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  transition:
-    border-color var(--duration-fast) var(--ease-apple),
-    background var(--duration-base) var(--ease-apple);
+  transition: border-color var(--duration-fast) var(--ease-apple);
+}
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--header-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-apple);
+  pointer-events: none;
+}
+.header--scrolled::before {
+  opacity: 1;
 }
 .header--scrolled {
-  border-bottom-color: var(--line);
+  border-bottom-color: color-mix(in srgb, var(--line) 55%, transparent);
 }
 .header:has(.release-notice-banner:not([hidden]):not(.is-hidden)) {
   border-bottom-color: transparent;
@@ -799,16 +824,69 @@ body.menu-open {
   margin-left: auto;
 }
 .nav-links {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   gap: 2px;
   padding: 4px;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  border: 1px solid var(--line);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-pill);
+  box-shadow: var(--glass-shadow), var(--glass-inset);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  overflow: hidden;
+}
+.nav-links::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 38%,
+    transparent 62%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.nav-links::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid var(--glass-border-soft);
+  pointer-events: none;
+  z-index: 0;
+}
+.nav-glass-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: var(--radius-pill);
+  background: var(--glass-fill-active);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 1px 4px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, width, height;
+  transition:
+    transform 0.38s var(--ease-spring),
+    width 0.38s var(--ease-spring),
+    height 0.38s var(--ease-spring),
+    opacity var(--duration-fast) var(--ease-apple);
+}
+.nav-glass-indicator.is-visible {
+  opacity: 1;
 }
 .nav-links a:not(.nav-cta),
 .nav-links .nav-cta {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -827,18 +905,18 @@ body.menu-open {
   font-weight: 500;
   transition:
     color var(--duration-fast) var(--ease-apple),
-    background var(--duration-base) var(--ease-apple),
-    border-color var(--duration-base) var(--ease-apple);
+    background var(--duration-base) var(--ease-apple);
 }
 .nav-links a:not(.nav-cta):hover {
   color: var(--ink);
-  background: var(--surface-raised);
+  background: var(--glass-fill-hover);
 }
 .nav-links a:not(.nav-cta).is-active,
-.nav-links a:not(.nav-cta)[aria-current="page"] {
+.nav-links a:not(.nav-cta)[aria-current="page"],
+.nav-links a:not(.nav-cta)[aria-current="true"] {
   color: var(--ink);
-  background: var(--surface-raised);
-  border-color: color-mix(in srgb, var(--line) 80%, transparent);
+  background: transparent;
+  border-color: transparent;
 }
 .nav-cta {
   display: inline-flex;
@@ -851,15 +929,23 @@ body.menu-open {
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
-  background: var(--accent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 92%, #ffffff 8%) 0%,
+    var(--accent) 100%
+  );
   color: #ffffff;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-pill);
   box-sizing: border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 2px 8px rgba(41, 151, 255, 0.28);
   transition:
     background var(--duration-base) var(--ease-apple),
     opacity var(--duration-fast) var(--ease-apple),
-    transform var(--duration-fast) var(--ease-out-soft);
+    transform var(--duration-fast) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-apple);
 }
 .nav-cta:active {
   transform: scale(var(--motion-press-scale));
@@ -890,23 +976,31 @@ body.menu-open {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
   cursor: pointer;
   padding: 10px;
   border-radius: 50%;
+  box-shadow: var(--glass-shadow), var(--glass-inset);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   transition:
     border-color var(--duration-base) var(--ease-apple),
     background var(--duration-base) var(--ease-apple),
-    transform var(--duration-fast) var(--ease-out-soft);
+    transform var(--duration-fast) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-apple);
 }
 .mobile-menu-btn:hover {
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-  background: var(--surface-raised);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--glass-border));
+  background: var(--glass-fill-hover);
 }
 .mobile-menu-btn.is-open {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--glass-border));
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--glass-fill));
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .mobile-menu-btn:active {
   transform: scale(var(--motion-press-scale));
@@ -966,11 +1060,13 @@ body.menu-open {
   box-sizing: border-box;
   width: 100%;
   max-height: min(72vh, 28rem);
-  background: color-mix(in srgb, var(--screen) 96%, var(--surface));
-  -webkit-backdrop-filter: blur(24px) saturate(1.15);
-  backdrop-filter: blur(24px) saturate(1.15);
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+  background: color-mix(in srgb, var(--screen) 78%, var(--glass-fill));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transform: translate3d(0, -100%, 0);
   transition: transform var(--duration-ui) var(--ease-out-soft);
   pointer-events: auto;
@@ -1012,17 +1108,18 @@ body.menu-open {
 }
 
 .mobile-nav-links a:hover {
-  background: color-mix(in srgb, var(--surface-raised) 88%, transparent);
-  border-color: color-mix(in srgb, var(--line) 70%, transparent);
-  color: var(--accent);
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-soft);
+  color: var(--ink);
 }
 
 .mobile-nav-links a.is-active,
 .mobile-nav-links a[aria-current="page"],
 .mobile-nav-links a[aria-current="true"] {
-  background: var(--accent-soft);
-  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
-  color: var(--accent);
+  background: var(--glass-fill-active);
+  border-color: var(--glass-border-soft);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: var(--ink);
 }
 
 .mobile-nav-footer {
@@ -1052,12 +1149,24 @@ body.menu-open {
 
 @media (prefers-reduced-motion: reduce) {
   .mobile-nav-panel,
-  .mobile-nav-backdrop {
+  .mobile-nav-backdrop,
+  .nav-glass-indicator {
     transition: none;
   }
 
   .mobile-nav.open .mobile-nav-panel {
     transform: none;
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav-links,
+  .mobile-menu-btn {
+    background: color-mix(in srgb, var(--surface) 92%, var(--screen));
+  }
+
+  .nav-glass-indicator {
+    background: var(--surface-raised);
   }
 }
 

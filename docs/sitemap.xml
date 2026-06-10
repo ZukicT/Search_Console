@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://search-console.org/</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <image:image>
       <image:loc>https://search-console.org/AppAssetsWebsite/Image1.imageset/Image1.png</image:loc>
       <image:title>Search Console iOS app overview dashboard on iPhone</image:title>
@@ -19,77 +19,82 @@
 
   <url>
     <loc>https://search-console.org/about.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-10</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/blog.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-10</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/blog/catch-indexing-issues-early.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/blog/find-pages-losing-traffic.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/blog/improve-search-click-through-rate.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/blog/prioritize-core-web-vitals-fixes.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/faq.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://search-console.org/guides/</loc>
+    <lastmod>2026-06-10</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/guides/check-core-web-vitals-on-iphone.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/guides/google-search-console-mobile-app-options.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/guides/is-there-an-official-google-search-console-app.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/guides/track-keyword-rankings-from-iphone.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/privacy.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/releases.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-10</lastmod>
   </url>
 
   <url>
     <loc>https://search-console.org/terms.html</loc>
-    <lastmod>2026-05-29T23:26:05Z</lastmod>
+    <lastmod>2026-06-09</lastmod>
   </url>
 
 </urlset>

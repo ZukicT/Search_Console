@@ -35,3 +35,6 @@ Pods/
 # Website build artifacts
 docs/Bot-source.png
 docs/scripts/__pycache__/
+
+# Local API keys and secrets (copy from Configuration/Secrets.xcconfig.example)
+Search Console/Configuration/Secrets.xcconfig

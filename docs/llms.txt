@@ -14,6 +14,7 @@
 
 ## Guides (long-tail SEO)
 
+- [All guides](https://search-console.org/guides/): Hub page listing every guide.
 - [How to use Google Search Console on iPhone](https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html)
 - [Is there an official Google Search Console app?](https://search-console.org/guides/is-there-an-official-google-search-console-app.html)
 - [Google Search Console mobile app options](https://search-console.org/guides/google-search-console-mobile-app-options.html)
