@@ -80,7 +80,9 @@
     "qr": "스캔하여 앱 받기",
     "shotAlt": "샘플 사이트의 클릭, 노출, CTR, 평균 게재순위를 보여주는 Search Console 앱의 개요 화면",
     "h1Lead": "Google Search Console 앱",
-    "h1Rest": "iPhone과 iPad에서"
+    "h1Rest": "iPhone과 iPad에서",
+    "rating": "App Store 평점 4.0",
+    "ratingAria": "App Store에서 5점 만점에 4.0점"
   },
   "heroAlts": {
     "analytics": "분석 대시보드",

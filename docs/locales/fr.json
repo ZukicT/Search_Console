@@ -80,7 +80,9 @@
     "qr": "Scannez pour obtenir l'app",
     "shotAlt": "L'écran Vue d'ensemble de l'app Search Console avec clics, impressions, CTR et position moyenne d'un site d'exemple",
     "h1Lead": "L'app Google Search Console",
-    "h1Rest": "pour votre iPhone et iPad"
+    "h1Rest": "pour votre iPhone et iPad",
+    "rating": "4,0 sur l'App Store",
+    "ratingAria": "Noté 4,0 sur 5 sur l'App Store"
   },
   "heroAlts": {
     "analytics": "Tableau de bord analytique",

@@ -79,7 +79,9 @@
     "qr": "Scan to get the app",
     "shotAlt": "The Overview screen of the Search Console app showing clicks, impressions, CTR and average position for a sample site",
     "h1Lead": "Google Search Console app",
-    "h1Rest": "for your iPhone and iPad"
+    "h1Rest": "for your iPhone and iPad",
+    "rating": "4.0 on the App Store",
+    "ratingAria": "Rated 4.0 out of 5 on the App Store"
   },
   "chart": {
     "eyebrow": "Performance preview",

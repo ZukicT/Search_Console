@@ -80,7 +80,9 @@
     "qr": "掃碼取得 App",
     "shotAlt": "Search Console App 的總覽畫面，顯示範例網站的點擊、曝光、點閱率和平均排名",
     "h1Lead": "Google Search Console App",
-    "h1Rest": "適用於你的 iPhone 和 iPad"
+    "h1Rest": "適用於你的 iPhone 和 iPad",
+    "rating": "App Store 評分 4.0",
+    "ratingAria": "App Store 評分 4.0（滿分 5）"
   },
   "heroAlts": {
     "analytics": "分析儀表板",

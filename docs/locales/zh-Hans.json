@@ -80,7 +80,9 @@
     "qr": "扫码获取应用",
     "shotAlt": "Search Console 应用的概览界面，显示示例网站的点击、展示、点击率和平均排名",
     "h1Lead": "Google Search Console 应用",
-    "h1Rest": "适用于你的 iPhone 和 iPad"
+    "h1Rest": "适用于你的 iPhone 和 iPad",
+    "rating": "App Store 评分 4.0",
+    "ratingAria": "App Store 评分 4.0（满分 5）"
   },
   "heroAlts": {
     "analytics": "分析仪表盘",

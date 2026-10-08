@@ -5672,3 +5672,46 @@ main .feature-stack .feature-stack__item:hover {
   background: #ffffff;
   object-fit: contain;
 }
+
+/* App Store rating in the hero */
+.home-hero__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.home-hero__rating:hover {
+  color: var(--accent);
+}
+
+.home-hero__stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.home-hero__stars svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--accent);
+}
+
+.home-hero__star--empty svg {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.home-hero__star--empty {
+  display: inline-flex;
+}
+
+.home-hero__rating + .home-hero__trust {
+  margin-top: 8px;
+}

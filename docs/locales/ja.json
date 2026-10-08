@@ -80,7 +80,9 @@
     "qr": "スキャンしてアプリを入手",
     "shotAlt": "サンプルサイトのクリック、表示回数、CTR、平均掲載順位を表示する Search Console アプリの概要画面",
     "h1Lead": "Google Search Console アプリ",
-    "h1Rest": "iPhone と iPad で"
+    "h1Rest": "iPhone と iPad で",
+    "rating": "App Store で 4.0",
+    "ratingAria": "App Store で 5 点中 4.0 の評価"
   },
   "heroAlts": {
     "analytics": "分析ダッシュボード",

@@ -38,6 +38,8 @@ COPY = {
   ],
   "hero.h1Lead": ["Google Search Console app", "Google Search Console App", "L'app Google Search Console", "App do Google Search Console", "Google Search Console aplikacija", "Google Search Console アプリ", "Google Search Console 앱", "Google Search Console 应用", "Google Search Console App"],
   "hero.h1Rest": ["for your iPhone and iPad", "für dein iPhone und iPad", "pour votre iPhone et iPad", "para o seu iPhone e iPad", "za vaš iPhone i iPad", "iPhone と iPad で", "iPhone과 iPad에서", "适用于你的 iPhone 和 iPad", "適用於你的 iPhone 和 iPad"],
+  "hero.rating": ["4.0 on the App Store", "4,0 im App Store", "4,0 sur l'App Store", "4,0 na App Store", "4,0 u App Storeu", "App Store で 4.0", "App Store 평점 4.0", "App Store 评分 4.0", "App Store 評分 4.0"],
+  "hero.ratingAria": ["Rated 4.0 out of 5 on the App Store", "Mit 4,0 von 5 im App Store bewertet", "Noté 4,0 sur 5 sur l'App Store", "Avaliado em 4,0 de 5 na App Store", "Ocjena 4,0 od 5 u App Storeu", "App Store で 5 点中 4.0 の評価", "App Store에서 5점 만점에 4.0점", "App Store 评分 4.0（满分 5）", "App Store 評分 4.0（滿分 5）"],
   "hero.titleA": [
     "Google Search Console on your iPhone", "Google Search Console auf deinem iPhone", "Google Search Console sur votre iPhone", "Google Search Console no seu iPhone",
     "Google Search Console na vašem iPhoneu", "Google Search Console を iPhone で", "iPhone에서 만나는 Google Search Console", "iPhone 上的 Google Search Console", "iPhone 上的 Google Search Console",
