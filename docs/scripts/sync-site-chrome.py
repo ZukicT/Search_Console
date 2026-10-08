@@ -11,8 +11,8 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "122"
-JS_VERSION = "44"
+CSS_VERSION = "123"
+JS_VERSION = "45"
 CHART_CSS_VERSION = "15"
 BLOG_VISUALS_CSS_VERSION = "7"
 PAGES_CSS_VERSION = "5"

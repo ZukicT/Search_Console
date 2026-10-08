@@ -5785,3 +5785,25 @@ main .feature-stack .feature-stack__item:hover {
     scroll-padding-inline: 0;
   }
 }
+
+.film-frame__note {
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.film-frame__note a {
+  color: var(--accent);
+}
+
+.film-frame {
+  position: relative;
+}
+
+.film-frame__note {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}

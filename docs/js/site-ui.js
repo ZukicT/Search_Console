@@ -928,10 +928,62 @@
       track.src = captions;
       video.appendChild(track);
     }
-    play.parentNode.replaceChild(video, play);
+    var filmUrl = video.src;
+    var frame = play.parentNode;
+    var triedBlob = false;
+
+    function begin() {
+      var started = video.play();
+      if (started && started.catch) started.catch(function () {});
+    }
+
+    function report(detail) {
+      var note = frame.querySelector('.film-frame__note');
+      if (!note) {
+        note = document.createElement('p');
+        note.className = 'film-frame__note';
+        frame.appendChild(note);
+      }
+      note.textContent = '';
+      var link = document.createElement('a');
+      link.href = filmUrl;
+      link.textContent = 'Open the film';
+      note.appendChild(document.createTextNode('The film could not play here. '));
+      note.appendChild(link);
+      note.appendChild(document.createTextNode(' (' + detail + ')'));
+    }
+
+    // Some phones refuse the film through the system media loader. When that happens, fetch the
+    // whole file (it is small) and play it from memory instead.
+    function playFromMemory(reason) {
+      if (triedBlob) return report(reason);
+      triedBlob = true;
+      window.fetch(filmUrl, { cache: 'reload' }).then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.blob();
+      }).then(function (blob) {
+        var typed = blob.type === 'video/mp4' ? blob : blob.slice(0, blob.size, 'video/mp4');
+        video.src = URL.createObjectURL(typed);
+        video.load();
+        begin();
+      }).catch(function (error) {
+        report(reason + '; ' + (error && error.message ? error.message : 'fetch failed'));
+      });
+    }
+
+    video.addEventListener('error', function () {
+      var code = video.error ? video.error.code : 0;
+      var message = video.error && video.error.message ? video.error.message : '';
+      playFromMemory('error ' + code + (message ? ' ' + message : ''));
+    });
+    // Stuck with nothing loaded after a few seconds counts as a failure too.
+    window.setTimeout(function () {
+      if (video.readyState === 0 && !video.error) playFromMemory('no data after 6 s');
+    }, 6000);
+
+    frame.replaceChild(video, play);
     video.load();
-    var started = video.play();
-    if (started && started.catch) started.catch(function () {});
+    begin();
     video.focus({ preventScroll: true });
   });
 })();
