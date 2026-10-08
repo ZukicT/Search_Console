@@ -5715,3 +5715,43 @@ main .feature-stack .feature-stack__item:hover {
 .home-hero__rating + .home-hero__trust {
   margin-top: 8px;
 }
+
+/* ==========================================================================
+   Phone fixes: hero spacing, stacked buttons, compact privacy button
+   ========================================================================== */
+@media (max-width: 860px) {
+  .home-hero {
+    padding-top: 64px;
+  }
+
+  .home-hero__actions {
+    gap: 12px;
+  }
+
+  .home-hero__stage {
+    padding-top: 72px;
+  }
+
+  /* A small square in the corner, so it stays in reach without sitting on the copy. */
+  .privacy-control__button {
+    width: 36px;
+    min-height: 36px;
+    padding: 0;
+    justify-content: center;
+    box-shadow: 3px 3px 0 var(--accent-soft);
+  }
+
+  .privacy-control__button > span[data-i18n] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .privacy-control__dot {
+    width: 10px;
+    height: 10px;
+  }
+}

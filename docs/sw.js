@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v123';
+const CACHE_NAME = 'search-console-v124';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -65,6 +65,10 @@ self.addEventListener('fetch', function (event) {
   if (!event.request.url.startsWith(self.location.origin)) return;
 
   var url = new URL(event.request.url);
+
+  // Video and audio go straight to the network. iOS Safari asks for byte ranges, and a cached
+  // whole-file answer from here stops the film from loading at all.
+  if (event.request.headers.has('range') || url.pathname.indexOf('/media/') === 0 || /\.(?:mp4|m4v|mov|webm|mp3|m4a|vtt)$/.test(url.pathname)) return;
 
   if (url.pathname === '/sw.js') {
     event.respondWith(fetch(event.request));

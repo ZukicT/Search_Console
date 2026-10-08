@@ -912,13 +912,13 @@
     video.controls = true;
     video.autoplay = true;
     video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
     video.preload = 'auto';
     video.poster = play.querySelector('img') ? play.querySelector('img').src : '';
     video.setAttribute('aria-label', play.getAttribute('aria-label') || 'Film');
-    var source = document.createElement('source');
-    source.src = play.getAttribute('data-film');
-    source.type = 'video/mp4';
-    video.appendChild(source);
+    // Set straight on the element: iOS Safari starts loading sooner than with a <source> child.
+    video.src = play.getAttribute('data-film');
     var captions = play.getAttribute('data-film-captions');
     if (captions) {
       var track = document.createElement('track');
@@ -929,6 +929,7 @@
       video.appendChild(track);
     }
     play.parentNode.replaceChild(video, play);
+    video.load();
     var started = video.play();
     if (started && started.catch) started.catch(function () {});
     video.focus({ preventScroll: true });
@@ -994,7 +995,14 @@ window.SiteSound = (function () {
     if (!enabled) return;
     unlock();
     if (!context) return;
-    if (context.state === 'suspended') context.resume();
+    // iOS hands back a suspended context: wait for it to wake, or the first sound is lost.
+    if (context.state !== 'running' && context.resume) {
+      var woke = context.resume();
+      if (woke && woke.then) {
+        woke.then(function () { schedule(context, context.destination, name, context.currentTime + 0.005); }).catch(function () {});
+        return;
+      }
+    }
     schedule(context, context.destination, name, context.currentTime + 0.005);
   }
 
@@ -1029,6 +1037,17 @@ window.SiteSound = (function () {
     if (target.closest('[data-film]')) return play('pop');
     if (target.closest('.carbon-btn--primary, .nav-cta, .footer-app-cta')) return play('advance');
     if (target.closest('.faq-question, .screenshot-showcase__nav, .carbon-btn--outline, .mobile-menu-btn')) return play('tick');
+    // The live Overview plays its own sounds, and the film player is the browser's.
+    if (target.closest('[data-overview-demo], video')) return;
+    if (target.closest('.privacy-card__allow, .privacy-card__decline')) return play('select');
+    if (target.closest('.privacy-card__close, [data-back], .back-link')) return play('back');
+    // Everything else that can be pressed: links, buttons, tabs, filters and disclosure rows.
+    if (target.closest('a[href], button, summary, [role="tab"], [role="button"]')) return play('tick');
+  }, true); // capture: the menu button stops its click from bubbling, which used to silence it
+
+  document.addEventListener('change', function (event) {
+    var target = event.target;
+    if (target && target.matches && target.matches('select, input[type="checkbox"], input[type="radio"]')) play('select');
   });
 
   return {
