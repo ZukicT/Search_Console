@@ -151,9 +151,9 @@
 
   function initCwvVisual(root) {
     var rings = [
-      { label: 'LCP', score: 92, color: '#30d158', delay: '0.05s' },
-      { label: 'INP', score: 68, color: '#ffd60a', delay: '0.2s' },
-      { label: 'CLS', score: 96, color: '#30d158', delay: '0.35s' },
+      { label: 'LCP', score: 92, color: '#24a148', delay: '0.05s' },
+      { label: 'INP', score: 68, color: '#f1c21b', delay: '0.2s' },
+      { label: 'CLS', score: 96, color: '#24a148', delay: '0.35s' },
     ];
     root.querySelectorAll('[data-cwv-ring]').forEach(function (node, index) {
       renderCwvRing(node, rings[index]);

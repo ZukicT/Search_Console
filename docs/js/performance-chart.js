@@ -2,13 +2,13 @@
   var SERIES = [
     {
       key: 'clicks',
-      color: '#2997ff',
+      color: '#0f62fe',
       values: [3, 2, 4, 3, 5, 4, 6],
       areaFill: true,
     },
     {
       key: 'impressions',
-      color: '#bf5af2',
+      color: '#8a3ffc',
       values: [18, 22, 28, 24, 35, 30, 42],
       areaFill: false,
     },
@@ -158,10 +158,10 @@
       y2: '1',
     });
     gradient.appendChild(
-      createSvgElement('stop', { offset: '0%', 'stop-color': '#2997ff', 'stop-opacity': '0.22' }),
+      createSvgElement('stop', { offset: '0%', 'stop-color': '#0f62fe', 'stop-opacity': '0.22' }),
     );
     gradient.appendChild(
-      createSvgElement('stop', { offset: '100%', 'stop-color': '#2997ff', 'stop-opacity': '0' }),
+      createSvgElement('stop', { offset: '100%', 'stop-color': '#0f62fe', 'stop-opacity': '0' }),
     );
     defs.appendChild(gradient);
     svg.appendChild(defs);
@@ -179,8 +179,8 @@
       );
     }
 
-    renderYAxisLabels(svg, 'left', SERIES[0].values, '#2997ff');
-    renderYAxisLabels(svg, 'right', SERIES[1].values, '#bf5af2');
+    renderYAxisLabels(svg, 'left', SERIES[0].values, '#0f62fe');
+    renderYAxisLabels(svg, 'right', SERIES[1].values, '#8a3ffc');
 
     SERIES.forEach(function (series, seriesIndex) {
       var peak = seriesPeak(series.values);

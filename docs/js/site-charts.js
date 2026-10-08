@@ -1,24 +1,24 @@
 (function () {
-  var ACCENT = '#2997ff';
+  var ACCENT = '#0f62fe';
   var PERFORMANCE_CLICKS = [3, 2, 4, 3, 5, 4, 6];
   var DAY_KEYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   var DAY_LABELS_FALLBACK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   var SPARKLINES = {
     ctr: {
-      color: '#64d2ff',
+      color: '#1192e8',
       values: [11.1, 9.1, 14.3, 12.5, 14.3, 13.3, 14.3],
     },
     position: {
-      color: '#ffd60a',
+      color: '#f1c21b',
       values: [5.2, 5.8, 4.9, 5.1, 4.6, 4.9, 4.8],
     },
   };
 
   var VITALS = [
-    { key: 'lcp', label: 'LCP', score: 92, color: '#30d158', delay: '0.05s' },
-    { key: 'inp', label: 'INP', score: 78, color: '#ffd60a', delay: '0.2s' },
-    { key: 'cls', label: 'CLS', score: 96, color: '#30d158', delay: '0.35s' },
+    { key: 'lcp', label: 'LCP', score: 92, color: '#24a148', delay: '0.05s' },
+    { key: 'inp', label: 'INP', score: 78, color: '#f1c21b', delay: '0.2s' },
+    { key: 'cls', label: 'CLS', score: 96, color: '#24a148', delay: '0.35s' },
   ];
 
   var LINE_VIEW = {

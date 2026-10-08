@@ -17,6 +17,7 @@
     var contactUrl = apiBase.replace(/\/$/, '') + '/api/contact';
     var submitButton = contactForm.querySelector('button[type="submit"], button:not([type])');
 
+    var formShownAt = Date.now();
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
       var name = contactForm.querySelector('input[name="name"]').value.trim();
@@ -30,7 +31,14 @@
       fetch(contactUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email, message: message })
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          // A hidden field people never see and the time taken to fill the form: both help the server turn away bots.
+          website: (contactForm.querySelector('input[name="website"]') || {}).value || '',
+          elapsed: Date.now() - formShownAt
+        })
       })
         .then(function (res) {
           if (res.ok) {
@@ -67,7 +75,7 @@
       return {
         title: translate('share.title', 'Search Console for iOS'),
         text: translate('share.text', 'Native iOS app for Google Search Console - track your search rankings from your iPhone.'),
-        url: 'https://search-console.org'
+        url: 'https://www.search-console.org'
       };
     }
 

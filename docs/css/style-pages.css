@@ -1597,3 +1597,272 @@ a.blog-card:hover .blog-card__read {
     transform: translateY(var(--motion-panel-lift));
   }
 }
+
+/* ==========================================================================
+   White Carbon pass for guides, the blog index and articles
+   ========================================================================== */
+
+/* Index cards (blog and guides) */
+.page-blog .blog-card.surface-card,
+.page-guide .blog-card.surface-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+  box-shadow: none;
+  transition: background-color 0.08s ease-out;
+}
+
+.page-blog a.blog-card.surface-card:hover,
+.page-guide a.blog-card.surface-card:hover {
+  background: var(--accent-soft);
+  transform: none;
+}
+
+.page-blog .blog-card--featured.surface-card,
+.page-guide .blog-card--featured.surface-card {
+  border-top: 3px solid var(--accent);
+}
+
+.blog-card__category,
+.blog-card__meta,
+.blog-app-promo__eyebrow,
+.blog-sidebar-panel__title,
+.blog-app-promo__note {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.blog-card__title {
+  font-weight: 400;
+}
+
+.blog-card--featured .blog-card__title {
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.blog-app-promo,
+.blog-sidebar-panel {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+  box-shadow: none;
+}
+
+.blog-app-promo__cta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.blog-app-promo__cta::after {
+  content: "→";
+}
+
+/* Guide and article body */
+.guide-content {
+  max-width: 46rem;
+}
+
+.page-guide .guide-title,
+.page-blog-post .blog-article-header .guide-title {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.guide-byline,
+.guide-updated {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.guide-lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.page-guide .guide-disclaimer {
+  margin: 24px 0 8px;
+  padding: 12px 16px;
+  background: var(--accent-soft);
+  border: 0;
+  border-left: 3px solid var(--accent);
+  color: var(--ink);
+  font-size: 0.875rem;
+}
+
+.guide-heading {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.guide-body-text {
+  line-height: 1.65;
+  color: var(--muted-strong);
+}
+
+.guide-steps {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: guide-step;
+  border-top: 2px solid var(--ink);
+}
+
+.guide-steps > li {
+  position: relative;
+  margin: 0;
+  padding: 14px 0 14px 48px;
+  border-bottom: 1px solid var(--line);
+  counter-increment: guide-step;
+  line-height: 1.55;
+}
+
+.guide-steps > li::before {
+  content: counter(guide-step);
+  position: absolute;
+  left: 0;
+  top: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.guide-cta {
+  margin: 28px 0;
+}
+
+.guide-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 48px;
+}
+
+.guide-cta .btn::after {
+  content: "→";
+}
+
+.guide-list--related {
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+
+.guide-list--related > li {
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-figure {
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.guide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--accent-soft);
+}
+
+.guide-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .guide-figure {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-figure img {
+    max-width: 240px;
+  }
+}
+
+.page-blog-post .blog-app-promo__inner.surface-card,
+.page-blog .blog-app-promo__inner.surface-card,
+.page-guide .blog-app-promo__inner.surface-card {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.guide-short-answer {
+  margin: 20px 0 0;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.guide-cta-note {
+  margin: -16px 0 28px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* Back link: room above the category line. */
+.guide-back {
+  margin: 0 0 20px;
+}
+
+.guide-back a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.guide-back a:hover {
+  text-decoration: underline;
+}
+
+/* The live Overview inside a guide */
+.guide-demo {
+  margin: 28px 0 8px;
+  box-shadow: 10px 10px 0 var(--accent-soft);
+}
+
+.guide-demo .overview-demo__kpi-value {
+  font-size: 1.375rem;
+}
+
+.guide-demo .overview-demo__plot svg {
+  height: 200px;
+}

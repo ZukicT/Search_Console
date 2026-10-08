@@ -4,8 +4,8 @@
     "appNameShort": "Search Console"
   },
   "meta": {
-    "title": "Search Console for iOS",
-    "description": "iPhone向けSEOアプリ。検索順位・キーワード・クリック・インプレッション・CTR・Core Web Vitalsを確認。Google Search Consoleアプリ、7日間無料トライアル付き。"
+    "title": "iPhone 向け Google Search Console アプリ | 独立系アプリ",
+    "description": "クリック、表示回数、クエリ、上位ページを iPhone で確認。既存の Google Search Console アカウントを独立系 iOS アプリに接続できます。"
   },
   "nav": {
     "home": "ホーム",
@@ -41,7 +41,7 @@
     "moreShareOptions": "その他の共有方法"
   },
   "banner": {
-    "releaseNotice": "バージョン 2.0 を公開しました。",
+    "releaseNotice": "バージョン 2.5 を公開。Blink が登場。",
     "learnMore": "詳細"
   },
   "hero": {
@@ -50,20 +50,20 @@
     "subtitle": "クリック、インプレッション、キーワード、Core Web Vitals を確認。サイトの検索パフォーマンス改善に必要なデータを。",
     "downloadAppStore": "App Storeでダウンロード",
     "seeFeatures": "機能を見る",
-    "trust": "Google 公式 Search Console API を使用",
-    "pill": "バージョン 2.0",
-    "role": "デスクトップ版 Search Console で見ている同じアカウント、同じデータを、iOSですぐ読める形に整えました。判断が必要な瞬間を逃さず確認できます。",
+    "trust": "1サイトまで無料。Google とは提携していない独立系アプリです。",
+    "pill": "バージョン 2.5",
+    "role": "既存の Google Search Console アカウントのクリック、表示回数、検索クエリ、上位ページを、パソコンを開かずに確認。Google でサインインしてプロパティを選べば、変化がすぐにわかります。数値の意味は、内蔵アシスタントの Blink に聞けます。",
     "statApiValue": "検索トラフィック",
     "statApiLabel": "クリック、表示回数、クエリ",
     "statVitalsValue": "ページエクスペリエンス",
     "statVitalsLabel": "Core Web Vitals と上位ページ",
-    "statWidgetsValue": "アラートとウィジェット",
-    "statWidgetsLabel": "パフォーマンスの変化を通知",
+    "statWidgetsValue": "Blink",
+    "statWidgetsLabel": "自分の言葉で質問",
     "bridge": "",
     "support": "",
-    "offer": "7日間無料トライアル・月額 $5.99",
+    "offer": "1サイトまで無料。Pro は月額 $5.99 から。",
     "disclaimer": "",
-    "eyebrow": "iPhone と iPad 向け",
+    "eyebrow": "iPhone と iPad 向けの独立系アプリ",
     "deck": "Google の Search Console API に接続する独立系のネイティブ iOS アプリです。Safari を開かずに、クリック、表示回数、クエリ、ページエクスペリエンスを確認できます。",
     "point1": "クリック、表示回数、CTR、クエリ、平均掲載順位",
     "point2": "Core Web Vitals、上位ページ、URL 検査",
@@ -71,7 +71,16 @@
     "screenCaption": "パフォーマンス概要",
     "metaApi": "公式 Search Console API",
     "metaOAuth": "OAuth サインイン",
-    "metaPrivacy": "データは Google アカウント内に保持"
+    "metaPrivacy": "データは Google アカウント内に保持",
+    "titleA": "Google Search Console を iPhone で",
+    "titleB": "自分の数値のためのアシスタント Blink が新登場。",
+    "watch": "アプリの動きを見る",
+    "bubble": "なんでも聞いて。",
+    "blinkAlt": "アプリのアシスタント Blink",
+    "qr": "スキャンしてアプリを入手",
+    "shotAlt": "サンプルサイトのクリック、表示回数、CTR、平均掲載順位を表示する Search Console アプリの概要画面",
+    "h1Lead": "Google Search Console アプリ",
+    "h1Rest": "iPhone と iPad で"
   },
   "heroAlts": {
     "analytics": "分析ダッシュボード",
@@ -85,13 +94,13 @@
     "vitalsDesc": "LCP、CLS、INP を追跡。サイト速度が順位に与える影響を確認。",
     "secureTitle": "安全でプライベート",
     "secureDesc": "OAuth 認証。データは Google アカウントに保持。",
-    "eyebrow": "第1章",
+    "eyebrow": "アプリである理由",
     "title": "デスクを離れた瞬間に答えが必要なとき",
     "desc": "トラフィックが落ちる。クエリが伸びる。通話前に数字を聞かれる。モバイルWeb版でも見られますが、すぐ答えるには手間がかかります。"
   },
   "stats": {
     "price": "シンプルな月額料金",
-    "trial": "無料トライアル付き",
+    "trial": "3日間トライアル",
     "devices": "iPhone・iPad",
     "eyebrow": "料金",
     "title": "登録前に分かるシンプルな条件",
@@ -109,7 +118,7 @@
     "step3Desc": "Search Console で確認済みのプロパティから選択。",
     "step4Title": "4. データを確認",
     "step4Desc": "クリック、インプレッション、キーワード、Core Web Vitals を表示。",
-    "eyebrow": "第3章"
+    "eyebrow": "はじめに"
   },
   "features": {
     "sectionTitle": "モバイルで使える主な機能",
@@ -126,7 +135,7 @@
     "pdfDesc": "ワンタップでレポート作成。クライアントやチームとパフォーマンスデータを共有。",
     "notificationsTitle": "プッシュ通知",
     "notificationsDesc": "日次・週次のサマリー。トラフィックの大きな変動時に通知。",
-    "eyebrow": "第4章",
+    "eyebrow": "アプリの中身",
     "metaTitle": "Google Search Console iOS App Features | Search Console for iOS",
     "metaDescription": "See what the independent Search Console iOS app covers: traffic, queries, pages, Core Web Vitals, URL inspection, exports, and alerts. Not made by Google.",
     "pageLead1": "Search Console for iOS is a native google search console ios app built for quick reads between meetings, commutes, and site checks. Each screen maps to a question you already ask in the web console, without hunting through desktop tabs on a small screen.",
@@ -141,17 +150,22 @@
     "performance": "パフォーマンス",
     "pages": "ページ",
     "vitals": "バイタル",
-    "eyebrow": "第5章",
+    "eyebrow": "アプリ",
     "hint": "スワイプで閲覧・タップで拡大",
     "search": "検索",
     "coreWebVitals": "Core Web Vitals",
     "urlInspection": "URL 検査",
-    "settings": "設定"
+    "settings": "設定",
+    "blink": "Blink",
+    "report": "レポート",
+    "integrations": "連携",
+    "alerts": "アラート",
+    "plans": "プラン"
   },
   "pricing": {
     "title": "シンプルな料金",
-    "desc": "1プランで全て含む。いつでも解約可。",
-    "badge": "7日間無料トライアル",
+    "desc": "3日間無料、その後 iOS で月額 $5.99。App Store でいつでも解約できます。",
+    "badge": "3日間無料トライアル",
     "period": "/月",
     "billingDesc": "App Store で月額課金。いつでも解約可能。",
     "featureRealtime": "リアルタイム分析（クリック・インプレッション・CTR・順位）",
@@ -183,7 +197,7 @@
     "q8": "サブスクリプションは解約できますか？",
     "a8": "はい。iPhone の「設定」＞「Apple ID」＞「サブスクリプション」からいつでも解約できます。現在の課金期間終了まで利用可能です。",
     "q9": "なぜ有料ですか？",
-    "a9": "サブスクリプションは開発と API コストを賄います。広告やデータ販売に頼る無料アプリと違い、当アプリは広告がなく、ユーザーデータにアクセスしません。サブスクでアップデートと新機能を支えていただけます。7日間無料でお試しください。",
+    "a9": "サブスクリプションは開発と API の費用を支えています。広告付きの無料プランではプロパティを1つ利用できます。Proは広告を外し、すべてのプロパティ、Core Web Vitals、URL 検査を利用できます。3日間無料でお試しください。",
     "q10": "サイトが表示されません",
     "a10": "まず Web の Google Search Console でサイトが確認済みか確認してください。アプリは Google アカウントでアクセスできるプロパティのみ表示します。サイトを追加したばかりの場合は、サインアウトして再サインインすると更新されます。",
     "q11": "iPad で使えますか？",
@@ -225,7 +239,7 @@
     "pages": "ページ",
     "product": "製品",
     "downloadAppStore": "App Storeでダウンロード",
-    "guideIphone": "ガイド：iPhoneでの使い方",
+    "guideIphone": "IPhoneでの使い方",
     "resources": "リソース",
     "googleSearchConsole": "Google Search Console",
     "manageSubscription": "サブスクリプション管理",
@@ -244,14 +258,14 @@
     "terms": "利用規約",
     "getApp": "アプリを入手",
     "downloadTitle": "Search Console をいつでも手元に",
-    "downloadDesc": "スマホで Search Console を確認。",
+    "downloadDesc": "1サイトまで無料。Proですべてのプロパティと Blink が使えます。",
     "releases": "リリース",
     "privacyPolicy": "プライバシーポリシー",
     "termsOfService": "利用規約",
-    "guideOfficial": "ガイド：公式アプリ？",
-    "guideMobileOptions": "ガイド: モバイル オプション",
-    "guideCwv": "ガイド: Core Web Vitals",
-    "guideRankings": "ガイド: キーワードの追跡",
+    "guideOfficial": "公式アプリ？",
+    "guideMobileOptions": "モバイル オプション",
+    "guideCwv": "Core Web Vitals",
+    "guideRankings": "キーワードの追跡",
     "siteNavigation": "Site navigation"
   },
   "share": {
@@ -297,11 +311,12 @@
     "bridgeToReleases": "続ける・公開済みの内容を見る",
     "founderPhotoAlt": "Search Console for iOS 開発者 Tarik Zukic",
     "linkedinAria": "Tarik Zukic の LinkedIn",
-    "founderName": "Tarik Zukic"
+    "founderName": "Tarik Zukic",
+    "storyP9": "バージョン 2.5 はこれまでで最大の一歩です。新しいデザインと、端末上で動き、自分の数値についての質問に答えるアシスタント Blink。彼はデータが示すことだけを伝えます。"
   },
   "releases": {
     "metaTitle": "リリース履歴 - Search Console for iOS",
-    "metaDescription": "Search Console for iOS の変遷。リリース・機能・改善をタイムラインで確認。",
+    "metaDescription": "Search Console for iPhone のリリースノート: Blink、白基調の新デザイン、レポート、実データのアラートを備えたバージョン 2.5 と、これまでの変更履歴。",
     "heroKicker": "バージョン履歴",
     "heroTitle": "リリースノート",
     "heroDesc": "Search Console for iOS の進化を追跡。各アップデートで新機能と改善。",
@@ -346,7 +361,7 @@
     "ariaCollapse": "リリースノートを折りたたむ",
     "changelogEyebrow": "変更履歴",
     "changelogTitle": "公開された内容",
-    "changelogLead": "まず今後の予定、その後に初期版から現在までの全バージョンを掲載しています。",
+    "changelogLead": "最新のリリースから順に、公開時までのすべてのバージョン。今後のアイデアは最後にあります。",
     "bridgeToFeatures": "続ける・機能を見る",
     "badgeLatest": "最新",
     "badgeUpcoming": "検討中",
@@ -380,7 +395,15 @@
     "v102Date": "2026年1月",
     "v102_1": "サブスクリプション読み込みとエラー処理を改善",
     "v102_2": "不具合修正と安定性向上",
-    "bridgeToBlog": "Continue · Improve your site"
+    "bridgeToBlog": "Continue · Improve your site",
+    "v250Date": "2026年10月",
+    "v250New1": "Blink: 検索データについての質問に、数値・グラフ・次の一手で答える端末上のアシスタント",
+    "v250New2": "すべての画面、シート、ウィジェットに白基調の新デザイン",
+    "v250New3": "共有できる PDF プレビュー付きの Blink レポート",
+    "v250New4": "クリックの実際の変化に基づくアラート。数値つきで、Blink の声で届きます",
+    "v250New5": "サイトごとに表示される連携。Google アナリティクスと AdMob をサイト単位でリンク",
+    "v250New6": "新しいサウンド、なめらかな動き、3日間の無料トライアル",
+    "sectionNew": "新機能"
   },
   "guide": {
     "metaTitle": "iPhone で Google Search Console を使う方法 | ステップガイド",
@@ -444,9 +467,9 @@
     }
   },
   "story": {
-    "proofEyebrow": "第2章",
-    "proofTitle": "ひと目で信頼できる推移",
-    "proofDesc": "デスクトップで見ているパフォーマンスを、スマホ画面で判断しやすい形に再構成。今日深掘りすべきかどうかを決めるのに十分な情報です。",
+    "proofEyebrow": "数値",
+    "proofTitle": "何が動いたか、数秒で",
+    "proofDesc": "これがアプリの概要画面です。数値を選ぶとグラフが切り替わり、なぞると1日ごとの値を読めます。",
     "proofQuote": "金曜のレポートを待つ前に、火曜の落ち込みに気づける。",
     "bridgeToProof": "続ける・数字を見る",
     "bridgeToStart": "続ける・最初の2分",
@@ -708,7 +731,7 @@
     "visualCaptionSitemap": "サイトマップ レポート: 送信された URLs とサイトマップからインデックスされたもの",
     "visualSitemapSubmitted": "提出済み",
     "visualSitemapIndexed": "インデックス付き",
-    "visualSitemapGap": "サイトマップの <strong>28 URLs</strong> がインデックスに登録されていません — テンプレートまたはリダイレクトの変更後のページのインデックス登録の理由を確認してください。",
+    "visualSitemapGap": "サイトマップの <strong>28 URLs</strong> がインデックスに登録されていません. テンプレートまたはリダイレクトの変更後のページのインデックス登録の理由を確認してください。",
     "h2Checklist": "実用的な導入後のチェックリスト",
     "pChecklistIntro": "メジャー リリースから 48 時間以内:",
     "liCheck_1": "URL ホームページ上の検査と主要セクションごとに 1 つのテンプレート URL。",
@@ -745,7 +768,7 @@
   },
   "guidesCommon": {
     "disclaimer": "Search Console for 2⟧ は独立したアプリです。 Google によって作られたものでも、Google と提携しているものでもありません。",
-    "lastUpdated": "最終更新日: 2026 年 5 月 29 日",
+    "lastUpdated": "最終更新日: 2026年10月7日",
     "byline": "<a href=\"../about.html\">Tarik Zukic</a> より",
     "relatedHeading": "関連ガイド",
     "allGuides": "すべてのガイド",
@@ -772,7 +795,8 @@
     "h2Choose": "モバイル ワークフローの選択方法",
     "pChoose1": "Search Console を月に 1 回だけチェックする場合は、Safari で十分かもしれません。 サイトをホーム画面に追加すると、ワンタップでアクセスできます。 複数のプロパティを監視する場合、またはトラフィックの変化に迅速に対応する場合、ネイティブ アプリを使用すると時間を節約できます。 読みやすいグラフ、より高速なナビゲーション、および Web UI が iOS で提供していないウィジェットなどの機能が利用できます。",
     "pChoose2": "どちらのパスを選択しても、Search Console のパフォーマンス データは依然として Google の API から取得されます。 サードパーティのアプリには、API がアカウントに返す内容が表示されます。 プロパティ設定、ユーザー管理、および一括検証は引き続き Web コンソールに属します。",
-    "pChoose3": "ユーザー管理や検証などの管理タスクのために Web プロパティをブックマークします。 スマートフォンを使用して、交通方向、驚きのインデックス作成、および経験上の警告など、毎日の状況を把握します。 このように役割を分割することは、ほとんどの独立したサイト所有者やコンサルタントが実際にどのように働くかに一致します。"
+    "pChoose3": "ユーザー管理や検証などの管理タスクのために Web プロパティをブックマークします。 スマートフォンを使用して、交通方向、驚きのインデックス作成、および経験上の警告など、毎日の状況を把握します。 このように役割を分割することは、ほとんどの独立したサイト所有者やコンサルタントが実際にどのように働くかに一致します。",
+    "shortAnswer": "結論: ありません。Google は iPhone 向けの Search Console アプリを公開していません。このアプリのような独立系アプリが、Google の公式 API を通じて既存のアカウントに接続します。"
   },
   "guideMobileOptions": {
     "metaTitle": "Google Search Console モバイル アプリ オプション | ",
@@ -852,5 +876,55 @@
     "h2VsTrackers": "Search Console vs 専用ランクトラッカー",
     "pVsTrackers1": "サードパーティのランク トラッカーは、任意のキーワードの結果を収集またはシミュレートします。 Search Console は、サイトが Google 検索でインプレッションを獲得したクエリのみをレポートします。 多くの企業にとって、データセットは 1 つの場所やデバイスからの総合的なチェックではなく、実際の可視性を反映するため、重要です。",
     "pVsTrackers2": "競争力のあるキャンペーンを実施する場合は両方を使用してください。 検証済みのプロパティに関連付けられた迅速かつ信頼できるチェックを行うには、iPhone で Search Console を使用します。 都市レベルのSERP スクリーンショットが必要な場合は、デスクトップ ツールの大量の競合追跡を保存します。"
+  },
+  "blink": {
+    "eyebrow": "2.5 の新機能",
+    "title": "Blink です。トラフィックのことを聞いてください。",
+    "desc": "話すように質問を入力してください。Blink が Search Console のデータを読み、数値とグラフ、次に見るべき点を答えます。",
+    "p1Title": "自分の数値からの回答",
+    "p1Desc": "表示する数値はすべてあなたのデータからのものです。何が変わったかを伝え、理由がデータからわからないときはそう言います。",
+    "p2Title": "端末上で動作",
+    "p2Desc": "質問が iPhone の外に出ることはありません。Blink には Apple Intelligence 対応の端末が必要です。",
+    "p3Title": "送りたくなるレポート",
+    "p3Desc": "レポートを頼み、PDF をプレビューして、ワンタップで共有。",
+    "p4Title": "見守り続けます",
+    "p4Desc": "アラートはクリックが本当に動いたときだけ、数値つきで届きます。タップすると何が変わったかを見せてくれます。",
+    "note": "サンプルデータです。"
+  },
+  "film": {
+    "eyebrow": "ムービー",
+    "title": "32秒でわかる Blink",
+    "desc": "最初の質問からレポートまで、2.5 の新機能をまとめて。",
+    "play": "ムービーを再生",
+    "note": "YouTube で再生 · サンプルデータ"
+  },
+  "plans": {
+    "eyebrow": "プラン",
+    "title": "まずは無料で。必要になったらPro。",
+    "desc": "Proは3日間の無料トライアル後に月額 $5.99、または週額 $1.99。App Store でいつでも解約できます。",
+    "free": "無料",
+    "premium": "Pro",
+    "feature": "機能",
+    "rowSearch": "検索パフォーマンス",
+    "rowProperties": "プロパティ",
+    "rowBlink": "Blink アシスタントとレポート",
+    "rowVitals": "Core Web Vitals",
+    "rowInspect": "URL 検査",
+    "rowAds": "広告",
+    "one": "1",
+    "all": "すべて",
+    "yes": "あり",
+    "no": "なし",
+    "included": "含まれます",
+    "notIncluded": "含まれません",
+    "priceNote": "価格は米ドル表記です。App Store にはお住まいの国の価格が表示されます。"
+  },
+  "demo": {
+    "hint": "数値をタップ。グラフをなぞる。",
+    "range": "過去28日間"
+  },
+  "sound": {
+    "on": "サウンド オン",
+    "off": "サウンド オフ"
   }
 }

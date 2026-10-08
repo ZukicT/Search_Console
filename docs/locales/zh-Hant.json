@@ -4,8 +4,8 @@
     "appNameShort": "Search Console"
   },
   "meta": {
-    "title": "Search Console iOS 版",
-    "description": "iPhone 最佳 SEO 應用。追蹤搜尋排名、關鍵字、點擊、曝光、點擊率與 Core Web Vitals。Google Search Console 行動應用，7 天免費試用。"
+    "title": "適用於 iPhone 的 Google Search Console App | 獨立 App",
+    "description": "在 iPhone 上查看點擊、曝光、查詢和熱門頁面。用一款獨立的 iOS App 連結你現有的 Google Search Console 帳戶。"
   },
   "nav": {
     "home": "首頁",
@@ -41,7 +41,7 @@
     "moreShareOptions": "更多分享選項"
   },
   "banner": {
-    "releaseNotice": "版本 2.0 現已上線。",
+    "releaseNotice": "2.5 版已推出。認識一下 Blink。",
     "learnMore": "了解更多"
   },
   "hero": {
@@ -50,20 +50,20 @@
     "subtitle": "監控點擊、曝光、關鍵字與 Core Web Vitals。取得提升網站在 Google 搜尋表現所需的資料。",
     "downloadAppStore": "在 App Store 下載",
     "seeFeatures": "查看功能",
-    "trust": "使用 Google 官方 Search Console API",
-    "pill": "版本 2.0",
-    "role": "你已經信任桌面版 Search Console。這裡使用同一個帳戶、同一份資料，只是依 iOS 場景重新整理，讓你在關鍵時刻前更快看到答案。",
+    "trust": "一個網站免費。獨立 App，與 Google 無關聯。",
+    "pill": "版本 2.5",
+    "role": "無需打開電腦，即可從現有的 Google Search Console 帳戶查看點擊、曝光、搜尋查詢和熱門頁面。使用 Google 登入，選擇一個資源，看看有什麼變化。然後讓內建助理 Blink 為你解讀數據。",
     "statApiValue": "搜尋流量",
     "statApiLabel": "點擊、曝光、查詢",
     "statVitalsValue": "頁面體驗",
     "statVitalsLabel": "Core Web Vitals 與熱門頁面",
-    "statWidgetsValue": "提醒與小工具",
-    "statWidgetsLabel": "效能變化時即時通知",
+    "statWidgetsValue": "Blink",
+    "statWidgetsLabel": "用你自己的話提問",
     "bridge": "",
     "support": "",
-    "offer": "7 天免費試用 · $5.99/月",
+    "offer": "一個網站免費。Pro 每月 $5.99 起。",
     "disclaimer": "",
-    "eyebrow": "適用於 iPhone 與 iPad",
+    "eyebrow": "適用於 iPhone 和 iPad 的獨立 App",
     "deck": "這是一款連接 Google Search Console API 的獨立原生 iOS 應用。無需開啟 Safari，即可查看點擊、曝光、查詢與頁面體驗。",
     "point1": "點擊、曝光、CTR、查詢與平均排名",
     "point2": "Core Web Vitals、熱門頁面與 URL 檢查",
@@ -71,7 +71,16 @@
     "screenCaption": "效能總覽",
     "metaApi": "官方 Search Console API",
     "metaOAuth": "OAuth 登入",
-    "metaPrivacy": "資料保留在你的 Google 帳戶"
+    "metaPrivacy": "資料保留在你的 Google 帳戶",
+    "titleA": "iPhone 上的 Google Search Console",
+    "titleB": "現已加入 Blink：為你自己的數據而生的助理。",
+    "watch": "看看 App 實際效果",
+    "bubble": "儘管問我。",
+    "blinkAlt": "App 助理 Blink",
+    "qr": "掃碼取得 App",
+    "shotAlt": "Search Console App 的總覽畫面，顯示範例網站的點擊、曝光、點閱率和平均排名",
+    "h1Lead": "Google Search Console App",
+    "h1Rest": "適用於你的 iPhone 和 iPad"
   },
   "heroAlts": {
     "analytics": "分析儀表板",
@@ -85,13 +94,13 @@
     "vitalsDesc": "追蹤 LCP、CLS、INP 分數。了解速度如何影響排名。",
     "secureTitle": "安全私密",
     "secureDesc": "OAuth 驗證。您的資料保留在 Google 帳戶中。",
-    "eyebrow": "第1章",
+    "eyebrow": "為什麼用 App",
     "title": "離開電腦時也會遇到關鍵問題",
     "desc": "流量下滑、某個查詢突然上升、開會前臨時要數字。行動網頁版 Search Console 也能看，但要快速取得答案並不輕鬆。"
   },
   "stats": {
     "price": "簡單月付",
-    "trial": "含 7 天免費試用",
+    "trial": "3 天試用",
     "devices": "iPhone 與 iPad",
     "eyebrow": "價格",
     "title": "註冊前先看清條件",
@@ -109,7 +118,7 @@
     "step3Desc": "從已驗證的 Search Console 資源中選擇。",
     "step4Title": "4. 查看資料",
     "step4Desc": "查看點擊、曝光、關鍵字與 Core Web Vitals。",
-    "eyebrow": "第3章"
+    "eyebrow": "開始使用"
   },
   "features": {
     "sectionTitle": "行動端核心功能",
@@ -126,7 +135,7 @@
     "pdfDesc": "一鍵產生專業報告。與客戶或團隊分享表現資料。",
     "notificationsTitle": "推播通知",
     "notificationsDesc": "每日或每週表現摘要。流量顯著變化時接收提醒。",
-    "eyebrow": "第4章",
+    "eyebrow": "App 內容",
     "metaTitle": "Google Search Console iOS App Features | Search Console for iOS",
     "metaDescription": "See what the independent Search Console iOS app covers: traffic, queries, pages, Core Web Vitals, URL inspection, exports, and alerts. Not made by Google.",
     "pageLead1": "Search Console for iOS is a native google search console ios app built for quick reads between meetings, commutes, and site checks. Each screen maps to a question you already ask in the web console, without hunting through desktop tabs on a small screen.",
@@ -141,17 +150,22 @@
     "performance": "表現",
     "pages": "頁面",
     "vitals": "核心指標",
-    "eyebrow": "第5章",
+    "eyebrow": "App",
     "hint": "滑動瀏覽 · 點擊放大",
     "search": "搜尋",
     "coreWebVitals": "Core Web Vitals",
     "urlInspection": "URL 檢查",
-    "settings": "設定"
+    "settings": "設定",
+    "blink": "Blink",
+    "report": "報告",
+    "integrations": "整合",
+    "alerts": "提醒",
+    "plans": "方案"
   },
   "pricing": {
     "title": "簡單定價",
-    "desc": "一個方案，全包含。隨時取消。",
-    "badge": "7 天免費試用",
+    "desc": "3 天免費試用，之後在 iOS 上每月 $5.99。可隨時在 App Store 取消。",
+    "badge": "3 天免費試用",
     "period": "每月",
     "billingDesc": "透過 App Store 按月計費。隨時取消。",
     "featureRealtime": "即時分析（點擊、曝光、點擊率、排名）",
@@ -183,7 +197,7 @@
     "q8": "可以取消訂閱嗎？",
     "a8": "可以，隨時在 iPhone 設定 > 您的姓名 > 訂閱項目 中取消。目前計費週期結束前仍可繼續使用。",
     "q9": "為什麼不是免費的？",
-    "a9": "訂閱用於持續開發與 API 成本。與依賴廣告或出售使用者資料的免費應用不同，本應用無廣告且不存取您的資料。先免費試用 7 天再訂閱。",
+    "a9": "訂閱用於支持持續開發與 API 成本。含廣告的免費方案支援一個資源。Pro 版移除廣告，並解鎖所有資源、Core Web Vitals 與網址檢查。訂閱前可免費試用 3 天。",
     "q10": "為什麼看不到我的網站？",
     "a10": "請先在網頁版 Google Search Console 中驗證網站。應用只顯示您 Google 帳戶有權限的資源。若剛新增站點，可嘗試登出後重新登入以重新整理。",
     "q11": "支援 iPad 嗎？",
@@ -193,7 +207,7 @@
     "q13": "可以管理多個網站嗎？",
     "a13": "可以。您在 Google Search Console 中有權限的所有網站都會出現在應用中，可隨時切換。",
     "q14": "資料多久更新？",
-    "a14": "每次開啟應用或下拉重新整理時會從 Google Search Console API 取得資料。Google 資料通常有 2–3 天延遲，此為 Google 限制。",
+    "a14": "每次開啟應用或下拉重新整理時會從 Google Search Console API 取得資料。Google 資料通常有 2~3 天延遲，此為 Google 限制。",
     "q15": "可以查看哪些時間範圍？",
     "a15": "最近 24 小時、7 天、28 天、3 個月、6 個月、12 個月或 16 個月，與 Google Search Console 選項一致。",
     "q16": "有 Android 版嗎？",
@@ -225,7 +239,7 @@
     "pages": "頁面",
     "product": "產品",
     "downloadAppStore": "在 App Store 下載",
-    "guideIphone": "指南：在 iPhone 上使用",
+    "guideIphone": "在 iPhone 上使用",
     "resources": "資源",
     "googleSearchConsole": "Google Search Console",
     "manageSubscription": "管理訂閱",
@@ -244,14 +258,14 @@
     "terms": "條款",
     "getApp": "取得應用",
     "downloadTitle": "把 Search Console 帶在身邊",
-    "downloadDesc": "在手機上查看 Search Console。",
+    "downloadDesc": "一個網站免費。Pro 版解鎖所有資源和 Blink。",
     "releases": "更新",
     "privacyPolicy": "隱私權政策",
     "termsOfService": "服務條款",
-    "guideOfficial": "指南：官方應用程式？",
-    "guideMobileOptions": "指南：移動選項",
-    "guideCwv": "指引：Core Web Vitals",
-    "guideRankings": "指南：關鍵字跟踪",
+    "guideOfficial": "官方應用程式？",
+    "guideMobileOptions": "移動選項",
+    "guideCwv": "Core Web Vitals",
+    "guideRankings": "關鍵字跟踪",
     "siteNavigation": "Site navigation"
   },
   "share": {
@@ -297,11 +311,12 @@
     "bridgeToReleases": "繼續 · 查看已發布內容",
     "founderPhotoAlt": "Search Console for iOS 開發者 Tarik Zukic",
     "linkedinAria": "Tarik Zukic 的 LinkedIn",
-    "founderName": "Tarik Zukic"
+    "founderName": "Tarik Zukic",
+    "storyP9": "2.5 版是迄今最大的一步：全新外觀，以及 Blink，一個在你的裝置上運作、回答你自己數據問題的助理。他只說資料顯示的內容。"
   },
   "releases": {
     "metaTitle": "版本歷史 - Search Console iOS 版",
-    "metaDescription": "了解 Search Console iOS 版的演進。在時間軸中查看所有版本、功能與改進。",
+    "metaDescription": "Search Console for iPhone 更新說明：2.5 版帶來 Blink、全新淺色設計、報告和以真實資料為準的提醒，以及完整的 iOS 更新記錄。",
     "heroKicker": "版本歷史",
     "heroTitle": "更新說明",
     "heroDesc": "了解 Search Console iOS 版的演進。每次更新都帶來新功能與改進。",
@@ -346,7 +361,7 @@
     "ariaCollapse": "收合更新說明",
     "changelogEyebrow": "變更紀錄",
     "changelogTitle": "已發布內容",
-    "changelogLead": "先看接下來的方向，再看從首發到今天的每個版本。",
+    "changelogLead": "最新版本在前，然後是直到首發的所有版本。之後的想法放在最後。",
     "bridgeToFeatures": "繼續 · 探索功能",
     "badgeLatest": "最新",
     "badgeUpcoming": "探索中",
@@ -380,7 +395,15 @@
     "v102Date": "2026 年 1 月",
     "v102_1": "改善訂閱載入與錯誤處理",
     "v102_2": "錯誤修復與穩定性提升",
-    "bridgeToBlog": "Continue · Improve your site"
+    "bridgeToBlog": "Continue · Improve your site",
+    "v250Date": "2026 年 10 月",
+    "v250New1": "Blink：在裝置端運作的助理，用數字、圖表和下一步建議回答關於搜尋資料的問題",
+    "v250New2": "所有畫面、彈出視窗和小工具採用全新淺色設計",
+    "v250New3": "Blink 產生的報告，可預覽並分享 PDF",
+    "v250New4": "以點擊量真實變化為準的提醒，附帶數字，由 Blink 的聲音送達",
+    "v250New5": "整合依網站逐一顯示，可為每個網站連結 Google Analytics 和 AdMob",
+    "v250New6": "全新音效、更流暢的動態效果，以及 3 天免費試用",
+    "sectionNew": "新增"
   },
   "guide": {
     "metaTitle": "如何在 iPhone 上使用 Google Search Console | 分步指南",
@@ -444,9 +467,9 @@
     }
   },
   "story": {
-    "proofEyebrow": "第2章",
-    "proofTitle": "一眼就能判斷的可信趨勢",
-    "proofDesc": "把桌面版效能資料重排成手機易讀視圖，提供足夠脈絡，讓你判斷今天是否需要深入追查。",
+    "proofEyebrow": "數據",
+    "proofTitle": "幾秒鐘看清哪裡變了",
+    "proofDesc": "這就是 App 的總覽。選一個數字切換圖表，再沿圖表拖曳查看某一天。",
     "proofQuote": "在週五報告解釋前，先發現週二的下滑。",
     "bridgeToProof": "繼續 · 查看數據",
     "bridgeToStart": "繼續 · 你的前兩分鐘",
@@ -745,7 +768,7 @@
   },
   "guidesCommon": {
     "disclaimer": "Search Console for iOS 是一個獨立的應用程式。 它不是由 Google 製作或附屬於 Google。",
-    "lastUpdated": "最後更新時間：2026 年 5 月 29 日",
+    "lastUpdated": "最後更新：2026 年 10 月 7 日",
     "byline": "作者：<a href=\"../about.html\">Tarik Zukic</a>",
     "relatedHeading": "相關指南",
     "allGuides": "所有指南",
@@ -772,7 +795,8 @@
     "h2Choose": "如何選擇移動工作流程",
     "pChoose1": "如果您每月只檢查一次 Search Console，Safari 可能就足夠了。 將網站新增至主畫面以進行一鍵存取。 如果您監控多個屬性或快速回應流量變化，本機應用程式可以節省時間。 您可以獲得可讀的圖表、更快的導航以及 iOS 上 Web UI 不提供的小部件等功能。",
     "pChoose2": "無論您選擇哪一條路徑，您的Search Console性能數據仍來自Google的API。 第三方應用程式會顯示 API 為您的帳戶傳回的內容。 屬性設定、使用者管理和批次驗證仍然屬於 Web 控制台。",
-    "pChoose3": "為 Web 資源新增書籤以執行使用者管理和驗證等管理任務。 使用手機了解每日脈搏：交通方向、意外索引和體驗警告。 這種角色劃分方式符合大多數獨立網站所有者和顧問的實際工作方式。"
+    "pChoose3": "為 Web 資源新增書籤以執行使用者管理和驗證等管理任務。 使用手機了解每日脈搏：交通方向、意外索引和體驗警告。 這種角色劃分方式符合大多數獨立網站所有者和顧問的實際工作方式。",
+    "shortAnswer": "簡短回答：沒有。Google 沒有推出適用於 iPhone 的 Search Console App。像本 App 這樣的獨立 App 透過 Google 官方 API 連結你現有的帳戶。"
   },
   "guideMobileOptions": {
     "metaTitle": "Google Search Console 行動應用程式選項 | iPhone 指南",
@@ -852,5 +876,55 @@
     "h2VsTrackers": "Search Console 與專用排名追蹤器",
     "pVsTrackers1": "第三方排名追蹤器會抓取或模擬任意關鍵字的結果。 Search Console 僅報告您的網站在 Google 搜尋中獲得展示次數的查詢。 對於許多企業來說，資料集很重要，因為它反映了真實的可見性，而不是來自一個位置和設備的全面檢查。",
     "pVsTrackers2": "如果您進行競爭性活動，請同時使用兩者。 在 iPhone 上使用 Search Console 可以對您已驗證的財產進行快速、權威的檢查。 當您需要城市級 SERP 螢幕截圖時，可以節省桌面工具的繁重競爭追蹤。"
+  },
+  "blink": {
+    "eyebrow": "2.5 新增",
+    "title": "認識一下 Blink。問問他你的流量。",
+    "desc": "像說話一樣輸入問題。Blink 讀取你的 Search Console 資料，用數字、圖表和下一步建議來回答。",
+    "p1Title": "答案來自你自己的數據",
+    "p1Desc": "他給出的每個數字都來自你的資料。他會告訴你發生了什麼變化，資料無法解釋原因時也會直說。",
+    "p2Title": "在你的裝置上運作",
+    "p2Desc": "你的問題不會離開你的 iPhone。Blink 需要支援 Apple Intelligence 的裝置。",
+    "p3Title": "值得傳送的報告",
+    "p3Desc": "請他產生報告，預覽 PDF，一鍵分享。",
+    "p4Title": "他會替你盯著",
+    "p4Desc": "只有點擊量真的變化時才會收到提醒，並附上數字。點一下，他會告訴你哪裡變了。",
+    "note": "所示為範例資料。"
+  },
+  "film": {
+    "eyebrow": "影片",
+    "title": "32 秒認識 Blink",
+    "desc": "從第一個問題到報告，2.5 的全部新功能。",
+    "play": "播放影片",
+    "note": "透過 YouTube 播放 · 範例資料"
+  },
+  "plans": {
+    "eyebrow": "方案",
+    "title": "免費開始，需要更多時再升級。",
+    "desc": "Pro 版在 3 天免費試用後每月 $5.99，或每週 $1.99。可隨時在 App Store 取消。",
+    "free": "免費",
+    "premium": "Pro 版",
+    "feature": "功能",
+    "rowSearch": "搜尋成效",
+    "rowProperties": "資源",
+    "rowBlink": "Blink 助理與報告",
+    "rowVitals": "Core Web Vitals",
+    "rowInspect": "網址檢查",
+    "rowAds": "廣告",
+    "one": "1",
+    "all": "全部",
+    "yes": "有",
+    "no": "無",
+    "included": "包含",
+    "notIncluded": "不包含",
+    "priceNote": "價格以美元計。App Store 會顯示你所在國家或地區的價格。"
+  },
+  "demo": {
+    "hint": "點一個數字。沿圖表拖曳。",
+    "range": "最近 28 天"
+  },
+  "sound": {
+    "on": "聲音開",
+    "off": "聲音關"
   }
 }

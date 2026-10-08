@@ -11,11 +11,11 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "99"
-JS_VERSION = "28"
-CHART_CSS_VERSION = "14"
-BLOG_VISUALS_CSS_VERSION = "3"
-PAGES_CSS_VERSION = "1"
+CSS_VERSION = "116"
+JS_VERSION = "38"
+CHART_CSS_VERSION = "15"
+BLOG_VISUALS_CSS_VERSION = "7"
+PAGES_CSS_VERSION = "5"
 LOGO_BOT = "Bot-72.png"
 PROMO_BOT = "Bot-96.png"
 
@@ -60,7 +60,7 @@ def header_block(prefix: str, *, is_home: bool) -> str:
     </div>
     <div class="release-notice-banner" id="release-notice-banner" data-expires="2026-06-27T00:00:00Z" role="status">
       <div class="container">
-        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.0 is live.</span>
+        <span class="release-notice-banner-text" data-i18n="banner.releaseNotice">Version 2.5 is live. Meet Blink.</span>
         <a href="{prefix}releases.html" class="release-notice-banner-link" data-i18n="banner.learnMore">See what changed</a>
       </div>
     </div>
@@ -145,13 +145,27 @@ def sync_bot_assets(text: str, prefix: str) -> str:
 def footer_block(prefix: str) -> str:
     bot_src = f"{prefix}{LOGO_BOT}"
     return f"""
-    <div class="footer-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
     <div class="container">
       <div class="footer-download">
+        <button type="button" class="footer-download-blink" data-blink-button data-i18n-aria-label="hero.blinkAlt" aria-label="Blink, the app's assistant">
+          <svg class="blink-live" data-blink viewBox="0 0 1280 1280" aria-hidden="true">
+            <path fill="#ffffff" d="M244 214 C219 210 218 221 223 248 C244 344 318 409 426 468 C283 559 183 716 111 912 C91 966 72 1018 78 1047 C83 1090 112 1118 168 1121 L1102 1121 C1159 1121 1181 1097 1193 1048 C1211 976 1213 862 1198 770 C1171 602 1101 462 977 382 C850 300 639 273 244 214 Z"/>
+            <g transform="translate(690 774)"><g transform="rotate(14)"><g data-blink-lid>
+              <clipPath id="blink-foot-clip-l"><ellipse rx="142" ry="249"/></clipPath>
+              <g clip-path="url(#blink-foot-clip-l)" data-blink-open><ellipse rx="142" ry="249" fill="#0f62fe"/><g data-blink-gaze data-scale="1" transform="translate(42.6 0)"><ellipse rx="52.54" ry="79.68" fill="#ffffff"/></g></g>
+              <path data-blink-smile fill="#0f62fe" d="M-142 68.5 Q0 -219 142 68.5 Q0 -61.6 -142 68.5Z" style="display:none"/>
+            </g></g></g>
+            <g transform="translate(1007 854)"><g transform="rotate(17)"><g data-blink-lid>
+              <clipPath id="blink-foot-clip-r"><ellipse rx="110" ry="192"/></clipPath>
+              <g clip-path="url(#blink-foot-clip-r)" data-blink-open><ellipse rx="110" ry="192" fill="#0f62fe"/><g data-blink-gaze data-scale="0.775" transform="translate(33 0)"><ellipse rx="40.7" ry="61.44" fill="#ffffff"/></g></g>
+              <path data-blink-smile fill="#0f62fe" d="M-110 52.8 Q0 -169 110 52.8 Q0 -47.5 -110 52.8Z" style="display:none"/>
+            </g></g></g>
+          </svg>
+        </button>
         <div class="footer-download-copy">
           <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
           <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
-          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Search Console on your phone.</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Free for one website. Pro unlocks every property and Blink.</p>
         </div>
         <a href="{APP_STORE}" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
       </div>
@@ -163,16 +177,15 @@ def footer_block(prefix: str) -> str:
             <span class="logo-text" data-i18n="common.appNameShort">Search Console</span>
           </a>
           <p class="footer-tagline" data-i18n="footer.tagline">Native iOS app for Google Search Console. Independent app using the official API. Not made by Google.</p>
-          <p class="footer-disclaimer" data-i18n="footer.notAffiliated">Not affiliated with Google.</p>
           <div class="social-share">
             <span class="social-label" data-i18n="footer.share">Share:</span>
-            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20Search%20Console%20for%20iOS%20-%20track%20your%20search%20rankings%20from%20your%20iPhone&amp;url=https://www.search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareX" aria-label="Share on X">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareFacebook" aria-label="Share on Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.search-console.org" target="_blank" rel="noopener" class="social-icon" data-i18n-aria-label="aria.shareLinkedIn" aria-label="Share on LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <button class="social-icon social-main" id="social-share-btn" data-i18n-aria-label="aria.moreShareOptions" aria-label="More share options">
@@ -199,14 +212,19 @@ def footer_block(prefix: str) -> str:
             <li><a href="{APP_STORE}" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a></li>
             <li><a href="{prefix}blog.html" data-i18n="nav.blog">Blog</a></li>
             <li><a href="{prefix}faq.html" data-i18n="nav.faq">FAQ</a></li>
-            <li><a href="/guides/" data-i18n="nav.guides">Guides</a></li>
-            <li><a href="{prefix}guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Guide: Use on iPhone</a></li>
-            <li><a href="{prefix}guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Guide: Official app?</a></li>
-            <li><a href="{prefix}guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Guide: Mobile options</a></li>
-            <li><a href="{prefix}guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Guide: Core Web Vitals</a></li>
-            <li><a href="{prefix}guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Guide: Keyword tracking</a></li>
             <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener" data-i18n="footer.googleSearchConsole">Google Search Console</a></li>
             <li><a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener" data-i18n="footer.manageSubscription">Manage subscription</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title" data-i18n="nav.guides">Guides</h3>
+          <ul class="footer-links">
+            <li><a href="/guides/" data-i18n="nav.guides">Guides</a></li>
+            <li><a href="{prefix}guides/how-to-use-google-search-console-on-iphone.html" data-i18n="footer.guideIphone">Use on iPhone</a></li>
+            <li><a href="{prefix}guides/is-there-an-official-google-search-console-app.html" data-i18n="footer.guideOfficial">Official app?</a></li>
+            <li><a href="{prefix}guides/google-search-console-mobile-app-options.html" data-i18n="footer.guideMobileOptions">Mobile options</a></li>
+            <li><a href="{prefix}guides/check-core-web-vitals-on-iphone.html" data-i18n="footer.guideCwv">Core Web Vitals</a></li>
+            <li><a href="{prefix}guides/track-keyword-rankings-from-iphone.html" data-i18n="footer.guideRankings">Keyword tracking</a></li>
           </ul>
         </div>
         <div>
@@ -215,6 +233,7 @@ def footer_block(prefix: str) -> str:
             <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
             <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
             <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
+            <input type="text" name="website" class="contact-form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button type="submit" data-i18n="footer.sendMessage">Send message</button>
           </form>
           <p class="contact-note" id="contact-note"></p>
@@ -418,7 +437,7 @@ def sync_scripts(text: str, prefix: str, *, include_performance_chart: bool, inc
 def sync_theme_color(text: str) -> str:
     if 'name="theme-color"' in text:
         return text
-    line = '  <meta name="theme-color" content="#000000">\n'
+    line = '  <meta name="theme-color" content="#ffffff">\n'
     viewport = '<meta name="viewport"'
     idx = text.find(viewport)
     if idx == -1:

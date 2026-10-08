@@ -1,31 +1,22 @@
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK_URL;
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
+const { guard, looksAutomated, isEmail } = require('./_guard');
 
 module.exports = async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    Object.keys(CORS_HEADERS).forEach(function (k) { res.setHeader(k, CORS_HEADERS[k]); });
-    return res.status(204).end();
-  }
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (!(await guard(req, res, { name: 'waitlist', limit: 5, windowSeconds: 600 }))) return;
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  const body = req.body && typeof req.body === 'object' ? req.body : {};
+  if (looksAutomated(body)) {
+    return res.status(200).json({ ok: true });
   }
 
-  const email = (req.body && req.body.email) || (req.query && req.query.email);
+  const email = body.email;
   if (!email || typeof email !== 'string') {
     return res.status(400).json({ error: 'Email required' });
   }
 
   const trimmed = email.trim().toLowerCase();
-  if (!trimmed.includes('@')) {
+  if (!isEmail(trimmed)) {
     return res.status(400).json({ error: 'Invalid email' });
   }
 

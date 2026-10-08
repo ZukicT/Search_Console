@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
-SITE = "https://search-console.org"
+SITE = "https://www.search-console.org"
 SITEMAP = f"{SITE}/sitemap.xml"
 OG_SOCIAL_VERSION = "4"
 OG_SOCIAL_JPG = f"{SITE}/og/social-card.jpg?v={OG_SOCIAL_VERSION}"
@@ -102,12 +102,12 @@ def replace_social_card_og_block(html: str) -> str:
         if og_url:
             html = insert_after_first(html, og_url.group(0), SOCIAL_CARD_OG_BLOCK)
 
-    html = html.replace('"image": "https://search-console.org/og-linkedin-share.png"', f'"image": "{OG_SOCIAL_JPG}"')
-    html = html.replace('"image": "https://search-console.org/app-icon-512.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
-    html = html.replace('"image": "https://search-console.org/og/social-card.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
-    html = html.replace('"image": "https://search-console.org/og/social-card.jpg?v=2"', f'"image": "{OG_SOCIAL_JPG}"')
-    html = html.replace('"logo": "https://search-console.org/og/social-card.jpg"', f'"logo": "{OG_SOCIAL_JPG}"')
-    html = html.replace('"logo": "https://search-console.org/og/social-card.jpg?v=2"', f'"logo": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://www.search-console.org/og-linkedin-share.png"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://www.search-console.org/app-icon-512.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://www.search-console.org/og/social-card.jpg"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"image": "https://www.search-console.org/og/social-card.jpg?v=2"', f'"image": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"logo": "https://www.search-console.org/og/social-card.jpg"', f'"logo": "{OG_SOCIAL_JPG}"')
+    html = html.replace('"logo": "https://www.search-console.org/og/social-card.jpg?v=2"', f'"logo": "{OG_SOCIAL_JPG}"')
     html = re.sub(
         r'<meta name="twitter:image" content="[^"]*">',
         f'<meta name="twitter:image" content="{OG_SOCIAL_GIF}">',

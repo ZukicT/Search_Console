@@ -4,37 +4,38 @@
 
 ## Primary pages
 
-- [Home](https://search-console.org/): Product overview, features, screenshots, and App Store download.
-- [Blog](https://search-console.org/blog.html): Practical SEO tips to improve your site using Search Console data.
-- [FAQ](https://search-console.org/faq.html): 17 questions on data access, Google affiliation, pricing, iPad support, and sign-in.
-- [About](https://search-console.org/about.html): Author, product story, and independence from Google.
-- [Release history](https://search-console.org/releases.html): Changelog for the iOS app.
-- [Privacy policy](https://search-console.org/privacy.html): OAuth, analytics, ads, and California privacy rights.
-- [Terms of service](https://search-console.org/terms.html): Subscription and usage terms.
+- [Home](https://www.search-console.org/): Product overview, features, screenshots, and App Store download.
+- [Blog](https://www.search-console.org/blog.html): Practical SEO tips to improve your site using Search Console data.
+- [FAQ](https://www.search-console.org/faq.html): 17 questions on data access, Google affiliation, pricing, iPad support, and sign-in.
+- [About](https://www.search-console.org/about.html): Author, product story, and independence from Google.
+- [Release history](https://www.search-console.org/releases.html): Changelog for the iOS app.
+- [Privacy policy](https://www.search-console.org/privacy.html): OAuth, analytics, ads, and California privacy rights.
+- [Terms of service](https://www.search-console.org/terms.html): Subscription and usage terms.
 
 ## Guides (long-tail SEO)
 
-- [All guides](https://search-console.org/guides/): Hub page listing every guide.
-- [How to use Google Search Console on iPhone](https://search-console.org/guides/how-to-use-google-search-console-on-iphone.html)
-- [Is there an official Google Search Console app?](https://search-console.org/guides/is-there-an-official-google-search-console-app.html)
-- [Google Search Console mobile app options](https://search-console.org/guides/google-search-console-mobile-app-options.html)
-- [How to check Core Web Vitals on iPhone](https://search-console.org/guides/check-core-web-vitals-on-iphone.html)
-- [How to track keyword rankings from iPhone](https://search-console.org/guides/track-keyword-rankings-from-iphone.html)
+- [All guides](https://www.search-console.org/guides/): Hub page listing every guide.
+- [How to use Google Search Console on iPhone](https://www.search-console.org/guides/how-to-use-google-search-console-on-iphone.html)
+- [Is there an official Google Search Console app?](https://www.search-console.org/guides/is-there-an-official-google-search-console-app.html)
+- [Google Search Console mobile app options](https://www.search-console.org/guides/google-search-console-mobile-app-options.html)
+- [How to check Core Web Vitals on iPhone](https://www.search-console.org/guides/check-core-web-vitals-on-iphone.html)
+- [How to track keyword rankings from iPhone](https://www.search-console.org/guides/track-keyword-rankings-from-iphone.html)
 
 ## App
 
 - [Download on the App Store](https://apps.apple.com/us/app/search-console/id6758431981)
-- Pricing: 7-day free trial, then USD 5.99/month via App Store subscription. Cancel anytime in iOS Settings.
+- Pricing: free plan with ads for one property. Pro is USD 5.99/month with a 3-day free trial for new subscribers, or USD 1.99/week, via App Store subscription. Cancel anytime in iOS Settings.
+- Blink: an on-device assistant (version 2.5 and later) that answers questions about the user's own Search Console data, builds PDF reports, and sends alerts when clicks change. Requires a device with Apple Intelligence. Questions are processed on the device.
 
 ## Crawling
 
-- [Sitemap](https://search-console.org/sitemap.xml)
-- [Robots.txt](https://search-console.org/robots.txt)
+- [Sitemap](https://www.search-console.org/sitemap.xml)
+- [Robots.txt](https://www.search-console.org/robots.txt)
 
 ## Entity
 
 - Developer: Tarik Zukic
-- [About the author](https://search-console.org/about.html)
+- [About the author](https://www.search-console.org/about.html)
 - [LinkedIn](https://www.linkedin.com/in/tarik-zukic03)
 - Contact: info@quackdb.app (also used in App Store privacy disclosures)
 

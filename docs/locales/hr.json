@@ -4,8 +4,8 @@
     "appNameShort": "Search Console"
   },
   "meta": {
-    "title": "Google Search Console aplikacija za iPhone | Izvorni iOS (nije od Googlea)",
-    "description": "Neovisna iOS aplikacija za Google Search Console na iPhoneu. Pregledajte promet, upite, Core Web Vitals i inspekciju URL-ova. 7 dana besplatno. Nije Googleov proizvod."
+    "title": "Google Search Console aplikacija za iPhone | Neovisna aplikacija",
+    "description": "Provjerite klikove, pojavljivanja, upite i najbolje stranice na iPhoneu. Povežite postojeći Google Search Console račun s neovisnom iOS aplikacijom."
   },
   "nav": {
     "home": "Početna",
@@ -40,27 +40,27 @@
     "moreShareOptions": "Više opcija dijeljenja"
   },
   "banner": {
-    "releaseNotice": "Verzija 2.0 je dostupna.",
+    "releaseNotice": "Verzija 2.5 je stigla. Upoznajte Blinka.",
     "learnMore": "Pogledajte što se promijenilo"
   },
   "hero": {
-    "pill": "Verzija 2.0",
+    "pill": "Verzija 2.5",
     "title": "Pogledajte kakva je izvedba vaše stranice u pretraživanju",
-    "role": "Već vjerujete Search Consoleu na stolnom računalu. Isti račun i isti podaci, prilagođeni iOS-u da odgovor pročitate prije nego trenutak prođe.",
-    "trust": "",
+    "role": "Provjerite klikove, pojavljivanja, upite i najbolje stranice iz postojećeg Google Search Console računa, bez otvaranja laptopa. Prijavite se Googleom, odaberite posjed i pogledajte što se promijenilo. Zatim pitajte Blinka, ugrađenog asistenta, da objasni vaše brojke.",
+    "trust": "Besplatno za jednu web-stranicu. Neovisna aplikacija, nije povezana s Googleom.",
     "statApiValue": "Promet pretraživanja",
     "statApiLabel": "Klikovi, impresije, upiti",
     "statVitalsValue": "Iskustvo stranice",
     "statVitalsLabel": "Core Web Vitals i prve stranice",
-    "statWidgetsValue": "Upozorenja i widgeti",
-    "statWidgetsLabel": "Primijetite kada se izvedba promijeni",
+    "statWidgetsValue": "Blink",
+    "statWidgetsLabel": "Pitajte svojim riječima",
     "bridge": "",
     "support": "",
     "downloadAppStore": "Preuzmite na App Store",
     "seeFeatures": "Pogledajte što je uključeno",
-    "offer": "7-dnevno besplatno probno razdoblje · 5,99 USD mjesečno",
+    "offer": "Besplatno za jednu web-stranicu. Pro od 5,99 $ mjesečno.",
     "disclaimer": "",
-    "eyebrow": "Za iPhone i iPad",
+    "eyebrow": "Neovisna aplikacija za iPhone i iPad",
     "deck": "Neovisna izvorna aplikacija povezana s Googleovim Search Console API-jem. Provjerite klikove, pojavljivanja, upite i doživljaj stranice bez otvaranja Safarija.",
     "point1": "Klikovi, pojavljivanja, CTR, upiti i prosječna pozicija",
     "point2": "Core Web Vitals, gornje stranice i URL pregled",
@@ -70,7 +70,16 @@
     "subtitle": "Pratite klikove, pojavljivanja, ključne riječi i temeljne web pokazatelje u profinjenoj izvornoj aplikaciji. Brža učitavanja, jasnija upozorenja i podaci koji su vam potrebni za poboljšanje performansi pretraživanja.",
     "metaApi": "Službeno Search Console API",
     "metaOAuth": "OAuth prijava",
-    "metaPrivacy": "Podaci ostaju na vašem Google računu"
+    "metaPrivacy": "Podaci ostaju na vašem Google računu",
+    "titleA": "Google Search Console na vašem iPhoneu",
+    "titleB": "Sada s Blinkom, asistentom za vaše vlastite brojke.",
+    "watch": "Pogledajte aplikaciju u akciji",
+    "bubble": "Pitajte me bilo što.",
+    "blinkAlt": "Blink, asistent aplikacije",
+    "qr": "Skenirajte za preuzimanje",
+    "shotAlt": "Zaslon Pregled u aplikaciji Search Console s klikovima, pojavljivanjima, CTR-om i prosječnom pozicijom za primjer stranice",
+    "h1Lead": "Google Search Console aplikacija",
+    "h1Rest": "za vaš iPhone i iPad"
   },
   "chart": {
     "eyebrow": "Pregled izvedbe",
@@ -112,7 +121,7 @@
     "queries": "Upiti za pretraživanje"
   },
   "valueProps": {
-    "eyebrow": "Poglavlje 1",
+    "eyebrow": "Zašto aplikacija",
     "title": "Kada pitanje udari daleko od vašeg stola",
     "desc": "Prometne propuste. Upit raste. Netko prije poziva traži brojeve. Mobile Web Search Console može odgovoriti, ali vas tjera da radite za njega.",
     "realtimeTitle": "Brzo očitajte signal",
@@ -123,9 +132,9 @@
     "secureDesc": "Prijavite se s Googleom. Ništa za migraciju. Ništa za ponovnu provjeru."
   },
   "story": {
-    "proofEyebrow": "Poglavlje 2",
-    "proofTitle": "Trend kojem možete vjerovati na prvi pogled",
-    "proofDesc": "Izvedba na radnoj površini, preuređena za zaslon telefona. Dovoljno konteksta da odlučimo treba li današnje vrijeme dublje sagledati.",
+    "proofEyebrow": "Brojke",
+    "proofTitle": "Vidite što se promijenilo, u nekoliko sekundi",
+    "proofDesc": "Ovo je Pregled iz aplikacije. Odaberite brojku da promijenite grafikon, zatim povucite po njemu da očitate jedan dan.",
     "proofQuote": "Uhvatite utorak prije no što to objasni izvješće od petka.",
     "bridgeToProof": "Nastavi · Vidi brojke",
     "bridgeToStart": "Nastavi · Vaše prve dvije minute",
@@ -145,12 +154,12 @@
     "title": "Jednostavni uvjeti prije nego što se prijavite",
     "desc": "Nema razina. Nema godišnjeg zaključavanja. Započnite s probom i zadržite je samo ako odgovara vašem tijeku rada.",
     "price": "5,99 USD mjesečno",
-    "trial": "7-dnevna proba",
+    "trial": "Proba 3 dana",
     "trialSub": "Najprije potpuni pristup aplikaciji",
     "devices": "iOS"
   },
   "howTo": {
-    "eyebrow": "Poglavlje 3",
+    "eyebrow": "Prvi koraci",
     "title": "Četiri koraka do vašeg prvog odgovora",
     "desc": "Nema nove nadzorne ploče za učenje. Ako Search Console već poznaje vaše web-lokacije, jedna vas je prijava udaljena.",
     "step1Title": "preuzimanje",
@@ -163,7 +172,7 @@
     "step4Desc": "Promet, upiti i stanje stranice u jednom izvornom prikazu."
   },
   "features": {
-    "eyebrow": "Poglavlje 4",
+    "eyebrow": "Što je unutra",
     "sectionTitle": "Svaki zaslon odgovara na pravo pitanje",
     "sectionDesc": "Ne zid jelovnika. Svaki se prikaz preslikava na ono što već tražite u Search Consoleu, veličine za brzo čitanje na iOS-u. Kada trebate dijeliti, izvezite CSV ili preuzmite prilagođeno PDF izvješće.",
     "performanceTitle": "Je li promet krenuo?",
@@ -184,7 +193,7 @@
     "pageLead2": "Prijavite se s Googleom, odaberite svojstvo i prijeđite s pregleda prometa na upite, stranice, temeljne web pokazatelje, pregled URL-ova i karte web-lokacija. Izvezite CSV ili preuzmite PDF izvješće kada trebate podijeliti brojke s klijentom ili suigračem."
   },
   "screenshots": {
-    "eyebrow": "5. poglavlje",
+    "eyebrow": "Aplikacija",
     "title": "Kroz što ćete zapravo tapkati",
     "desc": "Isti tijek rada iz gornjih odjeljaka, zaslon po zaslon, prije preuzimanja.",
     "hint": "Prijeđite prstom za pregledavanje · dodirnite za povećanje",
@@ -197,12 +206,17 @@
     "search": "Pretraživanje",
     "coreWebVitals": "Core Web Vitals",
     "urlInspection": "URL pregled",
-    "settings": "postavke"
+    "settings": "postavke",
+    "blink": "Blink",
+    "report": "Izvještaj",
+    "integrations": "Integracije",
+    "alerts": "Upozorenja",
+    "plans": "Planovi"
   },
   "pricing": {
     "eyebrow": "Cijene",
     "title": "Jedan plan za cijelu aplikaciju",
-    "desc": "7-dnevno besplatno probno razdoblje, zatim 5,99 USD mjesečno na iOS. ",
+    "desc": "Besplatna proba 3 dana, zatim 5,99 $ mjesečno na iOS-u. Otkažite bilo kada u App Storeu.",
     "period": "mjesečno nakon suđenja",
     "note": "iOS · sve nekretnine na vašem računu",
     "featureRealtime": "Izvješća o prometu i upitima",
@@ -233,7 +247,7 @@
     "q8": "Mogu li otkazati svoju pretplatu?",
     "a8": "Da. Otkažite bilo kada u iPhone postavkama, vašem imenu, pretplatama. Pristup se nastavlja do kraja obračunskog razdoblja.",
     "q9": "Zašto aplikacija nije besplatna?",
-    "a9": "Pretplata podržava tekući razvoj i troškove API-ja. Nema reklama i ne pristupamo vašim podacima. Isprobajte besplatno 7 dana prije pretplate.",
+    "a9": "Pretplata podržava daljnji razvoj i troškove API-ja. Besplatni plan s oglasima pokriva jedan posjed. Pro uklanja oglase i otključava sve posjede, Core Web Vitals i provjeru URL-a. Isprobajte besplatno 3 dana.",
     "q10": "Zašto ne mogu vidjeti svoju web stranicu?",
     "a10": "Prvo potvrdite web mjesto u Search Consoleu na webu. Aplikacija navodi samo svojstva kojima vaš Google račun već može pristupiti. Ako ste upravo dodali web mjesto, odjavite se i ponovno prijavite da biste osvježili popis.",
     "q11": "Radi li aplikacija na iPad?",
@@ -269,18 +283,18 @@
     "language": "Jezik",
     "getApp": "Preuzmite aplikaciju",
     "downloadTitle": "Ponesite Search Console sa sobom",
-    "downloadDesc": "Search Console na svom telefonu.",
+    "downloadDesc": "Besplatno za jednu web-stranicu. Pro otključava sve posjede i Blinka.",
     "tagline": "Izvorna iOS aplikacija za Google Search Console. Neovisna aplikacija koja koristi službeni API. Nije Googleov proizvod.",
     "notAffiliated": "Nije povezan s Google.",
     "share": "Udio:",
     "pages": "Stranice",
     "product": "Proizvod",
     "downloadAppStore": "Preuzmite na App Store",
-    "guideIphone": "Vodič: Koristite na iPhone",
-    "guideOfficial": "Vodič: Službena aplikacija?",
-    "guideMobileOptions": "Vodič: Mobilne opcije",
-    "guideCwv": "Vodič: Core Web Vitals",
-    "guideRankings": "Vodič: Praćenje ključnih riječi",
+    "guideIphone": "Koristite na iPhone",
+    "guideOfficial": "Službena aplikacija?",
+    "guideMobileOptions": "Mobilne opcije",
+    "guideCwv": "Core Web Vitals",
+    "guideRankings": "Praćenje ključnih riječi",
     "resources": "Resursi",
     "googleSearchConsole": "Google Search Console",
     "manageSubscription": "Upravljanje pretplatom",
@@ -342,11 +356,12 @@
     "valueFastDesc": "Otvori, skeniraj, odluči. Nema feeda obavijesti koje se pretvaraju da su uvidi. Izgled daje prednost brojevima za koje ste otvorili aplikaciju.",
     "valueImprovingTitle": "Ugrađeno na otvorenom, jedno po jedno izdanje",
     "valueImprovingDesc": "Isprobam svaku verziju. Ako mi se zaslon čini sporim ili nejasnim, to se popravlja. Ako još nešto važno nedostaje, ide na popis.",
-    "bridgeToReleases": "Nastavi · Pogledajte što je poslano"
+    "bridgeToReleases": "Nastavi · Pogledajte što je poslano",
+    "storyP9": "Verzija 2.5 najveći je korak dosad: novi izgled i Blink, asistent koji radi na vašem uređaju i odgovara na pitanja o vašim vlastitim brojkama. Govori samo ono što podaci pokazuju."
   },
   "releases": {
     "metaTitle": "Povijest izdanja | Search Console za iOS",
-    "metaDescription": "Dnevnik promjena za neovisnu iOS aplikaciju Search Console. Značajke, popravci i što je sljedeće. Nije Googleov proizvod.",
+    "metaDescription": "Bilješke o izdanjima za Search Console za iPhone: verzija 2.5 s Blinkom, novim svijetlim dizajnom, izvještajima i stvarnim upozorenjima te cijelim popisom izmjena.",
     "heroKicker": "Povijest verzija",
     "heroTitle": "Bilješke o izdanju",
     "heroDesc": "Pratite razvoj Search Consolea za iOS. Svako ažuriranje donosi nove značajke, poboljšanja i dorade.",
@@ -355,7 +370,7 @@
     "statImprovements": "Poboljšanja",
     "changelogEyebrow": "Dnevnik promjena",
     "changelogTitle": "Što je poslano",
-    "changelogLead": "Prvo što je sljedeće, zatim sve verzije od lansiranja do danas.",
+    "changelogLead": "Najprije najnovije izdanje, zatim sve verzije do lansiranja. Ideje za kasnije nalaze se na kraju.",
     "bridgeToBlog": "Nastavite · Poboljšajte svoju stranicu",
     "badgeLatest": "Najnoviji",
     "badgeUpcoming": "Istražujući",
@@ -424,7 +439,15 @@
     "v100_10": "Popravci curenja memorije i asinkrona za stabilnu upotrebu",
     "v100_11": "24-satni grafikon: interpolacija po satu i projicirani podaci",
     "ariaExpand": "Proširi napomene o izdanju",
-    "ariaCollapse": "Sažmi napomene o izdanju"
+    "ariaCollapse": "Sažmi napomene o izdanju",
+    "v250Date": "Listopad 2026.",
+    "v250New1": "Blink, asistent na uređaju koji odgovara na pitanja o vašim podacima pretraživanja brojkama, grafikonima i sljedećim koracima",
+    "v250New2": "Novi svijetli dizajn na svakom zaslonu, listu i widgetu",
+    "v250New3": "Blinkovi izvještaji s pregledom PDF-a koji možete podijeliti",
+    "v250New4": "Upozorenja temeljena na stvarnim promjenama klikova, s brojkama, Blinkovim glasom",
+    "v250New5": "Integracije prikazane za jednu stranicu odjednom, s Google Analyticsom i AdMobom povezanima po stranici",
+    "v250New6": "Novi zvukovi, glađe animacije i besplatna proba od 3 dana",
+    "sectionNew": "Novo"
   },
   "guide": {
     "metaTitle": "Kako koristiti Google Search Console na iPhone | Neovisni vodič za iOS aplikaciju",
@@ -475,7 +498,7 @@
   },
   "guidesCommon": {
     "disclaimer": "Search Console za iOS neovisna je aplikacija. Nije ga napravio Google niti je s njim povezan.",
-    "lastUpdated": "Zadnje ažuriranje: 29. svibnja 2026",
+    "lastUpdated": "Zadnje ažuriranje: 7. listopada 2026.",
     "byline": "Autor <a href=\"../about.html\">Tarik Zukic</a>",
     "relatedHeading": "Povezani vodiči",
     "allGuides": "Svi vodiči",
@@ -502,7 +525,8 @@
     "h2Choose": "Kako odabrati mobilni tijek rada",
     "pChoose1": "Ako Search Console provjeravate samo jednom mjesečno, Safari bi mogao biti dovoljan. Dodajte web mjesto na početni zaslon za pristup jednim dodirom. Ako pratite više nekretnina ili brzo reagirate na promjene u prometu, izvorna aplikacija štedi vrijeme. Dobivate čitljive grafikone, bržu navigaciju i značajke poput widgeta koje web sučelje ne nudi na iOS-u.",
     "pChoose2": "Koji god put odabrali, vaši podaci o izvedbi Search Consolea i dalje dolaze iz Googleovog API-ja. Aplikacije trećih strana prikazuju što taj API vraća za vaš račun. Postavke svojstava, upravljanje korisnicima i skupna provjera i dalje pripadaju web konzoli.",
-    "pChoose3": "Označite web svojstvo za administratorske zadatke kao što su upravljanje korisnicima i provjera. Koristite svoj telefon za dnevni puls: smjer prometa, iznenađenja indeksiranja i upozorenja o iskustvu. Podjela uloga na taj način odgovara načinu rada većine neovisnih vlasnika web-mjesta i konzultanata."
+    "pChoose3": "Označite web svojstvo za administratorske zadatke kao što su upravljanje korisnicima i provjera. Koristite svoj telefon za dnevni puls: smjer prometa, iznenađenja indeksiranja i upozorenja o iskustvu. Podjela uloga na taj način odgovara načinu rada većine neovisnih vlasnika web-mjesta i konzultanata.",
+    "shortAnswer": "Kratak odgovor: ne. Google ne objavljuje Search Console aplikaciju za iPhone. Neovisne aplikacije poput ove povezuju se s vašim postojećim računom putem službenog Googleovog API-ja."
   },
   "guideMobileOptions": {
     "metaTitle": "Google Search Console Opcije mobilne aplikacije | Vodič za iPhone",
@@ -828,7 +852,7 @@
     "visualCaptionSitemap": "Izvješće o kartama web stranica: predano URLs u odnosu na indeksirano s karte web stranica",
     "visualSitemapSubmitted": "Poslano",
     "visualSitemapIndexed": "Indeksirano",
-    "visualSitemapGap": "<strong>28 URLs</strong> u karti web stranice nije indeksirano — provjerite razloge indeksiranja stranice nakon promjena predloška ili preusmjeravanja.",
+    "visualSitemapGap": "<strong>28 URLs</strong> u karti web stranice nije indeksirano. Provjerite razloge indeksiranja stranice nakon promjena predloška ili preusmjeravanja.",
     "h2Checklist": "Praktičan kontrolni popis nakon postavljanja",
     "pChecklistIntro": "Unutar 48 sati od velikog izdanja:",
     "liCheck_1": "URL Inspekcija na početnoj stranici i jedan predložak URL po glavnom odjeljku.",
@@ -842,5 +866,55 @@
     "source4": "Uvod u datoteku robots.txt - Google Search Central",
     "relatedTraffic": "Kako pronaći stranice koje gube promet u Search Console",
     "relatedCtr": "Kako poboljšati klikovni postotak pretraživanja pomoću podataka upita"
+  },
+  "blink": {
+    "eyebrow": "Novo u 2.5",
+    "title": "Upoznajte Blinka. Pitajte ga o svom prometu.",
+    "desc": "Postavite pitanje onako kako biste ga izgovorili. Blink čita vaše Search Console podatke i odgovara brojkama, grafikonom i sljedećim korakom.",
+    "p1Title": "Odgovori iz vaših vlastitih brojki",
+    "p1Desc": "Svaka brojka dolazi iz vaših podataka. Kaže vam što se promijenilo i otvoreno kaže kada podaci ne mogu objasniti zašto.",
+    "p2Title": "Radi na vašem uređaju",
+    "p2Desc": "Vaša pitanja ne napuštaju vaš iPhone. Blink zahtijeva uređaj s Apple Intelligenceom.",
+    "p3Title": "Izvještaj vrijedan slanja",
+    "p3Desc": "Zatražite izvještaj, pregledajte PDF i podijelite ga jednim dodirom.",
+    "p4Title": "On drži stražu",
+    "p4Desc": "Upozorenja stižu samo kada se klikovi stvarno promijene, s brojkama. Dodirnite jedno i pokazat će vam što se promijenilo.",
+    "note": "Prikazani su primjeri podataka."
+  },
+  "film": {
+    "eyebrow": "Film",
+    "title": "Blink u 32 sekunde",
+    "desc": "Sve novo u 2.5, od prvog pitanja do izvještaja.",
+    "play": "Pokreni film",
+    "note": "Reprodukcija s YouTubea · primjeri podataka"
+  },
+  "plans": {
+    "eyebrow": "Planovi",
+    "title": "Besplatno za početak. Pro kada trebate više.",
+    "desc": "Pro je 5,99 $ mjesečno nakon 3 dana besplatne probe ili 1,99 $ tjedno. Otkažite bilo kada u App Storeu.",
+    "free": "Besplatno",
+    "premium": "Pro",
+    "feature": "Značajka",
+    "rowSearch": "Učinak pretraživanja",
+    "rowProperties": "Posjedi",
+    "rowBlink": "Asistent Blink i izvještaji",
+    "rowVitals": "Core Web Vitals",
+    "rowInspect": "Provjera URL-a",
+    "rowAds": "Oglasi",
+    "one": "1",
+    "all": "Svi",
+    "yes": "Da",
+    "no": "Nema",
+    "included": "Uključeno",
+    "notIncluded": "Nije uključeno",
+    "priceNote": "Cijene su u američkim dolarima. App Store prikazuje cijenu za vašu zemlju."
+  },
+  "demo": {
+    "hint": "Dodirnite brojku. Povucite po grafikonu.",
+    "range": "Zadnjih 28 dana"
+  },
+  "sound": {
+    "on": "Zvuk uključen",
+    "off": "Zvuk isključen"
   }
 }

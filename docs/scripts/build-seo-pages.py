@@ -149,8 +149,8 @@ def page_shell(
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="{og_type}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://search-console.org/og/social-card.jpg?v=3">
-  <meta property="og:image:secure_url" content="https://search-console.org/og/social-card.jpg?v=3">
+  <meta property="og:image" content="https://www.search-console.org/og/social-card.jpg?v=3">
+  <meta property="og:image:secure_url" content="https://www.search-console.org/og/social-card.jpg?v=3">
   <meta property="og:image:width" content="2064">
   <meta property="og:image:height" content="2064">
   <meta property="og:image:type" content="image/jpeg">
@@ -158,7 +158,7 @@ def page_shell(
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="https://search-console.org/og/social-card.gif?v=3">
+  <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=3">
   <link rel="stylesheet" href="css/style.css?v={CSS_VERSION}">{chart_css}
 {extra_head}
 </head>
@@ -234,11 +234,11 @@ def build_features(index_html: str) -> None:
     "@type": "WebPage",
     "name": "Google Search Console iOS App Features",
     "description": "Feature overview for Search Console for iOS, an independent native app for Google Search Console data on iPhone and iPad.",
-    "url": "https://search-console.org/features.html",
+    "url": "https://www.search-console.org/features.html",
     "isPartOf": {
       "@type": "WebSite",
       "name": "Search Console for iOS",
-      "url": "https://search-console.org/"
+      "url": "https://www.search-console.org/"
     }
   }
   </script>
@@ -247,8 +247,8 @@ def build_features(index_html: str) -> None:
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://search-console.org/"},
-      {"@type": "ListItem", "position": 2, "name": "Features", "item": "https://search-console.org/features.html"}
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.search-console.org/"},
+      {"@type": "ListItem", "position": 2, "name": "Features", "item": "https://www.search-console.org/features.html"}
     ]
   }
   </script>"""
@@ -256,7 +256,7 @@ def build_features(index_html: str) -> None:
     html = page_shell(
         title="Google Search Console iOS App Features | Search Console for iOS",
         description="See what the independent Search Console iOS app covers: traffic, queries, pages, Core Web Vitals, URL inspection, exports, and alerts. Not made by Google.",
-        canonical="https://search-console.org/features.html",
+        canonical="https://www.search-console.org/features.html",
         og_type="website",
         body_class="page-features",
         extra_head=extra,
@@ -293,8 +293,8 @@ def build_faq(index_html: str) -> None:
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://search-console.org/"},
-      {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://search-console.org/faq.html"}
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.search-console.org/"},
+      {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://www.search-console.org/faq.html"}
     ]
   }
   </script>"""
@@ -302,7 +302,7 @@ def build_faq(index_html: str) -> None:
     html = page_shell(
         title="Google Search Console App for iPhone FAQ | Search Console for iOS",
         description="FAQ for the independent Search Console iOS app: official Google app, pricing, data safety, iPad support, and how to sign in. Not made by Google.",
-        canonical="https://search-console.org/faq.html",
+        canonical="https://www.search-console.org/faq.html",
         og_type="website",
         body_class="page-faq",
         extra_head=extra,

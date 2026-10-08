@@ -1,5 +1,5 @@
 (function () {
-  var DOT_RGB = [148, 148, 163];
+  var DOT_RGB = [15, 98, 254];
   var FRAME_INTERVAL_MS = 33;
 
   function fract(value) {

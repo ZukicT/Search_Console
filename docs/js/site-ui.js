@@ -183,7 +183,8 @@
   }
 
   function initNavActiveState() {
-    var page = normalizePath(window.location.pathname);
+    // Works with and without the .html extension, so hosts that serve clean URLs mark the page too.
+    var page = (window.location.pathname || '/').replace(/^\//, '').replace(/\.html$/, '').replace(/\/$/, '');
     var hash = window.location.hash;
     var onHome = isHomePage();
 
@@ -192,12 +193,12 @@
       var isActive = false;
 
       if (key === 'home' && onHome && (!hash || hash === '#hero')) isActive = true;
-      if (key === 'blog' && (page === 'blog.html' || page.indexOf('blog/') === 0)) isActive = true;
-      if (key === 'faq' && (page === 'faq.html' || (onHome && hash === '#faq'))) isActive = true;
-      if (key === 'about' && page === 'about.html') isActive = true;
-      if (key === 'releases' && page === 'releases.html') isActive = true;
-      if (key === 'privacy' && page === 'privacy.html') isActive = true;
-      if (key === 'terms' && page === 'terms.html') isActive = true;
+      if (key === 'blog' && (page === 'blog' || page.indexOf('blog/') === 0)) isActive = true;
+      if (key === 'faq' && (page === 'faq' || (onHome && hash === '#faq'))) isActive = true;
+      if (key === 'about' && page === 'about') isActive = true;
+      if (key === 'releases' && page === 'releases') isActive = true;
+      if (key === 'privacy' && page === 'privacy') isActive = true;
+      if (key === 'terms' && page === 'terms') isActive = true;
 
       link.classList.toggle('is-active', isActive);
       if (isActive) {
@@ -781,4 +782,409 @@
   window.addEventListener('hashchange', initNavActiveState);
   window.addEventListener('resize', updateNavGlassIndicator);
   window.addEventListener('load', updateNavGlassIndicator);
+})();
+
+/* Blink, live: wherever a [data-blink] figure appears he watches the pointer, blinks on his own,
+   and hops with a happy face when clicked. */
+(function () {
+  var figures = Array.prototype.slice.call(document.querySelectorAll('[data-blink]'));
+  if (!figures.length) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touchOnly = window.matchMedia && window.matchMedia('(hover: none)').matches;
+
+  figures.forEach(function (svg) {
+    var gazes = Array.prototype.slice.call(svg.querySelectorAll('[data-blink-gaze]'));
+    var lids = Array.prototype.slice.call(svg.querySelectorAll('[data-blink-lid]'));
+    var opens = Array.prototype.slice.call(svg.querySelectorAll('[data-blink-open]'));
+    var smiles = Array.prototype.slice.call(svg.querySelectorAll('[data-blink-smile]'));
+    var button = svg.closest('[data-blink-button]');
+    var bubble = button && button.parentNode ? button.parentNode.querySelector('[data-blink-bubble]') : null;
+
+    // Gaze is in the eye's own units: x from -1 (left) to 1 (right), y from -1 (up) to 1 (down).
+    var target = { x: 0.45, y: 0.35 };
+    var current = { x: 0.45, y: 0.35 };
+    var frame = null;
+
+    function applyGaze() {
+      gazes.forEach(function (gaze) {
+        var scale = parseFloat(gaze.getAttribute('data-scale')) || 1;
+        gaze.setAttribute('transform', 'translate(' + (current.x * 78 * scale).toFixed(1) + ' ' + (current.y * 130 * scale).toFixed(1) + ')');
+      });
+    }
+
+    function step() {
+      current.x += (target.x - current.x) * 0.16;
+      current.y += (target.y - current.y) * 0.16;
+      applyGaze();
+      frame = (Math.abs(target.x - current.x) > 0.004 || Math.abs(target.y - current.y) > 0.004) ? window.requestAnimationFrame(step) : null;
+    }
+
+    function lookAt(clientX, clientY) {
+      var rect = svg.getBoundingClientRect();
+      // Only track while he is on screen; the eyes sit right of centre and low in the body.
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      var dx = (clientX - (rect.left + rect.width * 0.66)) / 320;
+      var dy = (clientY - (rect.top + rect.height * 0.63)) / 320;
+      var length = Math.sqrt(dx * dx + dy * dy);
+      if (length > 1) { dx /= length; dy /= length; }
+      target.x = dx;
+      target.y = dy;
+      if (!frame) frame = window.requestAnimationFrame(step);
+    }
+
+    function setLids(scale) {
+      lids.forEach(function (lid) { lid.setAttribute('transform', 'scale(1 ' + scale + ')'); });
+    }
+
+    function blinkOnce() {
+      var start = null;
+      function tick(now) {
+        if (start === null) start = now;
+        var k = Math.min((now - start) / 150, 1);
+        setLids(k < 0.5 ? 1 - 1.88 * k : 0.06 + 1.88 * (k - 0.5));
+        if (k < 1) window.requestAnimationFrame(tick); else setLids(1);
+      }
+      window.requestAnimationFrame(tick);
+    }
+
+    function scheduleBlink() {
+      window.setTimeout(function () {
+        var rect = svg.getBoundingClientRect();
+        if (!document.hidden && rect.bottom > 0 && rect.top < window.innerHeight) blinkOnce();
+        scheduleBlink();
+      }, 2600 + Math.random() * 3200);
+    }
+
+    function setHappy(isHappy) {
+      opens.forEach(function (node) { node.style.display = isHappy ? 'none' : ''; });
+      smiles.forEach(function (node) { node.style.display = isHappy ? '' : 'none'; });
+    }
+
+    applyGaze();
+    if (reduceMotion) return;
+
+    window.addEventListener('pointermove', function (event) { lookAt(event.clientX, event.clientY); }, { passive: true });
+    if (touchOnly) {
+      // With no pointer he reads down the page as it scrolls.
+      window.addEventListener('scroll', function () {
+        target.x = -0.5;
+        target.y = Math.min(0.8, 0.3 + window.scrollY / 600);
+        if (!frame) frame = window.requestAnimationFrame(step);
+      }, { passive: true });
+    }
+    scheduleBlink();
+
+    if (button) {
+      button.addEventListener('click', function () {
+        if (svg.classList.contains('is-hopping')) return;
+        svg.classList.add('is-hopping');
+        setHappy(true);
+        if (bubble) bubble.style.visibility = 'hidden';
+        window.setTimeout(function () {
+          svg.classList.remove('is-hopping');
+          setHappy(false);
+          if (bubble) bubble.style.visibility = '';
+        }, 900);
+      });
+    }
+  });
+})();
+
+/* The film: a poster until asked for, then the YouTube player in its place. */
+(function () {
+  var play = document.querySelector('[data-film]');
+  if (!play) return;
+  play.addEventListener('click', function () {
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(play.getAttribute('data-film')) + '?autoplay=1&rel=0';
+    frame.title = play.getAttribute('aria-label') || 'Film';
+    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.allowFullscreen = true;
+    play.parentNode.replaceChild(frame, play);
+  });
+})();
+
+/* Sound: the same short synthesised tones the app uses. Nothing plays before the visitor's first
+   click or key press, and the toggle in the hero turns it off for good (remembered per browser). */
+window.SiteSound = (function () {
+  var STORAGE_KEY = 'siteSound';
+  var context = null;
+  var enabled = true;
+  try { enabled = window.localStorage.getItem(STORAGE_KEY) !== 'off'; } catch (e) {}
+
+  // [from Hz, to Hz, start s, duration s, second-harmonic level]
+  var SOUNDS = {
+    select: [[1318.51, 1318.51, 0, 0.05, 0]],
+    tick: [[1568, 1568, 0, 0.045, 0]],
+    advance: [[880, 880, 0, 0.07, 0], [1174.66, 1174.66, 0.045, 0.09, 0]],
+    back: [[880, 880, 0, 0.07, 0], [659.25, 659.25, 0.045, 0.09, 0]],
+    pop: [[520, 1040, 0, 0.09, 0]],
+    hop: [[330, 660, 0, 0.16, 0.2], [660, 440, 0.34, 0.12, 0.2]],
+    speak: [[520, 560, 0, 0.07, 0.35], [720, 780, 0.1, 0.06, 0.35], [640, 600, 0.19, 0.07, 0.35]]
+  };
+  var LEVELS = { select: 1, tick: 0.65, advance: 1, back: 1, pop: 0.7, hop: 0.55, speak: 0.6 };
+
+  function schedule(ctx, destination, name, startAt) {
+    var partials = SOUNDS[name];
+    if (!partials) return;
+    var level = 0.09 * (LEVELS[name] || 1);
+    partials.forEach(function (partial) {
+      var begin = startAt + partial[2];
+      var end = begin + partial[3];
+      var gain = ctx.createGain();
+      gain.gain.setValueAtTime(0, begin);
+      gain.gain.linearRampToValueAtTime(level, begin + 0.006);
+      gain.gain.exponentialRampToValueAtTime(0.0001, end);
+      gain.connect(destination);
+      [[1, 1], [2, partial[4]]].forEach(function (voice) {
+        if (!voice[1]) return;
+        var osc = ctx.createOscillator();
+        var voiceGain = ctx.createGain();
+        voiceGain.gain.value = voice[1];
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(partial[0] * voice[0], begin);
+        osc.frequency.linearRampToValueAtTime(partial[1] * voice[0], end);
+        osc.connect(voiceGain);
+        voiceGain.connect(gain);
+        osc.start(begin);
+        osc.stop(end + 0.02);
+      });
+    });
+  }
+
+  function unlock() {
+    if (context || !enabled) return;
+    var Ctor = window.AudioContext || window.webkitAudioContext;
+    if (!Ctor) return;
+    try { context = new Ctor(); } catch (e) { context = null; }
+  }
+
+  function play(name) {
+    if (!enabled) return;
+    unlock();
+    if (!context) return;
+    if (context.state === 'suspended') context.resume();
+    schedule(context, context.destination, name, context.currentTime + 0.005);
+  }
+
+  function setEnabled(value) {
+    enabled = value;
+    try { window.localStorage.setItem(STORAGE_KEY, value ? 'on' : 'off'); } catch (e) {}
+    document.querySelectorAll('[data-sound-toggle]').forEach(function (toggle) {
+      toggle.setAttribute('aria-pressed', value ? 'true' : 'false');
+      var on = toggle.querySelector('[data-sound-on]');
+      var off = toggle.querySelector('[data-sound-off]');
+      if (on) on.hidden = !value;
+      if (off) off.hidden = value;
+    });
+  }
+
+  document.addEventListener('pointerdown', unlock, { passive: true });
+  document.addEventListener('keydown', unlock);
+  document.addEventListener('DOMContentLoaded', function () { setEnabled(enabled); });
+  if (document.readyState !== 'loading') setEnabled(enabled);
+
+  document.addEventListener('click', function (event) {
+    var target = event.target.closest ? event.target : null;
+    if (!target) return;
+    var toggle = target.closest('[data-sound-toggle]');
+    if (toggle) {
+      var next = !enabled;
+      setEnabled(next);
+      if (next) play('select');
+      return;
+    }
+    if (target.closest('[data-blink-button]')) return play('hop');
+    if (target.closest('[data-film]')) return play('pop');
+    if (target.closest('.carbon-btn--primary, .nav-cta, .footer-app-cta')) return play('advance');
+    if (target.closest('.faq-question, .screenshot-showcase__nav, .carbon-btn--outline, .mobile-menu-btn')) return play('tick');
+  });
+
+  return {
+    play: play,
+    isEnabled: function () { return enabled; },
+    // For checks: renders a sound offline and reports its length and peak level.
+    measure: function (name) {
+      var Offline = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+      if (!Offline) return Promise.resolve(null);
+      var offline = new Offline(1, 44100, 44100);
+      schedule(offline, offline.destination, name, 0.01);
+      return offline.startRendering().then(function (buffer) {
+        var data = buffer.getChannelData(0);
+        var peak = 0;
+        var last = 0;
+        for (var i = 0; i < data.length; i += 1) {
+          var value = Math.abs(data[i]);
+          if (value > peak) peak = value;
+          if (value > 0.001) last = i;
+        }
+        return { name: name, peak: Math.round(peak * 1000) / 1000, seconds: Math.round(last / 441) / 100 };
+      });
+    }
+  };
+})();
+
+/* The Overview, live: pick a figure to change the chart, drag along it to read a day. Same as the app. */
+(function () {
+  var root = document.querySelector('[data-overview-demo]');
+  if (!root) return;
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clicks = [150, 70, 75, 120, 110, 170, 130, 190, 185, 60, 70, 85, 100, 82, 115, 68, 105, 66, 108, 113, 96, 80, 90, 66, 88, 124, 96, 131];
+  var impressions = clicks.map(function (value, i) { return Math.round(value * (10.2 + 2.1 * Math.sin(i * 0.9))); });
+  var series = {
+    clicks: { values: clicks, format: function (v) { return String(Math.round(v)); } },
+    impressions: { values: impressions, format: function (v) { return v >= 1000 ? (v / 1000).toFixed(1) + 'K' : String(Math.round(v)); } },
+    ctr: { values: clicks.map(function (value, i) { return 7.4 + (clicks[(i * 5 + 3) % clicks.length] % 41) / 9 + (value - 105) / 90; }), format: function (v) { return v.toFixed(1) + '%'; } },
+    position: { values: clicks.map(function (value, i) { return 13.2 + (clicks[(i * 11 + 7) % clicks.length] - 105) / 38 - (value - 105) / 70; }), format: function (v) { return v.toFixed(1); } }
+  };
+
+  var plot = root.querySelector('[data-overview-plot]');
+  var line = root.querySelector('[data-line]');
+  var area = root.querySelector('[data-area]');
+  var cursor = root.querySelector('[data-cursor]');
+  var marker = root.querySelector('[data-marker]');
+  var callout = root.querySelector('[data-callout]');
+  var axisMax = root.querySelector('[data-axis="max"]');
+  var axisMid = root.querySelector('[data-axis="mid"]');
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-metric]'));
+  var W = 1000;
+  var H = 300;
+  var current = 'clicks';
+  var points = [];
+  var selectedIndex = -1;
+  var lastTick = 0;
+  var clearTimer = null;
+
+  function niceCeiling(value) {
+    var magnitude = Math.pow(10, Math.floor(Math.log(value) / Math.LN10));
+    var steps = [1, 2, 2.5, 5, 10];
+    for (var i = 0; i < steps.length; i += 1) {
+      if (value <= steps[i] * magnitude) return steps[i] * magnitude;
+    }
+    return 10 * magnitude;
+  }
+
+  function draw(animate) {
+    var data = series[current];
+    var top = niceCeiling(Math.max.apply(null, data.values) * 1.05);
+    points = data.values.map(function (value, i) {
+      return { x: (i / (data.values.length - 1)) * W, y: H - (value / top) * (H - 12), value: value };
+    });
+    var path = points.map(function (p, i) { return (i ? 'L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); }).join(' ');
+    line.setAttribute('d', path);
+    area.setAttribute('d', path + ' L' + W + ' ' + H + ' L0 ' + H + ' Z');
+    axisMax.textContent = data.format(top);
+    axisMid.textContent = data.format(top / 2);
+    clearSelection();
+    if (animate && !reduceMotion) {
+      root.classList.remove('is-drawn');
+      // Force a style flush so the draw restarts from zero.
+      void line.getBoundingClientRect();
+      root.classList.add('is-drawn');
+    } else {
+      root.classList.add('is-drawn');
+    }
+  }
+
+  function clearSelection() {
+    selectedIndex = -1;
+    root.classList.remove('is-scrubbing');
+  }
+
+  function select(index) {
+    if (index === selectedIndex) return;
+    selectedIndex = index;
+    var p = points[index];
+    var rect = plot.getBoundingClientRect();
+    var svgRect = plot.querySelector('svg').getBoundingClientRect();
+    var left = svgRect.left - rect.left + (p.x / W) * svgRect.width;
+    var topPx = svgRect.top - rect.top + (p.y / H) * svgRect.height;
+    cursor.setAttribute('x1', p.x);
+    cursor.setAttribute('x2', p.x);
+    marker.style.left = left + 'px';
+    marker.style.top = topPx + 'px';
+    callout.textContent = series[current].format(p.value);
+    callout.style.left = Math.min(Math.max(left, 28), rect.width - 28) + 'px';
+    callout.style.top = Math.max(topPx - 30, 2) + 'px';
+    root.classList.add('is-scrubbing');
+    var now = Date.now();
+    if (now - lastTick > 70 && window.SiteSound) {
+      lastTick = now;
+      window.SiteSound.play('tick');
+    }
+  }
+
+  function scrub(event) {
+    var svgRect = plot.querySelector('svg').getBoundingClientRect();
+    var ratio = Math.min(Math.max((event.clientX - svgRect.left) / svgRect.width, 0), 1);
+    select(Math.round(ratio * (points.length - 1)));
+    window.clearTimeout(clearTimer);
+  }
+
+  function scheduleClear() {
+    window.clearTimeout(clearTimer);
+    clearTimer = window.setTimeout(clearSelection, 2500);
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      if (tab.getAttribute('data-metric') === current) return;
+      current = tab.getAttribute('data-metric');
+      tabs.forEach(function (other) { other.setAttribute('aria-selected', other === tab ? 'true' : 'false'); });
+      if (window.SiteSound) window.SiteSound.play('select');
+      draw(true);
+    });
+  });
+
+  plot.addEventListener('pointermove', function (event) {
+    if (event.pointerType === 'mouse' || event.buttons || event.pressure > 0) scrub(event);
+  });
+  plot.addEventListener('pointerdown', scrub);
+  plot.addEventListener('pointerleave', scheduleClear);
+  plot.addEventListener('pointerup', scheduleClear);
+
+  draw(false);
+  root.classList.remove('is-drawn');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    root.classList.add('is-drawn');
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          root.classList.add('is-drawn');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+    observer.observe(root);
+  }
+})();
+
+/* Measurement: one event per App Store click, with where on the page it happened.
+   An outbound click is not an install; pair it with App Store Connect to see downloads. */
+(function () {
+  function locationOf(link) {
+    if (link.closest('.mobile-download-bar, [data-mobile-download-bar]')) return 'mobile_bar';
+    if (link.closest('header.header')) return 'header';
+    if (link.closest('.mobile-nav')) return 'mobile_menu';
+    if (link.closest('footer.footer, .footer')) return 'footer';
+    var section = link.closest('section[id]');
+    if (section) return section.id;
+    if (link.closest('.blog-app-promo')) return 'sidebar';
+    if (link.closest('.guide-cta')) return 'guide_cta';
+    if (link.closest('.release-card')) return 'release_card';
+    return 'page';
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest ? event.target.closest('a[href*="apps.apple.com"]') : null;
+    if (!link || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'app_store_click', {
+      page_path: window.location.pathname,
+      cta_location: locationOf(link),
+      transport_type: 'beacon'
+    });
+  }, true);
 })();

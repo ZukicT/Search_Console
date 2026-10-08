@@ -4,8 +4,8 @@
     "appNameShort": "Search Console"
   },
   "meta": {
-    "title": "Search Console für iPhone | So schneidet Ihre Website in der Suche ab",
-    "description": "Native iOS-App für Google Search Console. Gleiches Konto. Klicks, Suchanfragen, Core Web Vitals und URL-Inspektion auf dem iPhone. 7 Tage kostenlos testen."
+    "title": "Google Search Console App für iPhone | Unabhängige App",
+    "description": "Prüfe Klicks, Impressionen, Suchanfragen und Top-Seiten auf deinem iPhone. Verbinde dein bestehendes Google-Search-Console-Konto mit einer unabhängigen iOS-App."
   },
   "nav": {
     "home": "Start",
@@ -41,7 +41,7 @@
     "moreShareOptions": "Weitere Optionen zum Teilen"
   },
   "banner": {
-    "releaseNotice": "Version 2.0 ist live.",
+    "releaseNotice": "Version 2.5 ist da. Das ist Blink.",
     "learnMore": "Mehr erfahren"
   },
   "hero": {
@@ -50,20 +50,20 @@
     "subtitle": "Klicks, Impressionen, Keywords und Core Web Vitals überwachen. Alle Daten für bessere Google-Suchperformance Ihrer Website.",
     "downloadAppStore": "Im App Store laden",
     "seeFeatures": "Funktionen ansehen",
-    "trust": "Nutzt die offizielle Search Console API von Google",
-    "pill": "Version 2.0",
-    "role": "Sie vertrauen Search Console bereits am Desktop. Hier nutzen Sie dasselbe Konto und dieselben Daten - für iOS gestaltet, damit Sie die Antwort sehen, bevor der Moment vorbei ist.",
+    "trust": "Kostenlos für eine Website. Unabhängige App, nicht mit Google verbunden.",
+    "pill": "Version 2.5",
+    "role": "Prüfe Klicks, Impressionen, Suchanfragen und Top-Seiten aus deinem bestehenden Google-Search-Console-Konto, ohne den Laptop aufzuklappen. Melde dich mit Google an, wähle eine Property und sieh, was sich geändert hat. Frag dann Blink, den eingebauten Assistenten, nach deinen Zahlen.",
     "statApiValue": "Such-Traffic",
     "statApiLabel": "Klicks, Impressionen, Suchanfragen",
     "statVitalsValue": "Seitenerlebnis",
     "statVitalsLabel": "Core Web Vitals und Top-Seiten",
-    "statWidgetsValue": "Hinweise und Widgets",
-    "statWidgetsLabel": "Erkennen, wenn sich Performance verschiebt",
+    "statWidgetsValue": "Blink",
+    "statWidgetsLabel": "Frag in deinen eigenen Worten",
     "bridge": "",
     "support": "",
-    "offer": "7 Tage kostenlos · $5.99/mo",
+    "offer": "Kostenlos für eine Website. Pro ab 5,99 $ pro Monat.",
     "disclaimer": "",
-    "eyebrow": "Für iPhone und iPad",
+    "eyebrow": "Unabhängige App für iPhone und iPad",
     "deck": "Eine unabhängige native App, verbunden mit Googles Search Console API. Prüfen Sie Klicks, Impressionen, Suchanfragen und Seitenerlebnis, ohne Safari zu öffnen.",
     "point1": "Klicks, Impressionen, CTR, Suchanfragen und durchschnittliche Position",
     "point2": "Core Web Vitals, Top-Seiten und URL-Prüfung",
@@ -71,7 +71,16 @@
     "screenCaption": "Performance-Überblick",
     "metaApi": "Offizielle Search Console API",
     "metaOAuth": "OAuth-Anmeldung",
-    "metaPrivacy": "Daten bleiben in Ihrem Google-Konto"
+    "metaPrivacy": "Daten bleiben in Ihrem Google-Konto",
+    "titleA": "Google Search Console auf deinem iPhone",
+    "titleB": "Jetzt mit Blink, einem Assistenten für deine eigenen Zahlen.",
+    "watch": "Die App in Aktion sehen",
+    "bubble": "Frag mich was.",
+    "blinkAlt": "Blink, der Assistent der App",
+    "qr": "Scannen und App laden",
+    "shotAlt": "Die Übersicht der Search-Console-App mit Klicks, Impressionen, CTR und durchschnittlicher Position einer Beispiel-Website",
+    "h1Lead": "Google Search Console App",
+    "h1Rest": "für dein iPhone und iPad"
   },
   "heroAlts": {
     "analytics": "Analytics-Dashboard",
@@ -85,13 +94,13 @@
     "vitalsDesc": "LCP-, CLS- und INP-Werte verfolgen. Sehen Sie, wie die Geschwindigkeit Ihre Rankings beeinflusst.",
     "secureTitle": "Sicher und privat",
     "secureDesc": "OAuth-Authentifizierung. Ihre Daten bleiben in Ihrem Google-Konto.",
-    "eyebrow": "Kapitel 1",
+    "eyebrow": "Warum eine App",
     "title": "Wenn die Frage Sie abseits vom Schreibtisch trifft",
     "desc": "Traffic sinkt. Eine Suchanfrage zieht an. Jemand braucht Zahlen vor einem Call. Search Console im mobilen Web kann antworten - aber mit unnötiger Reibung."
   },
   "stats": {
     "price": "Einfache Monatspreise",
-    "trial": "7 Tage kostenlos",
+    "trial": "3 Tage Test",
     "devices": "iPhone und iPad",
     "eyebrow": "Was es kostet",
     "title": "Klare Bedingungen vor der Anmeldung",
@@ -109,7 +118,7 @@
     "step3Desc": "Aus Ihren verifizierten Search Console-Properties wählen.",
     "step4Title": "4. Daten verfolgen",
     "step4Desc": "Klicks, Impressionen, Keywords und Core Web Vitals anzeigen.",
-    "eyebrow": "Kapitel 3"
+    "eyebrow": "Erste Schritte"
   },
   "features": {
     "sectionTitle": "Wichtige Funktionen für unterwegs",
@@ -117,7 +126,7 @@
     "performanceTitle": "Performance-Tracking",
     "performanceDesc": "Klicks, Impressionen, CTR und durchschnittliche Position. Verfolgen Sie die Performance Ihrer Website in den Google-Suchergebnissen.",
     "analysisTitle": "Datenanalyse",
-    "analysisDesc": "Nach Anfrage, Seite, Land oder Gerät filtern. Mobil, Desktop oder Tablet – verstehen Sie Ihre Zielgruppe.",
+    "analysisDesc": "Nach Anfrage, Seite, Land oder Gerät filtern. Mobil, Desktop oder Tablet, verstehen Sie Ihre Zielgruppe.",
     "vitalsTitle": "Core Web Vitals",
     "vitalsDesc": "LCP-, CLS- und INP-Werte überwachen. Prüfen Sie, ob die Ladegeschwindigkeit Ihre Rankings auf Mobil und Desktop beeinflusst.",
     "topPagesTitle": "Top-Seiten",
@@ -126,7 +135,7 @@
     "pdfDesc": "Professionelle Berichte mit einem Tipp erstellen. Performance-Daten mit Kunden oder Team teilen.",
     "notificationsTitle": "Push-Benachrichtigungen",
     "notificationsDesc": "Tägliche oder wöchentliche Performance-Zusammenfassungen. Benachrichtigungen bei deutlichen Traffic-Änderungen.",
-    "eyebrow": "Kapitel 4",
+    "eyebrow": "Was drin ist",
     "metaTitle": "Google Search Console iOS App Features | Search Console for iOS",
     "metaDescription": "See what the independent Search Console iOS app covers: traffic, queries, pages, Core Web Vitals, URL inspection, exports, and alerts. Not made by Google.",
     "pageLead1": "Search Console for iOS is a native google search console ios app built for quick reads between meetings, commutes, and site checks. Each screen maps to a question you already ask in the web console, without hunting through desktop tabs on a small screen.",
@@ -141,17 +150,22 @@
     "performance": "Leistung",
     "pages": "Seiten",
     "vitals": "Web-Vitals",
-    "eyebrow": "Kapitel 5",
+    "eyebrow": "Die App",
     "hint": "Wischen zum Blättern · tippen zum Vergrößern",
     "search": "Suche",
     "coreWebVitals": "Core Web Vitals",
     "urlInspection": "URL-Prüfung",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "blink": "Blink",
+    "report": "Bericht",
+    "integrations": "Integrationen",
+    "alerts": "Mitteilungen",
+    "plans": "Tarife"
   },
   "pricing": {
     "title": "Einfache Preise",
-    "desc": "Ein Tarif, alles inklusive. Jederzeit kündbar.",
-    "badge": "7 Tage kostenlos testen",
+    "desc": "3 Tage kostenlos testen, danach 5,99 $ pro Monat auf iOS. Jederzeit im App Store kündbar.",
+    "badge": "3 Tage kostenlos testen",
     "period": "pro Monat",
     "billingDesc": "Monatliche Abrechnung über den App Store. Jederzeit kündbar.",
     "featureRealtime": "Echtzeit-Analytics (Klicks, Impressionen, CTR, Position)",
@@ -166,7 +180,7 @@
   "faq": {
     "title": "Häufig gestellte Fragen",
     "q1": "Was ist Search Console für iOS?",
-    "a1": "Search Console für iOS ist eine native iPhone- und iPad-App, die über die offizielle API mit Google Search Console verbindet. Sie überwacht die Suchperformance Ihrer Website, zeigt Klicks, Impressionen, CTR, durchschnittliche Position, Suchanfragen, Core Web Vitals und mehr – direkt auf dem Handy.",
+    "a1": "Search Console für iOS ist eine native iPhone- und iPad-App, die über die offizielle API mit Google Search Console verbindet. Sie überwacht die Suchperformance Ihrer Website, zeigt Klicks, Impressionen, CTR, durchschnittliche Position, Suchanfragen, Core Web Vitals und mehr, direkt auf dem Handy.",
     "q2": "Gibt es eine offizielle Google Search Console App?",
     "a2": "Nein, Google bietet keine offizielle Search Console App für iPhone. Search Console für iOS ist eine unabhängige Drittanbieter-App, die die offizielle Search Console API von Google nutzt.",
     "q3": "Wie greife ich auf dem iPhone auf Google Search Console zu?",
@@ -183,7 +197,7 @@
     "q8": "Kann ich mein Abo kündigen?",
     "a8": "Ja, jederzeit unter iPhone Einstellungen > Ihr Name > Abonnements. Der Zugriff bleibt bis zum Ende des Abrechnungszeitraums bestehen.",
     "q9": "Warum ist die App nicht kostenlos?",
-    "a9": "Das Abo deckt Entwicklung und API-Kosten. Im Gegensatz zu werbefinanzierten Apps oder Apps, die Nutzerdaten verkaufen, hat Search Console für iOS keine Werbung und greift nie auf Ihre Daten zu. Mit 7 Tagen kostenlos testen.",
+    "a9": "Das Abo finanziert die Weiterentwicklung und die API-Kosten. Der kostenlose Tarif mit Werbung umfasst eine Property. Pro entfernt die Werbung und schaltet alle Properties, Core Web Vitals und die URL-Prüfung frei. Teste es 3 Tage kostenlos.",
     "q10": "Warum sehe ich meine Website nicht?",
     "a10": "Stellen Sie sicher, dass Ihre Website in Google Search Console im Web verifiziert ist. Die App zeigt nur Properties, auf die Ihr Google-Konto Zugriff hat. Bei kürzlich hinzugefügten Websites: Abmelden und erneut anmelden.",
     "q11": "Läuft die App auf dem iPad?",
@@ -193,9 +207,9 @@
     "q13": "Kann ich mehrere Websites verwalten?",
     "a13": "Ja. Alle Websites, auf die Sie in Google Search Console Zugriff haben, erscheinen in der App. Sie können zwischen ihnen wechseln.",
     "q14": "Wie oft werden die Daten aktualisiert?",
-    "a14": "Daten werden bei jedem Öffnen der App oder bei „Zum Aktualisieren ziehen“ von der Google Search Console API geladen. Google hat typischerweise 2–3 Tage Verzögerung – das ist eine Google-Einschränkung.",
+    "a14": "Daten werden bei jedem Öffnen der App oder bei „Zum Aktualisieren ziehen“ von der Google Search Console API geladen. Google hat typischerweise 2 to 3 Tage Verzögerung, das ist eine Google-Einschränkung.",
     "q15": "Welche Zeiträume kann ich anzeigen?",
-    "a15": "Letzte 24 Stunden, 7 Tage, 28 Tage, 3, 6, 12 oder 16 Monate – wie in Google Search Console.",
+    "a15": "Letzte 24 Stunden, 7 Tage, 28 Tage, 3, 6, 12 oder 16 Monate, wie in Google Search Console.",
     "q16": "Gibt es eine Android-Version?",
     "a16": "Noch nicht. Der Fokus liegt auf iOS. Melden Sie sich für Updates an, falls eine Android-Version geplant ist.",
     "q17": "Funktioniert es offline?",
@@ -225,7 +239,7 @@
     "pages": "Seiten",
     "product": "Produkt",
     "downloadAppStore": "Im App Store laden",
-    "guideIphone": "Anleitung: Auf dem iPhone nutzen",
+    "guideIphone": "Auf dem iPhone nutzen",
     "resources": "Ressourcen",
     "googleSearchConsole": "Google Search Console",
     "manageSubscription": "Abo verwalten",
@@ -244,19 +258,19 @@
     "terms": "AGB",
     "getApp": "App holen",
     "downloadTitle": "Search Console immer dabei",
-    "downloadDesc": "Search Console auf Ihrem Smartphone.",
+    "downloadDesc": "Kostenlos für eine Website. Pro schaltet alle Properties und Blink frei.",
     "releases": "Versionen",
     "privacyPolicy": "Datenschutzerklärung",
     "termsOfService": "Nutzungsbedingungen",
-    "guideOfficial": "Anleitung: Offizielle App?",
-    "guideMobileOptions": "Leitfaden: Mobile Optionen",
-    "guideCwv": "Anleitung: Core Web Vitals",
-    "guideRankings": "Leitfaden: Keyword-Tracking",
+    "guideOfficial": "Offizielle App?",
+    "guideMobileOptions": "Mobile Optionen",
+    "guideCwv": "Core Web Vitals",
+    "guideRankings": "Keyword-Tracking",
     "siteNavigation": "Site navigation"
   },
   "share": {
     "title": "Search Console für iOS",
-    "text": "Native iOS-App für Google Search Console – Suchrankings vom iPhone verfolgen."
+    "text": "Native iOS-App für Google Search Console, Suchrankings vom iPhone verfolgen."
   },
   "about": {
     "metaTitle": "Über uns - Search Console für iOS",
@@ -264,7 +278,7 @@
     "heroTitle": "Gebaut von jemandem, der sie brauchte",
     "heroSubtitle": "Die Geschichte hinter Search Console für iOS",
     "authorRole": "Solo-Indie-Entwickler",
-    "authorBio": "Ich habe diese App gebaut, weil ich sie selbst brauchte. Kein großes Unternehmen, kein VC – ein Entwickler, der ein tägliches Problem löst.",
+    "authorBio": "Ich habe diese App gebaut, weil ich sie selbst brauchte. Kein großes Unternehmen, kein VC, ein Entwickler, der ein tägliches Problem löst.",
     "linkedin": "LinkedIn",
     "storyTitle": "Warum ich das gebaut habe",
     "storyP1": "Ich nutze Search Console für meine Website, aber die mobile Nutzung ist mühsam. Ich hatte genug davon, jedes Mal Safari zu öffnen.",
@@ -275,7 +289,7 @@
     "storyP5": "Ich bin kein großes Unternehmen. Wenn Sie die gleiche Frustration kennen, passt die App vielleicht auch für Sie.",
     "valuesTitle": "Was diese App antreibt",
     "valuePrivacyTitle": "Datenschutz zuerst",
-    "valuePrivacyDesc": "Ihre Daten bleiben in Ihrem Google-Konto. Die App zeigt nur, was Google erfasst – ich speichere oder verkaufe nichts. <a href=\"https://myaccount.google.com/data-and-privacy\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--blue);\">Google-Datenschutz hier verwalten</a>.",
+    "valuePrivacyDesc": "Ihre Daten bleiben in Ihrem Google-Konto. Die App zeigt nur, was Google erfasst, ich speichere oder verkaufe nichts. <a href=\"https://myaccount.google.com/data-and-privacy\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--blue);\">Google-Datenschutz hier verwalten</a>.",
     "valueFastTitle": "Schnell und fokussiert",
     "valueFastDesc": "Kein Ballast. App öffnen, Daten sehen. Für schnelle Checks unterwegs.",
     "valueImprovingTitle": "Immer in Entwicklung",
@@ -297,11 +311,12 @@
     "bridgeToReleases": "Weiter · Was bereits veröffentlicht ist",
     "founderPhotoAlt": "Tarik Zukic, Entwickler von Search Console für iOS",
     "linkedinAria": "Tarik Zukic auf LinkedIn",
-    "founderName": "Tarik Zukic"
+    "founderName": "Tarik Zukic",
+    "storyP9": "Version 2.5 ist der bisher größte Schritt: ein neues Design und Blink, ein Assistent, der auf deinem Gerät läuft und Fragen zu deinen eigenen Zahlen beantwortet. Er sagt nur, was die Daten zeigen."
   },
   "releases": {
     "metaTitle": "Release-Verlauf - Search Console für iOS",
-    "metaDescription": "Verfolgen Sie die Entwicklung von Search Console für iOS. Alle Releases, Funktionen und Verbesserungen in einer Timeline.",
+    "metaDescription": "Versionshinweise zu Search Console für iPhone: Version 2.5 mit Blink, neuem hellen Design, Berichten und echten Mitteilungen sowie dem gesamten iOS-Änderungsprotokoll.",
     "heroKicker": "Versionsverlauf",
     "heroTitle": "Versionshinweise",
     "heroDesc": "Verfolgen Sie die Entwicklung von Search Console für iOS. Jedes Update bringt neue Funktionen und Verbesserungen.",
@@ -323,7 +338,7 @@
     "v103Fix2": "Klarere Fehlermeldungen und erneuter Versuch bei Abo- oder Wiederherstellungsfehlern",
     "v103Imp1": "Verbessertes Theming für Hell- und Dunkelmodus",
     "v103Imp2": "Versions- und Buildnummer in Über uns einheitlich angezeigt",
-    "v103Note": "Wenn Sie Probleme beim Starten eines Abos oder der Kaufwiederherstellung hatten – dieses Update behebt das. Danke für Ihre Geduld.",
+    "v103Note": "Wenn Sie Probleme beim Starten eines Abos oder der Kaufwiederherstellung hatten, dieses Update behebt das. Danke für Ihre Geduld.",
     "v101Date": "Januar 2026",
     "v101_1": "Einstellungen: Suchleiste zum schnellen Finden von Optionen",
     "v101_2": "Einstellungen: Standard-Insights-Zeitraum und Schnellaktionen auf der Startseite",
@@ -346,7 +361,7 @@
     "ariaCollapse": "Release Notes zuklappen",
     "changelogEyebrow": "Änderungsprotokoll",
     "changelogTitle": "Was veröffentlicht wurde",
-    "changelogLead": "Zuerst der Ausblick, danach jede Version von Launch bis heute.",
+    "changelogLead": "Die neueste Version zuerst, dann alle Versionen bis zum Start. Ideen für später stehen am Ende.",
     "bridgeToFeatures": "Weiter · Funktionen entdecken",
     "badgeLatest": "Neueste",
     "badgeUpcoming": "In Prüfung",
@@ -380,7 +395,15 @@
     "v102Date": "Januar 2026",
     "v102_1": "Verbesserte Abo-Ladezeiten und Fehlerbehandlung",
     "v102_2": "Bugfixes und Stabilitätsverbesserungen",
-    "bridgeToBlog": "Continue · Improve your site"
+    "bridgeToBlog": "Continue · Improve your site",
+    "v250Date": "Oktober 2026",
+    "v250New1": "Blink, ein Assistent auf dem Gerät, der Fragen zu deinen Suchdaten mit Zahlen, Diagrammen und nächsten Schritten beantwortet",
+    "v250New2": "Ein neues helles Design auf jedem Bildschirm, in jedem Sheet und Widget",
+    "v250New3": "Berichte von Blink mit PDF-Vorschau zum Teilen",
+    "v250New4": "Mitteilungen auf Basis echter Änderungen deiner Klicks, mit Zahlen, in Blinks Stimme",
+    "v250New5": "Integrationen pro Website, mit Google Analytics und AdMob je Website verknüpft",
+    "v250New6": "Neue Töne, flüssigere Animationen und 3 Tage kostenlos testen",
+    "sectionNew": "Neu"
   },
   "guide": {
     "metaTitle": "Google Search Console auf dem iPhone nutzen | Schritt-für-Schritt-Anleitung",
@@ -388,7 +411,7 @@
     "title": "Google Search Console auf dem iPhone nutzen",
     "intro": "Die SEO-Performance Ihrer Website unterwegs zu prüfen, sollte nicht schwer sein. Diese Anleitung erklärt den Zugriff auf Search-Console-Daten direkt vom iPhone.",
     "whyTitle": "Warum Search Console mobil überwachen?",
-    "whyBody": "Website-Probleme können jederzeit auftreten. Kritische Metriken wie Traffic-Einbrüche oder Indexierungsfehler vom Handy zu prüfen, ermöglicht schnellere Reaktion. Ob SEO-Profi, Entwickler oder Unternehmer – Search-Daten in der Tasche sind ein Game-Changer.",
+    "whyBody": "Website-Probleme können jederzeit auftreten. Kritische Metriken wie Traffic-Einbrüche oder Indexierungsfehler vom Handy zu prüfen, ermöglicht schnellere Reaktion. Ob SEO-Profi, Entwickler oder Unternehmer, Search-Daten in der Tasche sind ein Game-Changer.",
     "method1Title": "Methode 1: Native App (empfohlen)",
     "method1Body": "Google bietet keine offizielle iOS-App für Search Console. Apps wie Search Console für iOS schließen diese Lücke über die offizielle Google-API und bieten eine sichere, optimierte Mobil-Erfahrung.",
     "benefitsTitle": "Vorteile der App:",
@@ -444,9 +467,9 @@
     }
   },
   "story": {
-    "proofEyebrow": "Kapitel 2",
-    "proofTitle": "Ein Trend, dem Sie auf einen Blick vertrauen",
-    "proofDesc": "Desktop-Performance, neu auf das iPhone übertragen. Genug Kontext, um zu entscheiden, ob heute ein tiefer Blick nötig ist.",
+    "proofEyebrow": "Die Zahlen",
+    "proofTitle": "Sieh in Sekunden, was sich bewegt hat",
+    "proofDesc": "Das ist die Übersicht der App. Wähle eine Zahl, um das Diagramm zu wechseln, und ziehe darüber, um einen einzelnen Tag abzulesen.",
     "proofQuote": "Dienstags den Einbruch sehen, bevor ihn der Freitagsbericht erklärt.",
     "bridgeToProof": "Weiter · Zahlen ansehen",
     "bridgeToStart": "Weiter · Ihre ersten zwei Minuten",
@@ -708,7 +731,7 @@
     "visualCaptionSitemap": "Sitemaps: eingereichte vs. aus Sitemap indexierte URLs",
     "visualSitemapSubmitted": "Eingereicht",
     "visualSitemapIndexed": "Indexiert",
-    "visualSitemapGap": "<strong>28 URLs</strong> in Sitemap nicht indexiert — Seitenindexierungsgründe nach Template- oder Redirect-Änderungen prüfen.",
+    "visualSitemapGap": "<strong>28 URLs</strong> in Sitemap nicht indexiert. Seitenindexierungsgründe nach Template- oder Redirect-Änderungen prüfen.",
     "h2Checklist": "Praktische Checkliste nach Deploy",
     "pChecklistIntro": "Innerhalb von 48 Stunden nach großem Release:",
     "liCheck_1": "URL-Prüfung für Homepage und je ein Template-URL pro Hauptbereich.",
@@ -745,7 +768,7 @@
   },
   "guidesCommon": {
     "disclaimer": "Search Console für iOS ist eine eigenständige App. Es wurde nicht von Google erstellt und ist auch nicht mit diesem verbunden.",
-    "lastUpdated": "Letzte Aktualisierung: 29. Mai 2026",
+    "lastUpdated": "Zuletzt aktualisiert: 7. Oktober 2026",
     "byline": "Von <a href=\"../about.html\">Tarik Zukic</a>",
     "relatedHeading": "Verwandte Leitfäden",
     "allGuides": "Alle Führer",
@@ -772,7 +795,8 @@
     "h2Choose": "So wählen Sie einen mobilen Workflow aus",
     "pChoose1": "Wenn Sie Search Console nur einmal im Monat überprüfen, kann Safari ausreichen. Fügen Sie die Site zu Ihrem Startbildschirm hinzu, um mit einem Fingertipp darauf zuzugreifen. Wenn Sie mehrere Objekte überwachen oder schnell auf Verkehrsänderungen reagieren, spart eine native App Zeit. Sie erhalten lesbare Diagramme, eine schnellere Navigation und Funktionen wie Widgets, die die Web-Benutzeroberfläche auf iOS nicht bietet.",
     "pChoose2": "Welchen Weg Sie auch wählen, Ihre Search Console-Leistungsdaten stammen immer noch von Googles API. Apps von Drittanbietern zeigen an, was das API für Ihr Konto zurückgibt. Eigenschafteneinstellungen, Benutzerverwaltung und Massenüberprüfung gehören weiterhin zur Webkonsole.",
-    "pChoose3": "Setzen Sie ein Lesezeichen für die Web-Property für Verwaltungsaufgaben wie Benutzerverwaltung und -überprüfung. Verwenden Sie Ihr Telefon für den täglichen Puls: Verkehrsrichtung, Indexierung von Überraschungen und Erlebniswarnungen. Eine solche Rollenaufteilung entspricht der tatsächlichen Arbeitsweise der meisten unabhängigen Websitebesitzer und Berater."
+    "pChoose3": "Setzen Sie ein Lesezeichen für die Web-Property für Verwaltungsaufgaben wie Benutzerverwaltung und -überprüfung. Verwenden Sie Ihr Telefon für den täglichen Puls: Verkehrsrichtung, Indexierung von Überraschungen und Erlebniswarnungen. Eine solche Rollenaufteilung entspricht der tatsächlichen Arbeitsweise der meisten unabhängigen Websitebesitzer und Berater.",
+    "shortAnswer": "Kurz gesagt: nein. Google bietet keine Search-Console-App für das iPhone an. Unabhängige Apps wie diese verbinden sich über Googles offizielle API mit deinem bestehenden Konto."
   },
   "guideMobileOptions": {
     "metaTitle": "Google Search Console Mobile App-Optionen | ",
@@ -852,5 +876,55 @@
     "h2VsTrackers": "Search Console vs. dedizierte Rank-Tracker",
     "pVsTrackers1": "Rank-Tracker von Drittanbietern scannen oder simulieren Ergebnisse für beliebige Schlüsselwörter. Search Console meldet nur Suchanfragen, bei denen Ihre Website in der Google Suche Impressionen erzielt hat. Für viele Unternehmen ist dieser Datensatz von Bedeutung, da er die tatsächliche Sichtbarkeit widerspiegelt und nicht eine synthetische Überprüfung von einem Ort und einem Gerät aus.",
     "pVsTrackers2": "Verwenden Sie beides, wenn Sie wettbewerbsfähige Kampagnen durchführen. Verwenden Sie Search Console auf iPhone für schnelle, zuverlässige Überprüfungen Ihrer verifizierten Immobilie. Sparen Sie sich umfangreiches Wettbewerbs-Tracking für Desktop-Tools, wenn Sie Screenshots auf Stadtebene SERP benötigen."
+  },
+  "blink": {
+    "eyebrow": "Neu in 2.5",
+    "title": "Das ist Blink. Frag ihn nach deinem Traffic.",
+    "desc": "Stell eine Frage so, wie du sie sagen würdest. Blink liest deine Search-Console-Daten und antwortet mit Zahlen, einem Diagramm und dem nächsten Schritt.",
+    "p1Title": "Antworten aus deinen eigenen Zahlen",
+    "p1Desc": "Jede Zahl stammt aus deinen Daten. Er sagt dir, was sich geändert hat, und sagt es offen, wenn die Daten das Warum nicht erklären.",
+    "p2Title": "Läuft auf deinem Gerät",
+    "p2Desc": "Deine Fragen verlassen dein iPhone nicht. Blink benötigt ein Gerät mit Apple Intelligence.",
+    "p3Title": "Ein Bericht, den man gern verschickt",
+    "p3Desc": "Bitte um einen Bericht, sieh dir das PDF an und teile es mit einem Tipp.",
+    "p4Title": "Er passt auf",
+    "p4Desc": "Mitteilungen kommen nur, wenn sich die Klicks wirklich bewegen, mit den Zahlen. Tipp darauf und er zeigt dir, was sich geändert hat.",
+    "note": "Beispieldaten."
+  },
+  "film": {
+    "eyebrow": "Der Film",
+    "title": "Blink in 32 Sekunden",
+    "desc": "Alles Neue in 2.5, von der ersten Frage bis zum Bericht.",
+    "play": "Film abspielen",
+    "note": "Wiedergabe über YouTube · Beispieldaten"
+  },
+  "plans": {
+    "eyebrow": "Tarife",
+    "title": "Kostenlos starten. Pro, wenn du mehr brauchst.",
+    "desc": "Pro kostet 5,99 $ pro Monat nach 3 Tagen kostenlosem Test oder 1,99 $ pro Woche. Jederzeit im App Store kündbar.",
+    "free": "Kostenlos",
+    "premium": "Pro",
+    "feature": "Funktion",
+    "rowSearch": "Suchleistung",
+    "rowProperties": "Properties",
+    "rowBlink": "Blink-Assistent und Berichte",
+    "rowVitals": "Core Web Vitals",
+    "rowInspect": "URL-Prüfung",
+    "rowAds": "Werbung",
+    "one": "1",
+    "all": "Alle",
+    "yes": "Ja",
+    "no": "Keine",
+    "included": "Enthalten",
+    "notIncluded": "Nicht enthalten",
+    "priceNote": "Preise in US-Dollar. Der App Store zeigt den Preis für dein Land."
+  },
+  "demo": {
+    "hint": "Tippe auf eine Zahl. Ziehe über das Diagramm.",
+    "range": "Letzte 28 Tage"
+  },
+  "sound": {
+    "on": "Ton an",
+    "off": "Ton aus"
   }
 }

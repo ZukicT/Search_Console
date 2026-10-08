@@ -56,7 +56,7 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-Sitemap: https://search-console.org/sitemap.xml
+Sitemap: https://www.search-console.org/sitemap.xml
 
 # Machine-readable site summary for AI assistants and crawlers
-# https://search-console.org/llms.txt
+# https://www.search-console.org/llms.txt

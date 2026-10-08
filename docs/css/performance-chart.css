@@ -1,8 +1,8 @@
 :root {
-  --chart-clicks: var(--accent, #2997ff);
-  --chart-impressions: #98989d;
-  --chart-ctr: #64d2ff;
-  --chart-position: var(--yellow, #ffd60a);
+  --chart-clicks: var(--accent, #0f62fe);
+  --chart-impressions: #8a3ffc;
+  --chart-ctr: #1192e8;
+  --chart-position: var(--yellow, #b28600);
   --chart-plot-bg: color-mix(in srgb, var(--screen, #000) 22%, transparent);
   --chart-card-radius: 12px;
   --chart-card-padding: 18px 18px 16px;
@@ -531,11 +531,11 @@
 }
 
 .vitals-chart-item--good .vitals-chart-item__value {
-  color: var(--green, #30d158);
+  color: var(--green, #24a148);
 }
 
 .vitals-chart-item--needs .vitals-chart-item__value {
-  color: var(--yellow, #ffd60a);
+  color: var(--yellow, #b28600);
 }
 
 @keyframes site-chart-line-draw {

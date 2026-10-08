@@ -18,7 +18,7 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 SITEMAP = DOCS / "sitemap.xml"
-SITE_ORIGIN = "https://search-console.org"
+SITE_ORIGIN = "https://www.search-console.org"
 EXCLUDE_FILES = {"404.html"}
 
 HOMEPAGE_IMAGES = [
@@ -58,6 +58,8 @@ def discover_entries() -> list[tuple[str, str, Path]]:
 
     for html_path in sorted(DOCS.rglob("*.html")):
         if html_path.name in EXCLUDE_FILES:
+            continue
+        if "node_modules" in html_path.parts:
             continue
         if "partials" in html_path.parts:
             continue

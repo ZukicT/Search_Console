@@ -21,8 +21,8 @@ def main() -> None:
     )
 
     html = html.replace(
-        '"url": "https://search-console.org/#faq"',
-        '"url": "https://search-console.org/faq.html"',
+        '"url": "https://www.search-console.org/#faq"',
+        '"url": "https://www.search-console.org/faq.html"',
     )
 
     html = html.replace(

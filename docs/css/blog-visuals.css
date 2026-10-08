@@ -1,13 +1,15 @@
 :root {
-  --blog-visual-radius: 12px;
-  --blog-visual-padding: 1.125rem 1.25rem;
-  --blog-visual-bg: color-mix(in srgb, var(--surface) 72%, transparent);
-  --blog-visual-plot-bg: color-mix(in srgb, var(--screen) 22%, transparent);
-  --blog-visual-accent: var(--accent);
-  --blog-visual-impressions: color-mix(in srgb, var(--muted) 55%, transparent);
-  --blog-visual-good: var(--green);
-  --blog-visual-warn: var(--yellow);
-  --blog-visual-bad: var(--red);
+  /* White Carbon palette: solid support colours on white, no tints of gray standing in for data. */
+  --blog-visual-radius: 0px;
+  --blog-visual-padding: 1.25rem 1.25rem;
+  --blog-visual-bg: #ffffff;
+  --blog-visual-plot-bg: #f4f4f4;
+  --blog-visual-accent: #0f62fe;
+  --blog-visual-impressions: #a6c8ff;
+  --blog-visual-good: #198038;
+  --blog-visual-warn: #f1c21b;
+  --blog-visual-warn-text: #8e6a00;
+  --blog-visual-bad: #da1e28;
   --blog-visual-duration: 0.9s;
   --blog-visual-ease: var(--ease-out-soft);
 }
@@ -1058,4 +1060,141 @@
     animation: none;
     stroke-dashoffset: var(--target);
   }
+}
+
+
+/* White Carbon pass */
+.blog-visual__caption {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.blog-visual__panel {
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+}
+
+.blog-visual__panel::before {
+  display: none;
+}
+
+.blog-visual-vitals__status--warn,
+.blog-visual [class*="--warn"]:not([class*="__click"]):not([class*="fill"]):not([class*="bar"]) {
+  color: var(--blog-visual-warn-text);
+}
+
+.blog-visual-trend__line--previous,
+.blog-visual svg [class*="previous"] {
+  stroke: #8d8d8d;
+}
+
+.blog-visual-vitals__track,
+.blog-visual svg circle[class*="track"] {
+  stroke: #e0e0e0;
+}
+
+/* ==========================================================================
+   Brand pass: charts drawn the way the app draws them, with Blink watching.
+   ========================================================================== */
+.blog-visual {
+  position: relative;
+  margin: 2.5rem 0 2.5rem;
+}
+
+.blog-visual__caption {
+  padding-right: 84px;
+}
+
+/* Blink peeks over the top right corner and rises in when the chart appears. */
+.blog-visual::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 64px;
+  height: 64px;
+  background: url("../Bot-144.png") center bottom / contain no-repeat;
+  transform: translateY(46%);
+  opacity: 0;
+  z-index: 0;
+}
+
+.blog-visual.reveal.is-visible::before {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15) 0.35s, opacity 0.2s ease-out 0.35s;
+}
+
+.blog-visual__panel {
+  position: relative;
+  z-index: 1;
+  background:
+    repeating-linear-gradient(to right, transparent 0 47px, rgba(224, 224, 224, 0.5) 47px 48px),
+    repeating-linear-gradient(to bottom, transparent 0 47px, rgba(224, 224, 224, 0.5) 47px 48px),
+    #ffffff;
+  box-shadow: 10px 10px 0 var(--accent-soft, #edf5ff);
+}
+
+/* Query rows: the app's ranked table, a pale bar behind each row and a solid bar for clicks. */
+.blog-visual-ctr {
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.blog-visual-ctr__row {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.blog-visual-ctr__bars {
+  height: 16px;
+  background: #f4f4f4;
+}
+
+.blog-visual-ctr__impr,
+.blog-visual-ctr__click {
+  height: 100%;
+}
+
+.blog-visual-ctr__pct {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.blog-visual-ctr__row--target {
+  background: var(--accent-soft, #edf5ff);
+  box-shadow: inset 3px 0 0 var(--blog-visual-accent);
+}
+
+/* Lines are square jointed and a touch heavier, like the app's charts. */
+.blog-visual svg [class*="line"] {
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 3;
+}
+
+.blog-visual [class*="legend"],
+.blog-visual [class*="label"],
+.blog-visual [class*="status"] {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-visual::before {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.blog-visual::before {
+  top: -30px;
+}
+
+.blog-visual-ctr__row {
+  padding-left: 12px;
+  padding-right: 12px;
 }
