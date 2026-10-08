@@ -5728,8 +5728,10 @@ main .feature-stack .feature-stack__item:hover {
     gap: 12px;
   }
 
+  /* Room for Blink to show his eyes above the phone. */
   .home-hero__stage {
-    padding-top: 72px;
+    padding-top: 128px;
+    margin-top: -24px;
   }
 
   /* A small square in the corner, so it stays in reach without sitting on the copy. */
