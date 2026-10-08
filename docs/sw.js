@@ -1,131 +1,21 @@
-// Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v128';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/blog.html',
-  '/about.html',
-  '/privacy.html',
-  '/terms.html',
-  '/releases.html',
-  '/404.html',
-  '/manifest.json',
-  '/favicon.png',
-  '/favicon-32x32.png',
-  '/favicon-16x16.png',
-  '/apple-touch-icon.png',
-  '/founder.webp',
-  '/Bot.png',
-  '/Bot-72.png',
-  '/Bot-96.png',
-  '/Bot-144.png',
-  '/Bot-200.png',
-  '/app-icon.jpg',
-  '/app-icon-512.jpg',
-  '/icon-192.png',
-];
-
-function isHtmlRequest(request) {
-  var accept = request.headers.get('accept');
-  return accept && accept.indexOf('text/html') !== -1;
-}
-
-function isVersionedAsset(url) {
-  return /\.(?:css|js)(?:\?|$)/.test(url.pathname) || /[?&]v=\d+/.test(url.search);
-}
-
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function (cache) { return cache.addAll(ASSETS_TO_CACHE); })
-      .then(function () { return self.skipWaiting(); })
-  );
+// The site no longer uses a service worker. Phones that visited before still have the old one,
+// and it sat between the page and its images and film. This version removes itself: it clears
+// every cache it made, unregisters, and reloads open pages so they talk to the network directly.
+self.addEventListener('install', function () {
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames
-          .filter(function (name) { return name !== CACHE_NAME; })
-          .map(function (name) { return caches.delete(name); })
-      );
-    }).then(function () { return self.clients.claim(); })
-  );
-});
-
-self.addEventListener('message', function (event) {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
-
-self.addEventListener('fetch', function (event) {
-  if (event.request.method !== 'GET') return;
-  if (!event.request.url.startsWith(self.location.origin)) return;
-
-  var url = new URL(event.request.url);
-
-  // Video and audio go straight to the network. iOS Safari asks for byte ranges, and a cached
-  // whole-file answer from here stops the film from loading at all.
-  if (event.request.headers.has('range') || url.pathname.indexOf('/media/') === 0 || /\.(?:mp4|m4v|mov|webm|mp3|m4a|vtt)$/.test(url.pathname)) return;
-
-  if (url.pathname === '/sw.js') {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  // Images and fonts go straight to the network and the browser's own cache. Passing them through
-  // here added a way for them to fail without adding anything a phone needs.
-  if (/\.(?:png|jpe?g|webp|gif|svg|ico|avif|woff2?)$/.test(url.pathname)) return;
-
-  if (isHtmlRequest(event.request) || isVersionedAsset(url)) {
-    event.respondWith(
-      fetch(event.request)
-        .then(function (response) {
-          if (response.ok) {
-            var clone = response.clone();
-            caches.open(CACHE_NAME).then(function (cache) {
-              cache.put(event.request, clone);
-            });
-          }
-          return response;
-        })
-        .catch(function () {
-          return caches.match(event.request).then(function (cached) {
-            return cached || (isHtmlRequest(event.request) ? caches.match('/404.html') : null);
-          });
-        })
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
-      if (cachedResponse) {
-        event.waitUntil(
-          fetch(event.request)
-            .then(function (response) {
-              if (response.ok) {
-                caches.open(CACHE_NAME).then(function (cache) {
-                  cache.put(event.request, response);
-                });
-              }
-            })
-            .catch(function () {})
-        );
-        return cachedResponse;
-      }
-
-      return fetch(event.request).then(function (response) {
-        if (response.ok) {
-          var clone = response.clone();
-          caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(event.request, clone);
-          });
-        }
-        return response;
-      }).catch(function () { return null; });
-    })
+    caches.keys()
+      .then(function (names) { return Promise.all(names.map(function (name) { return caches.delete(name); })); })
+      .then(function () { return self.registration.unregister(); })
+      .then(function () { return self.clients.matchAll({ type: 'window' }); })
+      .then(function (clients) {
+        clients.forEach(function (client) {
+          if (client.navigate) client.navigate(client.url).catch(function () {});
+        });
+      })
+      .catch(function () {})
   );
 });

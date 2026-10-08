@@ -742,25 +742,17 @@
     });
   }
 
+  // The service worker is retired. Remove any that an earlier visit left behind, with its caches.
   function initServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
-
-    navigator.serviceWorker.register('/sw.js').then(function (registration) {
-      if (registration.waiting) {
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-      }
-
-      registration.addEventListener('updatefound', function () {
-        var installing = registration.installing;
-        if (!installing) return;
-
-        installing.addEventListener('statechange', function () {
-          if (installing.state === 'installed' && navigator.serviceWorker.controller) {
-            installing.postMessage({ type: 'SKIP_WAITING' });
-          }
-        });
-      });
+    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+      registrations.forEach(function (registration) { registration.unregister(); });
     }).catch(function () {});
+    if (window.caches && window.caches.keys) {
+      window.caches.keys().then(function (names) {
+        names.forEach(function (name) { window.caches.delete(name); });
+      }).catch(function () {});
+    }
   }
 
   function runWhenIdle(fn, timeout) {
@@ -937,7 +929,12 @@
       if (started && started.catch) started.catch(function () {});
     }
 
+    var fetched = '';
+
     function report(detail) {
+      var can = video.canPlayType ? (video.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"') || 'no') : '?';
+      var worker = navigator.serviceWorker && navigator.serviceWorker.controller ? 'worker on' : 'no worker';
+      detail += '; ' + (fetched || 'not fetched') + '; h264 ' + can + '; ' + worker;
       var note = frame.querySelector('.film-frame__note');
       if (!note) {
         note = document.createElement('p');
@@ -963,6 +960,7 @@
         return response.blob();
       }).then(function (blob) {
         var typed = blob.type === 'video/mp4' ? blob : blob.slice(0, blob.size, 'video/mp4');
+        fetched = blob.size + ' bytes, ' + (blob.type || 'no type');
         video.src = URL.createObjectURL(typed);
         video.load();
         begin();

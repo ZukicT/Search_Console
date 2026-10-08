@@ -232,6 +232,7 @@
 
 
 
+
   <main id="main">
     <section class="story-chapter page-legal-intro" id="top">
       <div class="hero-dot-wave-wrap" data-hero-dot-wave aria-hidden="true"></div>
@@ -550,9 +551,9 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').catch(function() {});
-      });
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        registrations.forEach(function (registration) { registration.unregister(); });
+      }).catch(function () {});
     }
     (function() {
       var banner = document.getElementById('release-notice-banner');
@@ -573,9 +574,9 @@
       });
     })();
   </script>
-  <script src="js/hero-dot-wave.js?v=45" defer></script>
-  <script src="js/site-ui.js?v=45" defer></script>
-  <script src="js/i18n.js?v=45" defer></script>
-  <script src="js/site-chrome-scripts.js?v=45" defer></script>
+  <script src="js/hero-dot-wave.js?v=46" defer></script>
+  <script src="js/site-ui.js?v=46" defer></script>
+  <script src="js/i18n.js?v=46" defer></script>
+  <script src="js/site-chrome-scripts.js?v=46" defer></script>
 </body>
 </html>
