@@ -1,0 +1,19 @@
+<!doctype html><meta charset=utf-8><meta name=robots content="noindex, nofollow"><meta name=viewport content="width=device-width,initial-scale=1"><title>diag</title>
+<body style="font:13px monospace;margin:12px"><h3>Running checks, leave this open</h3><pre id=o></pre>
+<script>
+var o=document.getElementById('o');
+function log(m){o.textContent+=m+'\n';new Image().src='/__diag?'+encodeURIComponent(m)+'&r='+Math.random();}
+log('UA '+navigator.userAgent);
+var files=(new URLSearchParams(location.search).get('f')||'media/blink-film-3.mp4,media/blink-film-2.mp4').split(',');
+function test(src,opts){return new Promise(function(res){
+  var v=document.createElement('video');v.muted=opts.muted!==false;v.playsInline=true;v.setAttribute('playsinline','');v.controls=true;v.style.width='160px';
+  var ev=[];['loadedmetadata','canplay','playing','error','stalled'].forEach(function(n){v.addEventListener(n,function(){ev.push(n)})});
+  document.body.appendChild(v);v.src=src;
+  var p=v.play();if(p&&p.catch)p.catch(function(e){ev.push('rej:'+e.name)});
+  setTimeout(function(){log((opts.tag||'')+' '+src.split('/').pop()+' rs='+v.readyState+' ns='+v.networkState+' t='+v.currentTime.toFixed(2)+' d='+v.duration+' err='+(v.error?v.error.code+':'+v.error.message:'-')+' ['+ev.join(',')+'] '+v.videoWidth+'x'+v.videoHeight);v.pause();v.removeAttribute('src');v.load();v.remove();res()},opts.wait||6000)})}
+(async function(){
+  for(var i=0;i<files.length;i++) await test(files[i],{tag:'plain'});
+  try{var C=window.AudioContext||window.webkitAudioContext;var c=new C();log('audioctx '+c.state+' sr='+c.sampleRate);await test(files[0],{tag:'withctx'});c.close();}catch(e){log('ctx fail '+e)}
+  log('DONE');
+})();
+</script>
