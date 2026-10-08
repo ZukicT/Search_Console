@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v121';
+const CACHE_NAME = 'search-console-v123';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

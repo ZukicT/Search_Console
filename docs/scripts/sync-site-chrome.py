@@ -12,7 +12,7 @@ from pathlib import Path
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
 CSS_VERSION = "119"
-JS_VERSION = "40"
+JS_VERSION = "42"
 CHART_CSS_VERSION = "15"
 BLOG_VISUALS_CSS_VERSION = "7"
 PAGES_CSS_VERSION = "5"
@@ -65,9 +65,9 @@ def header_block(prefix: str, *, is_home: bool) -> str:
       </div>
     </div>
   </header>
-  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true">
+  <div class="mobile-menu-layer" id="mobile-menu-layer" aria-hidden="true" inert>
   <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
-  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true">
+  <nav class="mobile-nav" id="mobile-nav" data-i18n-aria-label="aria.primaryNav" aria-label="Primary" aria-hidden="true" inert>
     <div class="mobile-nav-panel">
       <div class="mobile-nav-links">
         <a href="{home_href}" data-nav="home" data-i18n="nav.home">Home</a>
@@ -233,7 +233,7 @@ def footer_block(prefix: str) -> str:
             <input type="text" name="name" data-i18n-placeholder="footer.namePlaceholder" placeholder="Your name" required>
             <input type="email" name="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Your email" required>
             <textarea name="message" data-i18n-placeholder="footer.messagePlaceholder" placeholder="Your message" rows="3" required></textarea>
-            <input type="text" name="website" class="contact-form__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="website" class="contact-form__trap" tabindex="-1" autocomplete="off" inert>
             <button type="submit" data-i18n="footer.sendMessage">Send message</button>
           </form>
           <p class="contact-note" id="contact-note"></p>

@@ -270,8 +270,12 @@
       mobileMenuLayer.id = 'mobile-menu-layer';
       mobileMenuLayer.className = 'mobile-menu-layer';
       mobileMenuLayer.setAttribute('aria-hidden', 'true');
+      mobileMenuLayer.setAttribute('inert', '');
       document.body.appendChild(mobileMenuLayer);
     }
+
+    // Closed means inert, however the layer got into the page.
+    if (!mobileMenuLayer.classList.contains('is-open')) mobileMenuLayer.setAttribute('inert', '');
 
     if (mobileNavBackdrop && mobileNavBackdrop.parentElement !== mobileMenuLayer) {
       mobileMenuLayer.appendChild(mobileNavBackdrop);
@@ -334,10 +338,12 @@
 
       mobileMenuLayer.classList.toggle('is-open', isOpen);
       mobileMenuLayer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      if (isOpen) mobileMenuLayer.removeAttribute('inert'); else mobileMenuLayer.setAttribute('inert', '');
       mobileNav.classList.toggle('open', isOpen);
       mobileMenuBtn.classList.toggle('is-open', isOpen);
       mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      if (isOpen) mobileNav.removeAttribute('inert'); else mobileNav.setAttribute('inert', '');
       if (header) {
         header.classList.toggle('header--menu-open', isOpen);
       }
@@ -587,12 +593,19 @@
 
   function initMobileDownloadBar() {
     var bar = document.getElementById('mobile-download-bar');
-    var hero = document.querySelector('.hero-chapter');
+    var hero = document.querySelector('.home-hero, .hero-chapter');
     if (!bar || !hero) return;
 
+    // While the bar is off screen it is inert: out of the tab order and out of the accessibility tree.
+    // aria-hidden alone left its link focusable.
+    function setShown(isShown) {
+      bar.classList.toggle('mobile-download-bar--visible', isShown);
+      bar.removeAttribute('aria-hidden');
+      if (isShown) bar.removeAttribute('inert'); else bar.setAttribute('inert', '');
+    }
+
     if (!('IntersectionObserver' in window)) {
-      bar.classList.add('mobile-download-bar--visible');
-      bar.setAttribute('aria-hidden', 'false');
+      setShown(true);
       return;
     }
 
@@ -600,8 +613,7 @@
       function (entries) {
         var heroVisible = entries.some(function (entry) { return entry.isIntersecting; });
         var showBar = !heroVisible;
-        bar.classList.toggle('mobile-download-bar--visible', showBar);
-        bar.setAttribute('aria-hidden', showBar ? 'false' : 'true');
+        setShown(showBar);
       },
       { threshold: 0.05 },
     );
