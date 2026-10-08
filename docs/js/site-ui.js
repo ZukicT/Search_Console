@@ -1034,7 +1034,8 @@ window.SiteSound = (function () {
       return;
     }
     if (target.closest('[data-blink-button]')) return play('hop');
-    if (target.closest('[data-film]')) return play('pop');
+    // No sound here: on iPhone a tone starting with the film competes with the film's own audio.
+    if (target.closest('[data-film]')) return;
     if (target.closest('.carbon-btn--primary, .nav-cta, .footer-app-cta')) return play('advance');
     if (target.closest('.faq-question, .screenshot-showcase__nav, .carbon-btn--outline, .mobile-menu-btn')) return play('tick');
     // The live Overview plays its own sounds, and the film player is the browser's.

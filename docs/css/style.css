@@ -5755,3 +5755,31 @@ main .feature-stack .feature-stack__item:hover {
     height: 10px;
   }
 }
+
+/* Screenshot carousel on phones: previous and next sit on the edges of the stage. */
+@media (max-width: 768px) {
+  .screenshot-showcase__nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%) !important;
+  }
+
+  .screenshot-showcase__nav--prev {
+    left: 0;
+  }
+
+  .screenshot-showcase__nav--next {
+    right: 0;
+  }
+
+  .screenshot-rail {
+    padding-inline: calc(50% - min(36vw, 140px));
+    scroll-padding-inline: 0;
+  }
+}
