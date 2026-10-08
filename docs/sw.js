@@ -1,5 +1,5 @@
 // Service Worker for Search Console for iOS Website
-const CACHE_NAME = 'search-console-v127';
+const CACHE_NAME = 'search-console-v128';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -14,7 +14,7 @@ const ASSETS_TO_CACHE = [
   '/favicon-32x32.png',
   '/favicon-16x16.png',
   '/apple-touch-icon.png',
-  '/founder.jpg',
+  '/founder.webp',
   '/Bot.png',
   '/Bot-72.png',
   '/Bot-96.png',
@@ -74,6 +74,10 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(fetch(event.request));
     return;
   }
+
+  // Images and fonts go straight to the network and the browser's own cache. Passing them through
+  // here added a way for them to fail without adding anything a phone needs.
+  if (/\.(?:png|jpe?g|webp|gif|svg|ico|avif|woff2?)$/.test(url.pathname)) return;
 
   if (isHtmlRequest(event.request) || isVersionedAsset(url)) {
     event.respondWith(
