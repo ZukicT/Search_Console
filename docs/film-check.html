@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Film check</title>
+<style>body{font:15px/1.5 -apple-system,sans-serif;margin:16px;max-width:640px}video{width:100%;background:#eee;border:1px solid #161616}h2{font-size:16px;margin:24px 0 6px}p{margin:4px 0;color:#525252}code{font-size:12px}</style>
+</head>
+<body>
+<h1 style="font-size:20px">Film check</h1>
+<p>Tap play on each one and note which of A, B and C play.</p>
+<h2>A. Apple encoded, plain player</h2>
+<video controls playsinline preload="metadata" src="media/blink-film-3.mp4"></video>
+<p><code id="a"></code></p>
+<h2>B. Earlier encoding, plain player</h2>
+<video controls playsinline preload="metadata" src="media/blink-film-2.mp4"></video>
+<p><code id="b"></code></p>
+<h2>C. Apple encoded, muted</h2>
+<video controls playsinline muted preload="metadata" src="media/blink-film-3.mp4"></video>
+<p><code id="c"></code></p>
+<script>
+document.querySelectorAll('video').forEach(function (v, i) {
+  var out = document.getElementById('abc'[i]);
+  var seen = [];
+  ['loadedmetadata', 'playing', 'error', 'stalled'].forEach(function (n) { v.addEventListener(n, function () { seen.push(n); }); });
+  setInterval(function () {
+    out.textContent = 'ready ' + v.readyState + ', net ' + v.networkState + ', ' + (isNaN(v.duration) ? 'no length' : v.duration.toFixed(1) + ' s') + ', error ' + (v.error ? v.error.code + ' ' + (v.error.message || '') : 'none') + (seen.length ? ', ' + seen.join(' ') : '');
+  }, 500);
+});
+</script>
+</body>
+</html>

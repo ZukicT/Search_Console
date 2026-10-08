@@ -894,96 +894,45 @@
   });
 })();
 
-/* The film: a poster until asked for, then the video plays in place. It is served from this site,
-   so there is no third-party player, no channel branding, and full screen works everywhere. */
+/* The film: a plain video element in the page, served from this site, so there is no third-party
+   player and the browser's own controls do the work. This only keeps the site's sounds out of its
+   way and says what went wrong if the browser refuses the file. */
 (function () {
-  var play = document.querySelector('[data-film]');
-  if (!play) return;
-  play.addEventListener('click', function () {
-    var video = document.createElement('video');
-    video.controls = true;
-    video.autoplay = true;
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
-    video.preload = 'auto';
-    video.poster = play.querySelector('img') ? play.querySelector('img').src : '';
-    video.setAttribute('aria-label', play.getAttribute('aria-label') || 'Film');
-    // Set straight on the element: iOS Safari starts loading sooner than with a <source> child.
-    video.src = play.getAttribute('data-film');
-    var captions = play.getAttribute('data-film-captions');
-    if (captions) {
-      var track = document.createElement('track');
-      track.kind = 'captions';
-      track.srclang = 'en';
-      track.label = 'English';
-      track.src = captions;
-      video.appendChild(track);
-    }
-    var filmUrl = video.src;
-    var frame = play.parentNode;
-    var triedBlob = false;
+  var video = document.querySelector('[data-film-video]');
+  if (!video) return;
+  var frame = video.parentNode;
 
-    function begin() {
-      var started = video.play();
-      if (started && started.catch) started.catch(function () {});
-    }
-
-    var fetched = '';
-
-    function report(detail) {
-      var can = video.canPlayType ? (video.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"') || 'no') : '?';
-      var worker = navigator.serviceWorker && navigator.serviceWorker.controller ? 'worker on' : 'no worker';
-      detail += '; ' + (fetched || 'not fetched') + '; h264 ' + can + '; ' + worker;
-      var note = frame.querySelector('.film-frame__note');
-      if (!note) {
-        note = document.createElement('p');
-        note.className = 'film-frame__note';
-        frame.appendChild(note);
-      }
-      note.textContent = '';
-      var link = document.createElement('a');
-      link.href = filmUrl;
-      link.textContent = 'Open the film';
-      note.appendChild(document.createTextNode('The film could not play here. '));
-      note.appendChild(link);
-      note.appendChild(document.createTextNode(' (' + detail + ')'));
-    }
-
-    // Some phones refuse the film through the system media loader. When that happens, fetch the
-    // whole file (it is small) and play it from memory instead.
-    function playFromMemory(reason) {
-      if (triedBlob) return report(reason);
-      triedBlob = true;
-      window.fetch(filmUrl, { cache: 'reload' }).then(function (response) {
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        return response.blob();
-      }).then(function (blob) {
-        var typed = blob.type === 'video/mp4' ? blob : blob.slice(0, blob.size, 'video/mp4');
-        fetched = blob.size + ' bytes, ' + (blob.type || 'no type');
-        video.src = URL.createObjectURL(typed);
-        video.load();
-        begin();
-      }).catch(function (error) {
-        report(reason + '; ' + (error && error.message ? error.message : 'fetch failed'));
-      });
-    }
-
-    video.addEventListener('error', function () {
-      var code = video.error ? video.error.code : 0;
-      var message = video.error && video.error.message ? video.error.message : '';
-      playFromMemory('error ' + code + (message ? ' ' + message : ''));
-    });
-    // Stuck with nothing loaded after a few seconds counts as a failure too.
-    window.setTimeout(function () {
-      if (video.readyState === 0 && !video.error) playFromMemory('no data after 6 s');
-    }, 6000);
-
-    frame.replaceChild(video, play);
-    video.load();
-    begin();
-    video.focus({ preventScroll: true });
+  // The site's tones use Web Audio. On an iPhone that shares one audio session with the film,
+  // so it is shut down before the film starts and comes back by itself on the next sound.
+  function quiet() {
+    if (window.SiteSound && window.SiteSound.release) window.SiteSound.release();
+  }
+  ['pointerdown', 'touchstart', 'play'].forEach(function (name) {
+    video.addEventListener(name, quiet, { passive: true });
   });
+
+  function report() {
+    var error = video.error;
+    var detail = 'error ' + (error ? error.code : 0) + (error && error.message ? ' ' + error.message : '');
+    var can = video.canPlayType ? (video.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"') || 'no') : '?';
+    var note = frame.querySelector('.film-frame__note');
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'film-frame__note';
+      frame.appendChild(note);
+    }
+    note.textContent = '';
+    var link = document.createElement('a');
+    link.href = video.currentSrc || 'media/blink-film-3.mp4';
+    link.textContent = 'Open the film';
+    note.appendChild(document.createTextNode('The film could not play here. '));
+    note.appendChild(link);
+    note.appendChild(document.createTextNode(' (' + detail + '; h264 ' + can + ')'));
+  }
+
+  video.addEventListener('error', report);
+  var source = video.querySelector('source');
+  if (source) source.addEventListener('error', report);
 })();
 
 /* Sound: the same short synthesised tones the app uses. Nothing plays before the visitor's first
@@ -1068,8 +1017,6 @@ window.SiteSound = (function () {
     });
   }
 
-  document.addEventListener('pointerdown', unlock, { passive: true });
-  document.addEventListener('keydown', unlock);
   document.addEventListener('DOMContentLoaded', function () { setEnabled(enabled); });
   if (document.readyState !== 'loading') setEnabled(enabled);
 
@@ -1085,7 +1032,7 @@ window.SiteSound = (function () {
     }
     if (target.closest('[data-blink-button]')) return play('hop');
     // No sound here: on iPhone a tone starting with the film competes with the film's own audio.
-    if (target.closest('[data-film]')) return;
+    if (target.closest('.film-frame')) return;
     if (target.closest('.carbon-btn--primary, .nav-cta, .footer-app-cta')) return play('advance');
     if (target.closest('.faq-question, .screenshot-showcase__nav, .carbon-btn--outline, .mobile-menu-btn')) return play('tick');
     // The live Overview plays its own sounds, and the film player is the browser's.
@@ -1101,8 +1048,17 @@ window.SiteSound = (function () {
     if (target && target.matches && target.matches('select, input[type="checkbox"], input[type="radio"]')) play('select');
   });
 
+  // Lets go of the audio hardware. The next sound makes a new context.
+  function release() {
+    if (!context) return;
+    var old = context;
+    context = null;
+    try { old.close(); } catch (e) {}
+  }
+
   return {
     play: play,
+    release: release,
     isEnabled: function () { return enabled; },
     // For checks: renders a sound offline and reports its length and peak level.
     measure: function (name) {
