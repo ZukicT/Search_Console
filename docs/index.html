@@ -59,23 +59,51 @@
   <!-- Preload critical assets -->
   <link rel="preload" as="image" href="AppAssetsWebsite/Image1.imageset/Image1.png?v=9" type="image/png">
   <script>
+    // Google Analytics with consent. Nothing is requested from Google until analytics is allowed.
+    // Visitors in Europe (and anyone whose browser sends Global Privacy Control or Do Not Track)
+    // start with analytics off; others start with it on. The Privacy button on every page changes it.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    function loadGoogleTag() {
-      if (loadGoogleTag.loaded) return;
-      loadGoogleTag.loaded = true;
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
-      document.head.appendChild(script);
-      gtag('js', new Date());
-      gtag('config', 'G-VPPTK5JECX');
-    }
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
-    } else {
-      window.addEventListener('load', loadGoogleTag, { once: true });
-    }
+    (function () {
+      var KEY = 'privacyAnalytics';
+      var ID = 'G-VPPTK5JECX';
+      function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function optInRegion() {
+        try {
+          var zone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+          return /^(Europe\/|Atlantic\/(Reykjavik|Canary|Madeira|Azores|Faroe)|Arctic\/Longyearbyen)/.test(zone);
+        } catch (e) { return true; }
+      }
+      function signalsNo() {
+        return navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1';
+      }
+      var choice = stored();
+      var allowed = choice === 'granted' || (choice === null && !optInRegion() && !signalsNo());
+      window.SitePrivacy = { key: KEY, id: ID, choice: choice, allowed: allowed, needsChoice: choice === null && (optInRegion() || signalsNo()) };
+      gtag('consent', 'default', {
+        analytics_storage: allowed ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      window['ga-disable-' + ID] = !allowed;
+      window.loadGoogleTag = function () {
+        if (window.loadGoogleTag.loaded || window['ga-disable-' + ID]) return;
+        window.loadGoogleTag.loaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', ID, { anonymize_ip: true });
+      };
+      if (!allowed) return;
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(window.loadGoogleTag, { timeout: 4000 });
+      } else {
+        window.addEventListener('load', window.loadGoogleTag, { once: true });
+      }
+    })();
   </script>
   <script type="application/ld+json">
   {
@@ -248,7 +276,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=116">
+  <link rel="stylesheet" href="css/style.css?v=118">
 </head>
 
 <body class="page-home" data-i18n-title-key="meta.title" data-i18n-description-key="meta.description">
@@ -362,6 +390,9 @@
 
 
 
+
+
+
   <main id="main">
     <section class="home-hero" id="hero" aria-labelledby="hero-heading">
       <div class="home-hero__tiles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -418,7 +449,7 @@
           <p class="chapter-lead" data-i18n="film.desc">Everything new in 2.5, from the first question to the report.</p>
         </header>
         <div class="film-frame reveal" data-reveal>
-          <button type="button" class="film-frame__play" data-film="JybNRUj0BV8" data-i18n-aria-label="film.play" aria-label="Play the film">
+          <button type="button" class="film-frame__play" data-film="media/blink-film.mp4" data-film-captions="media/blink-film.en.vtt" data-i18n-aria-label="film.play" aria-label="Play the film">
             <img src="og/film-poster.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
             <span class="film-frame__button" aria-hidden="true"><span class="film-frame__icon">▶</span><span data-i18n="film.play">Play the film</span></span>
           </button>
@@ -1025,11 +1056,11 @@
       });
     })();
   </script>
-  <script src="js/hero-dot-wave.js?v=38" defer></script>
-  <script src="js/site-charts.js?v=38" defer></script>
-  <script src="js/site-ui.js?v=38" defer></script>
-  <script src="js/i18n.js?v=38" defer></script>
-  <script src="js/site-chrome-scripts.js?v=38" defer></script>
+  <script src="js/hero-dot-wave.js?v=40" defer></script>
+  <script src="js/site-charts.js?v=40" defer></script>
+  <script src="js/site-ui.js?v=40" defer></script>
+  <script src="js/i18n.js?v=40" defer></script>
+  <script src="js/site-chrome-scripts.js?v=40" defer></script>
 </body>
 
 </html>

@@ -890,18 +890,36 @@
   });
 })();
 
-/* The film: a poster until asked for, then the YouTube player in its place. */
+/* The film: a poster until asked for, then the video plays in place. It is served from this site,
+   so there is no third-party player, no channel branding, and full screen works everywhere. */
 (function () {
   var play = document.querySelector('[data-film]');
   if (!play) return;
   play.addEventListener('click', function () {
-    var frame = document.createElement('iframe');
-    frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(play.getAttribute('data-film')) + '?autoplay=1&rel=0';
-    frame.title = play.getAttribute('aria-label') || 'Film';
-    frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    frame.allowFullscreen = true;
-    play.parentNode.replaceChild(frame, play);
+    var video = document.createElement('video');
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.poster = play.querySelector('img') ? play.querySelector('img').src : '';
+    video.setAttribute('aria-label', play.getAttribute('aria-label') || 'Film');
+    var source = document.createElement('source');
+    source.src = play.getAttribute('data-film');
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    var captions = play.getAttribute('data-film-captions');
+    if (captions) {
+      var track = document.createElement('track');
+      track.kind = 'captions';
+      track.srclang = 'en';
+      track.label = 'English';
+      track.src = captions;
+      video.appendChild(track);
+    }
+    play.parentNode.replaceChild(video, play);
+    var started = video.play();
+    if (started && started.catch) started.catch(function () {});
+    video.focus({ preventScroll: true });
   });
 })();
 
@@ -1187,4 +1205,132 @@ window.SiteSound = (function () {
       transport_type: 'beacon'
     });
   }, true);
+})();
+
+/* Privacy: a button that is always in the bottom corner, opening a card where analytics can be
+   switched on or off. The choice is remembered in this browser and applied straight away. */
+(function () {
+  var state = window.SitePrivacy;
+  if (!state) return;
+
+  function el(tag, className, key, text) {
+    var node = document.createElement(tag);
+    if (className) node.className = className;
+    if (key) node.setAttribute('data-i18n', key);
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  var allowed = state.allowed;
+  var wrap = el('div', 'privacy-control');
+  var button = el('button', 'privacy-control__button');
+  button.type = 'button';
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-controls', 'privacy-card');
+  button.appendChild(el('span', 'privacy-control__dot'));
+  button.appendChild(el('span', '', 'consent.button', 'Privacy'));
+
+  var card = el('div', 'privacy-card');
+  card.id = 'privacy-card';
+  card.setAttribute('role', 'dialog');
+  card.setAttribute('aria-labelledby', 'privacy-card-title');
+  card.hidden = true;
+
+  var title = el('h2', 'privacy-card__title', 'consent.title', 'Privacy settings');
+  title.id = 'privacy-card-title';
+  var close = el('button', 'privacy-card__close');
+  close.type = 'button';
+  close.setAttribute('data-i18n-aria-label', 'consent.close');
+  close.setAttribute('aria-label', 'Close');
+  close.textContent = '×';
+  var head = el('div', 'privacy-card__head');
+  head.appendChild(title);
+  head.appendChild(close);
+
+  var row = el('div', 'privacy-card__row');
+  row.appendChild(el('span', 'privacy-card__label', 'consent.analytics', 'Analytics'));
+  var status = el('span', 'privacy-card__status');
+  var statusOn = el('span', '', 'consent.on', 'On');
+  var statusOff = el('span', '', 'consent.off', 'Off');
+  status.appendChild(statusOn);
+  status.appendChild(statusOff);
+  row.appendChild(status);
+
+  var actions = el('div', 'privacy-card__actions');
+  var allow = el('button', 'privacy-card__allow', 'consent.allow', 'Allow analytics');
+  allow.type = 'button';
+  var decline = el('button', 'privacy-card__decline', 'consent.decline', 'Turn off');
+  decline.type = 'button';
+  actions.appendChild(allow);
+  actions.appendChild(decline);
+
+  var policy = el('a', 'privacy-card__link', 'consent.policy', 'Privacy policy');
+  var inSubfolder = /\/(guides|blog)\//.test(window.location.pathname);
+  policy.href = (inSubfolder ? '../' : '') + 'privacy.html';
+
+  card.appendChild(head);
+  card.appendChild(el('p', 'privacy-card__body', 'consent.body', 'This site can use Google Analytics to count visits and App Store clicks. It is your choice, and you can change it here at any time.'));
+  card.appendChild(row);
+  card.appendChild(actions);
+  card.appendChild(el('p', 'privacy-card__note', 'consent.necessary', 'Your language and sound choices are saved in this browser only. They are not sent anywhere.'));
+  card.appendChild(policy);
+  wrap.appendChild(card);
+  wrap.appendChild(button);
+  document.body.appendChild(wrap);
+
+  function render() {
+    wrap.classList.toggle('is-on', allowed);
+    statusOn.hidden = !allowed;
+    statusOff.hidden = allowed;
+    allow.setAttribute('aria-pressed', allowed ? 'true' : 'false');
+    decline.setAttribute('aria-pressed', allowed ? 'false' : 'true');
+  }
+
+  function open(isOpen) {
+    card.hidden = !isOpen;
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) allow.focus({ preventScroll: true });
+  }
+
+  function clearAnalyticsCookies() {
+    var host = window.location.hostname;
+    var domains = [host, '.' + host, '.' + host.replace(/^www\./, '')];
+    document.cookie.split(';').forEach(function (pair) {
+      var name = pair.split('=')[0].trim();
+      if (name.indexOf('_ga') !== 0 && name !== '_gid' && name !== '_gat') return;
+      domains.forEach(function (domain) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + domain;
+      });
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    });
+  }
+
+  function choose(value) {
+    allowed = value;
+    try { window.localStorage.setItem(state.key, value ? 'granted' : 'denied'); } catch (e) {}
+    window['ga-disable-' + state.id] = !value;
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: value ? 'granted' : 'denied' });
+    }
+    if (value && typeof window.loadGoogleTag === 'function') window.loadGoogleTag();
+    if (!value) clearAnalyticsCookies();
+    render();
+    open(false);
+    button.focus({ preventScroll: true });
+  }
+
+  button.addEventListener('click', function () { open(card.hidden); });
+  close.addEventListener('click', function () { open(false); button.focus({ preventScroll: true }); });
+  allow.addEventListener('click', function () { choose(true); });
+  decline.addEventListener('click', function () { choose(false); });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !card.hidden) { open(false); button.focus({ preventScroll: true }); }
+  });
+
+  render();
+  // Where a choice is required and none has been made, the card starts open. It never blocks the page.
+  if (state.needsChoice) {
+    card.hidden = false;
+    button.setAttribute('aria-expanded', 'true');
+  }
 })();

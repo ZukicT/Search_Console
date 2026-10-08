@@ -926,5 +926,18 @@
   "sound": {
     "on": "聲音開",
     "off": "聲音關"
+  },
+  "consent": {
+    "button": "隱私",
+    "title": "隱私設定",
+    "body": "本網站可使用 Google Analytics 統計造訪量和 App Store 點擊量。由你決定，並可隨時在此變更。",
+    "analytics": "分析",
+    "necessary": "你的語言和聲音選擇僅儲存在此瀏覽器中，不會傳送到任何地方。",
+    "allow": "允許分析",
+    "decline": "關閉",
+    "on": "開",
+    "off": "關",
+    "policy": "隱私權政策",
+    "close": "關閉"
   }
 }

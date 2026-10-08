@@ -6,23 +6,51 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="apple-itunes-app" content="app-id=6758431981">
   <script>
+    // Google Analytics with consent. Nothing is requested from Google until analytics is allowed.
+    // Visitors in Europe (and anyone whose browser sends Global Privacy Control or Do Not Track)
+    // start with analytics off; others start with it on. The Privacy button on every page changes it.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    function loadGoogleTag() {
-      if (loadGoogleTag.loaded) return;
-      loadGoogleTag.loaded = true;
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
-      document.head.appendChild(script);
-      gtag('js', new Date());
-      gtag('config', 'G-VPPTK5JECX');
-    }
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
-    } else {
-      window.addEventListener('load', loadGoogleTag, { once: true });
-    }
+    (function () {
+      var KEY = 'privacyAnalytics';
+      var ID = 'G-VPPTK5JECX';
+      function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function optInRegion() {
+        try {
+          var zone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+          return /^(Europe\/|Atlantic\/(Reykjavik|Canary|Madeira|Azores|Faroe)|Arctic\/Longyearbyen)/.test(zone);
+        } catch (e) { return true; }
+      }
+      function signalsNo() {
+        return navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1';
+      }
+      var choice = stored();
+      var allowed = choice === 'granted' || (choice === null && !optInRegion() && !signalsNo());
+      window.SitePrivacy = { key: KEY, id: ID, choice: choice, allowed: allowed, needsChoice: choice === null && (optInRegion() || signalsNo()) };
+      gtag('consent', 'default', {
+        analytics_storage: allowed ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      window['ga-disable-' + ID] = !allowed;
+      window.loadGoogleTag = function () {
+        if (window.loadGoogleTag.loaded || window['ga-disable-' + ID]) return;
+        window.loadGoogleTag.loaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', ID, { anonymize_ip: true });
+      };
+      if (!allowed) return;
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(window.loadGoogleTag, { timeout: 4000 });
+      } else {
+        window.addEventListener('load', window.loadGoogleTag, { once: true });
+      }
+    })();
   </script>
   <link rel="canonical" href="https://www.search-console.org/blog/catch-indexing-issues-early.html">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
@@ -57,7 +85,7 @@
   <meta name="twitter:description" content="Monitor indexing coverage, inspect new URLs, and verify important pages stay eligible after site changes.">
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
-  <link rel="stylesheet" href="../css/style.css?v=116">
+  <link rel="stylesheet" href="../css/style.css?v=118">
   <link rel="stylesheet" href="../css/style-pages.css?v=5">
   <link rel="stylesheet" href="../css/blog-visuals.css?v=7">
   <script type="application/ld+json">
@@ -449,10 +477,10 @@
         </div>
       </div>
     </div></footer>
-  <script src="../js/hero-dot-wave.js?v=38" defer></script>
-  <script src="../js/blog-visuals.js?v=38" defer></script>
-  <script src="../js/site-ui.js?v=38" defer></script>
-  <script src="../js/i18n.js?v=38" defer></script>
-  <script src="../js/site-chrome-scripts.js?v=38" defer></script>
+  <script src="../js/hero-dot-wave.js?v=40" defer></script>
+  <script src="../js/blog-visuals.js?v=40" defer></script>
+  <script src="../js/site-ui.js?v=40" defer></script>
+  <script src="../js/i18n.js?v=40" defer></script>
+  <script src="../js/site-chrome-scripts.js?v=40" defer></script>
 </body>
 </html>

@@ -926,5 +926,18 @@
   "sound": {
     "on": "Ton an",
     "off": "Ton aus"
+  },
+  "consent": {
+    "button": "Datenschutz",
+    "title": "Datenschutz-Einstellungen",
+    "body": "Diese Website kann Google Analytics nutzen, um Besuche und App-Store-Klicks zu zählen. Du entscheidest und kannst es hier jederzeit ändern.",
+    "analytics": "Analyse",
+    "necessary": "Deine Sprach- und Ton-Einstellungen werden nur in diesem Browser gespeichert. Sie werden nirgendwohin gesendet.",
+    "allow": "Analyse erlauben",
+    "decline": "Ausschalten",
+    "on": "An",
+    "off": "Aus",
+    "policy": "Datenschutzerklärung",
+    "close": "Schließen"
   }
 }

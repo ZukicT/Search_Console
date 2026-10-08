@@ -916,5 +916,18 @@
   "sound": {
     "on": "Sound on",
     "off": "Sound off"
+  },
+  "consent": {
+    "button": "Privacy",
+    "title": "Privacy settings",
+    "body": "This site can use Google Analytics to count visits and App Store clicks. It is your choice, and you can change it here at any time.",
+    "analytics": "Analytics",
+    "necessary": "Your language and sound choices are saved in this browser only. They are not sent anywhere.",
+    "allow": "Allow analytics",
+    "decline": "Turn off",
+    "on": "On",
+    "off": "Off",
+    "policy": "Privacy policy",
+    "close": "Close"
   }
 }

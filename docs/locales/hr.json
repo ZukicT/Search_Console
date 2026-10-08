@@ -916,5 +916,18 @@
   "sound": {
     "on": "Zvuk uključen",
     "off": "Zvuk isključen"
+  },
+  "consent": {
+    "button": "Privatnost",
+    "title": "Postavke privatnosti",
+    "body": "Ova stranica može koristiti Google Analytics za brojanje posjeta i klikova na App Store. Izbor je vaš i možete ga ovdje promijeniti u bilo kojem trenutku.",
+    "analytics": "Analitika",
+    "necessary": "Vaš odabir jezika i zvuka sprema se samo u ovom pregledniku. Ne šalje se nikamo.",
+    "allow": "Dopusti analitiku",
+    "decline": "Isključi",
+    "on": "Uključeno",
+    "off": "Isključeno",
+    "policy": "Pravila o privatnosti",
+    "close": "Zatvori"
   }
 }

@@ -926,5 +926,18 @@
   "sound": {
     "on": "Som ligado",
     "off": "Som desligado"
+  },
+  "consent": {
+    "button": "Privacidade",
+    "title": "Configurações de privacidade",
+    "body": "Este site pode usar o Google Analytics para contar visitas e cliques na App Store. A escolha é sua e pode ser alterada aqui a qualquer momento.",
+    "analytics": "Análise",
+    "necessary": "As suas escolhas de idioma e som ficam salvas apenas neste navegador. Não são enviadas a lugar nenhum.",
+    "allow": "Permitir análise",
+    "decline": "Desativar",
+    "on": "Ligado",
+    "off": "Desligado",
+    "policy": "Política de privacidade",
+    "close": "Fechar"
   }
 }

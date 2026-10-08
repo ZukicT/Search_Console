@@ -11,8 +11,8 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parents[1]
 APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
-CSS_VERSION = "116"
-JS_VERSION = "38"
+CSS_VERSION = "118"
+JS_VERSION = "40"
 CHART_CSS_VERSION = "15"
 BLOG_VISUALS_CSS_VERSION = "7"
 PAGES_CSS_VERSION = "5"
@@ -460,25 +460,55 @@ def sync_smart_app_banner(text: str) -> str:
 
 
 GTAG_DEFERRED = """  <script>
+    // Google Analytics with consent. Nothing is requested from Google until analytics is allowed.
+    // Visitors in Europe (and anyone whose browser sends Global Privacy Control or Do Not Track)
+    // start with analytics off; others start with it on. The Privacy button on every page changes it.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    function loadGoogleTag() {
-      if (loadGoogleTag.loaded) return;
-      loadGoogleTag.loaded = true;
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VPPTK5JECX';
-      document.head.appendChild(script);
-      gtag('js', new Date());
-      gtag('config', 'G-VPPTK5JECX');
-    }
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGoogleTag, { timeout: 4000 });
-    } else {
-      window.addEventListener('load', loadGoogleTag, { once: true });
-    }
+    (function () {
+      var KEY = 'privacyAnalytics';
+      var ID = 'G-VPPTK5JECX';
+      function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function optInRegion() {
+        try {
+          var zone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+          return /^(Europe\\/|Atlantic\\/(Reykjavik|Canary|Madeira|Azores|Faroe)|Arctic\\/Longyearbyen)/.test(zone);
+        } catch (e) { return true; }
+      }
+      function signalsNo() {
+        return navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1';
+      }
+      var choice = stored();
+      var allowed = choice === 'granted' || (choice === null && !optInRegion() && !signalsNo());
+      window.SitePrivacy = { key: KEY, id: ID, choice: choice, allowed: allowed, needsChoice: choice === null && (optInRegion() || signalsNo()) };
+      gtag('consent', 'default', {
+        analytics_storage: allowed ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      window['ga-disable-' + ID] = !allowed;
+      window.loadGoogleTag = function () {
+        if (window.loadGoogleTag.loaded || window['ga-disable-' + ID]) return;
+        window.loadGoogleTag.loaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', ID, { anonymize_ip: true });
+      };
+      if (!allowed) return;
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(window.loadGoogleTag, { timeout: 4000 });
+      } else {
+        window.addEventListener('load', window.loadGoogleTag, { once: true });
+      }
+    })();
   </script>
 """
+
+GTAG_CURRENT = re.compile(r"  <script>\s*(?://[^\n]*\n\s*)*window\.dataLayer = window\.dataLayer \|\| \[\];[\s\S]*?</script>\n")
 
 GTAG_LEGACY = re.compile(
     r'  <script async src="https://www\.googletagmanager\.com/gtag/js\?id=G-VPPTK5JECX"></script>\s*'
@@ -491,7 +521,7 @@ def sync_gtag(text: str) -> str:
     if GTAG_LEGACY.search(text):
         return GTAG_LEGACY.sub(GTAG_DEFERRED, text, count=1)
     if "loadGoogleTag" in text:
-        return text
+        return GTAG_CURRENT.sub(lambda _m: GTAG_DEFERRED, text, count=1)
     block = GTAG_DEFERRED
     marker = '<meta name="theme-color"'
     idx = text.find(marker)

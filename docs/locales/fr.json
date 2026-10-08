@@ -926,5 +926,18 @@
   "sound": {
     "on": "Son activé",
     "off": "Son coupé"
+  },
+  "consent": {
+    "button": "Confidentialité",
+    "title": "Paramètres de confidentialité",
+    "body": "Ce site peut utiliser Google Analytics pour compter les visites et les clics vers l'App Store. C'est votre choix, modifiable ici à tout moment.",
+    "analytics": "Mesure d'audience",
+    "necessary": "Vos choix de langue et de son sont enregistrés uniquement dans ce navigateur. Ils ne sont envoyés nulle part.",
+    "allow": "Autoriser",
+    "decline": "Désactiver",
+    "on": "Activé",
+    "off": "Désactivé",
+    "policy": "Politique de confidentialité",
+    "close": "Fermer"
   }
 }

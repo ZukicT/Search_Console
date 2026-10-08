@@ -3994,7 +3994,8 @@ h1 strong,
 }
 
 .film-frame__play,
-.film-frame iframe {
+.film-frame iframe,
+.film-frame video {
   display: block;
   width: 100%;
   height: 100%;
@@ -5474,4 +5475,200 @@ main .feature-stack .feature-stack__item:hover {
   width: 1px !important;
   height: 1px !important;
   opacity: 0 !important;
+}
+
+/* ==========================================================================
+   Privacy control: always in the bottom left corner
+   ========================================================================== */
+.privacy-control {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: calc(100vw - 32px);
+}
+
+.privacy-control__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  background: #ffffff;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--accent-soft);
+}
+
+.privacy-control__button:hover {
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.privacy-control__dot {
+  width: 8px;
+  height: 8px;
+  background: #8d8d8d;
+}
+
+.privacy-control.is-on .privacy-control__dot {
+  background: var(--green);
+}
+
+.privacy-card {
+  width: 340px;
+  max-width: 100%;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid var(--ink);
+  border-top: 3px solid var(--accent);
+  box-shadow: 8px 8px 0 var(--accent-soft);
+  color: var(--ink);
+}
+
+.privacy-card[hidden] {
+  display: none;
+}
+
+.privacy-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.privacy-card__title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.privacy-card__close {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.privacy-card__close:hover {
+  background: var(--surface);
+}
+
+.privacy-card__body,
+.privacy-card__note {
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.privacy-card__note {
+  font-size: 0.8125rem;
+}
+
+.privacy-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.privacy-card__label {
+  font-weight: 600;
+}
+
+.privacy-card__status {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.privacy-control.is-on .privacy-card__status {
+  color: var(--green);
+}
+
+.privacy-card__actions {
+  display: flex;
+  gap: 1px;
+  margin-top: 14px;
+}
+
+.privacy-card__allow,
+.privacy-card__decline {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+}
+
+/* Both choices carry the same weight; the current one is the filled one. */
+.privacy-card__allow,
+.privacy-card__decline {
+  background: #ffffff;
+  color: var(--accent);
+}
+
+.privacy-card__allow[aria-pressed="true"],
+.privacy-card__decline[aria-pressed="true"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.privacy-card__allow:hover,
+.privacy-card__decline:hover {
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+.privacy-card__allow[aria-pressed="true"]:hover,
+.privacy-card__decline[aria-pressed="true"]:hover {
+  background: var(--accent-hover);
+  color: #ffffff;
+}
+
+.privacy-card__link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--accent);
+}
+
+/* On phones the sticky download bar owns the bottom edge, so the button sits above it. */
+@media (max-width: 860px) {
+  .privacy-control {
+    left: 12px;
+    bottom: 84px;
+  }
+}
+
+@media print {
+  .privacy-control {
+    display: none;
+  }
+}
+
+.film-frame video {
+  background: #ffffff;
+  object-fit: contain;
 }
