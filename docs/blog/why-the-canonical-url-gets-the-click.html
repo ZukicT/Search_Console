@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -198,19 +198,29 @@
             <time datetime="2026-10-08">October 8, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostCanonical.title">Why the Canonical URL Gets the Click</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
-        <figure class="blog-visual reveal" data-reveal>
+        <figure class="blog-visual blog-visual--canon reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostCanonical.visualCaption">The URL in the result is not always the URL in the table</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-query-page">
-              <div class="blog-visual-query-page__query"><span data-i18n="blogPostCanonical.visualClickedLabel">Clicked in search</span>https://m.example.com/guides/page</div>
-              <div class="blog-visual-query-page__arrow" aria-hidden="true" data-i18n="blogPostCanonical.visualArrow">↓ Credit in Performance</div>
-              <div class="blog-visual-query-page__pages">
-                <div class="blog-visual-query-page__url blog-visual-query-page__url--primary">
-                  <span>https://www.example.com/guides/page</span>
-                  <span class="blog-visual-query-page__share" data-i18n="blogPostCanonical.visualCanonical">Canonical</span>
+            <div class="canon-flow">
+              <div class="canon-flow__result">
+                <span class="canon-flow__kicker" data-i18n="blogPostCanonical.visualClickedLabel">Clicked in search</span>
+                <span class="canon-flow__url">https://m.example.com/guides/page</span>
+              </div>
+              <div class="canon-flow__path" aria-hidden="true">
+                <span class="canon-flow__path-line"></span>
+                <span class="canon-flow__path-label" data-i18n="blogPostCanonical.visualArrow">Credit in Performance</span>
+              </div>
+              <div class="canon-flow__table">
+                <div class="canon-flow__row canon-flow__row--credit">
+                  <span class="canon-flow__url">https://www.example.com/guides/page</span>
+                  <span class="canon-flow__tag" data-i18n="blogPostCanonical.visualCanonical">Canonical</span>
+                  <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
+                </div>
+                <div class="canon-flow__row canon-flow__row--quiet">
+                  <span class="canon-flow__url">https://m.example.com/guides/page</span>
+                  <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
                 </div>
               </div>
             </div>
@@ -221,30 +231,44 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pIntro">You can click one URL in search results and watch a different URL collect the click in Search Console. That is how the Performance report assigns credit. The Pages tab follows the canonical Google chose, not every address that appeared.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pIntro">You open Pages for the URL you just rewrote. The row is there, and it is quiet. A near copy is not. The www host, the mobile host, or the old path you thought you had retired is the one with the clicks. For a minute it looks like the edit missed.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pIntro2">The click happened. Search Console filed it on the address Google treats as the page. That is the rule. The rest of this is the three ways the rule hides the row, and the check that tells you which URL to read before you rewrite another one.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCanonical.h2Credit">A click on the duplicate counts on the canonical</h2>
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pCredit">Google's <a href="https://support.google.com/webmasters/answer/17011259" target="_blank" rel="noopener noreferrer">dimensions article</a> says most performance data is assigned to the page's canonical URL, not to a duplicate. When someone clicks a duplicate URL in search results, the click counts toward the canonical, not toward the URL the person visits. The Pages row you are staring at may never have been the link on the results page.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCredit">Picture the result. The blue link still says the duplicate, something like a mobile host or an old path. Someone taps it. In the Pages table the movement shows up on the other address, the one Google is treating as the canonical. Google's <a href="https://support.google.com/webmasters/answer/17011259" target="_blank" rel="noopener noreferrer">dimensions article</a> says most performance data is assigned to the page's canonical URL, not to a duplicate. When someone clicks a duplicate URL in search results, the click counts toward the canonical, not toward the URL the person visits.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCredit2">So the row in front of you may never have been the link on the results page. The quiet URL can be the one people tapped. The loud URL can be the one Google files the tap under. You can tighten a title on the quiet one for a week and never touch the address that is actually collecting the clicks.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCredit3">That explains a missing row. It does not explain a redirect you added on your own server. That one feels like it should drag the credit along with the visitor. It does not, and the reason is smaller than it first sounds.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCanonical.h2Final">The Pages tab uses the final URL after redirects in the result</h2>
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pFinal">The same article says the page dimension groups data by the final URL linked by a search result after any redirects. That is the result link, settled. It is not "whatever URL the browser ended on after your site took over."</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pFinal">The same article says the page dimension groups data by the final URL linked by a search result after any redirects. "Final URL" is easy to hear as wherever the browser ended up. It means the link in the result, after Google has settled which address that result points at.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pFinal2">Your site can still send the person somewhere else once they arrive. That second hop is a visit. It is not a new assignment in this report. If you have been waiting for the click to follow the redirect, the report will not do that.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCanonical.h2Device">Mobile and desktop can share one row</h2>
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pDevice">The <a href="https://support.google.com/webmasters/answer/7042828" target="_blank" rel="noopener noreferrer">impressions and clicks article</a> says click, impression, and position data for variants of a page go to the canonical Google selects. Variants include a separate mobile URL and a desktop URL, and sometimes an alternate language URL. You do not add the mobile rows to the desktop rows yourself. They are already one URL in the report. Filter by device when you need them split.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pDevice">The <a href="https://support.google.com/webmasters/answer/7042828" target="_blank" rel="noopener noreferrer">impressions and clicks article</a> says click, impression, and position data for variants of a page go to the canonical Google selects. Variants include a separate mobile URL and a desktop URL, and sometimes an alternate language URL. You do not add the mobile numbers to the desktop numbers. They are already one URL in the report. Filter by device when you need them split. The table will not split them for you.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pDevice2">This is where a careful reading goes wrong. Two addresses feel like two piles of clicks. You take the www row, then go looking for the mobile host and add it again. The second number was never a second pile. If you have been nursing the mobile host while the desktop URL holds the history, the mobile clicks were not lost. You were reading them under the other name.</p>
 
-        <figure class="blog-visual reveal" data-reveal>
+        <figure class="blog-visual blog-visual--canon reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostCanonical.visualCaptionDevice">Two addresses, one row</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">m.</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostCanonical.visualMobile">Mobile URL</span>
+            <div class="canon-merge">
+              <div class="canon-merge__sources">
+                <div class="canon-merge__source">
+                  <span class="canon-merge__host">m.example.com</span>
+                  <span data-i18n="blogPostCanonical.visualMobile">Mobile URL</span>
                 </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">www</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostCanonical.visualDesktop">Desktop URL</span>
+                <div class="canon-merge__source">
+                  <span class="canon-merge__host">www.example.com</span>
+                  <span data-i18n="blogPostCanonical.visualDesktop">Desktop URL</span>
                 </div>
+              </div>
+              <svg class="canon-merge__wires" viewBox="0 0 320 56" aria-hidden="true" focusable="false">
+                <path pathLength="100" d="M48 2 C48 36 160 20 160 54"></path>
+                <path pathLength="100" d="M272 2 C272 36 160 20 160 54"></path>
+              </svg>
+              <div class="canon-merge__row">
+                <span class="canon-merge__host">www.example.com/guides/page</span>
+                <span class="canon-flow__tag" data-i18n="blogPostCanonical.visualCanonical">Canonical</span>
+                <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
               </div>
             </div>
             <p class="blog-visual-metrics__note" data-i18n="blogPostCanonical.visualDeviceNote">Both are credited to the canonical Google selected. Filter by device to split them.</p>
@@ -252,20 +276,38 @@
         </figure>
 
         <h2 class="guide-heading" data-i18n="blogPostCanonical.h2Redirect">A redirect after the click does not move the credit</h2>
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pRedirect">Google is explicit here. If your site redirects the person to another page after they land from Google, that has no effect on the URL assigned the impression or the click. The hop from an old path to a new path is invisible to the Performance row. Fixing the redirect changes the visit. It does not reassign the historical click.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pRedirect">Google is explicit here. If your site redirects the person to another page after they land from Google, that has no effect on the URL assigned the impression or the click. The old path can keep the history. The new path can be the page they actually read. Both can be true in the same week.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pRedirect2">Fix the redirect if people are landing in the wrong place. Do not reopen Performance the next morning and expect last month to have moved. The visit changed. The row did not.</p>
 
-        <figure class="blog-visual reveal" data-reveal>
+        <figure class="blog-visual blog-visual--canon reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostCanonical.visualCaptionRedirect">Where the click stays</figcaption>
           <div class="blog-visual__panel">
-            <ol class="blog-visual-rank">
-              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">1</span><span data-i18n="blogPostCanonical.visualResult">URL in the search result</span><span class="blog-visual-rank__tag" data-i18n="blogPostCanonical.visualGets">Gets the click</span></li>
-              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostCanonical.visualHop">Page your redirect opens</span><span class="blog-visual-rank__tag" data-i18n="blogPostCanonical.visualNo">No credit</span></li>
+            <ol class="canon-stay">
+              <li class="canon-stay__row canon-stay__row--kept">
+                <span class="canon-stay__n">1</span>
+                <span class="canon-stay__copy">
+                  <span data-i18n="blogPostCanonical.visualResult">URL in the search result</span>
+                  <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
+                </span>
+                <span class="canon-stay__tag" data-i18n="blogPostCanonical.visualGets">Gets the click</span>
+              </li>
+              <li class="canon-stay__hop" aria-hidden="true"><span></span></li>
+              <li class="canon-stay__row canon-stay__row--open">
+                <span class="canon-stay__n">2</span>
+                <span class="canon-stay__copy">
+                  <span data-i18n="blogPostCanonical.visualHop">Page your redirect opens</span>
+                  <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
+                </span>
+                <span class="canon-stay__tag" data-i18n="blogPostCanonical.visualNo">No credit</span>
+              </li>
             </ol>
           </div>
         </figure>
 
         <h2 class="guide-heading" data-i18n="blogPostCanonical.h2Check">Check the canonical before you rewrite the wrong URL</h2>
-        <p class="guide-body-text" data-i18n="blogPostCanonical.pCheck">The dimensions article says you can learn the canonical for a page with URL Inspection. If a URL you care about has no clicks, open Inspection and see whether Google selected a different address. Then read that address in the Pages table. The indexing guide covers the case where the URL is missing from the index entirely. This one is the case where the clicks exist, on a URL you were not watching.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCheck">The dimensions article says you can learn the canonical for a page with URL Inspection. Open the quiet URL. Look at the Google-selected canonical and at the one you declared. If they differ, the selected address is the row to open in Pages. That is where the clicks are sitting.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCheck2">The easy mistake is to keep editing the URL that looks neglected. A better title on a duplicate does not move the clicks off the address Google is filing them under. The <a href="catch-indexing-issues-early.html">indexing post</a> is the other problem: a URL that is missing because it is not indexed. This one is the problem where the clicks exist, under a name you were not watching.</p>
+        <p class="guide-body-text" data-i18n="blogPostCanonical.pCheck3">If Inspection and the Pages row agree, and the URL is still quiet, the canonical rule is not the explanation. Look at the queries on that URL, and at indexing, before you treat a duplicate as a ranking failure.</p>
         </div>
         <aside class="blog-sources" aria-labelledby="blog-sources-canonical">
           <h2 id="blog-sources-canonical" class="blog-sources__title" data-i18n="blogCommon.sourcesTitle">Google documentation</h2>
@@ -406,10 +448,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=54" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

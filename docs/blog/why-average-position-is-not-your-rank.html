@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-10-08",
-    "dateModified": "2026-10-08",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/why-average-position-is-not-your-rank.html"
   }
   </script>
@@ -198,15 +198,14 @@
             <time datetime="2026-10-08">October 8, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostPosition.title">Why Average Position Is Not the Rank You See</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostPosition.visualCaption">Query 1: only the top result counts</figcaption>
           <div class="blog-visual__panel">
-            <ol class="blog-visual-rank">
+            <ol class="blog-visual-rank blog-visual-rank--pick">
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">1</span><span data-i18n="blogPostPosition.visualOther">Another site</span><span class="blog-visual-rank__tag"></span></li>
-              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostPosition.visualYours">Your property</span><span class="blog-visual-rank__tag" data-i18n="blogPostPosition.visualCounted">Counted</span></li>
+              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostPosition.visualYours">Your property</span><span class="blog-visual-rank__tag" data-i18n="blogPostPosition.visualCounted">Counted</span><span class="canon-flow__track"><span class="canon-flow__fill"></span></span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">3</span><span data-i18n="blogPostPosition.visualOther">Another site</span><span class="blog-visual-rank__tag"></span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">4</span><span data-i18n="blogPostPosition.visualYours">Your property</span><span class="blog-visual-rank__tag" data-i18n="blogPostPosition.visualIgnored">Not counted</span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">5</span><span data-i18n="blogPostPosition.visualOther">Another site</span><span class="blog-visual-rank__tag"></span></li>
@@ -219,7 +218,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostPosition.pIntro">Search your own query, see the page at position 8, then open Search Console and see 5. The report is not correcting you, and you are not correcting the report. Those are two different measurements.</p>
+        <p class="guide-body-text" data-i18n="blogPostPosition.pIntro">You search the query yourself and see the page at position 8. Search Console says 5. The report is not correcting you, and you are not correcting the report.</p>
+        <p class="guide-body-text" data-i18n="blogPostPosition.pIntro2">Those are two different measurements. The next section is the math Google actually uses, and why one signed-in search is not that math.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostPosition.h2Average">What the number actually averages</h2>
         <p class="guide-body-text" data-i18n="blogPostPosition.pAverage">Google defines position as a relative rank, where 1 is the top result. The Performance report does not list every rank your links held. It shows the average of the <a href="https://support.google.com/webmasters/answer/7042828" target="_blank" rel="noopener noreferrer">topmost position</a> your property or page occupied, across the queries where it appeared.</p>
@@ -228,21 +228,20 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostPosition.visualCaptionAverage">Topmost positions, then the average</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">2</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualQ1">Query 1</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">3</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualQ2">Query 2</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">2.5</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualAvg">Average</span>
-                </div>
+            <div class="motion-pick">
+              <div class="motion-pick__query">
+                <span data-i18n="blogPostPosition.visualQ1">Query 1</span>
+                <span class="motion-pick__pos motion-pick__pos--on">2</span>
+                <span class="motion-pick__pos">4</span>
+                <span class="motion-pick__pos">6</span>
               </div>
+              <div class="motion-pick__query">
+                <span data-i18n="blogPostPosition.visualQ2">Query 2</span>
+                <span class="motion-pick__pos motion-pick__pos--on">3</span>
+                <span class="motion-pick__pos">5</span>
+                <span class="motion-pick__pos">9</span>
+              </div>
+              <p class="motion-pick__avg"><span>2.5</span> <span data-i18n="blogPostPosition.visualAvg">Average</span></p>
             </div>
           </div>
         </figure>
@@ -257,25 +256,22 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostPosition.visualCaptionSplit">Same search, two totals</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">1</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualPropertyPos">Property position</span>
+            <div class="motion-split">
+              <div class="motion-split__cols">
+                <div class="motion-split__col motion-split__col--on">
+                  <strong>1</strong>
+                  <span data-i18n="blogPostPosition.visualPropertyPos">Property position</span>
+                  <span data-i18n="blogPostPosition.visualPropertyCtr">Property CTR</span>
+                  <span>100%</span>
                 </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">100%</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualPropertyCtr">Property CTR</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">2</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualPagePos">Page position</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">33%</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualPageCtr">Page CTR</span>
+                <div class="motion-split__col">
+                  <strong>2</strong>
+                  <span data-i18n="blogPostPosition.visualPagePos">Page position</span>
+                  <span data-i18n="blogPostPosition.visualPageCtr">Page CTR</span>
+                  <span>33%</span>
                 </div>
               </div>
+              <p class="motion-split__note">Google's worked example. One search, three results at 1, 2, and 3.</p>
             </div>
           </div>
         </figure>
@@ -286,16 +282,16 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostPosition.visualCaptionDevice">No impression, no position</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">10</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualDesktop">Desktop impressions</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">-</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostPosition.visualMobile">Mobile position</span>
-                </div>
+            <div class="motion-pair">
+              <div class="motion-pair__row">
+                <span class="motion-pair__name" data-i18n="blogPostPosition.visualDesktop">Desktop impressions</span>
+                <span class="motion-pair__track"><span class="motion-pair__fill motion-pair__fill--full"></span></span>
+                <span class="motion-pair__count">10</span>
+              </div>
+              <div class="motion-pair__row">
+                <span class="motion-pair__name" data-i18n="blogPostPosition.visualMobile">Mobile position</span>
+                <span class="motion-pair__track"></span>
+                <span class="motion-pair__count">-</span>
               </div>
             </div>
           </div>
@@ -445,10 +441,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=54" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

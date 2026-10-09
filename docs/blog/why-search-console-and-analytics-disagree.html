@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-10-08",
-    "dateModified": "2026-10-08",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/why-search-console-and-analytics-disagree.html"
   }
   </script>
@@ -198,19 +198,18 @@
             <time datetime="2026-10-08">October 8, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostAnalytics.title">Why Search Console Clicks and Analytics Do Not Match</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaption">Five reasons Google gives for the gap</figcaption>
           <div class="blog-visual__panel">
-            <ol class="blog-visual-rank">
-              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">1</span><span data-i18n="blogPostAnalytics.visualPrivacy">Privacy: rare queries are omitted</span><span class="blog-visual-rank__tag"></span></li>
-              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostAnalytics.visualDupes">Processing: duplicates are removed</span><span class="blog-visual-rank__tag"></span></li>
-              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">3</span><span data-i18n="blogPostAnalytics.visualLag">Lag: usually 2 to 3 days</span><span class="blog-visual-rank__tag" data-i18n="blogPostAnalytics.visualLagTag">Wait</span></li>
-              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">4</span><span data-i18n="blogPostAnalytics.visualZone">Clock: daily dates use Pacific Time</span><span class="blog-visual-rank__tag"></span></li>
-              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">5</span><span data-i18n="blogPostAnalytics.visualJs">Analytics only counts JavaScript</span><span class="blog-visual-rank__tag"></span></li>
-            </ol>
+            <div class="motion-reasons">
+              <div class="motion-reasons__row" style="--i: 0"><span class="motion-reasons__mark" aria-hidden="true"></span><span data-i18n="blogPostAnalytics.visualPrivacy">Privacy: rare queries are omitted</span></div>
+              <div class="motion-reasons__row" style="--i: 1"><span class="motion-reasons__mark" aria-hidden="true"></span><span data-i18n="blogPostAnalytics.visualDupes">Processing: duplicates are removed</span></div>
+              <div class="motion-reasons__row" style="--i: 2"><span class="motion-reasons__mark" aria-hidden="true"></span><span data-i18n="blogPostAnalytics.visualLag">Lag: usually 2 to 3 days</span><span class="motion-cap__count" data-i18n="blogPostAnalytics.visualLagTag">Wait</span></div>
+              <div class="motion-reasons__row" style="--i: 3"><span class="motion-reasons__mark" aria-hidden="true"></span><span data-i18n="blogPostAnalytics.visualZone">Clock: daily dates use Pacific Time</span></div>
+              <div class="motion-reasons__row" style="--i: 4"><span class="motion-reasons__mark" aria-hidden="true"></span><span data-i18n="blogPostAnalytics.visualJs">Analytics only counts JavaScript</span></div>
+            </div>
           </div>
         </figure>
         <nav class="blog-toc blog-toc--lead" data-blog-toc hidden aria-labelledby="blog-toc-lead-title-analytics">
@@ -218,7 +217,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostAnalytics.pIntro">Search Console clicks and Analytics sessions are not two readings of one number. Google lists the reasons they diverge. A gap is the normal result of those rules, not a broken tag by itself.</p>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pIntro">You pull yesterday in Search Console and yesterday in Analytics. The click count and the session count are not the same, and neither screen shows an error.</p>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pIntro2">Google lists the reasons they diverge. A broken tag can still be real. It is not the first explanation. The question is which of those reasons is sitting in front of you.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Privacy">Privacy removes some queries</h2>
         <p class="guide-body-text" data-i18n="blogPostAnalytics.pPrivacy">The <a href="https://support.google.com/webmasters/answer/17010575" target="_blank" rel="noopener noreferrer">troubleshooting page</a> says the Performance report does not show all data, to protect user privacy. One example: it omits some queries that are searched a very small number of times. The page names Analytics as a tool that can disagree for that reason.</p>
@@ -233,17 +233,14 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaptionClock">Lag and the clock Search Console uses</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">2-3</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostAnalytics.visualDays">Days until data shows</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">PT</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostAnalytics.visualPt">Daily date label</span>
-                </div>
+            <div class="motion-clock">
+              <div class="motion-clock__days">
+                <div class="motion-clock__day">0<span data-i18n="blogPostAnalytics.visualClicks">Search clicks</span></div>
+                <div class="motion-clock__day motion-clock__day--wait">1<span data-i18n="blogPostAnalytics.visualLagTag">Wait</span></div>
+                <div class="motion-clock__day motion-clock__day--wait">2<span data-i18n="blogPostAnalytics.visualLagTag">Wait</span></div>
+                <div class="motion-clock__day motion-clock__day--in">PT<span data-i18n="blogPostAnalytics.visualPt">Daily date label</span></div>
               </div>
+              <p class="motion-clock__note" data-i18n="blogPostAnalytics.visualDays">Days until data shows</p>
             </div>
           </div>
         </figure>
@@ -257,11 +254,19 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaptionPair">Two products, two counts</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-metrics">
-              <span class="blog-visual-metrics__pill blog-visual-metrics__pill--active" data-i18n="blogPostAnalytics.visualClicks">Search clicks</span>
-              <span class="blog-visual-metrics__pill" data-i18n="blogPostAnalytics.visualSessions">Analytics sessions</span>
+            <div class="motion-pair">
+              <div class="motion-pair__row">
+                <span class="motion-pair__name" data-i18n="blogPostAnalytics.visualClicks">Search clicks</span>
+                <span class="motion-pair__track"><span class="motion-pair__fill motion-pair__fill--full"></span></span>
+                <span class="motion-pair__count" data-i18n="blogPostQueries.visualChartValue">All</span>
+              </div>
+              <div class="motion-pair__row">
+                <span class="motion-pair__name" data-i18n="blogPostAnalytics.visualSessions">Analytics sessions</span>
+                <span class="motion-pair__track"><span class="motion-pair__fill motion-pair__fill--short"></span></span>
+                <span class="motion-pair__count">JS</span>
+              </div>
+              <p class="motion-pair__gap" data-i18n="blogPostAnalytics.visualPairNote">Search Console counts the search click. Analytics, in Google's example, counts users with JavaScript enabled. The shorter bar is a drawing of that difference, not a measured gap.</p>
             </div>
-            <p class="blog-visual-metrics__note" data-i18n="blogPostAnalytics.visualPairNote">Search Console counts the search click. Analytics, in Google's example, counts users with JavaScript enabled.</p>
           </div>
         </figure>
 
@@ -409,10 +414,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=54" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

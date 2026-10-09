@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-10-08",
-    "dateModified": "2026-10-08",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/why-query-totals-dont-add-up.html"
   }
   </script>
@@ -198,26 +198,23 @@
             <time datetime="2026-10-08">October 8, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostQueries.title">Why Search Console Query Rows Do Not Add Up</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostQueries.visualCaption">Illustration. The table cap is 1,000 rows. The bar length is not a measured share.</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-sitemap">
-              <div class="blog-visual-sitemap__rows">
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostQueries.visualChart">Chart</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--submitted" style="width: 100%; --delay: 0.1s"></span></div>
-                  <span class="blog-visual-sitemap__count" data-i18n="blogPostQueries.visualChartValue">All</span>
-                </div>
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostQueries.visualTable">Table</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--muted" style="width: 62%; --delay: 0.28s"></span></div>
-                  <span class="blog-visual-sitemap__count">1,000 rows</span>
-                </div>
+            <div class="motion-cap">
+              <div class="motion-cap__row">
+                <span class="motion-cap__name" data-i18n="blogPostQueries.visualChart">Chart</span>
+                <span class="motion-cap__track"><span class="motion-cap__listed"></span><span class="motion-cap__anon"></span></span>
+                <span class="motion-cap__count" data-i18n="blogPostQueries.visualChartValue">All</span>
               </div>
-              <p class="blog-visual-sitemap__gap" data-i18n="blogPostQueries.visualGap"><strong>Anonymized queries</strong> stay in the chart and leave the table. The table also stops at 1,000 rows.</p>
+              <div class="motion-cap__row">
+                <span class="motion-cap__name" data-i18n="blogPostQueries.visualTable">Table</span>
+                <span class="motion-cap__track"><span class="motion-cap__listed"></span></span>
+                <span class="motion-cap__count">1,000 rows</span>
+              </div>
+              <p class="motion-cap__gap" data-i18n="blogPostQueries.visualGap"><strong>Anonymized queries</strong> stay in the chart and leave the table. The table also stops at 1,000 rows.</p>
             </div>
           </div>
         </figure>
@@ -226,7 +223,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostQueries.pIntro">Add the clicks in the Queries table and the sum comes in under the chart. That gap is not missing traffic. The chart is the property total. The table is a shorter list, with rare queries removed on purpose.</p>
+        <p class="guide-body-text" data-i18n="blogPostQueries.pIntro">You add the clicks in the Queries table. The sum lands under the chart. For a minute it looks like traffic went missing.</p>
+        <p class="guide-body-text" data-i18n="blogPostQueries.pIntro2">That gap is not missing traffic. The chart is the property total. The table is a shorter list, with rare queries removed on purpose. The next question is which cut removed them.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostQueries.h2Rare">Rare queries stay in the chart and leave the table</h2>
         <p class="guide-body-text" data-i18n="blogPostQueries.pRare">Google calls these anonymized queries. <a href="https://support.google.com/webmasters/answer/17011259" target="_blank" rel="noopener noreferrer">The dimensions article</a> says some queries are omitted from the report to protect user privacy. They are included in chart totals, unless you apply a query filter such as "queries containing" or "queries not containing".</p>
@@ -245,20 +243,18 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostQueries.visualCaptionFilter">Illustration. A query filter drops anonymized queries from the chart. The bar length is not a measured loss.</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-sitemap">
-              <div class="blog-visual-sitemap__rows">
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostQueries.visualOpen">Open</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--submitted" style="width: 100%; --delay: 0.1s"></span></div>
-                  <span class="blog-visual-sitemap__count" data-i18n="blogPostQueries.visualChartValue">All</span>
-                </div>
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostQueries.visualFilter">Filter</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--muted" style="width: 74%; --delay: 0.28s"></span></div>
-                  <span class="blog-visual-sitemap__count" data-i18n="blogPostQueries.visualFilterValue">Less</span>
-                </div>
+            <div class="motion-cap motion-cap--filter">
+              <div class="motion-cap__row">
+                <span class="motion-cap__name" data-i18n="blogPostQueries.visualOpen">Open</span>
+                <span class="motion-cap__track"><span class="motion-cap__listed"></span><span class="motion-cap__anon"></span></span>
+                <span class="motion-cap__count" data-i18n="blogPostQueries.visualChartValue">All</span>
               </div>
-              <p class="blog-visual-sitemap__gap" data-i18n="blogPostQueries.visualFilterGap"><strong>Rare queries drop out</strong> of the chart once a query filter is on. That is not a traffic loss.</p>
+              <div class="motion-cap__row motion-cap__row--filter">
+                <span class="motion-cap__name" data-i18n="blogPostQueries.visualFilter">Filter</span>
+                <span class="motion-cap__track"><span class="motion-cap__listed"></span><span class="motion-cap__anon"></span></span>
+                <span class="motion-cap__count" data-i18n="blogPostQueries.visualFilterValue">Less</span>
+              </div>
+              <p class="motion-cap__gap" data-i18n="blogPostQueries.visualFilterGap"><strong>Rare queries drop out</strong> of the chart once a query filter is on. That is not a traffic loss.</p>
             </div>
           </div>
         </figure>
@@ -269,11 +265,13 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostQueries.visualCaptionBrand">Branded filter: a label, not a rank change</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-metrics">
-              <span class="blog-visual-metrics__pill blog-visual-metrics__pill--active" data-i18n="blogPostQueries.visualBranded">Branded</span>
-              <span class="blog-visual-metrics__pill" data-i18n="blogPostQueries.visualNonBrand">Non-branded</span>
+            <div class="motion-split">
+              <div class="motion-split__cols">
+                <div class="motion-split__col motion-split__col--on"><strong data-i18n="blogPostQueries.visualBranded">Branded</strong></div>
+                <div class="motion-split__col"><strong data-i18n="blogPostQueries.visualNonBrand">Non-branded</strong></div>
+              </div>
+              <p class="motion-split__note" data-i18n="blogPostQueries.visualBrandNote">Information only. The split does not affect ranking, and some queries can be marked wrong.</p>
             </div>
-            <p class="blog-visual-metrics__note" data-i18n="blogPostQueries.visualBrandNote">Information only. The split does not affect ranking, and some queries can be marked wrong.</p>
           </div>
         </figure>
 
@@ -418,10 +416,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=54" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

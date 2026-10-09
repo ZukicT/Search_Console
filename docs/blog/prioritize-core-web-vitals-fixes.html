@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=12">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-05-29",
-    "dateModified": "2026-05-29",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/prioritize-core-web-vitals-fixes.html"
   }
   </script>
@@ -198,27 +198,23 @@
             <time datetime="2026-05-29" data-i18n="blogCommon.datePublished">May 29, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostCwv.title">How to Prioritize Core Web Vitals Fixes That Actually Matter</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
-        <figure class="blog-visual blog-visual--cwv reveal" data-blog-visual="cwv" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostCwv.visualCaptionStatus">Core Web Vitals status by metric (mobile field data)</figcaption>
+        <figure class="blog-visual blog-visual--cwv reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCwv.visualCaptionStatus">Example group. Status is the worst metric.</figcaption>
           <div class="blog-visual__panel">
             <div class="blog-visual-cwv">
-              <div class="blog-visual-cwv__item">
+              <div class="blog-visual-cwv__item blog-visual-cwv__item--good">
                 <span class="blog-visual-cwv__metric-name">LCP</span>
-                <div class="blog-visual-cwv__ring" data-cwv-ring></div>
-                <span class="blog-visual-cwv__status blog-visual-cwv__status--good" data-i18n="blogCommon.statusGood">Good</span>
+                <span class="blog-visual-cwv__status" data-i18n="blogCommon.statusGood">Good</span>
               </div>
-              <div class="blog-visual-cwv__item">
+              <div class="blog-visual-cwv__item blog-visual-cwv__item--warn">
                 <span class="blog-visual-cwv__metric-name">INP</span>
-                <div class="blog-visual-cwv__ring" data-cwv-ring></div>
-                <span class="blog-visual-cwv__status blog-visual-cwv__status--warn" data-i18n="blogCommon.statusNeedImprovement">Need improvement</span>
+                <span class="blog-visual-cwv__status" data-i18n="blogCommon.statusNeedImprovement">Need improvement</span>
               </div>
-              <div class="blog-visual-cwv__item">
+              <div class="blog-visual-cwv__item blog-visual-cwv__item--good">
                 <span class="blog-visual-cwv__metric-name">CLS</span>
-                <div class="blog-visual-cwv__ring" data-cwv-ring></div>
-                <span class="blog-visual-cwv__status blog-visual-cwv__status--good" data-i18n="blogCommon.statusGood">Good</span>
+                <span class="blog-visual-cwv__status" data-i18n="blogCommon.statusGood">Good</span>
               </div>
             </div>
           </div>
@@ -228,7 +224,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostCwv.pIntro">Core Web Vitals (CWV) measure real-user loading, interactivity, and visual stability. Search Console shows CWV from field data collected through the Chrome User Experience Report (CrUX), not from a single lab test. That makes the report the right place to prioritize fixes that affect visitors Google already measured.</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pIntro">A lab score is red and the page still gets clicks. For a minute it looks like Search Console missed the problem.</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pIntro2">Core Web Vitals here come from field data in the Chrome User Experience Report, the visits Google already measured, not from one lab test. A URL group's status is its worst metric. The question is which template has that status and also has search traffic worth the fix.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Where">Where to find the report</h2>
         <p class="guide-body-text" data-i18n="blogPostCwv.pWhere1">Open the Core Web Vitals report. The overview splits data by <strong>Mobile</strong> and <strong>Desktop</strong>. Google recommends fixing everything labeled Poor first, then issues that affect the most URLs, or the most important URLs. The help page does not say to start with mobile.</p>
@@ -257,19 +254,21 @@
               </div>
               <div class="blog-visual-cwv-thresholds__metric">
                 <span class="blog-visual-cwv-thresholds__name" data-i18n="blogPostCwv.visualThresholdInp">INP (Interaction to Next Paint)</span>
-                <div class="blog-visual-cwv-thresholds__bar" aria-hidden="true">
-                  <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--good" style="--delay: 0.2s"></span>
-                  <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--warn" style="--delay: 0.28s"></span>
-                  <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--bad" style="--delay: 0.36s"></span>
+                <div class="blog-visual-cwv-thresholds__plot">
+                  <div class="blog-visual-cwv-thresholds__bar" aria-hidden="true">
+                    <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--good" style="--delay: 0.2s"></span>
+                    <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--warn" style="--delay: 0.28s"></span>
+                    <span class="blog-visual-cwv-thresholds__zone blog-visual-cwv-thresholds__zone--bad" style="--delay: 0.36s"></span>
+                  </div>
+                  <div class="blog-visual-cwv-thresholds__marker" style="--pos: 46.7%">
+                    <span class="blog-visual-cwv-thresholds__marker-value" data-i18n="blogPostCwv.visualThresholdSample">320ms sample</span>
+                    <span class="blog-visual-cwv-thresholds__marker-line" aria-hidden="true"></span>
+                  </div>
                 </div>
                 <div class="blog-visual-cwv-thresholds__labels">
                   <span>≤ 200ms</span>
                   <span>200 to 500ms</span>
                   <span>&gt; 500ms</span>
-                </div>
-                <div class="blog-visual-cwv-thresholds__marker">
-                  <span class="blog-visual-cwv-thresholds__marker-line" style="--pos: 58%"></span>
-                  <span class="blog-visual-cwv-thresholds__marker-value" style="--pos: 58%" data-i18n="blogPostCwv.visualThresholdSample">320ms sample</span>
                 </div>
               </div>
               <div class="blog-visual-cwv-thresholds__metric">
@@ -468,10 +467,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=51" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

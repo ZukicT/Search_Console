@@ -176,24 +176,15 @@
     });
     svg.appendChild(progress);
 
-    var label = createSvg('text', {
-      class: 'blog-visual-cwv__label',
-      x: String(size / 2),
-      y: String(size / 2 + 4),
-      'text-anchor': 'middle',
-    });
-    label.textContent = config.label;
-    svg.appendChild(label);
-
     container.replaceChildren(svg);
     container.dataset.rendered = 'true';
   }
 
   function initCwvVisual(root) {
     var rings = [
-      { label: 'LCP', score: 92, color: '#24a148', delay: '0.05s' },
-      { label: 'INP', score: 68, color: '#f1c21b', delay: '0.2s' },
-      { label: 'CLS', score: 96, color: '#24a148', delay: '0.35s' },
+      { score: 100, color: '#198038', delay: '0.05s' },
+      { score: 100, color: '#8e6a00', delay: '0.2s' },
+      { score: 100, color: '#198038', delay: '0.35s' },
     ];
     root.querySelectorAll('[data-cwv-ring]').forEach(function (node, index) {
       renderCwvRing(node, rings[index]);
@@ -241,18 +232,43 @@
     });
   }
 
+  var BLINK_PANEL_OVERLAP = 10;
+
+  function placeChartBlink(host) {
+    var figure = host.parentElement;
+    var panel = figure && figure.querySelector('.blog-visual__panel');
+    if (!panel) return;
+    var faceBottom = panel.offsetTop + BLINK_PANEL_OVERLAP;
+    host.style.top = (faceBottom - host.offsetHeight) + 'px';
+  }
+
   function mountChartBlinks() {
     var faces = [];
+    var hosts = [];
     document.querySelectorAll('.blog-visual').forEach(function (figure) {
       if (figure.querySelector('[data-blog-blink]')) return;
       var host = document.createElement('div');
       host.className = 'blog-visual__blink';
       host.setAttribute('aria-hidden', 'true');
       host.innerHTML = CHART_BLINK_MARKUP;
+      var line = figure.getAttribute('data-blink-line');
+      if (line) {
+        var say = document.createElement('p');
+        say.className = 'blog-visual__blink-line';
+        say.textContent = line;
+        host.insertBefore(say, host.firstChild);
+      }
       figure.appendChild(host);
+      hosts.push(host);
       var face = host.querySelector('[data-blog-blink]');
       if (face) faces.push({ figure: figure, face: face });
     });
+    function placeAllChartBlinks() {
+      hosts.forEach(placeChartBlink);
+    }
+    placeAllChartBlinks();
+    window.addEventListener('resize', placeAllChartBlinks);
+    window.addEventListener('load', placeAllChartBlinks);
     if (!faces.length) return;
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -367,7 +383,6 @@
   function initAll() {
     document.querySelectorAll('[data-blog-visual]').forEach(initVisual);
     bindChartSounds();
-    mountChartBlinks();
   }
 
   if (document.readyState === 'loading') {

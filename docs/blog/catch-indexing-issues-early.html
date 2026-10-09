@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=12">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-05-29",
-    "dateModified": "2026-05-29",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/catch-indexing-issues-early.html"
   }
   </script>
@@ -198,11 +198,10 @@
             <time datetime="2026-05-29" data-i18n="blogCommon.datePublished">May 29, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostIndexing.title">How to Catch Indexing Issues Before They Cost Clicks</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
         <figure class="blog-visual blog-visual--indexing reveal" data-blog-visual="indexing" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionIndex">Page indexing report: indexed vs not indexed</figcaption>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionIndex">Example counts. Indexed, not indexed, and known URLs.</figcaption>
           <div class="blog-visual__panel">
             <div class="blog-visual-index">
               <div class="blog-visual-index__summary">
@@ -242,7 +241,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pIntro">Indexing means Google crawled a page, processed it, and stored it in Google's index where it may become eligible for search results and some other surfaces. A URL can lose clicks while your homepage looks healthy if individual URLs drop out of the index or never get indexed after launch.</p>
+        <p class="guide-body-text" data-i18n="blogPostIndexing.pIntro">A page you just shipped is quiet in Performance. The homepage still has clicks. For a minute it looks like the new URL failed.</p>
+        <p class="guide-body-text" data-i18n="blogPostIndexing.pIntro2">Indexing means Google crawled a page, processed it, and stored it where it may become eligible for search. A URL can lose that path while the rest of the site looks fine. The next check is whether Google knows the URL, and why it left it out.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostIndexing.h2PageReport">Use the Page indexing report for site-wide status</h2>
         <p class="guide-body-text" data-i18n="blogPostIndexing.pPageReport1">Open <strong>Indexing</strong> &gt; <strong>Pages</strong> in Search Console. The summary chart shows counts of indexed and not-indexed URLs Google knows about for your property. The <strong>Why pages aren't indexed</strong> table lists reasons (for example, blocked by robots.txt, duplicate without user-selected canonical, crawled - currently not indexed). Click a reason to see example URLs and whether Google considers the source fixable on your site.</p>
@@ -264,6 +264,7 @@
             <div class="blog-visual-inspect">
               <div class="blog-visual-inspect__url">https://www.search-console.org/guides/track-keyword-rankings-from-iphone.html</div>
               <div class="blog-visual-inspect__status" data-i18n="blogPostIndexing.visualInspectStatusOk">URL is on Google</div>
+              <div class="canon-flow__track motion-inspect__track" aria-hidden="true"><span class="canon-flow__fill"></span></div>
               <ul class="blog-visual-inspect__checks">
                 <li class="blog-visual-inspect__check">
                   <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
@@ -288,6 +289,7 @@
             <div class="blog-visual-inspect">
               <div class="blog-visual-inspect__url">https://www.search-console.org/blog/draft-post.html</div>
               <div class="blog-visual-inspect__status blog-visual-inspect__status--warn" data-i18n="blogPostIndexing.visualInspectStatusBlock">URL is not on Google</div>
+              <div class="canon-flow__track motion-inspect__track" aria-hidden="true"><span class="canon-flow__fill motion-inspect__fill--blocked"></span></div>
               <ul class="blog-visual-inspect__checks">
                 <li class="blog-visual-inspect__check">
                   <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
@@ -486,10 +488,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=51" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

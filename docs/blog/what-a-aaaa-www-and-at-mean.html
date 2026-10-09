@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
+  <link rel="stylesheet" href="../css/style-pages.css?v=8">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=30">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "datePublished": "2026-10-08",
-    "dateModified": "2026-10-08",
+    "dateModified": "2026-10-09",
     "mainEntityOfPage": "https://www.search-console.org/blog/what-a-aaaa-www-and-at-mean.html"
   }
   </script>
@@ -198,18 +198,17 @@
             <time datetime="2026-10-08">October 8, 2026</time>
           </p>
           <h1 class="guide-title" data-i18n="blogPostDns.title">What A, AAAA, www, and @ Mean</h1>
-          <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostDns.visualCaption">The rows on a DNS page</figcaption>
           <div class="blog-visual__panel">
-            <ol class="blog-visual-rank">
+            <ol class="blog-visual-rank blog-visual-rank--pick">
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">1</span><span data-i18n="blogPostDns.visualAt">@ is example.com, the domain itself</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualApex">Apex</span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostDns.visualWww">www is a second name</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualHost">Host</span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">3</span><span data-i18n="blogPostDns.visualA">A is the IPv4 address</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualAddr">Address</span></li>
               <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">4</span><span data-i18n="blogPostDns.visualAaaa">AAAA is the IPv6 address</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualAddr">Address</span></li>
-              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">5</span><span data-i18n="blogPostDns.visualTxt">TXT holds Search Console's proof</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualProof">Proof</span></li>
+              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">5</span><span data-i18n="blogPostDns.visualTxt">TXT holds Search Console's proof</span><span class="blog-visual-rank__tag" data-i18n="blogPostDns.visualProof">Proof</span><span class="canon-flow__track"><span class="canon-flow__fill"></span></span></li>
             </ol>
           </div>
         </figure>
@@ -218,7 +217,8 @@
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostDns.pIntro">A, AAAA, www, and @ are DNS labels. DNS is the list that turns a name into an address. Search Console does not write that list, except for one TXT row when you verify a Domain property. The rest of the rows decide which computer answers when someone opens the name.</p>
+        <p class="guide-body-text" data-i18n="blogPostDns.pIntro">You open the DNS page to verify the domain, and the rows are labeled A, AAAA, www, and @. Search Console did not write that list, except for one TXT row.</p>
+        <p class="guide-body-text" data-i18n="blogPostDns.pIntro2">The rest of the rows decide which computer answers when someone opens the name. The question is which row is the domain itself, and which row is only a second name.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostDns.h2At">@ is the domain itself</h2>
         <p class="guide-body-text" data-i18n="blogPostDns.pAt"><a href="https://www.rfc-editor.org/rfc/rfc1035" target="_blank" rel="noopener noreferrer">RFC 1035</a> says a free-standing @ in a zone file denotes the current origin. That origin is the domain the file is for, such as example.com. Google's <a href="https://support.google.com/webmasters/answer/9008080" target="_blank" rel="noopener noreferrer">ownership page</a> uses the same mark on a verification TXT record: leave Host/Name blank, or set it to @. That row is for the domain, not for www.</p>
@@ -230,16 +230,25 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostDns.visualCaptionProperty">Same site, two Search Console shapes</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">@</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostDns.visualDomain">Domain property includes www</span>
+            <div class="canon-merge">
+              <div class="canon-merge__sources">
+                <div class="canon-merge__source">
+                  <span class="canon-merge__host">example.com</span>
+                  <span data-i18n="blogPostDns.visualApex">Apex</span>
                 </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">www</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostDns.visualPrefix">URL-prefix is one host</span>
+                <div class="canon-merge__source">
+                  <span class="canon-merge__host">www.example.com</span>
+                  <span data-i18n="blogPostDns.visualHost">Host</span>
                 </div>
+              </div>
+              <svg class="canon-merge__wires" viewBox="0 0 320 56" aria-hidden="true" focusable="false">
+                <path pathLength="100" d="M48 2 C48 36 160 20 160 54"></path>
+                <path pathLength="100" d="M272 2 C272 36 160 20 160 54"></path>
+              </svg>
+              <div class="canon-merge__row">
+                <span class="canon-merge__host">example.com</span>
+                <span class="canon-flow__tag" data-i18n="blogPostDns.visualDomain">Domain property includes www</span>
+                <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
               </div>
             </div>
             <p class="blog-visual-metrics__note" data-i18n="blogPostDns.visualPropertyNote">example.com covers www. https://example.com/ does not.</p>
@@ -260,14 +269,19 @@
         <figure class="blog-visual reveal" data-reveal>
           <figcaption class="blog-visual__caption" data-i18n="blogPostDns.visualCaptionTxt">Where the verification row goes</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-query-page">
-              <div class="blog-visual-query-page__query"><span data-i18n="blogPostDns.visualHostLabel">Host</span>@</div>
-              <div class="blog-visual-query-page__arrow" aria-hidden="true" data-i18n="blogPostDns.visualArrow">↓ TXT value from Search Console</div>
-              <div class="blog-visual-query-page__pages">
-                <div class="blog-visual-query-page__url blog-visual-query-page__url--primary">
-                  <span>google-site-verification=...</span>
-                  <span class="blog-visual-query-page__share">TXT</span>
-                </div>
+            <div class="canon-flow">
+              <div class="canon-flow__result">
+                <span class="canon-flow__kicker" data-i18n="blogPostDns.visualHostLabel">Host</span>
+                <span class="canon-flow__url">@</span>
+              </div>
+              <div class="canon-flow__path" aria-hidden="true">
+                <span class="canon-flow__path-line"></span>
+                <span class="canon-flow__path-label" data-i18n="blogPostDns.visualArrow">TXT value from Search Console</span>
+              </div>
+              <div class="canon-flow__row canon-flow__row--credit">
+                <span class="canon-flow__url">google-site-verification=...</span>
+                <span class="canon-flow__tag">TXT</span>
+                <span class="canon-flow__track"><span class="canon-flow__fill"></span></span>
               </div>
             </div>
           </div>
@@ -418,10 +432,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=54" defer></script>
+  <script src="../js/blog-visuals.js?v=57" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
-  <script src="../js/blog-toc.js?v=4" defer></script>
+  <script src="../js/blog-toc.js?v=5" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>
