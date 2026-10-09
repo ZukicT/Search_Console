@@ -34,7 +34,8 @@
     "promoCta": "앱 다운로드",
     "promoNote": "Google에서 제작하거나 제휴하지 않았습니다.",
     "backToBlog": "블로그로 돌아가기",
-    "relatedHeading": "블로그에서 더 보기"
+    "relatedHeading": "블로그에서 더 보기",
+    "contentsHeading": "이 페이지에서"
   },
   "blogCommon": {
     "byline": "작성자: <a href=\"../about.html\">Tarik Zukic</a>",

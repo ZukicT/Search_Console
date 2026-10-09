@@ -34,7 +34,8 @@
     "promoCta": "取得應用程式",
     "promoNote": "不是由 Google 製作或附屬於 Google。",
     "backToBlog": "返回博客",
-    "relatedHeading": "更多內容請參考博客"
+    "relatedHeading": "更多內容請參考博客",
+    "contentsHeading": "本頁內容"
   },
   "blogCommon": {
     "byline": "作者：<a href=\"../about.html\">Tarik Zukic</a>",

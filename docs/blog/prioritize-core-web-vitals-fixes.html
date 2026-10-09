@@ -86,8 +86,8 @@
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
-  <link rel="stylesheet" href="../css/style-pages.css?v=5">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=7">
+  <link rel="stylesheet" href="../css/style-pages.css?v=7">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=12">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -223,11 +223,15 @@
             </div>
           </div>
         </figure>
+        <nav class="blog-toc blog-toc--lead" data-blog-toc hidden aria-labelledby="blog-toc-lead-title">
+          <p id="blog-toc-lead-title" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
+          <ol class="blog-toc__list"></ol>
+        </nav>
         <div class="blog-article-body">
         <p class="guide-body-text" data-i18n="blogPostCwv.pIntro">Core Web Vitals (CWV) measure real-user loading, interactivity, and visual stability. Search Console shows CWV from field data collected through the Chrome User Experience Report (CrUX), not from a single lab test. That makes the report the right place to prioritize fixes that affect visitors Google already measured.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Where">Where to find the report</h2>
-        <p class="guide-body-text" data-i18n="blogPostCwv.pWhere1">In Search Console, open <strong>Experience</strong> &gt; <strong>Core Web Vitals</strong>. The overview splits data by <strong>Mobile</strong> and <strong>Desktop</strong>. Google recommends starting with the platform that drives most of your search traffic, which for many sites is mobile.</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pWhere1">Open the Core Web Vitals report. The overview splits data by <strong>Mobile</strong> and <strong>Desktop</strong>. Google recommends fixing everything labeled Poor first, then issues that affect the most URLs, or the most important URLs. The help page does not say to start with mobile.</p>
         <p class="guide-body-text" data-i18n="blogPostCwv.pWhere2">If you see <strong>No data available</strong>, the property may be new in Search Console or CrUX may not yet have enough URL-level data for that device type. You can still test individual URLs with PageSpeed Insights or Lighthouse, but those tools do not replace the field-data report.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Status">How Google assigns Poor, Need improvement, and Good</h2>
@@ -289,7 +293,7 @@
         <p class="guide-body-text" data-i18n="blogPostCwv.pPrioritize">Search Console is not designed to look up one arbitrary URL's status quickly. Google directs you to external tests for that. For prioritization, open Poor or Need improvement groups, note the URL pattern (product template, blog layout, homepage), then cross-check those sections in Performance for impressions and clicks. Fix templates with both CWV problems and meaningful search visibility first.</p>
 
         <figure class="blog-visual reveal" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostCwv.visualCaptionPriority">Prioritize URL groups with Poor CWV and high search impressions</figcaption>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostCwv.visualCaptionPriority">Example only. Not measured impressions.</figcaption>
           <div class="blog-visual__panel">
             <div class="blog-visual-cwv-priority">
               <div class="blog-visual-cwv-priority__row blog-visual-cwv-priority__row--focus">
@@ -312,18 +316,18 @@
         </figure>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Templates">Fix shared templates once</h2>
-        <p class="guide-body-text" data-i18n="blogPostCwv.pTemplatesIntro">URL groups usually share HTML shells, CSS, fonts, tag managers, and hero images. Patching one URL while leaving the template broken wastes time. Typical mobile improvements aligned with Google's metric definitions:</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pTemplatesIntro">The report says a URL group is assumed to share a framework, so a poor result is likely a shared cause. Google's common page fixes on that page are not a per-metric recipe:</p>
         <ul class="guide-list">
-          <li data-i18n="blogPostCwv.liTemplate_1"><strong>LCP:</strong> Optimize and prioritize the largest above-the-fold image or text block, improve server response time, remove render-blocking resources where safe.</li>
-          <li data-i18n="blogPostCwv.liTemplate_2"><strong>INP:</strong> Reduce long JavaScript tasks on interactive elements such as menus, carts, and filters.</li>
-          <li data-i18n="blogPostCwv.liTemplate_3"><strong>CLS:</strong> Set explicit width and height on images and embeds; avoid inserting content above existing content unless space is reserved.</li>
+          <li data-i18n="blogPostCwv.liTemplate_1">Best practice on the help page: under 500KB for a page and all its resources.</li>
+          <li data-i18n="blogPostCwv.liTemplate_2">Limit a page to 50 resources for mobile.</li>
+          <li data-i18n="blogPostCwv.liTemplate_3">Use an external test to recommend fixes. For developers, the same page points to the web.dev fast-loading guidelines.</li>
         </ul>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Lab">Use lab tools to debug, not to rank priorities</h2>
-        <p class="guide-body-text" data-i18n="blogPostCwv.pLab">PageSpeed Insights and Lighthouse help reproduce issues on a specific URL. Google documents important differences: CrUX groups URLs with parameters; PSI often strips parameters. A URL can look fine in lab data but Poor in field data if real users on slow networks dominate. Use lab tools after you pick a group from Search Console.</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pLab">PageSpeed Insights and Lighthouse are the external tests the report names. Google documents two differences: Core Web Vitals groups URLs and keeps URL parameters, while PageSpeed Insights generally shows one URL and strips parameters. An individual URL can be an outlier in its group, so the two numbers do not have to match. Use the external test after you pick a group from the report.</p>
 
         <h2 class="guide-heading" data-i18n="blogPostCwv.h2Validate">Validate after deploy on CrUX timelines</h2>
-        <p class="guide-body-text" data-i18n="blogPostCwv.pValidate">Field data rolls on a 28-day window. After shipping fixes, allow one to two weeks before expecting movement in the report, then confirm the URL group shifts toward Good. Pair with Performance to ensure clicks did not keep falling during the optimization work.</p>
+        <p class="guide-body-text" data-i18n="blogPostCwv.pValidate">Group LCP, INP, and CLS on the report are the values for 75% of visits in the last 28 days. After a fix, the documented check is <strong>Start Tracking</strong>, a 28-day monitoring session. If the issue is absent from every URL in that window, Google considers it fixed. The issue on any one URL is enough to mark it not fixed.</p>
         </div>
         <aside class="blog-sources" aria-labelledby="blog-sources-cwv">
           <h2 id="blog-sources-cwv" class="blog-sources__title" data-i18n="blogCommon.sourcesTitle">Google documentation</h2>
@@ -343,6 +347,10 @@
         </div>
         </div>
         <aside class="blog-sidebar" aria-label="Sidebar">
+          <nav class="blog-toc blog-toc--rail" data-blog-toc hidden aria-labelledby="blog-toc-rail-title">
+            <p id="blog-toc-rail-title" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
+            <ol class="blog-toc__list"></ol>
+          </nav>
           <div class="blog-app-promo">
             <div class="blog-app-promo__inner surface-card">
               <img src="../Bot-96.png" alt="" width="48" height="48" class="blog-app-promo__mark" aria-hidden="true">
@@ -460,9 +468,10 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=47" defer></script>
-  <script src="../js/site-ui.js?v=47" defer></script>
+  <script src="../js/blog-visuals.js?v=51" defer></script>
+  <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
+  <script src="../js/blog-toc.js?v=4" defer></script>
   <script src="../js/site-chrome-scripts.js?v=47" defer></script>
 </body>
 </html>

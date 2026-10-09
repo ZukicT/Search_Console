@@ -52,7 +52,7 @@
       }
     })();
   </script>
-  <link rel="canonical" href="https://www.search-console.org/blog/catch-indexing-issues-early.html">
+  <link rel="canonical" href="https://www.search-console.org/blog/why-search-console-and-analytics-disagree.html">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
@@ -61,16 +61,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <title>How to Catch Indexing Issues Before They Cost Clicks | Search Console blog</title>
+  <title>Why Search Console Clicks and Analytics Do Not Match | Search Console blog</title>
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="author" content="Tarik Zukic">
   <meta name="download-ping-api" content="https://search-console-nine.vercel.app">
-  <meta name="description" content="Monitor indexing coverage, inspect new URLs, and verify important pages stay eligible after site changes.">
-  <meta property="og:title" content="How to Catch Indexing Issues Before They Cost Clicks | Search Console blog">
-  <meta property="og:description" content="Monitor indexing coverage, inspect new URLs, and verify important pages stay eligible after site changes.">
+  <meta name="description" content="Search Console clicks and Analytics sessions diverge for documented reasons: privacy cuts, duplicates, a 2 to 3 day lag, Pacific Time, and JavaScript.">
+  <meta property="og:title" content="Why Search Console Clicks and Analytics Do Not Match | Search Console blog">
+  <meta property="og:description" content="Search Console clicks and Analytics sessions diverge for documented reasons: privacy cuts, duplicates, a 2 to 3 day lag, Pacific Time, and JavaScript.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.search-console.org/blog/catch-indexing-issues-early.html">
+  <meta property="og:url" content="https://www.search-console.org/blog/why-search-console-and-analytics-disagree.html">
   <meta property="og:site_name" content="Search Console for iOS">
   <meta property="og:locale" content="en_US">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.search-console.org/sitemap.xml">
@@ -81,25 +81,25 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
 <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Catch Indexing Issues Before They Cost Clicks | Search Console blog">
-  <meta name="twitter:description" content="Monitor indexing coverage, inspect new URLs, and verify important pages stay eligible after site changes.">
+  <meta name="twitter:title" content="Why Search Console Clicks and Analytics Do Not Match | Search Console blog">
+  <meta name="twitter:description" content="Search Console clicks and Analytics sessions diverge for documented reasons: privacy cuts, duplicates, a 2 to 3 day lag, Pacific Time, and JavaScript.">
   <meta name="twitter:image" content="https://www.search-console.org/og/social-card.gif?v=4">
   <meta name="twitter:image:alt" content="Search Console for iOS. See how your site performs in search. Same account. Same data. Built for iPhone.">
   <link rel="stylesheet" href="../css/style.css?v=124">
   <link rel="stylesheet" href="../css/style-pages.css?v=7">
-  <link rel="stylesheet" href="../css/blog-visuals.css?v=12">
+  <link rel="stylesheet" href="../css/blog-visuals.css?v=17">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "How to Catch Indexing Issues Before They Cost Clicks",
-    "description": "Monitor indexing coverage, inspect new URLs, and verify important pages stay eligible after site changes.",
+    "headline": "Why Search Console Clicks and Analytics Do Not Match",
+    "description": "Search Console clicks and Analytics sessions diverge for documented reasons: privacy cuts, duplicates, a 2 to 3 day lag, Pacific Time, and JavaScript.",
     "image": "https://www.search-console.org/og/social-card.jpg?v=3",
     "author": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
     "publisher": {"@type": "Person", "name": "Tarik Zukic", "url": "https://www.search-console.org/about.html"},
-    "datePublished": "2026-05-29",
-    "dateModified": "2026-05-29",
-    "mainEntityOfPage": "https://www.search-console.org/blog/catch-indexing-issues-early.html"
+    "datePublished": "2026-10-08",
+    "dateModified": "2026-10-08",
+    "mainEntityOfPage": "https://www.search-console.org/blog/why-search-console-and-analytics-disagree.html"
   }
   </script>
   <script type="application/ld+json">
@@ -109,12 +109,12 @@
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.search-console.org/"},
       {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.search-console.org/blog.html"},
-      {"@type": "ListItem", "position": 3, "name": "How to Catch Indexing Issues Before They Cost Clicks", "item": "https://www.search-console.org/blog/catch-indexing-issues-early.html"}
+      {"@type": "ListItem", "position": 3, "name": "Why Search Console Clicks and Analytics Do Not Match", "item": "https://www.search-console.org/blog/why-search-console-and-analytics-disagree.html"}
     ]
   }
   </script>
 </head>
-<body class="page-guide page-blog-post" data-i18n-title-key="blogPostIndexing.metaTitle" data-i18n-description-key="blogPostIndexing.metaDescription">
+<body class="page-guide page-blog-post" data-i18n-title-key="blogPostAnalytics.metaTitle" data-i18n-description-key="blogPostAnalytics.metaDescription">
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main" data-i18n="aria.skipToContent">Skip to content</a>
   <header class="header">
@@ -194,179 +194,102 @@
         <p class="guide-back"><a href="../blog.html" data-i18n="blog.backToBlog">&larr; Back to blog</a></p>
         <header class="blog-article-header">
           <p class="blog-article-meta">
-            <span class="blog-article-category" data-i18n="blogCommon.categoryIndexing">Indexing</span>
-            <time datetime="2026-05-29" data-i18n="blogCommon.datePublished">May 29, 2026</time>
+            <span class="blog-article-category" data-i18n="blogCommon.categoryPerformance">Performance</span>
+            <time datetime="2026-10-08">October 8, 2026</time>
           </p>
-          <h1 class="guide-title" data-i18n="blogPostIndexing.title">How to Catch Indexing Issues Before They Cost Clicks</h1>
+          <h1 class="guide-title" data-i18n="blogPostAnalytics.title">Why Search Console Clicks and Analytics Do Not Match</h1>
           <p class="guide-byline" data-i18n="blogCommon.byline">By <a href="../about.html">Tarik Zukic</a></p>
         </header>
 
-        <figure class="blog-visual blog-visual--indexing reveal" data-blog-visual="indexing" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionIndex">Page indexing report: indexed vs not indexed</figcaption>
+        <figure class="blog-visual reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaption">Five reasons Google gives for the gap</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-index">
-              <div class="blog-visual-index__summary">
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">112</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostIndexing.visualIndexIndexed">Indexed</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">18</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostIndexing.visualIndexNotIndexed">Not indexed</span>
-                </div>
-                <div class="blog-visual-index__stat">
-                  <span class="blog-visual-index__value">140</span>
-                  <span class="blog-visual-index__label" data-i18n="blogPostIndexing.visualIndexKnown">Known URLs</span>
-                </div>
-              </div>
-              <div class="blog-visual-index__bar" aria-hidden="true">
-                <span class="blog-visual-index__segment blog-visual-index__segment--indexed"></span>
-                <span class="blog-visual-index__segment blog-visual-index__segment--pending"></span>
-                <span class="blog-visual-index__segment blog-visual-index__segment--excluded"></span>
-              </div>
-              <div class="blog-visual-index__reasons">
-                <div class="blog-visual-index__reason">
-                  <span data-i18n="blogPostIndexing.visualIndexReason1">Crawled - currently not indexed</span>
-                  <div class="blog-visual-index__reason-bar"><span class="blog-visual-index__reason-fill" style="width: 72%; --delay: 0.65s"></span></div>
-                </div>
-                <div class="blog-visual-index__reason">
-                  <span data-i18n="blogPostIndexing.visualIndexReason2">Duplicate without user-selected canonical</span>
-                  <div class="blog-visual-index__reason-bar"><span class="blog-visual-index__reason-fill" style="width: 48%; --delay: 0.8s"></span></div>
-                </div>
-              </div>
-            </div>
+            <ol class="blog-visual-rank">
+              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">1</span><span data-i18n="blogPostAnalytics.visualPrivacy">Privacy: rare queries are omitted</span><span class="blog-visual-rank__tag"></span></li>
+              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">2</span><span data-i18n="blogPostAnalytics.visualDupes">Processing: duplicates are removed</span><span class="blog-visual-rank__tag"></span></li>
+              <li class="blog-visual-rank__row blog-visual-rank__row--counted"><span class="blog-visual-rank__n">3</span><span data-i18n="blogPostAnalytics.visualLag">Lag: usually 2 to 3 days</span><span class="blog-visual-rank__tag" data-i18n="blogPostAnalytics.visualLagTag">Wait</span></li>
+              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">4</span><span data-i18n="blogPostAnalytics.visualZone">Clock: daily dates use Pacific Time</span><span class="blog-visual-rank__tag"></span></li>
+              <li class="blog-visual-rank__row"><span class="blog-visual-rank__n">5</span><span data-i18n="blogPostAnalytics.visualJs">Analytics only counts JavaScript</span><span class="blog-visual-rank__tag"></span></li>
+            </ol>
           </div>
         </figure>
-        <nav class="blog-toc blog-toc--lead" data-blog-toc hidden aria-labelledby="blog-toc-lead-title">
-          <p id="blog-toc-lead-title" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
+        <nav class="blog-toc blog-toc--lead" data-blog-toc hidden aria-labelledby="blog-toc-lead-title-analytics">
+          <p id="blog-toc-lead-title-analytics" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
           <ol class="blog-toc__list"></ol>
         </nav>
         <div class="blog-article-body">
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pIntro">Indexing means Google crawled a page, processed it, and stored it in Google's index where it may become eligible for search results and some other surfaces. A URL can lose clicks while your homepage looks healthy if individual URLs drop out of the index or never get indexed after launch.</p>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pIntro">Search Console clicks and Analytics sessions are not two readings of one number. Google lists the reasons they diverge. A gap is the normal result of those rules, not a broken tag by itself.</p>
 
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2PageReport">Use the Page indexing report for site-wide status</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pPageReport1">Open <strong>Indexing</strong> &gt; <strong>Pages</strong> in Search Console. The summary chart shows counts of indexed and not-indexed URLs Google knows about for your property. The <strong>Why pages aren't indexed</strong> table lists reasons (for example, blocked by robots.txt, duplicate without user-selected canonical, crawled - currently not indexed). Click a reason to see example URLs and whether Google considers the source fixable on your site.</p>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pPageReport2">Google is explicit: you should not expect 100% of URLs to be indexed. Alternate or duplicate URLs often should stay out of the index while the canonical version is indexed. Focus on canonical URLs that matter for search.</p>
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Privacy">Privacy removes some queries</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pPrivacy">The <a href="https://support.google.com/webmasters/answer/17010575" target="_blank" rel="noopener noreferrer">troubleshooting page</a> says the Performance report does not show all data, to protect user privacy. One example: it omits some queries that are searched a very small number of times. The page names Analytics as a tool that can disagree for that reason.</p>
 
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2Inspection">Use URL Inspection for one URL at a time</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pInspectionIntro">The URL Inspection tool shows Google's indexed version of a specific URL (not a live test unless you run Live Test). It reports:</p>
-        <ul class="guide-list">
-          <li data-i18n="blogPostIndexing.liInspect_1">Whether the URL is on Google, not on Google, or on Google with issues.</li>
-          <li data-i18n="blogPostIndexing.liInspect_2">Crawl allowed (robots.txt) and indexing allowed (noindex).</li>
-          <li data-i18n="blogPostIndexing.liInspect_3">User-declared vs Google-selected canonical.</li>
-          <li data-i18n="blogPostIndexing.liInspect_4">Last crawl time and referring sitemap, when available.</li>
-        </ul>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pInspectionOutro">The <a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener noreferrer">inspection help</a> says "URL is on Google" means the URL is eligible to appear in Search results, and is not guaranteed to be there. "URL is not on Google" means the URL cannot appear in Search results. The tool does not check every condition for appearing. There is a daily limit of inspection requests for each property, and a separate daily limit on index requests. Submitting a request does not guarantee indexing.</p>
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Dupes">Search Console drops duplicates</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pDupes">The same page says some processing of the source data can make the stats differ from other tools. The example it gives is eliminating duplicates. A separate rule, on the <a href="https://support.google.com/webmasters/answer/7042828" target="_blank" rel="noopener noreferrer">impressions article</a>, is inside Search Console: clicking a result, returning, and clicking the same link again counts as one click. Clicking a different link counts once per link.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Lag">The clicks usually land 2 to 3 days later</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pLag">The troubleshooting page says collected Performance data is usually available in 2 to 3 days. A recent day can still be missing, or only partly present, in Search Console.</p>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pPrelim">Newer points can also be preliminary. The <a href="https://support.google.com/webmasters/answer/17011364" target="_blank" rel="noopener noreferrer">data article</a> says that means the numbers are still being collected and may change in the next few hours. Preliminary data is drawn as a dotted line. The report shows complete days by default. You only see a partial day when you pick it in the date filter, and that is usually today, sometimes yesterday.</p>
 
         <figure class="blog-visual reveal" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionInspectOk">Example: URL Inspection of an indexed URL</figcaption>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaptionClock">Lag and the clock Search Console uses</figcaption>
           <div class="blog-visual__panel">
-            <div class="blog-visual-inspect">
-              <div class="blog-visual-inspect__url">https://www.search-console.org/guides/track-keyword-rankings-from-iphone.html</div>
-              <div class="blog-visual-inspect__status" data-i18n="blogPostIndexing.visualInspectStatusOk">URL is on Google</div>
-              <ul class="blog-visual-inspect__checks">
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectCheck1">Page is indexed · Crawl allowed · Indexing allowed</span>
-                </li>
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectCheck2">User-declared canonical matches Google-selected canonical</span>
-                </li>
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectCheck3">Last crawl: May 27, 2026 · Referring sitemap detected</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </figure>
-
-        <figure class="blog-visual reveal" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionInspectBlock">URL Inspection: blocking issue example</figcaption>
-          <div class="blog-visual__panel">
-            <div class="blog-visual-inspect">
-              <div class="blog-visual-inspect__url">https://www.search-console.org/blog/draft-post.html</div>
-              <div class="blog-visual-inspect__status blog-visual-inspect__status--warn" data-i18n="blogPostIndexing.visualInspectStatusBlock">URL is not on Google</div>
-              <ul class="blog-visual-inspect__checks">
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectBlockCheck1">Crawl allowed by robots.txt</span>
-                </li>
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--fail" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectBlockCheck2">Indexing blocked by <code>noindex</code> tag · Page cannot appear in search results</span>
-                </li>
-                <li class="blog-visual-inspect__check">
-                  <span class="blog-visual-inspect__icon blog-visual-inspect__icon--pass" aria-hidden="true"></span>
-                  <span data-i18n="blogPostIndexing.visualInspectBlockCheck3">Last crawl: May 28, 2026</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </figure>
-
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2Publish">Inspect new and changed URLs after publish</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pPublish">New content can take days to appear in reports. Google suggests sitemaps, internal links, and requesting indexing of important URLs (often starting with the homepage) so crawlers discover pages faster. After launch, run URL Inspection on the live URL to confirm indexing is allowed, fetch succeeded, and the canonical matches your intent.</p>
-
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2Spikes">Watch for spikes after migrations and template changes</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pSpikes">The Page indexing report has reasons named <strong>Duplicate without user-selected canonical</strong>, <strong>Page with redirect</strong>, and soft 404. Those rows are where a redirect, an HTTPS move, or a canonical change shows up. The report does not say how often a deploy causes them.</p>
-
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2Sitemaps">Check sitemaps when indexed counts drift</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pSitemaps">The <strong>Sitemaps</strong> report shows submitted sitemaps and parsing errors. A stable section of your site should show indexed counts in line with submitted URLs over time. A widening gap after a release may mean Google rejects URLs because of robots rules, noindex tags, or non-canonical URLs in the sitemap file.</p>
-
-        <figure class="blog-visual reveal" data-reveal>
-          <figcaption class="blog-visual__caption" data-i18n="blogPostIndexing.visualCaptionSitemap">Example: submitted URLs beside indexed URLs</figcaption>
-          <div class="blog-visual__panel">
-            <div class="blog-visual-sitemap">
-              <div class="blog-visual-sitemap__rows">
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostIndexing.visualSitemapSubmitted">Submitted</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--submitted" style="width: 100%; --delay: 0.1s"></span></div>
-                  <span class="blog-visual-sitemap__count">140</span>
+            <div class="blog-visual-index">
+              <div class="blog-visual-index__summary blog-visual-index__summary--pair">
+                <div class="blog-visual-index__stat">
+                  <span class="blog-visual-index__value">2-3</span>
+                  <span class="blog-visual-index__label" data-i18n="blogPostAnalytics.visualDays">Days until data shows</span>
                 </div>
-                <div class="blog-visual-sitemap__row">
-                  <span class="blog-visual-sitemap__label" data-i18n="blogPostIndexing.visualSitemapIndexed">Indexed</span>
-                  <div class="blog-visual-sitemap__track"><span class="blog-visual-sitemap__fill blog-visual-sitemap__fill--indexed" style="width: 80%; --delay: 0.25s"></span></div>
-                  <span class="blog-visual-sitemap__count">112</span>
+                <div class="blog-visual-index__stat">
+                  <span class="blog-visual-index__value">PT</span>
+                  <span class="blog-visual-index__label" data-i18n="blogPostAnalytics.visualPt">Daily date label</span>
                 </div>
               </div>
-              <p class="blog-visual-sitemap__gap" data-i18n="blogPostIndexing.visualSitemapGap">Example figures, not a live sitemap. A real gap is read from the Sitemaps report and the Page indexing reasons.</p>
             </div>
           </div>
         </figure>
 
-        <h2 class="guide-heading" data-i18n="blogPostIndexing.h2Checklist">A practical post-deploy checklist</h2>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pChecklistIntro">After a release, the Page indexing report says new content can take a few days to be indexed. Checks that stay inside the documented tools:</p>
-        <ul class="guide-list">
-          <li data-i18n="blogPostIndexing.liCheck_1">URL Inspection on the homepage and one template URL per major section.</li>
-          <li data-i18n="blogPostIndexing.liCheck_2">Review new rows in <strong>Why pages aren't indexed</strong>.</li>
-          <li data-i18n="blogPostIndexing.liCheck_3">Compare Performance impressions on top URLs week over week.</li>
-          <li data-i18n="blogPostIndexing.liCheck_4">Validate fixes in Search Console when you resolve a labeled issue type.</li>
-        </ul>
-        <p class="guide-body-text" data-i18n="blogPostIndexing.pChecklistOutro">The example URL list in that report is limited to 1,000 items, and it is not guaranteed to show every URL in a status.</p>
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Zone">Daily totals use Pacific Time</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pZone">Except for the 24-hour view, the Performance report tracks and labels each day in Pacific Time. The troubleshooting page says that if another system uses a different time zone, the daily views may not match. The <a href="https://support.google.com/webmasters/answer/17011259" target="_blank" rel="noopener noreferrer">dimensions article</a> adds the exception: the 24-hour view uses the browser's local time. Every other view stays on Pacific Time.</p>
+
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Js">Analytics misses people without JavaScript</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pJs">The troubleshooting page names Analytics. It tracks traffic only from users who have JavaScript enabled in the browser. Search Console counts the click on the search result. A visit with JavaScript off can be a click in Search Console and absent in Analytics.</p>
+
+        <figure class="blog-visual reveal" data-reveal>
+          <figcaption class="blog-visual__caption" data-i18n="blogPostAnalytics.visualCaptionPair">Two products, two counts</figcaption>
+          <div class="blog-visual__panel">
+            <div class="blog-visual-metrics">
+              <span class="blog-visual-metrics__pill blog-visual-metrics__pill--active" data-i18n="blogPostAnalytics.visualClicks">Search clicks</span>
+              <span class="blog-visual-metrics__pill" data-i18n="blogPostAnalytics.visualSessions">Analytics sessions</span>
+            </div>
+            <p class="blog-visual-metrics__note" data-i18n="blogPostAnalytics.visualPairNote">Search Console counts the search click. Analytics, in Google's example, counts users with JavaScript enabled.</p>
+          </div>
+        </figure>
+
+        <h2 class="guide-heading" data-i18n="blogPostAnalytics.h2Use">What to compare instead</h2>
+        <p class="guide-body-text" data-i18n="blogPostAnalytics.pUse">Use Search Console for the search result: clicks, impressions, queries, pages. Use Analytics for what happened after the visit. When you do line them up, wait until the Search Console day is no longer dotted, and remember the day boundary is Pacific Time. A mismatch on those terms is the documented behavior.</p>
         </div>
-        <aside class="blog-sources" aria-labelledby="blog-sources-indexing">
-          <h2 id="blog-sources-indexing" class="blog-sources__title" data-i18n="blogCommon.sourcesTitle">Google documentation</h2>
+        <aside class="blog-sources" aria-labelledby="blog-sources-analytics">
+          <h2 id="blog-sources-analytics" class="blog-sources__title" data-i18n="blogCommon.sourcesTitle">Google documentation</h2>
           <ul class="blog-sources__list">
-            <li><a href="https://support.google.com/webmasters/answer/7440203" target="_blank" rel="noopener noreferrer" data-i18n="blogPostIndexing.source1">Page indexing report - Search Console Help</a></li>
-            <li><a href="https://support.google.com/webmasters/answer/9012289" target="_blank" rel="noopener noreferrer" data-i18n="blogPostIndexing.source2">URL Inspection tool - Search Console Help</a></li>
-            <li><a href="https://support.google.com/webmasters/answer/7451001" target="_blank" rel="noopener noreferrer" data-i18n="blogPostIndexing.source3">Sitemaps report - Search Console Help</a></li>
-            <li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank" rel="noopener noreferrer" data-i18n="blogPostIndexing.source4">Robots.txt introduction - Google Search Central</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/17010575" target="_blank" rel="noopener noreferrer">Performance report (Search results): Troubleshooting data discrepancies - Search Console Help</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/17011364" target="_blank" rel="noopener noreferrer">Performance report (Search results): About the data - Search Console Help</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/17011259" target="_blank" rel="noopener noreferrer">Performance report (Search results): Dimensions and data groupings - Search Console Help</a></li>
+            <li><a href="https://support.google.com/webmasters/answer/7042828" target="_blank" rel="noopener noreferrer">What are impressions, position, and clicks? - Search Console Help</a></li>
           </ul>
         </aside>
         <div class="blog-related">
           <h2 class="blog-related__title" data-i18n="blog.relatedHeading">More on the blog</h2>
           <ul class="guide-list guide-list--related">
             <li><a href="../blog.html" data-i18n="blog.backToBlog">Back to blog</a></li>
-            <li><a href="find-pages-losing-traffic.html" data-i18n="blogPostIndexing.relatedTraffic">How to Find Pages Losing Traffic in Search Console</a></li>
-            <li><a href="improve-search-click-through-rate.html" data-i18n="blogPostIndexing.relatedCtr">How to Improve Search Click-Through Rate Using Query Data</a></li>
+            <li><a href="why-the-canonical-url-gets-the-click.html">Why the Canonical URL Gets the Click</a></li>
+            <li><a href="why-query-totals-dont-add-up.html">Why Search Console Query Rows Do Not Add Up</a></li>
           </ul>
         </div>
         </div>
+
         <aside class="blog-sidebar" aria-label="Sidebar">
-          <nav class="blog-toc blog-toc--rail" data-blog-toc hidden aria-labelledby="blog-toc-rail-title">
-            <p id="blog-toc-rail-title" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
+          <nav class="blog-toc blog-toc--rail" data-blog-toc hidden aria-labelledby="blog-toc-rail-title-blogPostAnalytics">
+            <p id="blog-toc-rail-title-blogPostAnalytics" class="blog-toc__title" data-i18n="blog.contentsHeading">On this page</p>
             <ol class="blog-toc__list"></ol>
           </nav>
           <div class="blog-app-promo">
@@ -486,7 +409,7 @@
       </div>
     </div></footer>
   <script src="../js/hero-dot-wave.js?v=47" defer></script>
-  <script src="../js/blog-visuals.js?v=51" defer></script>
+  <script src="../js/blog-visuals.js?v=54" defer></script>
   <script src="../js/site-ui.js?v=48" defer></script>
   <script src="../js/i18n.js?v=47" defer></script>
   <script src="../js/blog-toc.js?v=4" defer></script>

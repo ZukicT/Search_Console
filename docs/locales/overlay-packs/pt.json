@@ -34,7 +34,8 @@
     "promoCta": "Obtenha o aplicativo",
     "promoNote": "Não feito ou afiliado a Google.",
     "backToBlog": "Voltar ao blog",
-    "relatedHeading": "Mais no blog"
+    "relatedHeading": "Mais no blog",
+    "contentsHeading": "Nesta página"
   },
   "blogCommon": {
     "byline": "Por <a href=\"../about.html\">Tarik Zukic</a>",

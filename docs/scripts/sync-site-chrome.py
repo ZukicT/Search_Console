@@ -14,8 +14,8 @@ APP_STORE = "https://apps.apple.com/us/app/search-console/id6758431981"
 CSS_VERSION = "124"
 JS_VERSION = "47"
 CHART_CSS_VERSION = "15"
-BLOG_VISUALS_CSS_VERSION = "7"
-PAGES_CSS_VERSION = "5"
+BLOG_VISUALS_CSS_VERSION = "17"
+PAGES_CSS_VERSION = "7"
 LOGO_BOT = "Bot-72.png"
 PROMO_BOT = "Bot-96.png"
 
@@ -609,6 +609,11 @@ def main() -> None:
         (DOCS / "blog" / "find-pages-losing-traffic.html", "../", False),
         (DOCS / "blog" / "prioritize-core-web-vitals-fixes.html", "../", False),
         (DOCS / "blog" / "catch-indexing-issues-early.html", "../", False),
+        (DOCS / "blog" / "why-average-position-is-not-your-rank.html", "../", False),
+        (DOCS / "blog" / "why-query-totals-dont-add-up.html", "../", False),
+        (DOCS / "blog" / "why-search-console-and-analytics-disagree.html", "../", False),
+        (DOCS / "blog" / "why-the-canonical-url-gets-the-click.html", "../", False),
+        (DOCS / "blog" / "what-a-aaaa-www-and-at-mean.html", "../", False),
     ]
     for path, prefix, is_home in pages:
         sync_page(path, prefix, is_home=is_home)

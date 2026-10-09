@@ -34,7 +34,8 @@
     "promoCta": "アプリを入手",
     "promoNote": "Google が作成したものでも、Google と提携しているものでもありません。",
     "backToBlog": "ブログに戻る",
-    "relatedHeading": "詳細はブログで"
+    "relatedHeading": "詳細はブログで",
+    "contentsHeading": "このページの内容"
   },
   "blogCommon": {
     "byline": "<a href=\"../about.html\">Tarik Zukic</a> より",

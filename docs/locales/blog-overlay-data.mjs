@@ -40,6 +40,7 @@ const blogEn = {
   promoNote: 'Not made by or affiliated with Google.',
   backToBlog: 'Back to blog',
   relatedHeading: 'More on the blog',
+  contentsHeading: 'On this page',
 };
 
 const blogCommonEn = {
@@ -374,6 +375,7 @@ const locales = {
       promoNote: 'Nicht von Google erstellt oder mit Google verbunden.',
       backToBlog: 'Zurück zum Blog',
       relatedHeading: 'Weitere Artikel',
+      contentsHeading: 'Auf dieser Seite',
     },
     blogCommon: {
       byline: 'Von <a href="../about.html">Tarik Zukic</a>',
