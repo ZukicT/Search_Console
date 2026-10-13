@@ -38,3 +38,6 @@ docs/scripts/__pycache__/
 
 # Local API keys and secrets (copy from Configuration/Secrets.xcconfig.example)
 Search Console/Configuration/Secrets.xcconfig
+
+# Generated deployment marker
+/docs/indexnow-deploy.txt

@@ -1,0 +1,21 @@
+name: Submit deployed public URLs to IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: indexnow-main
+  cancel-in-progress: true
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wait for matching deployment and submit sitemap URLs
+        run: node docs/scripts/indexnow.mjs --wait
