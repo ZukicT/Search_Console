@@ -1,6 +1,6 @@
 # IndexNow
 
-The root key file proves ownership and is intentionally public. The deployment build writes `indexnow-deploy.txt` containing the deployed commit SHA. The GitHub workflow waits up to 20 minutes for that exact commit and key file before submitting the live sitemap to IndexNow. A missing deployment, invalid sitemap, wrong host, or missing key fails without submitting URLs.
+The root key file proves ownership and is intentionally public. The GitHub workflow runs after the Pages deployment succeeds, checks out the deployed commit, and waits up to 20 minutes for its public key file before submitting the live sitemap to IndexNow. A missing deployment, invalid sitemap, wrong host, or missing key fails without submitting URLs.
 
 Only sitemap page URLs are submitted; image entries are excluded. HTTP 200 means received; HTTP 202 means key validation is pending. Neither response guarantees indexing. Existing privacy and crawler exclusions remain in effect.
 

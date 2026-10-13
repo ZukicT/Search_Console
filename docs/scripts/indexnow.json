@@ -1,5 +1,6 @@
 {
   "host": "www.search-console.org",
   "key": "31cddbb75c723b5642805e339ddfd4d9",
-  "output": "dist"
+  "output": "dist",
+  "waitForMarker": false
 }

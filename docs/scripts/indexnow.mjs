@@ -21,9 +21,12 @@ if (args.includes('--prepare')) {
     let ready = false
     while (Date.now() < deadline) {
       try {
-        const marker = await request(`${origin}/indexnow-deploy.txt?revision=${encodeURIComponent(expected)}`)
+        const markerReady = config.waitForMarker === false || await (async () => {
+          const marker = await request(`${origin}/indexnow-deploy.txt?revision=${encodeURIComponent(expected)}`)
+          return marker.ok && (await marker.text()).trim() === expected
+        })()
         const key = await request(`${origin}/${config.key}.txt`)
-        ready = marker.ok && (await marker.text()).trim() === expected && key.ok && (await key.text()).trim() === config.key
+        ready = markerReady && key.ok && (await key.text()).trim() === config.key
         if (ready) break
       } catch { /* Deployment may still be starting. */ }
       await new Promise((done) => setTimeout(done, 30000))
