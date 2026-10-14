@@ -290,8 +290,8 @@
               <li><strong>The developer does not collect App usage data on personal servers.</strong> No developer-run user accounts, analytics SDK, or database of Search Console metrics.</li>
               <li><strong>Search Console data stays between you, Google, and your device.</strong> The App fetches it from Google and displays it locally.</li>
               <li><strong>The developer does not sell data.</strong></li>
-              <li><strong>Third parties process data on their own.</strong> Google (sign-in, APIs, AdMob on the free tier), Apple (App Store, subscriptions, notifications), and Google Analytics on this website each follow their own policies.</li>
-              <li><strong>Pro subscription</strong> (weekly or monthly) removes in-app ads and unlocks every property, the Blink assistant, Core Web Vitals checks, URL inspection, and widgets. Billing is handled by Apple, not the developer.</li>
+              <li><strong>Third parties process data on their own.</strong> Google (sign-in, APIs), Apple (App Store, subscriptions, notifications), RevenueCat (subscription management), and Google Analytics on this website each follow their own policies.</li>
+              <li><strong>Pro subscription</strong> (weekly or monthly) is required to use the App. It unlocks every property, the Blink assistant, Core Web Vitals checks, URL inspection, and widgets. The App shows no ads. Billing is handled by Apple, not the developer.</li>
               <li><strong>Support is optional.</strong> Only if you choose to use the Site contact form or in-app feedback or bug report does the developer see what you submit.</li>
             </ul>
           </section>
@@ -325,7 +325,7 @@
               <li><strong>Google Sign-In (OAuth 2.0)</strong> with scopes you approve at onboarding or in Settings (read-only: Search Console read access plus email and profile; optional editing: full Search Console access plus email and profile). If you choose to connect them in Integrations, the App also asks for read-only access to Google Analytics and to Google AdMob reporting. You can connect these from the same or a different Google account, and remove them at any time in the App or in your Google account settings.</li>
               <li><strong>Read-only access</strong> (default): view analytics, properties, sitemaps, URL Inspection, and Core Web Vitals</li>
               <li><strong>Editing access</strong> (optional): everything in read-only, plus add/remove properties and submit or delete sitemaps where your Google role allows</li>
-              <li><strong>Before sign-in:</strong> your plan choice (free with ads or Pro trial) and notification preferences may be stored locally until you connect Google</li>
+              <li><strong>Before sign-in:</strong> your plan choice (Pro trial) and notification preferences may be stored locally until you connect Google</li>
             </ul>
 
             <h3>Analytics and reporting (Google Search Console API)</h3>
@@ -343,15 +343,15 @@
               <li><strong>Sitemaps</strong>: list and view status; submit or delete only with editing access and sufficient Search Console permissions</li>
               <li><strong>Core Web Vitals</strong> via Google's PageSpeed Insights API: URLs you choose to analyze are sent to Google for measurement</li>
               <li><strong>Google Analytics (optional integration)</strong>: if you connect it and link a Google Analytics property to a site, the App requests visitor figures for that property from Google and shows them on your device</li>
-              <li><strong>Google AdMob (optional integration)</strong>: if you connect it and link an AdMob app to a site, the App requests earnings figures for that app from Google and shows them on your device. This is separate from the ads shown on the free tier</li>
+              <li><strong>Google AdMob (optional integration)</strong>: if you connect it and link an AdMob app to a site, the App requests earnings figures for that app from Google and shows them on your device. This is reporting only; the App itself shows no ads</li>
               <li><strong>Integration data stays on your device</strong>: access tokens for connected accounts are kept in the device Keychain, and the links between your sites and those accounts are stored locally. The developer does not receive them</li>
               <li><strong>Web Console shortcuts</strong> open Google Search Console in your browser for the property you select</li>
             </ul>
 
-            <h3>Subscriptions and ads</h3>
+            <h3>Subscriptions</h3>
             <ul>
-              <li><strong>Free tier (iPhone and iPad):</strong> limited to one Search Console property; may show native ads through Google AdMob (Google processes ad-related data under its policies). The Mac app does not show in-app ads.</li>
-              <li><strong>Pro subscription</strong> (weekly or monthly through Apple StoreKit): removes in-app ads on supported platforms and unlocks multiple properties, the Blink assistant, Core Web Vitals checks, URL inspection, and Home Screen widgets on iPhone and iPad; Apple processes payment data</li>
+              <li><strong>No ads:</strong> the App does not show advertising and does not include an advertising SDK.</li>
+              <li><strong>Pro subscription</strong> (weekly or monthly through Apple StoreKit): unlocks all properties, the Blink assistant, Core Web Vitals checks, URL inspection, and Home Screen widgets on iPhone and iPad. Apple processes payment data. <strong>RevenueCat</strong> receives purchase and subscription status for your Apple ID purchase together with an app user ID (your Google account ID, not your email) to manage entitlements and to test subscription prices; it does not receive your Search Console data</li>
             </ul>
 
             <h3>Widgets and notifications (on your device)</h3>
@@ -370,7 +370,7 @@
             </ul>
 
             <h3>Platforms</h3>
-            <p>The App runs on iPhone, iPad, and Mac. Google Search Console data stays on your device across platforms. In-app ads and Home Screen widgets are available on iPhone and iPad only (see above). The developer does not operate a backend database of your Search Console content.</p>
+            <p>The App runs on iPhone, iPad, and Mac. Google Search Console data stays on your device across platforms. Home Screen widgets are available on iPhone and iPad only (see above). The developer does not operate a backend database of your Search Console content.</p>
           </section>
 
           <section class="legal-section" id="categories">
@@ -409,7 +409,7 @@
                 <tbody>
                   <tr>
                     <td>Google</td>
-                    <td>Sign-in, Search Console API, PageSpeed Insights, AdMob ads (free tier), Analytics (this website only)</td>
+                    <td>Sign-in, Search Console API, PageSpeed Insights, Analytics (this website only)</td>
                     <td>Google (and your device for API responses)</td>
                   </tr>
                   <tr>
@@ -451,9 +451,10 @@
 
           <section class="legal-section" id="ads-analytics">
             <h2>7. Advertising and analytics (third parties)</h2>
-            <h3>Google AdMob (App, free tier)</h3>
-            <p>Without an active Pro subscription, the App may show native ads through Google AdMob using non-personalized ad requests. <strong>The developer does not receive ad analytics or user lists from AdMob.</strong> The App does not request Apple's cross-app tracking permission (App Tracking Transparency). Google and its ad partners may still process limited device or advertising-related data under their own policies. Subscribe to Pro to remove in-app ads.</p>
-            <p>AdMob info: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> · <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob disclosure</a></p>
+            <h3>Advertising</h3>
+            <p>The App does not show ads and does not contain an advertising SDK. It does not request Apple's cross-app tracking permission (App Tracking Transparency) and does not track you across other companies' apps or websites.</p>
+            <h3>RevenueCat (subscriptions)</h3>
+            <p>The App uses RevenueCat to manage subscriptions. RevenueCat processes purchase receipts, subscription status, the offering shown to you, and an app user ID under its own policies. <strong>The developer does not send your Search Console data to RevenueCat.</strong> RevenueCat info: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></p>
             <h3>Google Analytics (this website only)</h3>
             <p>search-console.org uses Google Analytics. <strong>The developer does not operate this analytics system;</strong> Google processes visit data under its policies. Analytics is your choice. The Privacy button in the bottom corner of every page turns it on or off at any time. For visitors in Europe, and for any browser that sends a Global Privacy Control or Do Not Track signal, analytics stays off unless you turn it on, and nothing is requested from Google until then. Elsewhere it starts on and you can turn it off. Turning it off also removes the Google Analytics cookies this Site set. Advertising features are never enabled on this Site. You can also use <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's browser add-on</a> or browser privacy controls.</p>
           </section>
@@ -462,7 +463,7 @@
             <h2>8. Third-party services</h2>
             <p>The App and Site depend on companies other than the developer. They process data under their own terms. The developer does not control and generally does not receive their logs:</p>
             <ul>
-              <li><strong>Google</strong> - Sign-In, Search Console API, PageSpeed Insights, AdMob ads (free tier), Google Analytics and AdMob reporting (optional integrations), Analytics (Site)</li>
+              <li><strong>Google</strong> - Sign-In, Search Console API, PageSpeed Insights, Google Analytics and AdMob reporting (optional integrations), Analytics (Site)</li>
               <li><strong>Apple</strong> - App Store, StoreKit, notifications, Keychain, and the on-device language model that powers Blink</li>
             </ul>
             <p>Important links:</p>
@@ -492,7 +493,6 @@
               <li><strong>Revoke Google access:</strong> <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a></li>
               <li><strong>Clear local App data:</strong> Settings &gt; Clear Cache, or uninstall the App</li>
               <li><strong>Export Search Console data:</strong> use in-app CSV/PDF export or Google's tools</li>
-              <li><strong>Manage ads:</strong> upgrade to Pro or adjust Google ad settings</li>
               <li><strong>Manage Site analytics:</strong> the Privacy button in the bottom corner of every page, browser controls, Google's opt-out add-on, or Global Privacy Control and do-not-track settings</li>
               <li><strong>Push notifications:</strong> disable in App Settings or iOS system settings</li>
               <li><strong>Subscriptions:</strong> manage or cancel in the Apple App Store account settings</li>
@@ -514,7 +514,7 @@
             <p>The only personal information the developer typically holds is what <strong>you voluntarily send</strong> through the contact form or in-app feedback or bug report (such as your email address or message text).</p>
 
             <h3>Third-party "sharing" (not by the developer)</h3>
-            <p>California law may treat some third-party advertising as "sharing" for cross-context behavioral advertising. That processing is done by <strong>Google AdMob and its partners</strong>, not by the developer. The developer does not receive those ad logs. For opt-out options, see <a href="#do-not-sell">Do not sell or share</a> and Google's settings.</p>
+            <p>The App shows no advertising, so it does not "share" personal information for cross-context behavioral advertising. For details, see <a href="#do-not-sell">Do not sell or share</a>.</p>
             <p>Google Analytics on this website is operated by Google, not by the developer.</p>
 
             <h3>Your California rights</h3>
@@ -527,11 +527,7 @@
           <section class="legal-section legal-section--highlight" id="do-not-sell">
             <h2>13. Do not sell or share my personal information</h2>
             <p><strong>The developer does not sell your data</strong> and does not sell Google Search Console data.</p>
-            <p>Ad-related sharing, if any under California law, is handled by <strong>Google AdMob</strong>, not by the developer. To limit it:</p>
-            <ol>
-              <li>Subscribe to Pro to remove in-app ads, or</li>
-              <li>Review <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's ad and privacy settings</a>.</li>
-            </ol>
+            <p>The App shows no ads and the developer does not share personal information for advertising. You can review <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's privacy settings</a> for your Google account.</p>
             <p>Privacy questions: use <a href="#contact">Contact</a> at the bottom of this page.</p>
           </section>
 
@@ -541,7 +537,7 @@
             <ul>
               <li><strong>Search Console data:</strong> primarily processed by Google when you use the App; use Google's tools to exercise rights</li>
               <li><strong>Support messages you send:</strong> processed only to respond to you</li>
-              <li><strong>Ads and Site analytics:</strong> processed by Google under its policies; use Google and Apple controls where applicable</li>
+              <li><strong>Site analytics and subscriptions:</strong> processed by Google, Apple and RevenueCat under their policies; use Google and Apple controls where applicable</li>
             </ul>
             <p>You may lodge a complaint with your local supervisory authority. For developer-related requests, use <a href="#contact">Contact</a> below.</p>
           </section>
@@ -611,7 +607,7 @@
         <div class="footer-download-copy">
           <span class="footer-eyebrow" data-i18n="footer.getApp">Get the app</span>
           <p class="footer-download-title" data-i18n="footer.downloadTitle">Take Search Console with you</p>
-          <p class="footer-download-desc" data-i18n="footer.downloadDesc">Free for one website. Pro unlocks every property and Blink.</p>
+          <p class="footer-download-desc" data-i18n="footer.downloadDesc">3-day free trial. Pro unlocks every property and Blink.</p>
         </div>
         <a href="https://apps.apple.com/us/app/search-console/id6758431981" class="btn btn-primary footer-app-cta" target="_blank" rel="noopener" data-i18n="footer.downloadAppStore">Download on the App Store</a>
       </div>
