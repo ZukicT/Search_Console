@@ -28,8 +28,7 @@ PRIVACY AND SECURITY
 Sign in with Google using OAuth. The app talks directly to Google's Search Console API. We do not store or sell your Search Console data.
 
 PLANS
-• Free with ads: One property.
-• Pro: All properties, Blink, no ads, Core Web Vitals and URL Inspection. $5.99 per month with a 3-day free trial, or $1.99 per week. Cancel anytime in your Apple ID settings.
+• Pro: All properties, Blink, Core Web Vitals and URL Inspection, with no ads. Try it free for 3 days. Cancel anytime in your Apple ID settings.
 
 GET STARTED
 Download Search Console, sign in with your Google account, pick a property and ask Blink your first question.

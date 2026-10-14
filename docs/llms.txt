@@ -9,7 +9,7 @@
 - [FAQ](https://www.search-console.org/faq.html): 17 questions on data access, Google affiliation, pricing, iPad support, and sign-in.
 - [About](https://www.search-console.org/about.html): Author, product story, and independence from Google.
 - [Release history](https://www.search-console.org/releases.html): Changelog for the iOS app.
-- [Privacy policy](https://www.search-console.org/privacy.html): OAuth, analytics, ads, and California privacy rights.
+- [Privacy policy](https://www.search-console.org/privacy.html): OAuth, analytics, subscriptions, and California privacy rights.
 - [Terms of service](https://www.search-console.org/terms.html): Subscription and usage terms.
 
 ## Guides (long-tail SEO)
@@ -24,7 +24,7 @@
 ## App
 
 - [Download on the App Store](https://apps.apple.com/us/app/search-console/id6758431981)
-- Pricing: free plan with ads for one property. Pro is USD 5.99/month with a 3-day free trial for new subscribers, or USD 1.99/week, via App Store subscription. Cancel anytime in iOS Settings.
+- Pricing: no free plan and no ads. Pro includes a 3-day free trial for new subscribers, via App Store subscription; pricing is shown in the App Store. Cancel anytime in iOS Settings.
 - Blink: an on-device assistant (version 2.5 and later) that answers questions about the user's own Search Console data, builds PDF reports, and sends alerts when clicks change. Requires a device with Apple Intelligence. Questions are processed on the device.
 
 ## Crawling

@@ -30,7 +30,7 @@ Sound: `window.SiteSound` (end of `js/site-ui.js`) plays the app's short synthes
 
 The numbers section is a live copy of the app's Overview (`[data-overview-demo]`): pick a figure to redraw the chart, drag along it to read a day. Its data is sample data and is labelled as such.
 
-Copy rules: the app is independent and not made by Google; say so. Never state a figure, price or feature the app does not have. The trial is 3 days. The free plan has ads and one property.
+Copy rules: the app is independent and not made by Google; say so. Never state a figure, price or feature the app does not have. The trial is 3 days. There is no free plan and no ads.
 
 To change locale copy for a release, add the strings to a script like `scripts/apply-2.5-copy.py` so all nine languages change together. `scripts/sync-site-chrome.py` owns the header, footer, banner text and asset versions; edit it there, not in each page.
 
