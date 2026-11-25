@@ -90,7 +90,7 @@ def render_url_block(loc: str, lastmod: str, path: Path) -> str:
         f"    <lastmod>{lastmod}</lastmod>",
     ]
 
-    if path.name == "index.html":
+    if path == DOCS / "index.html":
         for image in HOMEPAGE_IMAGES:
             lines.extend(
                 [

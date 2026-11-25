@@ -107,10 +107,11 @@
   function applyMeta(translations) {
     if (!translations) return;
     var body = document.body;
-    var titleKey = (body && body.getAttribute('data-i18n-title-key')) || 'meta.title';
-    var descriptionKey = (body && body.getAttribute('data-i18n-description-key')) || 'meta.description';
-    var title = getNested(translations, titleKey);
-    var description = getNested(translations, descriptionKey);
+    if (!body) return;
+    var titleKey = body.getAttribute('data-i18n-title-key');
+    var descriptionKey = body.getAttribute('data-i18n-description-key');
+    var title = titleKey ? getNested(translations, titleKey) : null;
+    var description = descriptionKey ? getNested(translations, descriptionKey) : null;
 
     if (typeof title === 'string') {
       document.title = title.replace(/\n/g, ' ').trim();

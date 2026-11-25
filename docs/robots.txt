@@ -4,6 +4,13 @@
 
 User-agent: *
 Allow: /
+Disallow: /partials/
+Disallow: /scripts/
+Disallow: /project/
+Disallow: /WEBSITE-PAGE-STANDARD.md
+Disallow: /app-store-description.txt
+Disallow: /package.json
+Disallow: /package-lock.json
 
 User-agent: Googlebot
 Allow: /
