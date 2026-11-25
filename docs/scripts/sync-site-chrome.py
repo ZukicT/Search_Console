@@ -259,6 +259,8 @@ def scripts_block(prefix: str, *, include_performance_chart: bool = False, inclu
             f'  <script src="{prefix}js/site-ui.js?v={JS_VERSION}" defer></script>',
             f'  <script src="{prefix}js/i18n.js?v={JS_VERSION}" defer></script>',
             f'  <script src="{prefix}js/site-chrome-scripts.js?v={JS_VERSION}" defer></script>',
+            '  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>',
+            '  <script defer src="/_vercel/insights/script.js"></script>',
         ]
     )
     return "\n".join(lines)
