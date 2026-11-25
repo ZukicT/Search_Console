@@ -41,3 +41,6 @@ Search Console/Configuration/Secrets.xcconfig
 
 # Generated deployment marker
 /docs/indexnow-deploy.txt
+
+# Nested app repo (tracked separately; avoids orphan gitlink warnings on deploy)
+/Search Console
